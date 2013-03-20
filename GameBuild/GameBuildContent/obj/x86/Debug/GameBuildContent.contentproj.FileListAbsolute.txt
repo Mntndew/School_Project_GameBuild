@@ -1,0 +1,4 @@
+C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuildContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuildContent\obj\x86\Debug\GameBuildContent.contentprojResolveAssemblyReference.cache
+C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuildContent\obj\x86\Debug\GameBuildContent.contentprojResolveAssemblyReference.cache
+C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuildContent\obj\x86\Debug\GameBuildContent.contentprojResolveAssemblyReference.cache
