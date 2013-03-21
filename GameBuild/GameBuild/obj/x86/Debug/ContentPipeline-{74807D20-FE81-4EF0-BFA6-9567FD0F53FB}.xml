@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\blackness.xnb</Output>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\blackness.xnb</Output>
       <Time>2013-02-07T08:34:50+01:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\CharacterIdleFront.xnb</Output>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\CharacterIdleFront.xnb</Output>
       <Time>2013-02-07T08:34:50+01:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\CharaWalkSheet.xnb</Output>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\CharaWalkSheet.xnb</Output>
       <Time>2013-02-26T20:23:58+01:00</Time>
     </Item>
     <Item>
@@ -34,7 +34,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Down.xnb</Output>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Down.xnb</Output>
       <Time>2013-02-07T08:34:50+01:00</Time>
     </Item>
     <Item>
@@ -43,7 +43,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Left.xnb</Output>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Left.xnb</Output>
       <Time>2013-02-07T08:34:50+01:00</Time>
     </Item>
     <Item>
@@ -52,7 +52,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Right.xnb</Output>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Right.xnb</Output>
       <Time>2013-02-07T08:34:50+01:00</Time>
     </Item>
     <Item>
@@ -61,7 +61,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Up.xnb</Output>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Up.xnb</Output>
       <Time>2013-02-07T08:34:50+01:00</Time>
     </Item>
     <Item>
@@ -70,7 +70,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\lightTexture.xnb</Output>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\lightTexture.xnb</Output>
       <Time>2013-02-07T08:34:50+01:00</Time>
     </Item>
     <Item>
@@ -79,7 +79,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\shadowTex.xnb</Output>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\shadowTex.xnb</Output>
       <Time>2013-02-07T08:34:50+01:00</Time>
     </Item>
     <Item>
@@ -88,7 +88,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\tilesets.xnb</Output>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\tilesets.xnb</Output>
       <Time>2013-02-07T08:34:50+01:00</Time>
     </Item>
     <Item>
@@ -97,7 +97,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\point.xnb</Output>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\point.xnb</Output>
       <Time>2013-02-07T20:04:04+01:00</Time>
     </Item>
     <Item>
@@ -106,7 +106,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\A.xnb</Output>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\A.xnb</Output>
       <Time>2013-02-07T23:26:10+01:00</Time>
     </Item>
     <Item>
@@ -115,7 +115,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\questReceive.xnb</Output>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\questReceive.xnb</Output>
       <Time>2013-02-16T12:59:24+01:00</Time>
     </Item>
     <Item>
@@ -124,7 +124,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc_test_portrait.xnb</Output>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc_test_portrait.xnb</Output>
       <Time>2013-02-21T00:58:22+01:00</Time>
     </Item>
     <Item>
@@ -133,7 +133,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc_test_portrait2.xnb</Output>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc_test_portrait2.xnb</Output>
       <Time>2013-02-21T01:11:25+01:00</Time>
     </Item>
     <Item>
@@ -142,7 +142,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaAttackSheet V2.xnb</Output>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaAttackSheet V2.xnb</Output>
       <Time>2013-02-26T20:24:51+01:00</Time>
     </Item>
     <Item>
@@ -151,7 +151,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharacterIdleFront.xnb</Output>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharacterIdleFront.xnb</Output>
       <Time>2013-02-26T20:24:51+01:00</Time>
     </Item>
     <Item>
@@ -160,7 +160,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaWalkSheet.xnb</Output>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaWalkSheet.xnb</Output>
       <Time>2013-02-26T20:24:51+01:00</Time>
     </Item>
     <Item>
@@ -169,7 +169,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaWalkSheetBKU.xnb</Output>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaWalkSheetBKU.xnb</Output>
       <Time>2013-02-26T20:24:51+01:00</Time>
     </Item>
     <Item>
@@ -178,7 +178,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\shadowTex.xnb</Output>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\shadowTex.xnb</Output>
       <Time>2013-02-26T20:24:51+01:00</Time>
     </Item>
     <Item>
@@ -187,7 +187,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\tileset.xnb</Output>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\tileset.xnb</Output>
       <Time>2013-03-18T11:32:10+01:00</Time>
     </Item>
     <Item>
@@ -196,7 +196,7 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\lighting.xnb</Output>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\lighting.xnb</Output>
       <Time>2013-02-07T08:34:50+01:00</Time>
     </Item>
     <Item>
@@ -205,7 +205,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
       <Time>2013-02-25T12:53:20+01:00</Time>
     </Item>
     <Item>
@@ -214,35 +214,8 @@
       <Importer>TileMapImporter</Importer>
       <Processor>TileMapProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\map test.xnb</Output>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\map test.xnb</Output>
       <Time>2013-03-20T18:56:46.2596709+01:00</Time>
-    </Item>
-    <Item>
-      <Source>npc\portrait\Amelia.png</Source>
-      <Name>npc\portrait\Amelia</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\portrait\Amelia.xnb</Output>
-      <Time>2013-03-20T19:45:26.9617881+01:00</Time>
-    </Item>
-    <Item>
-      <Source>npc\sprite\Amelia.png</Source>
-      <Name>npc\sprite\Amelia</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\sprite\Amelia.xnb</Output>
-      <Time>2013-03-20T19:45:27.0117882+01:00</Time>
-    </Item>
-    <Item>
-      <Source>npc\sprite\test.png</Source>
-      <Name>npc\sprite\test</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\sprite\test.xnb</Output>
-      <Time>2013-03-20T19:45:27.0117882+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -251,10 +224,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>true</CompressContent>
-      <RootDirectory>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuildContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuildContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -282,7 +255,7 @@
         <Value>2011-09-01T16:22:30+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\LevelContentExtension\bin\x86\Debug\LevelContentExtension.dll</Key>
+        <Key>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\LevelContentExtension\bin\x86\Debug\LevelContentExtension.dll</Key>
         <Value>2013-03-20T19:30:42.3260294+01:00</Value>
       </Assembly>
       <Assembly>

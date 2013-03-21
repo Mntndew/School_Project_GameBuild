@@ -24,7 +24,7 @@ namespace GameBuild
         SpriteBatch spriteBatch;
 
         public SpriteFont spriteFont;
-        
+        //boobs.
         public Rectangle textBox = new Rectangle(0, 500, 1152, 268);
         public List<cNpc> Npcs = new List<cNpc>();
         //List<cLighting> Lights = new List<cLighting>();
@@ -216,3 +216,39 @@ namespace GameBuild
         }
     }
 }
+
+ /*    
+  *    
+  *  /*********\\  \  /  //*********\
+    /NNNNNMMMMMN\\  ||  //NMMMMMNNNNN\
+   /NNNNMMMMMMMMN\\ || //NMMMMMMMMNNNN\
+  |NNMMMMMMMMMMMMMN\/\/NMMMMMMMMMMMMMNN|
+  \NNNNNMMMMMMMMMNNN\/NNNMMMMMMMMNNNNNN/
+    \NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN/
+      \HHHHHHHHHHHHHHHHHHHHHHHHHHHH/
+        \JJJJJJJJJJJJJJJJJJJJJJJJ/
+          \LLLLLLLLLLLLLLLLLLLLL/
+           |LLLLLLLLLLLLLLLLLLLL|
+         /LLLLLLLLLLLLLLLLLLLLLLL\
+       /JJJJJJJJJJJJJJJJJJJJJJJJJJJ\
+     /LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL\
+    /LLLLLLLLLLLLLJJJJJJJJJLLLLLLLLLLL\
+   |LLLLLLLLLLLLLJJJJJJJJJJJLLLLLLLLLLL|
+  |.....................................|
+  |||||||||||||||||||||||||||||||||||||||
+  \   :       |       /\     |        : /
+   \ :________/      |  |    \________:/
+    \                |  |             /
+    /|||||||||||||||||\/||||||||||||||\           
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  */

@@ -60,7 +60,9 @@ namespace GameBuild
             texture = game.Content.Load<Texture2D>("blackness");
 
             this.mapName = mapName;
+
             this.name = name;
+
             patrolRect = new Rectangle(patrolX, patrolY, patrolWidth, patrolHeight);
             point1 = new Vector2(patrolX, patrolY);
             point2 = new Vector2(patrolX + patrolWidth, patrolY);
