@@ -24,22 +24,19 @@ namespace GameBuild
         SpriteBatch spriteBatch;
 
         public SpriteFont spriteFont;
-        //boobs.
-        public Rectangle textBox = new Rectangle(0, 500, 1152, 268);
+        
         public List<cNpc> Npcs = new List<cNpc>();
-        //List<cLighting> Lights = new List<cLighting>();
-        cLighting testLight = new cLighting(new Rectangle(0, 0, 2000, 2000), 140, 20, new Color(245, 225, 170, 200));
-        RenderTarget2D lightMask;
+
+        cLighting testLight = new cLighting(new Rectangle(0, 0, 2000, 2000), 140, 20, new Color(245, 225, 170, 200)); //for ambient lighting 
+        RenderTarget2D lightMask; //what he said ^
 
         Random rand = new Random();
 
         cCharacter character;
 
+        //Debugging stuffs
         Texture2D collisionTex;
         Color collisionColor = new Color(100, 0, 0, 100);
-
-        public int dungeonLevel = 1;
-        public int mobAmount;
 
         public TileMap map;
 
@@ -130,13 +127,14 @@ namespace GameBuild
             oldState = keyState;
             keyState = Keyboard.GetState();
             testLight.Update(character.position.X, character.position.Y);
-
-            if (true)
+            //Update dude
+            if (true) //TODO: gamestates for making the game update objects logicly
             {
                 character.Update(this, map, gameTime, oldState, GraphicsDevice);
             }
             camera.Pos = character.vectorPos;
-
+            
+            //Update NPCs 
             foreach (cNpc npc in Npcs)
             {
                 if (!npc.isInteracting)
@@ -159,8 +157,6 @@ namespace GameBuild
             }
             base.Update(gameTime);
         }
-
-        
 
         /// <summary>
         /// This is called when the game should draw itself.
@@ -217,7 +213,7 @@ namespace GameBuild
     }
 }
 
- /*    
+ /*    Titties
   *    
   *  /*********\\  \  /  //*********\
     /NNNNNMMMMMN\\  ||  //NMMMMMNNNNN\
