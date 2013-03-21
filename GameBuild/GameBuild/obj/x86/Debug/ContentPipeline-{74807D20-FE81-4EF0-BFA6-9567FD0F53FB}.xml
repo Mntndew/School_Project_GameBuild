@@ -191,6 +191,33 @@
       <Time>2013-03-18T11:32:10+01:00</Time>
     </Item>
     <Item>
+      <Source>npc\portrait\Test.png</Source>
+      <Name>npc\portrait\Test</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\portrait\Test.xnb</Output>
+      <Time>2013-03-21T13:53:25.1805209+01:00</Time>
+    </Item>
+    <Item>
+      <Source>npc\sprite\Test.png</Source>
+      <Name>npc\sprite\Test</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\sprite\Test.xnb</Output>
+      <Time>2013-03-21T13:53:25.1805209+01:00</Time>
+    </Item>
+    <Item>
+      <Source>tempTextBox.png</Source>
+      <Name>tempTextBox</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\tempTextBox.xnb</Output>
+      <Time>2013-03-21T19:25:43.2217484+01:00</Time>
+    </Item>
+    <Item>
       <Source>lighting.fx</Source>
       <Name>lighting</Name>
       <Importer>EffectImporter</Importer>
@@ -216,24 +243,6 @@
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\map test.xnb</Output>
       <Time>2013-03-21T14:38:25.3084927+01:00</Time>
-    </Item>
-    <Item>
-      <Source>npc\portrait\Test.png</Source>
-      <Name>npc\portrait\Test</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\portrait\Test.xnb</Output>
-      <Time>2013-03-21T13:53:25.1805209+01:00</Time>
-    </Item>
-    <Item>
-      <Source>npc\sprite\Test.png</Source>
-      <Name>npc\sprite\Test</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\sprite\Test.xnb</Output>
-      <Time>2013-03-21T13:53:25.1805209+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

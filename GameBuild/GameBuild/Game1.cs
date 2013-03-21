@@ -48,12 +48,22 @@ namespace GameBuild
         int files = Directory.GetFiles(@"Content\npc\npc\").Length; //number of npc files in the npc directory
         string[] names;
 
+        public enum GameState
+        {
+            PLAY, 
+            INTERACT,
+            PAUSE,
+        }
+
+        public GameState currentGameState = new GameState();
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferHeight = 720;
             graphics.PreferredBackBufferWidth = 1280;
+            currentGameState = GameState.PLAY;
         }
 
         /// <summary>
@@ -94,7 +104,7 @@ namespace GameBuild
                 cNpc npc = new cNpc(reader.ReadLine(), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
                     bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), reader.ReadLine(), reader.ReadLine(),
                     bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
-                    int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), this);
+                    int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), this, reader.ReadLine());
                 reader.Close();
                 if (npc.isOnMap)
                 {
@@ -128,7 +138,8 @@ namespace GameBuild
             keyState = Keyboard.GetState();
             testLight.Update(character.position.X, character.position.Y);
             //Update dude
-            if (true) //TODO: gamestates for making the game update objects logicly
+
+            if (currentGameState == GameState.PLAY) //TODO: gamestates for making the game update objects logicly
             {
                 character.Update(this, map, gameTime, oldState, GraphicsDevice);
             }
@@ -139,21 +150,20 @@ namespace GameBuild
             {
                 if (npc.isOnMap)
                 {
-                    if (!npc.isInteracting)
-                    {
-                        npc.Update(character, map, this);
-                    }
+                    npc.Update(character, map, this);
                     if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && npc.canInteract)
                     {
                         if (npc.isInteracting)
                         {
                             npc.isInteracting = false;
                             npc.dialogue.isTalking = false;
+                            currentGameState = GameState.PLAY;
                         }
                         else
                         {
                             npc.isInteracting = true;
                             npc.dialogue.isTalking = true;
+                            currentGameState = GameState.INTERACT;
                         }
                     }
                 }
@@ -174,7 +184,7 @@ namespace GameBuild
             testLight.Draw(spriteBatch);
             spriteBatch.End();
 
-            //draws out the world on the default back buffer
+            //draws out the world on the default back buffer with all entities 
             GraphicsDevice.SetRenderTarget(null);
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, camera.GetTransformation());
@@ -182,22 +192,11 @@ namespace GameBuild
             map.DrawInteractiveLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
             character.Draw(spriteBatch);
 
-            foreach (cNpc npc in Npcs)
-            {
-                //if (npc.isOnMap)
-                {
-                    npc.Draw(spriteBatch);
-                    if (npc.isInteracting)
-                    {
-                        npc.dialogue.Draw(spriteBatch);
-                    }
-                    else
-                    {
-                        spriteBatch.DrawString(spriteFont, "" + npc.name, new Vector2(npc.position.X + (npc.position.Width / 2), npc.position.Y - 10), Color.Red);
-                    }
-                }
-                
-            }
+            for (int i = 0; i < Npcs.Count; i++)
+			{
+                Npcs[i].Draw(spriteBatch);
+			}
+
             map.DrawForegroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
             spriteBatch.DrawString(spriteFont, "" + character.hp, new Vector2(character.position.X + (character.position.Width / 2), character.position.Y - 10), Color.Red);
             spriteBatch.End();
@@ -213,8 +212,20 @@ namespace GameBuild
             spriteBatch.Draw(lightMask, new Vector2(0, 0), Color.White);
             spriteBatch.End();
 
+            //Spritebatch for HUD stuff
+            spriteBatch.Begin();
+            for (int i = 0; i < Npcs.Count; i++)
+            {
+                if (Npcs[i].isInteracting)
+                {
+                    Npcs[i].dialogue.Draw(spriteBatch);
+                }
+            }
+           
+            spriteBatch.End();
+
             float framerate = 1f / (float)gameTime.ElapsedGameTime.TotalSeconds;
-            Console.WriteLine(framerate);
+            //Console.WriteLine(framerate);
             base.Draw(gameTime);
         }
     }
