@@ -45,7 +45,7 @@ namespace GameBuild
 
         Camera2d camera;
 
-        int files = Directory.GetFiles(@"C:\npc\npc\").Length; //number of npc files in the npc directory
+        int files = Directory.GetFiles(@"Content\npc\npc\").Length; //number of npc files in the npc directory
         string[] names;
 
         public Game1()
@@ -64,24 +64,6 @@ namespace GameBuild
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-            names = new string[files];
-            for (int i = 0; i < files; i++)
-            {
-                names[i] = Directory.GetFiles(@"C:\npc\npc\")[i];
-                StreamReader reader = new StreamReader(names[i]);
-                cNpc npc = new cNpc(reader.ReadLine(), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
-                    bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), reader.ReadLine(), reader.ReadLine(),
-                    bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
-                    int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), this);
-                if (npc.mapName == map.mapName)
-                {
-                    Npcs.Add(npc);
-                }
-                reader.Close();
-                Console.WriteLine(npc.name);
-            }
-            
             this.IsMouseVisible = true;
             character = new cCharacter(this);
             spriteFont = Content.Load<SpriteFont>("SpriteFont1");
@@ -101,8 +83,27 @@ namespace GameBuild
             lightMask = new RenderTarget2D(GraphicsDevice, GraphicsDevice.PresentationParameters.BackBufferWidth, GraphicsDevice.PresentationParameters.BackBufferHeight);
             map = Content.Load<H_Map.TileMap>("map test");
             map.tileset = Content.Load<Texture2D>("tileset");
+            Console.WriteLine(map.mapName);
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
-            // TODO: use this.Content to load your game content here
+            #region Npc Loading
+            names = new string[files];
+            for (int i = 0; i < files; i++)
+            {
+                names[i] = Directory.GetFiles(@"Content\npc\npc\")[i];
+                StreamReader reader = new StreamReader(names[i]);
+                cNpc npc = new cNpc(reader.ReadLine(), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
+                    bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), reader.ReadLine(), reader.ReadLine(),
+                    bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
+                    int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), this);
+                reader.Close();
+                if (npc.isOnMap)
+                {
+                    Npcs.Add(npc);
+                }
+                
+                Console.WriteLine(npc.mapName);
+            #endregion
+            }
         }
 
         /// <summary>
@@ -137,23 +138,27 @@ namespace GameBuild
             //Update NPCs 
             foreach (cNpc npc in Npcs)
             {
-                if (!npc.isInteracting)
+                if (npc.isOnMap)
                 {
-                    npc.Update(character, map, this);
-                }
-                if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && npc.canInteract)
-                {
-                    if (npc.isInteracting)
+                    if (!npc.isInteracting)
                     {
-                        npc.isInteracting = false;
-                        npc.dialogue.isTalking = false;
+                        npc.Update(character, map, this);
                     }
-                    else
+                    if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && npc.canInteract)
                     {
-                        npc.isInteracting = true;
-                        npc.dialogue.isTalking = true;
+                        if (npc.isInteracting)
+                        {
+                            npc.isInteracting = false;
+                            npc.dialogue.isTalking = false;
+                        }
+                        else
+                        {
+                            npc.isInteracting = true;
+                            npc.dialogue.isTalking = true;
+                        }
                     }
                 }
+                
             }
             base.Update(gameTime);
         }
@@ -181,15 +186,19 @@ namespace GameBuild
 
             foreach (cNpc npc in Npcs)
             {
-                npc.Draw(spriteBatch);
-                if (npc.isInteracting)
+                //if (npc.isOnMap)
                 {
-                    npc.dialogue.Draw(spriteBatch);
+                    npc.Draw(spriteBatch);
+                    if (npc.isInteracting)
+                    {
+                        npc.dialogue.Draw(spriteBatch);
+                    }
+                    else
+                    {
+                        spriteBatch.DrawString(spriteFont, "" + npc.name, new Vector2(npc.position.X + (npc.position.Width / 2), npc.position.Y - 10), Color.Red);
+                    }
                 }
-                else
-                {
-                    spriteBatch.DrawString(spriteFont, "" + npc.name, new Vector2(npc.position.X + (npc.position.Width / 2), npc.position.Y - 10), Color.Red);
-                }
+                
             }
             map.DrawForegroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
             spriteBatch.DrawString(spriteFont, "" + character.hp, new Vector2(character.position.X + (character.position.Width / 2), character.position.Y - 10), Color.Red);
@@ -215,7 +224,7 @@ namespace GameBuild
 
  /*    Titties
   *    
-  *  /*********\\  \  /  //*********\
+  *  /MMMMMMMMM\\  \  /  //MMMMMMMMM\
     /NNNNNMMMMMN\\  ||  //NMMMMMNNNNN\
    /NNNNMMMMMMMMN\\ || //NMMMMMMMMNNNN\
   |NNMMMMMMMMMMMMMN\/\/NMMMMMMMMMMMMMNN|

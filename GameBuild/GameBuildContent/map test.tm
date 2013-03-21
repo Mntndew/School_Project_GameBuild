@@ -1,4 +1,4 @@
-Test Map
+new map
 30
 30
 64

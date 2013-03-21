@@ -22,3 +22,6 @@ Content\tileset.xnb
 Content\lighting.xnb
 Content\SpriteFont1.xnb
 Content\map test.xnb
+Content\npc\portrait\Test.xnb
+Content\npc\sprite\Test.xnb
+Content\npc\npc\Test.txt

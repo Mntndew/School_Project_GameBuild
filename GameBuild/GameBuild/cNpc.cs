@@ -39,6 +39,7 @@ namespace GameBuild
         public bool canInteract;
         public float speed;
         public bool oneNpcInRectangle;
+        public bool isOnMap;
 
         public bool isInteracting = false;
 
@@ -59,6 +60,11 @@ namespace GameBuild
             texture = game.Content.Load<Texture2D>("blackness");
             this.mapName = mapName;
             this.name = name;
+            if (mapName == game.map.mapName)
+            {
+                isOnMap = true;
+            }
+
             patrolRect = new Rectangle(patrolX, patrolY, patrolWidth, patrolHeight);
             point1 = new Vector2(patrolX, patrolY);
             point2 = new Vector2(patrolX + patrolWidth, patrolY);
