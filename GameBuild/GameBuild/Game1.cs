@@ -19,8 +19,10 @@ namespace GameBuild
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+        //Variable declaration
         public GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
         public SpriteFont spriteFont;
         
         public Rectangle textBox = new Rectangle(0, 500, 1152, 268);
