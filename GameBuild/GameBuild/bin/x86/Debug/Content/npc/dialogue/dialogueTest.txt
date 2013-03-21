@@ -13,6 +13,5 @@
 4.0 Yes or no?
 4.5 Yes
 4.6 No
-5.7 You chose Yes.
-6.7 You chose No.
-7.0 C ya!
+5.0 You chose Yes.
+6.0 You chose No.
