@@ -49,15 +49,23 @@ namespace GameBuild
             if (currentState.IsKeyDown(Keys.Up) && oldState.IsKeyUp(Keys.Up))
             {
                 selection -= 1;
+                if (selection < 1)
+                {
+                    selection = currentLines.Length - 1;
+                }
             }
             else if (currentState.IsKeyDown(Keys.Down) && oldState.IsKeyUp(Keys.Down))
             {
                 selection += 1;
+                if (selection > currentLines.Length)
+                {
+                    selection = 1;
+                }
             }
             if (currentState.IsKeyDown(Keys.Enter) && oldState.IsKeyUp(Keys.Enter))
             {
                 GotoNextStatement();
-                selection = 0;
+                selection = 1;
             }
         }
 
@@ -67,12 +75,16 @@ namespace GameBuild
             {
                 spriteBatch.Draw(portrait, portraitPos, Color.White);
                 spriteBatch.Draw(textBox, textBoxPos, Color.White);
+                for (int i = 0; i < currentLines.Length; i++)
+                {
+                    spriteBatch.DrawString(font, currentLines[i], new Vector2(textBoxPos.X + 100, textBoxPos.Y + 40 + i*10), Color.White);
+                }
             }
         }
 
         private void GotoNextStatement()
         {
-            //do something w currentLines to switch out lines to the right statement
+            
         }
     }
 }
