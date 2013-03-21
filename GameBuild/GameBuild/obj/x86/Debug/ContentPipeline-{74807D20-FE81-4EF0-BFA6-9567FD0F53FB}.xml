@@ -232,8 +232,31 @@
       <Importer>TileMapImporter</Importer>
       <Processor>TileMapProcessor</Processor>
       <Options>None</Options>
+<<<<<<< HEAD
       <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\map test.xnb</Output>
       <Time>2013-03-21T14:29:57.3714658+01:00</Time>
+=======
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\map test.xnb</Output>
+      <Time>2013-03-21T14:38:25.3084927+01:00</Time>
+    </Item>
+    <Item>
+      <Source>npc\portrait\Test.png</Source>
+      <Name>npc\portrait\Test</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\portrait\Test.xnb</Output>
+      <Time>2013-03-21T13:53:25.1805209+01:00</Time>
+    </Item>
+    <Item>
+      <Source>npc\sprite\Test.png</Source>
+      <Name>npc\sprite\Test</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\sprite\Test.xnb</Output>
+      <Time>2013-03-21T13:53:25.1805209+01:00</Time>
+>>>>>>> 04d2ddd0e51620f4e4c8973b1809b4bc1e65b142
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

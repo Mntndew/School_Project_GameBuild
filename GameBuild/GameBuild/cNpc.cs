@@ -58,13 +58,14 @@ namespace GameBuild
         {
             dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + name), game.Content.Load<Texture2D>("blackness"), game, game.spriteFont);
             texture = game.Content.Load<Texture2D>("blackness");
+
             this.mapName = mapName;
             this.name = name;
-            if (mapName == game.map.mapName)
+            if (mapName == (game.map.mapName.Remove(game.map.mapName.Length - 1)))
             {
                 isOnMap = true;
             }
-
+            Console.WriteLine(isOnMap);
             patrolRect = new Rectangle(patrolX, patrolY, patrolWidth, patrolHeight);
             point1 = new Vector2(patrolX, patrolY);
             point2 = new Vector2(patrolX + patrolWidth, patrolY);
