@@ -33,16 +33,6 @@ namespace GameBuild
         public int hp, mana;
         public Color hpColor;
         public int room;
-        public enum attacks
-        {
-            //temp names
-            fireball,
-            fireballs,
-            lightning,
-            light,
-            totem,
-        }
-        public attacks currentAttack = attacks.fireball;
         /// <summary>
         /// Steel tier items grant strength.
         /// Iron tier items grant strength and intellect.
