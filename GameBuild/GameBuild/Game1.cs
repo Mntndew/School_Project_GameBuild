@@ -112,7 +112,6 @@ namespace GameBuild
         /// </summary>
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
         }
 
         /// <summary>
@@ -158,7 +157,6 @@ namespace GameBuild
                         }
                     }
                 }
-                
             }
             base.Update(gameTime);
         }
