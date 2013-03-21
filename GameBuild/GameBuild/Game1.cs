@@ -219,10 +219,10 @@ namespace GameBuild
         }
     }
 }
+#region stuff
+/*    
 
- /*    Titties
-  *    
-  *  /MMMMMMMMM\\  \  /  //MMMMMMMMM\
+     /MMMMMMMMM\\  \  /  //MMMMMMMMM\
     /NNNNNMMMMMN\\  ||  //NMMMMMNNNNN\
    /NNNNMMMMMMMMN\\ || //NMMMMMMMMNNNN\
   |NNMMMMMMMMMMMMMN\/\/NMMMMMMMMMMMMMNN|
@@ -231,27 +231,18 @@ namespace GameBuild
       \HHHHHHHHHHHHHHHHHHHHHHHHHHHH/
         \JJJJJJJJJJJJJJJJJJJJJJJJ/
           \LLLLLLLLLLLLLLLLLLLLL/
-           |LLLLLLLLLLLLLLLLLLLL|
+          |LLLLLLLLLLLLLLLLLLLLL|
          /LLLLLLLLLLLLLLLLLLLLLLL\
        /JJJJJJJJJJJJJJJJJJJJJJJJJJJ\
      /LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL\
     /LLLLLLLLLLLLLJJJJJJJJJLLLLLLLLLLL\
    |LLLLLLLLLLLLLJJJJJJJJJJJLLLLLLLLLLL|
-  |.....................................|
+  |:::::::::::::::::::::::::::::::::::::|
   |||||||||||||||||||||||||||||||||||||||
-  \   :       |       /\     |        : /
-   \ :________/      |  |    \________:/
+  \ :        |        /\     |        : /
+   \:________/       |  |    \________:/
     \                |  |             /
-    /|||||||||||||||||\/||||||||||||||\           
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+    /|||||||||||||||||\/||||||||||||||\
+
   */
+#endregion

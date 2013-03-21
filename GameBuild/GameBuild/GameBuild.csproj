@@ -85,7 +85,6 @@
     <Compile Include="cAnimation.cs" />
     <Compile Include="cAnimationManager.cs" />
     <Compile Include="cCharacter.cs" />
-    <Compile Include="cCombat.cs" />
     <Compile Include="cDialogue.cs" />
     <Compile Include="cLighting.cs" />
     <Compile Include="cNpc.cs" />
