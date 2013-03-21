@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Media;
 using H_Map;
 using MntnNpc;
 using System.IO;
-//hej folk
+
 namespace GameBuild
 {
     /// <summary>
