@@ -51,7 +51,6 @@ namespace GameBuild
         }
         public patrolType currentPatrolType = new patrolType();
 
-
         H_Map.TileMap tile;
 
         public cNpc(string mapName, string name, int x, int y, int width, int height, bool up, bool down, bool left, bool right, string spritePath, string portraitPath, bool patrolNone, bool patrolUpDown, bool patrolLeftRight, bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game)
@@ -65,7 +64,6 @@ namespace GameBuild
             point2 = new Vector2(patrolX + patrolWidth, patrolY);
             point3 = new Vector2(patrolX, patrolY + patrolHeight);
             point4 = new Vector2(patrolX + patrolWidth, patrolY + patrolHeight);
-            dialogueTextPos = new Vector2(game.textBox.X, game.textBox.Y + 15);
             position = new Rectangle(x, y, width, height);
             velocity = new Vector2(0, 0);
             health = 50;
