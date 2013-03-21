@@ -9,40 +9,35 @@ namespace GameBuild
 {
     public class cNpc
     {
-        Color color = new Color(255, 50, 50, 100);
-        public int health;
-        public bool up = false, right = false, down = true, left = true;
-        public Vector2 dialogueTextPos;
         Vector2 point1;
         Vector2 point2;
         Vector2 point3;
         Vector2 point4;
-        public Rectangle position;
+        Rectangle position;
         Rectangle corner1;
         Rectangle corner2;
-        public Texture2D texture;
         Rectangle colRect;
-        public cDialogue dialogue;
-
-        Texture2D aTexture;
+        Vector2 velocity;
+        Rectangle patrolRect;
         Rectangle aPosition;
-        Color aColor;
+
+        Texture2D texture;
+        Texture2D aTexture;
+
+        public int health;
+
+        public float speed;
+
+        public bool point1Tagged = false, point2Tagged = false, point3Tagged = false, point4Tagged = false;
+        public bool canInteract;
+        public bool oneNpcInRectangle;
+        public bool isOnMap;
+        public bool isInteracting = false;
+        bool addA = false;
 
         public string name;
         public string mapName;
-        bool addA = false;
-        Random rand = new Random();
-        public Vector2 textPos;
-        public Vector2 velocity;
-        Rectangle patrolRect;
-        public bool point1Tagged = false, point2Tagged = false, point3Tagged = false, point4Tagged = false;
-        public bool canInteract;
-        public float speed;
-        public bool oneNpcInRectangle;
-        public bool isOnMap;
-
-        public bool isInteracting = false;
-
+        
         public enum patrolType
         {
             upDown,
@@ -52,7 +47,11 @@ namespace GameBuild
         }
         public patrolType currentPatrolType = new patrolType();
 
+        Color color = new Color(255, 50, 50, 100);
+        Color aColor;
+
         H_Map.TileMap tile;
+        public cDialogue dialogue;
 
         public cNpc(string mapName, string name, int x, int y, int width, int height, bool up, bool down, bool left, bool right, string spritePath, string portraitPath, bool patrolNone, bool patrolUpDown, bool patrolLeftRight, bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game, string dialoguePath)
         {
@@ -65,7 +64,6 @@ namespace GameBuild
             {
                 isOnMap = true;
             }
-            Console.WriteLine(isOnMap);
             patrolRect = new Rectangle(patrolX, patrolY, patrolWidth, patrolHeight);
             point1 = new Vector2(patrolX, patrolY);
             point2 = new Vector2(patrolX + patrolWidth, patrolY);
@@ -81,7 +79,6 @@ namespace GameBuild
             patrolRect.X = position.X - ((patrolRect.Width / 2) - (position.Width / 2));
             patrolRect.Y = position.Y - ((patrolRect.Height / 2) - (position.Height / 2));
             colRect = position;
-            textPos = new Vector2();
             if (patrolLeftRight)
             {
                 currentPatrolType = patrolType.leftRight;
@@ -104,7 +101,7 @@ namespace GameBuild
 
         public void Update(cCharacter player, H_Map.TileMap tiles, Game1 game)
         {
-            #region things to update every frame
+            #region things to update every frame, positions
             aPosition.X = position.X - (position.Width / 2);
             aPosition.Y = position.Y - (position.Height / 2);
             CheckCollision(tiles);
@@ -112,8 +109,6 @@ namespace GameBuild
             corner2 = new Rectangle(colRect.X, colRect.Y, colRect.Width, colRect.Height);
             position.X += (int)velocity.X;
             position.Y += (int)velocity.Y;
-            textPos.X = position.X + 10;
-            textPos.Y = position.Y - 30;
             #endregion
 
             #region sprites and directional stuff
@@ -138,7 +133,6 @@ namespace GameBuild
                     Patrol();
                 }
             }
-            
 
             #region Dialogue update stuff
             if (game.currentGameState == Game1.GameState.INTERACT)
@@ -152,6 +146,7 @@ namespace GameBuild
             }
             #endregion 
 
+            #region Player Interaction
             if (position.Intersects(player.interactRect))
             {
                 canInteract = true;
@@ -183,13 +178,14 @@ namespace GameBuild
                 else
                 {
                     this.dialogue.isTalking = true;
-                    
+
                 }
             }
             else
             {
                 canInteract = false;
             }
+            #endregion
         }
 
         public void Patrol()
@@ -204,10 +200,6 @@ namespace GameBuild
                     #region up/down
                     if (!point1Tagged)
                     {
-                        up = true;
-                        down = false;
-                        right = false;
-                        left = false;
                         if (point1.Y < position.Y)
                         {
                             velocity.Y = -speed;
@@ -244,10 +236,6 @@ namespace GameBuild
 
                     if (point1Tagged && !point2Tagged)
                     {
-                        down = true;
-                        up = false;
-                        right = false;
-                        left = false;
                         if (point2.Y > position.Y)
                         {
                             velocity.Y = speed;
@@ -291,10 +279,6 @@ namespace GameBuild
                     #region left/right
                     if (!point1Tagged)
                     {
-                        left = true;
-                        down = false;
-                        right = false;
-                        up = false;
                         if (position.Y == point1.Y)
                         {
                             velocity.Y = 0;
@@ -326,10 +310,6 @@ namespace GameBuild
 
                     if (point1Tagged && !point2Tagged)
                     {
-                        right = true;
-                        down = false;
-                        up = false;
-                        left = false;
                         if (position.Y == point2.Y)
                         {
                             velocity.Y = 0;
@@ -370,10 +350,6 @@ namespace GameBuild
                     #region box
                     if (!point1Tagged)
                     {
-                        up = true;
-                        down = false;
-                        right = false;
-                        left = false;
                         if (point1.Y > position.Y)
                         {
                             velocity.Y = speed;
@@ -400,10 +376,6 @@ namespace GameBuild
 
                     if (point1Tagged && !point2Tagged)
                     {
-                        right = true;
-                        down = false;
-                        up = false;
-                        left = false;
                         if (point2.Y > position.Y)
                         {
                             velocity.Y = speed;
@@ -434,11 +406,6 @@ namespace GameBuild
 
                     if (point2Tagged && !point3Tagged)
                     {
-                        down = true;
-                        up = false;
-                        right = false;
-                        left = false;
-
                         if (point3.X > position.X)
                         {
                             velocity.X = speed;
@@ -469,10 +436,6 @@ namespace GameBuild
 
                     if (point3Tagged && !point4Tagged)
                     {
-                        left = true;
-                        down = false;
-                        right = false;
-                        up = false;
                         if (point4.Y > position.Y)
                         {
                             velocity.Y = 2;
@@ -518,22 +481,18 @@ namespace GameBuild
                         if (position.Y > point1.Y)
                         {
                             velocity.Y = -speed;
-                            up = true;
                         }
                         else if (position.Y < point1.Y)
                         {
                             velocity.Y = speed;
-                            down = true;
                         }
                         if (position.X < point1.X)
                         {
                             velocity.X = speed;
-                            right = true;
                         }
                         else if (position.X > point1.X)
                         {
                             velocity.X = -speed;
-                            left = true;
                         }
                     }
                     else

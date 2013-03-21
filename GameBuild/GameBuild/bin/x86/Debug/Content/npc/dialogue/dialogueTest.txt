@@ -9,4 +9,10 @@
 2.3 Dress.
 2.3 Doll.
 3.0 Here you go!
-//penis
+3.4 Talk
+4.0 Yes or no?
+4.5 Yes
+4.6 No
+5.7 You chose Yes.
+6.7 You chose No.
+7.0 C ya!

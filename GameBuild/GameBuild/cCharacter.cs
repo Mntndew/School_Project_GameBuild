@@ -14,53 +14,54 @@ namespace GameBuild
 {
     public class cCharacter
     {
-        Game1 game;
         public bool up = false, right = false, down = true, left = false;
         public bool faceUp = false, faceDown = false, faceLeft = false, faceRight = false;
         public bool attacking = false;
-        public string oldFace;
-        public Rectangle position;
-        public Rectangle interactRect;
-        public Vector2 vectorPos;
-        public Texture2D spriteWalkSheet;
-        public Texture2D spriteAttackSheet;
-        public Texture2D shadowBlob;
-        public Texture2D testTexture;
-        cAnimationManager walkAnimations;
-        cAnimationManager attackAnimations;
-        Rectangle colRect;
-        Rectangle frontOf;
-        public int hp, mana;
-        public Color hpColor;
-        public int room;
-        /// <summary>
-        /// Steel tier items grant strength.
-        /// Iron tier items grant strength and intellect.
-        /// Leather tier items grant intellect.
-        /// Players will also be able to upgrade stats after each level...
-        /// More strength = more HP & more melee damage.
-        /// More intellect  = more mana & more spell damage.
-        /// </summary>
+
+        public int hp;
         public int playerHeight = 48; //size of the player sprite in pixels
         public int playerWidth = 48;
 
-        H_Map.TileMap tile;
-        public Color color = new Color(255, 255, 255, 255);//creates a new color so that we can easily make the character blink red when he gets hit
+        public Rectangle position;
+        public Rectangle interactRect; //for npcs and stuff
+        Rectangle colRect;
+        public Vector2 vectorPos; //for camera
 
-        public cCharacter(Game1 games)
+        public Texture2D spriteWalkSheet;
+        public Texture2D spriteAttackSheet;
+        public Texture2D shadowBlob;
+        Texture2D debugTexture;
+
+        cAnimationManager walkAnimations;
+        cAnimationManager attackAnimations;
+
+        H_Map.TileMap tile;
+
+        public Color color = new Color(255, 255, 255, 255); //blink when player gets hit
+        public Color hpColor;
+
+        public cCharacter(Game1 game)
         {
-            game = games;
-            testTexture = game.Content.Load<Texture2D>("blackness");
+            hp = 100;
+
+            #region Textures
+            debugTexture = game.Content.Load<Texture2D>("blackness");
             spriteWalkSheet = game.Content.Load<Texture2D>("player/CharaWalkSheet");
             spriteAttackSheet = game.Content.Load<Texture2D>("player/CharaAttackSheet V2");
             shadowBlob = game.Content.Load<Texture2D>("player/shadowTex");
+            #endregion
+
+            #region Rectangles and Vectors
             position = new Rectangle(100, 100, playerWidth, playerWidth);
             interactRect = new Rectangle(position.X - (position.Width / 2), position.Y - (position.Height / 2), position.Width * 2, position.Height * 2);
             vectorPos = new Vector2(position.X, position.Y);
             colRect = new Rectangle();
-            frontOf = new Rectangle(position.X + (position.Width / 2), position.Y + position.Height, 5, 5);
+            #endregion
+
+            #region Animations
             walkAnimations = new cAnimationManager(spriteWalkSheet, 3, 4);
             attackAnimations = new cAnimationManager(spriteAttackSheet, 3, 4);
+
             walkAnimations.AddAnimation(100, true, new Vector2(0, 0), 3, "walkUp", false);
             walkAnimations.AddAnimation(100, true, new Vector2(0, 96), 3, "walkRight", false);
             walkAnimations.AddAnimation(100, true, new Vector2(0, 192), 3, "walkDown", false);
@@ -69,13 +70,14 @@ namespace GameBuild
             attackAnimations.AddAnimation(50, false, new Vector2(0, 96), 3, "attackRight", true);
             attackAnimations.AddAnimation(50, false, new Vector2(0, 192), 3, "attackDown", true);
             attackAnimations.AddAnimation(50, false, new Vector2(0, 288), 3, "attackLeft", true);
-            hp = 100;
+            #endregion
+
             hpColor = new Color(200, 200, 200, 255);
         }
 
-        public void Update(Game1 games, H_Map.TileMap tiles, GameTime gameTime, KeyboardState oldState, GraphicsDevice graphicsDevice)
+        public void Update(Game1 game, H_Map.TileMap tiles, GameTime gameTime, KeyboardState oldState, GraphicsDevice graphicsDevice)
         {
-            game = games;
+            #region Things to update every frame, positions and stuff
             tile = tiles;
             interactRect.X = position.X - (position.Width / 2);
             interactRect.Y = position.Y - (position.Height / 2);
@@ -86,9 +88,9 @@ namespace GameBuild
             Rectangle halfcorner2 = new Rectangle(colRect.X, colRect.Y + halfcorner1.Height, colRect.Width, colRect.Height);
             vectorPos.X = position.X;
             vectorPos.Y = position.Y;
-            frontOf.X = position.X + (position.Width / 2);
-            frontOf.Y = position.Y + position.Height;
-            #region walk stuff
+            #endregion
+
+            #region walk
             if (up)
             {
                 faceUp = true;
@@ -207,6 +209,7 @@ namespace GameBuild
                 }
 
             #endregion
+
                 //Hp Color for lighting
                 hpColor.B = (byte)(hp * 2.55);
                 hpColor.G = (byte)(hp * 2.55);
@@ -259,7 +262,7 @@ namespace GameBuild
         {
             Rectangle shadowPos = new Rectangle(position.X + 8, position.Bottom - shadowBlob.Height / 2, shadowBlob.Width, shadowBlob.Height);
             spriteBatch.Draw(shadowBlob, shadowPos, Color.White);
-            spriteBatch.Draw(testTexture, interactRect, new Color(100, 100, 100, 100));
+            spriteBatch.Draw(debugTexture, interactRect, new Color(100, 100, 100, 100));
             //spriteBatch.Draw(testTexture, frontOf, new Color(10, 10, 10));
             if (!attacking)
             {
