@@ -54,9 +54,9 @@ namespace GameBuild
 
         H_Map.TileMap tile;
 
-        public cNpc(string mapName, string name, int x, int y, int width, int height, bool up, bool down, bool left, bool right, string spritePath, string portraitPath, bool patrolNone, bool patrolUpDown, bool patrolLeftRight, bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game)
+        public cNpc(string mapName, string name, int x, int y, int width, int height, bool up, bool down, bool left, bool right, string spritePath, string portraitPath, bool patrolNone, bool patrolUpDown, bool patrolLeftRight, bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game, string dialoguePath)
         {
-            dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + name), game.Content.Load<Texture2D>("blackness"), game, game.spriteFont);
+            dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + name), game.Content.Load<Texture2D>("tempTextBox"), game, game.spriteFont, dialoguePath);
             texture = game.Content.Load<Texture2D>("blackness");
 
             this.mapName = mapName;
@@ -101,6 +101,7 @@ namespace GameBuild
 
             this.speed = speed;
         }
+
         public void Update(cCharacter player, H_Map.TileMap tiles, Game1 game)
         {
             #region things to update every frame
@@ -130,11 +131,26 @@ namespace GameBuild
             }
             #endregion
 
-            if (currentPatrolType != patrolType.none)
+            if (game.currentGameState == Game1.GameState.PLAY)
             {
-                Patrol();
+                if (currentPatrolType != patrolType.none)
+                {
+                    Patrol();
+                }
             }
             
+
+            #region Dialogue update stuff
+            if (game.currentGameState == Game1.GameState.INTERACT)
+            {
+                dialogue.Update();
+                if (!dialogue.isTalking)
+                {
+                    game.currentGameState = Game1.GameState.PLAY;
+                    isInteracting = false;
+                }
+            }
+            #endregion 
 
             if (position.Intersects(player.interactRect))
             {
@@ -175,12 +191,6 @@ namespace GameBuild
                 canInteract = false;
             }
         }
-
-        public void Dialogue()
-        {
-            
-        }
-
 
         public void Patrol()
         {

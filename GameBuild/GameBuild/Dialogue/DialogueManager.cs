@@ -29,12 +29,14 @@ namespace GameBuild
                     {
                         if (line[0] != '/' && line[1] != '/')
                         {
-                            items.Add(new List<DialogueItem>());
-                            
                             string tempS = String.Empty + line[0];
                             
                             int i = int.Parse(tempS);
-                            
+                            if (i > items.Count-1)
+                            {
+                                items.Add(new List<DialogueItem>());
+                            }
+
                             tempS = String.Empty + line[2];
 
                             int j = int.Parse(tempS);
@@ -61,6 +63,18 @@ namespace GameBuild
                     Console.WriteLine(items[i][j].Line);
                     Console.WriteLine(items[i][j].NextStatement);
                 }
+            }
+        }
+
+        public int GetNextStatementIndex(int statement, int choice)
+        {
+            if (statement < items.Count-1)
+            {
+                return items[statement][choice].NextStatement;
+            }
+            else
+            {
+                return -1;
             }
         }
 
