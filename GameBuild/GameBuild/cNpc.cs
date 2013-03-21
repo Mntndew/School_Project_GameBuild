@@ -58,11 +58,8 @@ namespace GameBuild
         {
             dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + name), game.Content.Load<Texture2D>("blackness"), game, game.spriteFont);
             texture = game.Content.Load<Texture2D>("blackness");
-
             this.mapName = mapName;
-
             this.name = name;
-
             patrolRect = new Rectangle(patrolX, patrolY, patrolWidth, patrolHeight);
             point1 = new Vector2(patrolX, patrolY);
             point2 = new Vector2(patrolX + patrolWidth, patrolY);
