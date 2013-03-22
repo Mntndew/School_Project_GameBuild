@@ -13,5 +13,9 @@
 4.0 Yes or no?
 4.5 Yes
 4.6 No
-5.0 You chose Yes.
-6.0 You chose No.
+5.0 What is your favorite color?
+5.7 Green.
+5.7 Blue.
+5.7 Red.
+6.e Good bye :)
+7.e That's cool :)

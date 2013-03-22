@@ -119,7 +119,6 @@ namespace GameBuild
             selection = 1;
             currentLines = dialogueManager.GetDialogueLinesFromIndex(0);
             currentStatement = 0;
-            
         }
     }
 }
