@@ -79,6 +79,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Net" />
+    <Reference Include="Warp">
+      <HintPath>..\..\..\..\..\..\Desktop\Warp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Camera2d.cs" />
@@ -88,6 +91,7 @@
     <Compile Include="cDialogue.cs" />
     <Compile Include="cLighting.cs" />
     <Compile Include="cNpc.cs" />
+    <Compile Include="cWarp.cs" />
     <Compile Include="Dialogue\DialogueItem.cs" />
     <Compile Include="Dialogue\DialogueManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -178,6 +178,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="test map.tm">
+      <Name>test map</Name>
+      <Importer>TileMapImporter</Importer>
+      <Processor>TileMapProcessor</Processor>
+    </Compile>
     <None Include="npc\npc\Test.txt">
       <Name>Test</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -204,6 +209,12 @@
     <None Include="npc\dialogue\dialogueTest.txt">
       <Name>dialogueTest</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="warp\map test to test map.txt">
+      <Name>map test to test map</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

@@ -65,6 +65,7 @@ namespace GameBuild
         Color collisionColor = new Color(100, 0, 0, 100);
 
         public TileMap map;
+        cWarp warp;
 
         public KeyboardState oldState;
         public KeyboardState keyState;
@@ -103,6 +104,7 @@ namespace GameBuild
             this.IsMouseVisible = true;
             character = new cCharacter(this);
             spriteFont = Content.Load<SpriteFont>("SpriteFont1");
+            
             base.Initialize();
         }
 
@@ -114,6 +116,7 @@ namespace GameBuild
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            warp = new cWarp();
             collisionTex = Content.Load<Texture2D>("blackness");
             testLight.LoadTexture(Content, "lightTexture");
             lightMask = new RenderTarget2D(GraphicsDevice, GraphicsDevice.PresentationParameters.BackBufferWidth, GraphicsDevice.PresentationParameters.BackBufferHeight);
@@ -138,8 +141,8 @@ namespace GameBuild
                 }
                 
                 Console.WriteLine(npc.mapName);
-            #endregion
             }
+            #endregion
         }
 
         /// <summary>
@@ -168,6 +171,7 @@ namespace GameBuild
             if (currentGameState == GameState.PLAY) //TODO: gamestates for making the game update objects logicly
             {
                 character.Update(this, map, gameTime, oldState, GraphicsDevice);
+                warp.Update(character, this);
             }
             camera.Pos = character.vectorPos;
             
