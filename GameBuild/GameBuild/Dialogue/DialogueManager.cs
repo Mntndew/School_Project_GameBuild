@@ -39,11 +39,22 @@ namespace GameBuild
 
                             tempS = String.Empty + line[2];
 
-                            int j = int.Parse(tempS);
+                            int j = 0;
+                            bool isExit;
+                            if (tempS == "e")
+                            {
+                                j = 0;
+                                isExit = true;
+                            }
+                            else
+                            {
+                                j = int.Parse(tempS);
+                                isExit = false;
+                            }
 
                             string l = line;
                             l = l.Remove(0, 4); 
-                            items[i].Add(new DialogueItem(l, j));
+                            items[i].Add(new DialogueItem(l, j, isExit));
                         }
                     }
                 }
@@ -68,7 +79,7 @@ namespace GameBuild
 
         public int GetNextStatementIndex(int statement, int choice)
         {
-            if (statement < items.Count-1)
+            if (statement < items.Count-1  && !items[statement][0].IsExit)
             {
                 return items[statement][choice].NextStatement;
             }
@@ -86,6 +97,14 @@ namespace GameBuild
                 s[i] = items[index][i].Line;
             }
             return s;
+        }
+
+        public bool CheckIfIndexIsExit(int statement, int index)
+        {
+            if (items[statement][index].IsExit)
+                return true;
+            else
+                return false;
         }
     }
 }
