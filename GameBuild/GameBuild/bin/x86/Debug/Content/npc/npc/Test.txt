@@ -1,7 +1,7 @@
 new map
 Test
 256
-192
+256
 64
 64
 False

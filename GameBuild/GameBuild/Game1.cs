@@ -198,6 +198,10 @@ namespace GameBuild
 			}
 
             map.DrawForegroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
+            for (int i = 0; i < Npcs.Count; i++)
+            {
+                Npcs[i].DrawA(spriteBatch);
+            }
             spriteBatch.DrawString(spriteFont, "" + character.hp, new Vector2(character.position.X + (character.position.Width / 2), character.position.Y - 10), Color.Red);
             spriteBatch.End();
             // TODO: Add your drawing code here

@@ -527,6 +527,13 @@ namespace GameBuild
             {
                 spriteBatch.Draw(texture, position, color);
                 spriteBatch.Draw(texture, patrolRect, new Color(20, 20, 20, 100));
+            }
+        }
+
+        public void DrawA(SpriteBatch spriteBatch)
+        {
+            if (health > 0)
+            {
                 if (canInteract)
                 {
                     spriteBatch.Draw(aTexture, aPosition, aColor);
