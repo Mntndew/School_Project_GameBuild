@@ -5,4 +5,4 @@ new map
 64
 test map
 700
-0
+-1

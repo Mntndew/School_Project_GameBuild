@@ -60,10 +60,12 @@ namespace GameBuild
 
             this.mapName = mapName;
             this.name = name;
+
             if (mapName == (game.map.mapName.Remove(game.map.mapName.Length - 1)))
             {
                 isOnMap = true;
             }
+            
             patrolRect = new Rectangle(patrolX, patrolY, patrolWidth, patrolHeight);
             point1 = new Vector2(patrolX, patrolY);
             point2 = new Vector2(patrolX + patrolWidth, patrolY);
@@ -109,6 +111,10 @@ namespace GameBuild
             corner2 = new Rectangle(colRect.X, colRect.Y, colRect.Width, colRect.Height);
             position.X += (int)velocity.X;
             position.Y += (int)velocity.Y;
+            if (mapName == (game.map.mapName.Remove(game.map.mapName.Length - 1)))
+            {
+                isOnMap = true;
+            }
             #endregion
 
             #region sprites and directional stuff

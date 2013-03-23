@@ -24,8 +24,8 @@ Content\npc\sprite\Test.xnb
 Content\tempTextBox.xnb
 Content\lighting.xnb
 Content\SpriteFont1.xnb
-Content\map test.xnb
-Content\test map.xnb
+Content\source.xnb
+Content\target.xnb
 Content\npc\npc\Test.txt
-Content\warp\map test to test map.txt
+Content\warp\source.txt
 Content\npc\dialogue\dialogueTest.txt

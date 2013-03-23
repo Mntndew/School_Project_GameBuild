@@ -10,47 +10,81 @@ namespace GameBuild
 {
     class cWarp
     {
-        int files = Directory.GetFiles(@"Content\warp\").Length;
-
-        string[] warp;
-        string sourceMap;
+        public string sourceMap;
         string targetMap;
+
+        public bool isOnMap;
 
         int targetX;
         int targetY;
 
         Rectangle warpField;
 
-        StreamReader reader;
-
-        public cWarp()
+        public cWarp(string sourceMap, int sourceX, int sourceY, int width, int height, string targetMap, int targetX, int targetY,
+            cCharacter player, Game1 game)
         {
-            warp = new string[files];
-            for (int i = 0; i < files; i++)
+            this.sourceMap = sourceMap;
+            this.targetMap = targetMap;
+
+            if (sourceMap == (game.map.mapName.Remove(game.map.mapName.Length - 1)))
             {
-                warp[i] = Directory.GetFiles(@"Content\warp\")[i];
-                reader = new StreamReader(warp[i]);
-                warpField = new Rectangle();
-                sourceMap = reader.ReadLine();
-                warpField.X = int.Parse(reader.ReadLine());
-                warpField.Y = int.Parse(reader.ReadLine());
-                warpField.Width = int.Parse(reader.ReadLine());
-                warpField.Height = int.Parse(reader.ReadLine());
-                targetMap = reader.ReadLine();
-                targetX = int.Parse(reader.ReadLine());
-                targetY = int.Parse(reader.ReadLine());
-                reader.Close();
+                isOnMap = true;
+            }
+
+            if (targetX != -1)
+            {
+                this.targetX = targetX;
+            }
+            else
+                this.targetX = player.position.X;
+
+            if (targetY != -1)
+            {
+                this.targetY = targetY;
+            }
+            else
+                this.targetY = player.position.Y;
+
+            warpField = new Rectangle(sourceX, sourceY, width, height);
+        }
+        
+        public void Update(cCharacter player, Game1 game)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Loaded map: " + game.map.mapName.Remove(game.map.mapName.Length - 1));
+            Console.WriteLine();
+            Console.WriteLine("Warp source map: " + sourceMap);
+            Console.WriteLine("Warp target map: " + targetMap);
+            if (sourceMap == (game.map.mapName.Remove(game.map.mapName.Length - 1)))
+            {
+                isOnMap = true;
+            }
+            else
+                isOnMap = false;
+
+            if (isOnMap)
+            {
+                if (player.position.Intersects(warpField))
+                {
+                    game.map = game.Content.Load<H_Map.TileMap>(targetMap);
+                    game.map.tileset = game.Content.Load<Texture2D>("tileset");
+                    if (targetX != -1)
+                    {
+                        player.position.X = targetX;
+                    }
+                    if (targetY != -1)
+                    {
+                        player.position.Y = targetY;
+                    }
+                }
             }
         }
 
-        public void Update(cCharacter player, Game1 game)
+        public void Draw(SpriteBatch spriteBatch, Game1 game)
         {
-            if (player.position.Intersects(warpField))
+            if (isOnMap)
             {
-                game.map = game.Content.Load<H_Map.TileMap>(targetMap);
-                game.map.tileset = game.Content.Load<Texture2D>("tileset");
-                player.position.X = targetX;
-                player.position.Y = targetY;
+                spriteBatch.Draw(game.collisionTex, warpField, new Color(200, 50, 200, 200));
             }
         }
     }

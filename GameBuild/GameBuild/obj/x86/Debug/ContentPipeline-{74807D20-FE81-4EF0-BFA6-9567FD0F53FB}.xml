@@ -236,22 +236,22 @@
       <Time>2013-02-25T12:53:20+01:00</Time>
     </Item>
     <Item>
-      <Source>map test.tm</Source>
-      <Name>map test</Name>
+      <Source>source.tm</Source>
+      <Name>source</Name>
       <Importer>TileMapImporter</Importer>
       <Processor>TileMapProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\map test.xnb</Output>
-      <Time>2013-03-21T14:38:25.3084927+01:00</Time>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\source.xnb</Output>
+      <Time>2013-03-22T23:07:07.9548669+01:00</Time>
     </Item>
     <Item>
-      <Source>test map.tm</Source>
-      <Name>test map</Name>
+      <Source>target.tm</Source>
+      <Name>target</Name>
       <Importer>TileMapImporter</Importer>
       <Processor>TileMapProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\test map.xnb</Output>
-      <Time>2013-03-22T22:38:05.0131901+01:00</Time>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\target.xnb</Output>
+      <Time>2013-03-22T23:09:31.0944463+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

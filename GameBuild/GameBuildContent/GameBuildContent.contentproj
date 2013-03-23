@@ -164,8 +164,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="map test.tm">
-      <Name>map test</Name>
+    <Compile Include="source.tm">
+      <Name>source</Name>
       <Importer>TileMapImporter</Importer>
       <Processor>TileMapProcessor</Processor>
     </Compile>
@@ -178,8 +178,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="test map.tm">
-      <Name>test map</Name>
+    <Compile Include="target.tm">
+      <Name>target</Name>
       <Importer>TileMapImporter</Importer>
       <Processor>TileMapProcessor</Processor>
     </Compile>
@@ -212,8 +212,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="warp\map test to test map.txt">
-      <Name>map test to test map</Name>
+    <None Include="warp\source.txt">
+      <Name>source</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

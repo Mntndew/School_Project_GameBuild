@@ -1,27 +1,27 @@
 /*
     ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
    / /                                                                                                                                                                                                                                                                                                                                                                                                                                                  \
-  / /         OOOOOOOOOOOOOOOOOOOO              SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS              CCCCCCCCCCCCCCCCCCCCCCCCCC      IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII    LLLLLLLLLL                              LLLLLLLLLL                                        AAAAAAAAAAAAAAAA              TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT    IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII            OOOOOOOOOOOOOOOOOOOO            NNNNNNNNNN            NNNNNNNNNN   \
- / /      OOOOOOOOOOOOOOOOOOOOOOOOOOOO        SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS        CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC    IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII    LLLLLLLLLL                              LLLLLLLLLL                                        AAAAAAAAAAAAAAAA              TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT    IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII        OOOOOOOOOOOOOOOOOOOOOOOOOOOO        NNNNNNNNNNNN          NNNNNNNNNN    \ 
-| |   OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO    SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS    CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC    IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII    LLLLLLLLLL                              LLLLLLLLLL                                       AAAAAAAAAAAAAAAAAA             TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT    IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII    OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO    NNNNNNNNNNNN          NNNNNNNNNN     |
-| |   OOOOOOOOOOOO            OOOOOOOOOOOO    SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS      CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC      IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII    LLLLLLLLLL                              LLLLLLLLLL                                       AAAAAAAAAAAAAAAAAA             TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT    IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII    OOOOOOOOOOOO            OOOOOOOOOOOO    NNNNNNNNNNNNNN        NNNNNNNNNN     |
-| |   OOOOOOOO                    OOOOOOOO    SSSSSSSSS                               CCCCCCCC                                             IIIIIIIIII                 LLLLLLLLLL                              LLLLLLLLLL                                      AAAAAAAAAAAAAAAAAAAA                         TTTTTTTTTT                              IIIIIIIIII                 OOOOOOOO                    OOOOOOOO    NNNNNNNNNNNNNN        NNNNNNNNNN     |
-| |   OOOOOOOO                    OOOOOOOO    SSSSSSSSS                               CCCCCCCC                                             IIIIIIIIII                 LLLLLLLLLL                              LLLLLLLLLL                                      AAAAAAAAAAAAAAAAAAAA                         TTTTTTTTTT                              IIIIIIIIII                 OOOOOOOO                    OOOOOOOO    NNNNNNNNNNNNNNNN      NNNNNNNNNN     |
-| |   OOOOOOOO                    OOOOOOOO    SSSSSSSSS                               CCCCCCCC                                             IIIIIIIIII                 LLLLLLLLLL                              LLLLLLLLLL                                     AAAAAAAAAA  AAAAAAAAAA                        TTTTTTTTTT                              IIIIIIIIII                 OOOOOOOO                    OOOOOOOO    NNNNNNNNNNNNNNNN      NNNNNNNNNN     |
-| |   OOOOOOOO                    OOOOOOOO    SSSSSSSSS                               CCCCCCCC                                             IIIIIIIIII                 LLLLLLLLLL                              LLLLLLLLLL                                     AAAAAAAAAA  AAAAAAAAAA                        TTTTTTTTTT                              IIIIIIIIII                 OOOOOOOO                    OOOOOOOO    NNNNNNNNNNNNNNNNNN    NNNNNNNNNN     |
-| |   OOOOOOOO                    OOOOOOOO    SSSSSSSSS                               CCCCCCCC                                             IIIIIIIIII                 LLLLLLLLLL                              LLLLLLLLLL                                    AAAAAAAAAA    AAAAAAAAAA                       TTTTTTTTTT                              IIIIIIIIII                 OOOOOOOO                    OOOOOOOO    NNNNNNNNNNNNNNNNNN    NNNNNNNNNN     |
-| |   OOOOOOOO                    OOOOOOOO    SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS      CCCCCCCC                                             IIIIIIIIII                 LLLLLLLLLL                              LLLLLLLLLL                                    AAAAAAAAAA    AAAAAAAAAA                       TTTTTTTTTT                              IIIIIIIIII                 OOOOOOOO                    OOOOOOOO    NNNNNNNNNNNNNNNNNNNN  NNNNNNNNNN     |
-| |   OOOOOOOO                    OOOOOOOO    SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS    CCCCCCCC                                             IIIIIIIIII                 LLLLLLLLLL                              LLLLLLLLLL                                   AAAAAAAAAA      AAAAAAAAAA                      TTTTTTTTTT                              IIIIIIIIII                 OOOOOOOO                    OOOOOOOO    NNNNNNNNNN  NNNNNNNNNNNNNNNNNNNN     |
-| |   OOOOOOOO                    OOOOOOOO    SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS    CCCCCCCC                                             IIIIIIIIII                 LLLLLLLLLL                              LLLLLLLLLL                                   AAAAAAAAAA      AAAAAAAAAA                      TTTTTTTTTT                              IIIIIIIIII                 OOOOOOOO                    OOOOOOOO    NNNNNNNNNN  NNNNNNNNNNNNNNNNNNNN     |
-| |   OOOOOOOO                    OOOOOOOO      SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS    CCCCCCCC                                             IIIIIIIIII                 LLLLLLLLLL                              LLLLLLLLLL                                  AAAAAAAAAAAAAAAAAAAAAAAAAAAA                     TTTTTTTTTT                              IIIIIIIIII                 OOOOOOOO                    OOOOOOOO    NNNNNNNNNN    NNNNNNNNNNNNNNNNNN     |
-| |   OOOOOOOO                    OOOOOOOO                               SSSSSSSSS    CCCCCCCC                                             IIIIIIIIII                 LLLLLLLLLL                              LLLLLLLLLL                                  AAAAAAAAAAAAAAAAAAAAAAAAAAAA                     TTTTTTTTTT                              IIIIIIIIII                 OOOOOOOO                    OOOOOOOO    NNNNNNNNNN    NNNNNNNNNNNNNNNNNN     |
-| |   OOOOOOOO                    OOOOOOOO                               SSSSSSSSS    CCCCCCCC                                             IIIIIIIIII                 LLLLLLLLLL                              LLLLLLLLLL                                 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                    TTTTTTTTTT                              IIIIIIIIII                 OOOOOOOO                    OOOOOOOO    NNNNNNNNNN      NNNNNNNNNNNNNNNN     |
-| |   OOOOOOOO                    OOOOOOOO                               SSSSSSSSS    CCCCCCCC                                             IIIIIIIIII                 LLLLLLLLLL                              LLLLLLLLLL                                 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                    TTTTTTTTTT                              IIIIIIIIII                 OOOOOOOO                    OOOOOOOO    NNNNNNNNNN      NNNNNNNNNNNNNNNN     |
-| |   OOOOOOOO                    OOOOOOOO                               SSSSSSSSS    CCCCCCCC                                             IIIIIIIIII                 LLLLLLLLLL                              LLLLLLLLLL                                AAAAAAAAAA            AAAAAAAAAA                   TTTTTTTTTT                              IIIIIIIIII                 OOOOOOOO                    OOOOOOOO    NNNNNNNNNN        NNNNNNNNNNNNNN     |
-| |   OOOOOOOOOOOO            OOOOOOOOOOOO      SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS    CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC      IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII    LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL    LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL      AAAAAAAAAA            AAAAAAAAAA                   TTTTTTTTTT                 IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII    OOOOOOOOOOOO            OOOOOOOOOOOO    NNNNNNNNNN        NNNNNNNNNNNNNN     |
-| |   OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO    SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS    CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC    IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII    LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL    LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL     AAAAAAAAAA              AAAAAAAAAA                  TTTTTTTTTT                 IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII    OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO    NNNNNNNNNN          NNNNNNNNNNNN     |
- \ \      OOOOOOOOOOOOOOOOOOOOOOOOOOOO        SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS        CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC    IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII    LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL    LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL     AAAAAAAAAA              AAAAAAAAAA                  TTTTTTTTTT                 IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII        OOOOOOOOOOOOOOOOOOOOOOOOOOOO        NNNNNNNNNN          NNNNNNNNNNNN     /
-  \ \        OOOOOOOOOOOOOOOOOOOO               SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS              CCCCCCCCCCCCCCCCCCCCCCCCCC      IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII    LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL    LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL    AAAAAAAAAA                AAAAAAAAAA                 TTTTTTTTTT                 IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII            OOOOOOOOOOOOOOOOOOOO            NNNNNNNNNN            NNNNNNNNNN    /
+  / /        ooOOOOOOOOOOOOOOOOOOOO            ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS            ccCCCCCCCCCCCCCCCCCCCCCCCCCC    iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLL                            llLLLLLLLLLL                                      aaAAAAAAAAAAAAAAAA            ttTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT  iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII          ooOOOOOOOOOOOOOOOOOOOO          nnNNNNNNNNNN          nnNNNNNNNNNN   \
+ / /     ooOOOOOOOOOOOOOOOOOOOOOOOOOOOO      ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS      ccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC   iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLL                            llLLLLLLLLLL                                      aaAAAAAAAAAAAAAAAA            ttTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT  iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII      ooOOOOOOOOOOOOOOOOOOOOOOOOOOOO      nnNNNNNNNNNNNN        nnNNNNNNNNNN    \ 
+| |  ooOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS  ccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC   iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLL                            llLLLLLLLLLL                                     aaAAAAAAAAAAAAAAAAAA           ttTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT  iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  ooOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  nnNNNNNNNNNNNN        nnNNNNNNNNNN     |
+| |  ooOOOOOOOOOOOO           ooOOOOOOOOOOOO  ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS   ccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC    iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLL                            llLLLLLLLLLL                                     aaAAAAAAAAAAAAAAAAAA           ttTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT  iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  ooOOOOOOOOOOOO          ooOOOOOOOOOOOO  nnNNNNNNNNNNNNNN      nnNNNNNNNNNN     |
+| |  ooOOOOOOOO                   ooOOOOOOOO  ssSSSSSSSSS                            ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                    aaAAAAAAAAAAAAAAAAAAAA                       ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNNNNNN      nnNNNNNNNNNN     |
+| |  ooOOOOOOOO                   ooOOOOOOOO  ssSSSSSSSSS                            ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                    aaAAAAAAAAAAAAAAAAAAAA                       ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNNNNNNNN    nnNNNNNNNNNN     |
+| |  ooOOOOOOOO                   ooOOOOOOOO  ssSSSSSSSSS                            ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                   aaAAAAAAAAAAaaAAAAAAAAAA                      ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNNNNNNNN    nnNNNNNNNNNN     |
+| |  ooOOOOOOOO                   ooOOOOOOOO  ssSSSSSSSSS                            ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                   aaAAAAAAAAAAaaAAAAAAAAAA                      ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNNNNNNNNNN  nnNNNNNNNNNN     |
+| |  ooOOOOOOOO                   ooOOOOOOOO  ssSSSSSSSSS                            ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                  aaAAAAAAAAAA  aaAAAAAAAAAA                     ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNNNNNNNNNN  nnNNNNNNNNNN     |
+| |  ooOOOOOOOO                   ooOOOOOOOO  ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS   ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                  aaAAAAAAAAAA  aaAAAAAAAAAA                     ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNNNNNNNNNNNNnnNNNNNNNNNN     |
+| |  ooOOOOOOOO                   ooOOOOOOOO  ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                 aaAAAAAAAAAA    aaAAAAAAAAAA                    ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNNnnNNNNNNNNNNNNNNNNNNNN     |
+| |  ooOOOOOOOO                   ooOOOOOOOO  ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                 aaAAAAAAAAAA    aaAAAAAAAAAA                    ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNNnnNNNNNNNNNNNNNNNNNNNN     |
+| |  ooOOOOOOOO                   ooOOOOOOOO    ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                aaAAAAAAAAAAAAAAAAAAAAAAAAAAAA                   ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNN  nnNNNNNNNNNNNNNNNNNN     |
+| |  ooOOOOOOOO                   ooOOOOOOOO                             ssSSSSSSSSS ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                aaAAAAAAAAAAAAAAAAAAAAAAAAAAAA                   ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNN  nnNNNNNNNNNNNNNNNNNN     |
+| |  ooOOOOOOOO                   ooOOOOOOOO                             ssSSSSSSSSS ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                               aaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                  ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNN    nnNNNNNNNNNNNNNNNN     |
+| |  ooOOOOOOOO                   ooOOOOOOOO                             ssSSSSSSSSS ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                               aaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                  ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNN    nnNNNNNNNNNNNNNNNN     |
+| |  ooOOOOOOOO                   ooOOOOOOOO                             ssSSSSSSSSS ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                              aaAAAAAAAAAA          aaAAAAAAAAAA                 ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNN      nnNNNNNNNNNNNNNN     |
+| |  ooOOOOOOOOOOOO           ooOOOOOOOOOOOO    ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS ccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC    iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL    aaAAAAAAAAAA          aaAAAAAAAAAA                 ttTTTTTTTTTT               iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  ooOOOOOOOOOOOO          ooOOOOOOOOOOOO  nnNNNNNNNNNN      nnNNNNNNNNNNNNNN     |
+| |  ooOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS  ccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC   iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL   aaAAAAAAAAAA            aaAAAAAAAAAA                ttTTTTTTTTTT               iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  ooOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  nnNNNNNNNNNN        nnNNNNNNNNNNNN     |
+ \ \     ooOOOOOOOOOOOOOOOOOOOOOOOOOOOO      ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS      ccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC   iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL   aaAAAAAAAAAA            aaAAAAAAAAAA                ttTTTTTTTTTT               iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII      ooOOOOOOOOOOOOOOOOOOOOOOOOOOOO      nnNNNNNNNNNN        nnNNNNNNNNNNNN     /
+  \ \       ooOOOOOOOOOOOOOOOOOOOO             ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS            ccCCCCCCCCCCCCCCCCCCCCCCCCCC    iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL  aaAAAAAAAAAA              aaAAAAAAAAAA               ttTTTTTTTTTT               iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII          ooOOOOOOOOOOOOOOOOOOOO          nnNNNNNNNNNN          nnNNNNNNNNNN    /
    \_\___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________/
 */
 using System;
@@ -53,6 +53,11 @@ namespace GameBuild
         
         public List<cNpc> Npcs = new List<cNpc>();
 
+        List<cWarp> warps = new List<cWarp>();
+        int warpFiles = Directory.GetFiles(@"Content\warp\").Length;
+
+        string[] warp;//file
+
         cLighting testLight = new cLighting(new Rectangle(0, 0, 2000, 2000), 140, 20, new Color(245, 225, 170, 200)); //for ambient lighting 
         RenderTarget2D lightMask; //what he said ^
 
@@ -61,11 +66,10 @@ namespace GameBuild
         cCharacter character;
 
         //Debugging stuffs
-        Texture2D collisionTex;
+        public Texture2D collisionTex;
         Color collisionColor = new Color(100, 0, 0, 100);
 
         public TileMap map;
-        cWarp warp;
 
         public KeyboardState oldState;
         public KeyboardState keyState;
@@ -116,14 +120,29 @@ namespace GameBuild
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            warp = new cWarp();
+            
             collisionTex = Content.Load<Texture2D>("blackness");
             testLight.LoadTexture(Content, "lightTexture");
             lightMask = new RenderTarget2D(GraphicsDevice, GraphicsDevice.PresentationParameters.BackBufferWidth, GraphicsDevice.PresentationParameters.BackBufferHeight);
-            map = Content.Load<H_Map.TileMap>("map test");
+            map = Content.Load<H_Map.TileMap>("source");
             map.tileset = Content.Load<Texture2D>("tileset");
             Console.WriteLine(map.mapName);
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
+            #region Warps
+            warp = new string[warpFiles];
+            for (int i = 0; i < files; i++)
+            {
+                warp[i] = Directory.GetFiles(@"Content\warp\")[i];
+                StreamReader reader = new StreamReader(warp[i]);
+                cWarp Warp = new cWarp(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
+                    int.Parse(reader.ReadLine()), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), character, this);
+                reader.Close();
+                if (Warp.isOnMap)
+                {
+                    warps.Add(Warp);
+                }
+            }
+            #endregion
             #region Npc Loading
             names = new string[files];
             for (int i = 0; i < files; i++)
@@ -139,8 +158,6 @@ namespace GameBuild
                 {
                     Npcs.Add(npc);
                 }
-                
-                Console.WriteLine(npc.mapName);
             }
             #endregion
         }
@@ -166,13 +183,19 @@ namespace GameBuild
             oldState = keyState;
             keyState = Keyboard.GetState();
             testLight.Update(character.position.X, character.position.Y);
-            //Update dude
 
             if (currentGameState == GameState.PLAY) //TODO: gamestates for making the game update objects logicly
             {
                 character.Update(this, map, gameTime, oldState, GraphicsDevice);
-                warp.Update(character, this);
+                foreach (cWarp warp in warps)
+                {
+                    if (warp.isOnMap)
+                    {
+                        warp.Update(character, this);
+                    }
+                }
             }
+            
             camera.Pos = character.vectorPos;
             
             //Update NPCs 
@@ -254,6 +277,12 @@ namespace GameBuild
                 {
                     Npcs[i].dialogue.Draw(spriteBatch);
                 }
+            }
+
+            //debugging
+            for (int i = 0; i < warps.Count; i++)
+            {
+                warps[i].Draw(spriteBatch, this);
             }
            
             spriteBatch.End();
