@@ -30,7 +30,6 @@ namespace GameBuild
 
         public bool point1Tagged = false, point2Tagged = false, point3Tagged = false, point4Tagged = false;
         public bool canInteract;
-        public bool oneNpcInRectangle;
         public bool isOnMap;
         public bool isInteracting = false;
         bool addA = false;
@@ -60,6 +59,7 @@ namespace GameBuild
 
             this.mapName = mapName;
             this.name = name;
+            CheckMap(game);
             
             patrolRect = new Rectangle(patrolX, patrolY, patrolWidth, patrolHeight);
             point1 = new Vector2(patrolX, patrolY);
@@ -102,6 +102,9 @@ namespace GameBuild
             {
                 isOnMap = true;
             }
+            //else
+                //isOnMap = false; <------ Throws exception in the dialogue manager
+
             if (!isOnMap)
             {
                 game.LoadNpcs();
@@ -119,6 +122,8 @@ namespace GameBuild
             position.X += (int)velocity.X;
             position.Y += (int)velocity.Y;
             #endregion
+
+            CheckMap(game);
 
             #region collision
             if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))

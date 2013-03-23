@@ -218,12 +218,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="npc\npc\Testing.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Testing</Name>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="npc\portrait\Testing.png">
       <Name>Testing</Name>
       <Importer>TextureImporter</Importer>

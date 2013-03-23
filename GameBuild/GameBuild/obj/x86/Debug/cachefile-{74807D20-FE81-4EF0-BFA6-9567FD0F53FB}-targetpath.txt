@@ -30,7 +30,6 @@ Content\npc\portrait\Testing.xnb
 Content\npc\sprite\Testing.xnb
 Content\npc\npc\Test.txt
 Content\warp\source.txt
-Content\npc\npc\Testing.txt
 Content\warp\target.txt
 Content\npc\dialogue\dialogueTesting.txt
 Content\npc\dialogue\dialogueTest.txt

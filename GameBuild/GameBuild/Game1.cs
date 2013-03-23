@@ -52,11 +52,12 @@ namespace GameBuild
         public SpriteFont spriteFont;
         
         public List<cNpc> Npcs = new List<cNpc>();
+        int files = Directory.GetFiles(@"Content\npc\npc\").Length;
+        string[] names;
 
         List<cWarp> warps = new List<cWarp>();
         int warpFiles = Directory.GetFiles(@"Content\warp\").Length;
-
-        string[] warp;//file
+        string[] warp;
 
         cLighting testLight = new cLighting(new Rectangle(0, 0, 2000, 2000), 140, 20, new Color(245, 225, 170, 200)); //for ambient lighting 
         RenderTarget2D lightMask; //what he said ^
@@ -75,9 +76,6 @@ namespace GameBuild
         public KeyboardState keyState;
 
         Camera2d camera;
-
-        int files = Directory.GetFiles(@"Content\npc\npc\").Length; //number of npc files in the npc directory
-        string[] names;
 
         public enum GameState
         {
@@ -128,8 +126,8 @@ namespace GameBuild
             map.tileset = Content.Load<Texture2D>("tileset");
             Console.WriteLine(map.mapName);
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
-            LoadNpcs();
             LoadWarps();
+            LoadNpcs();
         }
 
         public void LoadNpcs()
@@ -203,7 +201,7 @@ namespace GameBuild
             //Update NPCs 
             foreach (cNpc npc in Npcs)
             {
-                //npc.CheckMap(this);
+                npc.CheckMap(this);
                 if (npc.isOnMap)
                 {
                     npc.Update(character, map, this);
@@ -265,6 +263,14 @@ namespace GameBuild
                 }
             }
             spriteBatch.DrawString(spriteFont, "" + character.hp, new Vector2(character.position.X + (character.position.Width / 2), character.position.Y - 10), Color.Red);
+            //debugging
+            for (int i = 0; i < warps.Count; i++)
+            {
+                if (warps[i].isOnMap)
+                {
+                    warps[i].Draw(spriteBatch, this);
+                }
+            }
             spriteBatch.End();
             // TODO: Add your drawing code here
 
@@ -290,16 +296,6 @@ namespace GameBuild
                     }
                 }
             }
-
-            //debugging
-            for (int i = 0; i < warps.Count; i++)
-            {
-                if (warps[i].isOnMap)
-                {
-                    warps[i].Draw(spriteBatch, this);
-                }
-            }
-           
             spriteBatch.End();
 
             float framerate = 1f / (float)gameTime.ElapsedGameTime.TotalSeconds;
