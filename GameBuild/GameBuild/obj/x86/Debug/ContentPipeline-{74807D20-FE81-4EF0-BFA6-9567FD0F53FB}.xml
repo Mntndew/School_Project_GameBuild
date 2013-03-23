@@ -253,6 +253,24 @@
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\target.xnb</Output>
       <Time>2013-03-22T23:09:31.0944463+01:00</Time>
     </Item>
+    <Item>
+      <Source>npc\portrait\Testing.png</Source>
+      <Name>npc\portrait\Testing</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\portrait\Testing.xnb</Output>
+      <Time>2013-03-23T10:01:36.0461111+01:00</Time>
+    </Item>
+    <Item>
+      <Source>npc\sprite\Testing.png</Source>
+      <Name>npc\sprite\Testing</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\sprite\Testing.xnb</Output>
+      <Time>2013-03-23T10:01:49.2593343+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}</ContentProjectGUID>

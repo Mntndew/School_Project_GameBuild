@@ -60,11 +60,6 @@ namespace GameBuild
 
             this.mapName = mapName;
             this.name = name;
-
-            if (mapName == (game.map.mapName.Remove(game.map.mapName.Length - 1)))
-            {
-                isOnMap = true;
-            }
             
             patrolRect = new Rectangle(patrolX, patrolY, patrolWidth, patrolHeight);
             point1 = new Vector2(patrolX, patrolY);
@@ -101,6 +96,18 @@ namespace GameBuild
             this.speed = speed;
         }
 
+        public void CheckMap(Game1 game)
+        {
+            if (mapName == (game.map.mapName.Remove(game.map.mapName.Length - 1)))
+            {
+                isOnMap = true;
+            }
+            if (!isOnMap)
+            {
+                game.LoadNpcs();
+            }
+        }
+
         public void Update(cCharacter player, H_Map.TileMap tiles, Game1 game)
         {
             #region things to update every frame, positions
@@ -111,13 +118,6 @@ namespace GameBuild
             corner2 = new Rectangle(colRect.X, colRect.Y, colRect.Width, colRect.Height);
             position.X += (int)velocity.X;
             position.Y += (int)velocity.Y;
-            if (mapName == (game.map.mapName.Remove(game.map.mapName.Length - 1)))
-            {
-                isOnMap = true;
-            }
-            #endregion
-
-            #region sprites and directional stuff
             #endregion
 
             #region collision
@@ -529,20 +529,26 @@ namespace GameBuild
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (health > 0)
+            if (isOnMap)
             {
-                spriteBatch.Draw(texture, position, color);
-                spriteBatch.Draw(texture, patrolRect, new Color(20, 20, 20, 100));
+                if (health > 0)
+                {
+                    spriteBatch.Draw(texture, position, color);
+                    spriteBatch.Draw(texture, patrolRect, new Color(20, 20, 20, 100));
+                }
             }
         }
 
         public void DrawA(SpriteBatch spriteBatch)
         {
-            if (health > 0)
+            if (isOnMap)
             {
-                if (canInteract)
+                if (health > 0)
                 {
-                    spriteBatch.Draw(aTexture, aPosition, aColor);
+                    if (canInteract)
+                    {
+                        spriteBatch.Draw(aTexture, aPosition, aColor);
+                    }
                 }
             }
         }

@@ -17,6 +17,8 @@ namespace GameBuild
 
         int targetX;
         int targetY;
+        int fileTargetX;
+        int fileTargetY;
 
         Rectangle warpField;
 
@@ -26,28 +28,22 @@ namespace GameBuild
             this.sourceMap = sourceMap;
             this.targetMap = targetMap;
 
+            fileTargetX = targetX;
+            fileTargetY = targetY;
+
+            warpField = new Rectangle(sourceX, sourceY, width, height);
+        }
+
+        public void CheckMap(Game1 game)
+        {
             if (sourceMap == (game.map.mapName.Remove(game.map.mapName.Length - 1)))
             {
                 isOnMap = true;
             }
-
-            if (targetX != -1)
-            {
-                this.targetX = targetX;
-            }
             else
-                this.targetX = player.position.X;
-
-            if (targetY != -1)
-            {
-                this.targetY = targetY;
-            }
-            else
-                this.targetY = player.position.Y;
-
-            warpField = new Rectangle(sourceX, sourceY, width, height);
+                isOnMap = false;
         }
-        
+
         public void Update(cCharacter player, Game1 game)
         {
             Console.WriteLine();
@@ -55,27 +51,35 @@ namespace GameBuild
             Console.WriteLine();
             Console.WriteLine("Warp source map: " + sourceMap);
             Console.WriteLine("Warp target map: " + targetMap);
-            if (sourceMap == (game.map.mapName.Remove(game.map.mapName.Length - 1)))
+            Console.WriteLine();
+            Console.WriteLine("X: " + player.position.X);
+            Console.WriteLine("Y: " + player.position.Y);
+
+            if (targetX != -1)
             {
-                isOnMap = true;
+                targetX = fileTargetX;
             }
             else
-                isOnMap = false;
+                this.targetX = player.position.X;
 
-            if (isOnMap)
+            if (targetY != -1)
             {
-                if (player.position.Intersects(warpField))
+                targetY = fileTargetY;
+            }
+            else
+                this.targetY = player.position.Y;
+
+            if (player.position.Intersects(warpField))
+            {
+                game.map = game.Content.Load<H_Map.TileMap>(targetMap);
+                game.map.tileset = game.Content.Load<Texture2D>("tileset");
+                if (targetX != -1)
                 {
-                    game.map = game.Content.Load<H_Map.TileMap>(targetMap);
-                    game.map.tileset = game.Content.Load<Texture2D>("tileset");
-                    if (targetX != -1)
-                    {
-                        player.position.X = targetX;
-                    }
-                    if (targetY != -1)
-                    {
-                        player.position.Y = targetY;
-                    }
+                    player.position.X = targetX;
+                }
+                if (targetY != -1)
+                {
+                    player.position.Y = targetY;
                 }
             }
         }

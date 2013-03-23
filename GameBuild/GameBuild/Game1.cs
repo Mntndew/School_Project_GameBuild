@@ -128,22 +128,12 @@ namespace GameBuild
             map.tileset = Content.Load<Texture2D>("tileset");
             Console.WriteLine(map.mapName);
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
-            #region Warps
-            warp = new string[warpFiles];
-            for (int i = 0; i < files; i++)
-            {
-                warp[i] = Directory.GetFiles(@"Content\warp\")[i];
-                StreamReader reader = new StreamReader(warp[i]);
-                cWarp Warp = new cWarp(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
-                    int.Parse(reader.ReadLine()), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), character, this);
-                reader.Close();
-                if (Warp.isOnMap)
-                {
-                    warps.Add(Warp);
-                }
-            }
-            #endregion
-            #region Npc Loading
+            LoadNpcs();
+            LoadWarps();
+        }
+
+        public void LoadNpcs()
+        {
             names = new string[files];
             for (int i = 0; i < files; i++)
             {
@@ -154,12 +144,22 @@ namespace GameBuild
                     bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
                     int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), this, reader.ReadLine());
                 reader.Close();
-                if (npc.isOnMap)
-                {
-                    Npcs.Add(npc);
-                }
+                Npcs.Add(npc);
             }
-            #endregion
+        }
+
+        public void LoadWarps()
+        {
+            warp = new string[warpFiles];
+            for (int i = 0; i < warpFiles; i++)
+            {
+                warp[i] = Directory.GetFiles(@"Content\warp\")[i];
+                StreamReader reader = new StreamReader(warp[i]);
+                cWarp Warp = new cWarp(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
+                    int.Parse(reader.ReadLine()), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), character, this);
+                reader.Close();
+                warps.Add(Warp);
+            }
         }
 
         /// <summary>
@@ -184,16 +184,18 @@ namespace GameBuild
             keyState = Keyboard.GetState();
             testLight.Update(character.position.X, character.position.Y);
 
+            foreach (cWarp warp in warps)
+            {
+                warp.CheckMap(this);
+                if (warp.isOnMap)
+                {
+                    warp.Update(character, this);
+                }
+            }
+
             if (currentGameState == GameState.PLAY) //TODO: gamestates for making the game update objects logicly
             {
                 character.Update(this, map, gameTime, oldState, GraphicsDevice);
-                foreach (cWarp warp in warps)
-                {
-                    if (warp.isOnMap)
-                    {
-                        warp.Update(character, this);
-                    }
-                }
             }
             
             camera.Pos = character.vectorPos;
@@ -201,6 +203,7 @@ namespace GameBuild
             //Update NPCs 
             foreach (cNpc npc in Npcs)
             {
+                //npc.CheckMap(this);
                 if (npc.isOnMap)
                 {
                     npc.Update(character, map, this);
@@ -247,13 +250,19 @@ namespace GameBuild
 
             for (int i = 0; i < Npcs.Count; i++)
 			{
-                Npcs[i].Draw(spriteBatch);
+                if (Npcs[i].isOnMap)
+                {
+                    Npcs[i].Draw(spriteBatch);
+                }
 			}
 
             map.DrawForegroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
             for (int i = 0; i < Npcs.Count; i++)
             {
-                Npcs[i].DrawA(spriteBatch);
+                if (Npcs[i].isOnMap)
+                {
+                    Npcs[i].DrawA(spriteBatch);
+                }
             }
             spriteBatch.DrawString(spriteFont, "" + character.hp, new Vector2(character.position.X + (character.position.Width / 2), character.position.Y - 10), Color.Red);
             spriteBatch.End();
@@ -273,16 +282,22 @@ namespace GameBuild
             spriteBatch.Begin();
             for (int i = 0; i < Npcs.Count; i++)
             {
-                if (Npcs[i].isInteracting)
+                if (Npcs[i].isOnMap)
                 {
-                    Npcs[i].dialogue.Draw(spriteBatch);
+                    if (Npcs[i].isInteracting)
+                    {
+                        Npcs[i].dialogue.Draw(spriteBatch);
+                    }
                 }
             }
 
             //debugging
             for (int i = 0; i < warps.Count; i++)
             {
-                warps[i].Draw(spriteBatch, this);
+                if (warps[i].isOnMap)
+                {
+                    warps[i].Draw(spriteBatch, this);
+                }
             }
            
             spriteBatch.End();

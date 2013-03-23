@@ -1,5 +1,5 @@
-source
-Test
+target
+Testing
 256
 256
 64
@@ -8,8 +8,8 @@ False
 True
 False
 False
-Test
-Test
+Testing
+Testing
 True
 False
 False
@@ -19,4 +19,4 @@ False
 0
 0
 1
-dialogueTest
+dialogueTesting
