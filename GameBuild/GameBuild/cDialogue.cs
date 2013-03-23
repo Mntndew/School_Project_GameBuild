@@ -28,20 +28,22 @@ namespace GameBuild
         KeyboardState currentState;
 
         string[] currentLines;
+        string name;
 
         DialogueManager dialogueManager;
 
-        public cDialogue(Texture2D portrait, Texture2D textBox, Game1 game, SpriteFont font, string dialogueFileName)
+        public cDialogue(Texture2D portrait, Texture2D textBox, Game1 game, SpriteFont font, string dialogueFileName, string name)
         {
             this.portrait = portrait;
             this.textBox = textBox;
             this.font = font;
+            this.name = name;
 
             int screenWidth = game.graphics.PreferredBackBufferWidth;
             int screenHeight = game.graphics.PreferredBackBufferHeight;
 
             portraitPos = new Rectangle(game.graphics.PreferredBackBufferWidth - width, game.graphics.PreferredBackBufferHeight - height, width, height);
-            textBoxPos = new Rectangle(screenWidth/2 - textBox.Width/2, screenHeight - screenHeight/4, textBox.Width, textBox.Height);
+            textBoxPos = new Rectangle(screenWidth/2 - textBox.Width/2, screenHeight - screenHeight/4 - 150, textBox.Width, textBox.Height);
 
             dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + dialogueFileName + ".txt");
             GetLines(0);
@@ -83,13 +85,14 @@ namespace GameBuild
                 spriteBatch.Draw(textBox, textBoxPos, Color.White);
                 for (int i = 1; i < currentLines.Length; i++)
                 {
-                    spriteBatch.DrawString(font, currentLines[i], new Vector2(textBoxPos.X + 100, textBoxPos.Y + 40 + i*20), Color.DarkOrange);
+                    spriteBatch.DrawString(font, currentLines[i], new Vector2(textBoxPos.X + 60, textBoxPos.Y + 75 + i*20), Color.DarkOrange);
                 }
                 if (currentLines.Length>1)
                 {
-                    spriteBatch.DrawString(font, currentLines[selection], new Vector2(textBoxPos.X + 100, textBoxPos.Y + 40 + selection*20), Color.Red);
+                    spriteBatch.DrawString(font, currentLines[selection], new Vector2(textBoxPos.X + 60, textBoxPos.Y + 75 + selection*20), Color.Red);
                 }
-                spriteBatch.DrawString(font, currentLines[0], new Vector2(textBoxPos.X + 100, textBoxPos.Y + 10), Color.Black);
+                spriteBatch.DrawString(font, currentLines[0], new Vector2(textBoxPos.X + 75, textBoxPos.Y + 75), Color.Black);
+                spriteBatch.DrawString(font, "" + name, new Vector2(textBoxPos.X + textBox.Width - 190, textBoxPos.Y + 25), Color.Black);
             }
         }
 

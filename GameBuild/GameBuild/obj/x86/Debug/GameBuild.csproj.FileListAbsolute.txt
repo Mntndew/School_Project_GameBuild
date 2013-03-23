@@ -233,7 +233,6 @@ C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuil
 C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.exe
 C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.pdb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\tempTextBox.xnb
 C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\dialogue\dialogueTest.txt
 C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Warp.dll
 C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\source.xnb
@@ -243,3 +242,4 @@ C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\Game
 C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\sprite\Testing.xnb
 C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\warp\target.txt
 C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\dialogue\dialogueTesting.txt
+C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\textBox.xnb

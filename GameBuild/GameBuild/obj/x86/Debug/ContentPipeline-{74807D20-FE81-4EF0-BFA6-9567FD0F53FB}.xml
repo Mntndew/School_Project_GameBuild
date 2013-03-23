@@ -209,15 +209,6 @@
       <Time>2013-03-21T13:53:25.1805209+01:00</Time>
     </Item>
     <Item>
-      <Source>tempTextBox.png</Source>
-      <Name>tempTextBox</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\tempTextBox.xnb</Output>
-      <Time>2013-03-21T19:25:43.2217484+01:00</Time>
-    </Item>
-    <Item>
       <Source>lighting.fx</Source>
       <Name>lighting</Name>
       <Importer>EffectImporter</Importer>
@@ -270,6 +261,15 @@
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\sprite\Testing.xnb</Output>
       <Time>2013-03-23T10:01:49.2593343+01:00</Time>
+    </Item>
+    <Item>
+      <Source>textBox.png</Source>
+      <Name>textBox</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\textBox.xnb</Output>
+      <Time>2013-03-23T12:48:38.985167+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

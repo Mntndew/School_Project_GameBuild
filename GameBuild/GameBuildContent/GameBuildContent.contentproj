@@ -199,13 +199,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="tempTextBox.png">
-      <Name>tempTextBox</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="npc\dialogue\dialogueTest.txt">
       <Name>dialogueTest</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -242,6 +235,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>dialogueTesting</Name>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="textBox.png">
+      <Name>textBox</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

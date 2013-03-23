@@ -54,7 +54,7 @@ namespace GameBuild
 
         public cNpc(string mapName, string name, int x, int y, int width, int height, bool up, bool down, bool left, bool right, string spritePath, string portraitPath, bool patrolNone, bool patrolUpDown, bool patrolLeftRight, bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game, string dialoguePath)
         {
-            dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + name), game.Content.Load<Texture2D>("tempTextBox"), game, game.spriteFont, dialoguePath);
+            dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + name), game.Content.Load<Texture2D>("textBox"), game, game.spriteFont, dialoguePath, name);
             texture = game.Content.Load<Texture2D>("blackness");
 
             this.mapName = mapName;
