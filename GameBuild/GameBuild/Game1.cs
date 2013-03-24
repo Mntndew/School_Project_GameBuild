@@ -52,8 +52,8 @@ namespace GameBuild
         public SpriteFont spriteFont;
         
         public List<cNpc> Npcs = new List<cNpc>();
-        int files = Directory.GetFiles(@"Content\npc\npc\").Length;
-        string[] names;
+        int files = Directory.GetFiles(@"Content\npc\npc\").Length; //number of npcs
+        string[] names; // array of all npc names
 
         List<cWarp> warps = new List<cWarp>();
         int warpFiles = Directory.GetFiles(@"Content\warp\").Length;
@@ -136,6 +136,7 @@ namespace GameBuild
             for (int i = 0; i < files; i++)
             {
                 names[i] = Directory.GetFiles(@"Content\npc\npc\")[i];
+                Console.WriteLine(names[i]);
                 StreamReader reader = new StreamReader(names[i]);
                 cNpc npc = new cNpc(reader.ReadLine(), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
                     bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), reader.ReadLine(), reader.ReadLine(),
@@ -191,7 +192,7 @@ namespace GameBuild
                 }
             }
 
-            if (currentGameState == GameState.PLAY) //TODO: gamestates for making the game update objects logicly
+            if (currentGameState == GameState.PLAY) //TODO: gamestates for making the game update objects logicly *FIXED MUTHA FUCKAH UR WELCOME PAST SELF*
             {
                 character.Update(this, map, gameTime, oldState, GraphicsDevice);
             }
@@ -211,6 +212,7 @@ namespace GameBuild
                         {
                             npc.isInteracting = false;
                             npc.dialogue.isTalking = false;
+                            npc.dialogue.ResetDialogue();
                             currentGameState = GameState.PLAY;
                         }
                         else
@@ -218,10 +220,21 @@ namespace GameBuild
                             npc.isInteracting = true;
                             npc.dialogue.isTalking = true;
                             currentGameState = GameState.INTERACT;
+                            Console.WriteLine(npc.mapName);
                         }
                     }
                 }
             }
+
+            #region Debugging
+            if (keyState.IsKeyDown(Keys.Tab))
+            {
+                for (int i = 0; i < Npcs.Count; i++)
+                {
+                    Console.WriteLine(Npcs[i].name);   
+                }
+            }
+            #endregion
             base.Update(gameTime);
         }
 

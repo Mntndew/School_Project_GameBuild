@@ -54,8 +54,8 @@ namespace GameBuild
 
         public cNpc(string mapName, string name, int x, int y, int width, int height, bool up, bool down, bool left, bool right, string spritePath, string portraitPath, bool patrolNone, bool patrolUpDown, bool patrolLeftRight, bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game, string dialoguePath)
         {
-            dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + name), game.Content.Load<Texture2D>("textBox"), game, game.spriteFont, dialoguePath, name);
-            texture = game.Content.Load<Texture2D>("blackness");
+            dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + portraitPath), game.Content.Load<Texture2D>("textBox"), game, game.spriteFont, dialoguePath, name);
+            texture = game.Content.Load<Texture2D>(@"npc\sprite\" + spritePath);
 
             this.mapName = mapName;
             this.name = name;
@@ -72,7 +72,6 @@ namespace GameBuild
             aTexture = game.Content.Load<Texture2D>("A");
             aPosition = new Rectangle(0, 0, aTexture.Width, aTexture.Height);
             aColor = Color.White;
-            texture = game.Content.Load<Texture2D>("blackness");
             patrolRect.X = position.X - ((patrolRect.Width / 2) - (position.Width / 2));
             patrolRect.Y = position.Y - ((patrolRect.Height / 2) - (position.Height / 2));
             colRect = position;
@@ -149,7 +148,7 @@ namespace GameBuild
             if (game.currentGameState == Game1.GameState.INTERACT)
             {
                 dialogue.Update();
-                if (!dialogue.isTalking)
+                if (!dialogue.isTalking && isInteracting == true)
                 {
                     game.currentGameState = Game1.GameState.PLAY;
                     isInteracting = false;
@@ -189,7 +188,6 @@ namespace GameBuild
                 else
                 {
                     this.dialogue.isTalking = true;
-
                 }
             }
             else
