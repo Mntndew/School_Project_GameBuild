@@ -28,8 +28,14 @@ Content\lighting.xnb
 Content\SpriteFont1.xnb
 Content\source.xnb
 Content\target.xnb
+<<<<<<< HEAD
+=======
+Content\npc\sprite\npc2.xnb
+Content\npc\portrait\npc2.xnb
+>>>>>>> fe101625aa5ca25937a938d96ffa247606aced14
 Content\npc\npc\Test.txt
 Content\warp\source.txt
 Content\warp\target.txt
-Content\npc\dialogue\dialogueTesting.txt
+Content\npc\dialogue\dialogue2.txt
 Content\npc\dialogue\dialogueTest.txt
+Content\npc\npc\npc2.txt

@@ -51,29 +51,32 @@ namespace GameBuild
 
         public void Update()
         {
-            oldState = currentState;
-            currentState = Keyboard.GetState();
-            
-            if (currentState.IsKeyDown(Keys.Up) && oldState.IsKeyUp(Keys.Up))
+            if (isTalking)
             {
-                selection -= 1;
-                if (selection < 1)
+                oldState = currentState;
+                currentState = Keyboard.GetState();
+
+                if (currentState.IsKeyDown(Keys.Up) && oldState.IsKeyUp(Keys.Up))
                 {
-                    selection = currentLines.Length - 1;
+                    selection -= 1;
+                    if (selection < 1)
+                    {
+                        selection = currentLines.Length - 1;
+                    }
                 }
-            }
-            else if (currentState.IsKeyDown(Keys.Down) && oldState.IsKeyUp(Keys.Down))
-            {
-                selection += 1;
-                if (selection > currentLines.Length-1)
+                else if (currentState.IsKeyDown(Keys.Down) && oldState.IsKeyUp(Keys.Down))
                 {
+                    selection += 1;
+                    if (selection > currentLines.Length - 1)
+                    {
+                        selection = 1;
+                    }
+                }
+                if (currentState.IsKeyDown(Keys.Enter) && oldState.IsKeyUp(Keys.Enter))
+                {
+                    GotoNextStatement();
                     selection = 1;
                 }
-            }
-            if (currentState.IsKeyDown(Keys.Enter) && oldState.IsKeyUp(Keys.Enter))
-            {
-                GotoNextStatement();
-                selection = 1;
             }
         }
 
@@ -116,7 +119,7 @@ namespace GameBuild
             currentLines = dialogueManager.GetDialogueLinesFromIndex(index);
         }
 
-        private void ResetDialogue()
+        public void ResetDialogue()
         {
             isTalking = false;
             selection = 1;

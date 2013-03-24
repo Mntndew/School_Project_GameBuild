@@ -46,14 +46,14 @@ namespace GameBuild
 
         public void Update(cCharacter player, Game1 game)
         {
-            Console.WriteLine();
-            Console.WriteLine("Loaded map: " + game.map.mapName.Remove(game.map.mapName.Length - 1));
-            Console.WriteLine();
-            Console.WriteLine("Warp source map: " + sourceMap);
-            Console.WriteLine("Warp target map: " + targetMap);
-            Console.WriteLine();
-            Console.WriteLine("X: " + player.position.X);
-            Console.WriteLine("Y: " + player.position.Y);
+            //Console.WriteLine();
+            //Console.WriteLine("Loaded map: " + game.map.mapName.Remove(game.map.mapName.Length - 1));
+            //Console.WriteLine();
+            //Console.WriteLine("Warp source map: " + sourceMap);
+            //Console.WriteLine("Warp target map: " + targetMap);
+            //Console.WriteLine();
+            //Console.WriteLine("X: " + player.position.X);
+            //Console.WriteLine("Y: " + player.position.Y);
 
             if (targetX != -1)
             {

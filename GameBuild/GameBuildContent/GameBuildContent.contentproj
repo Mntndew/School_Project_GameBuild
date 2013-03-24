@@ -231,14 +231,34 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="npc\dialogue\dialogueTesting.txt">
+    <None Include="npc\dialogue\dialogue2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>dialogueTesting</Name>
+      <Name>dialogue2</Name>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="textBox.png">
       <Name>textBox</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="npc\npc\npc2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>npc2</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="npc\sprite\npc2.png">
+      <Name>npc2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="npc\portrait\npc2.png">
+      <Name>npc2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

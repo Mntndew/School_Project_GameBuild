@@ -193,9 +193,7 @@ C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\
 C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\sprite\Test.xnb
 C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\lighting.xnb
 C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\SpriteFont1.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\map test.xnb
 C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\dialogue\dialogueTest.txt
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\tempTextBox.xnb
 C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\blackness.xnb
 C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\CharacterIdleFront.xnb
 C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\CharaWalkSheet.xnb
@@ -243,6 +241,7 @@ C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\Game
 C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\warp\target.txt
 C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\dialogue\dialogueTesting.txt
 C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\textBox.xnb
+<<<<<<< HEAD
 C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.exe
 C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.pdb
 C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\blackness.xnb
@@ -286,3 +285,16 @@ C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild
 C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\MntnNpc.dll
 C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.csprojResolveAssemblyReference.cache
 C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+=======
+C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\portrait\Testing.xnb
+C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\sprite\Testing.xnb
+C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\textBox.xnb
+C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\source.xnb
+C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\target.xnb
+C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\warp\source.txt
+C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\warp\target.txt
+C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\npc\npc2.txt
+C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\sprite\npc2.xnb
+C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\portrait\npc2.xnb
+C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\dialogue\dialogue2.txt
+>>>>>>> fe101625aa5ca25937a938d96ffa247606aced14
