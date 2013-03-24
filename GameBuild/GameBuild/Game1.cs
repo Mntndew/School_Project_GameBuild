@@ -50,7 +50,7 @@ namespace GameBuild
         SpriteBatch spriteBatch;
 
         public SpriteFont spriteFont;
-        
+
         public List<cNpc> Npcs = new List<cNpc>();
         int files = Directory.GetFiles(@"Content\npc\npc\").Length; //number of npcs
         string[] names; // array of all npc names
@@ -79,7 +79,7 @@ namespace GameBuild
 
         public enum GameState
         {
-            PLAY, 
+            PLAY,
             INTERACT,
             PAUSE,
         }
@@ -106,7 +106,7 @@ namespace GameBuild
             this.IsMouseVisible = true;
             character = new cCharacter(this);
             spriteFont = Content.Load<SpriteFont>("SpriteFont1");
-            
+
             base.Initialize();
         }
 
@@ -118,7 +118,7 @@ namespace GameBuild
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            
+
             collisionTex = Content.Load<Texture2D>("blackness");
             testLight.LoadTexture(Content, "lightTexture");
             lightMask = new RenderTarget2D(GraphicsDevice, GraphicsDevice.PresentationParameters.BackBufferWidth, GraphicsDevice.PresentationParameters.BackBufferHeight);
@@ -196,9 +196,9 @@ namespace GameBuild
             {
                 character.Update(this, map, gameTime, oldState, GraphicsDevice);
             }
-            
+
             camera.Pos = character.vectorPos;
-            
+
             //Update NPCs 
             foreach (cNpc npc in Npcs)
             {
@@ -231,7 +231,7 @@ namespace GameBuild
             {
                 for (int i = 0; i < Npcs.Count; i++)
                 {
-                    Console.WriteLine(Npcs[i].name);   
+                    Console.WriteLine(Npcs[i].name);
                 }
             }
             #endregion
@@ -260,12 +260,12 @@ namespace GameBuild
             character.Draw(spriteBatch);
 
             for (int i = 0; i < Npcs.Count; i++)
-			{
+            {
                 if (Npcs[i].isOnMap)
                 {
                     Npcs[i].Draw(spriteBatch);
                 }
-			}
+            }
 
             map.DrawForegroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
             for (int i = 0; i < Npcs.Count; i++)
