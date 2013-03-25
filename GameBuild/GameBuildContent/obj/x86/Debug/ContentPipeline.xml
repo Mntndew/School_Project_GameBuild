@@ -236,6 +236,24 @@
       <Time>2013-03-24T14:49:15.2818203+01:00</Time>
     </Item>
     <Item>
+      <Source>npc\sprite\npc2.png</Source>
+      <Name>npc\sprite\npc2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\sprite\npc2.xnb</Output>
+      <Time>2013-03-24T17:12:12.7349453+01:00</Time>
+    </Item>
+    <Item>
+      <Source>npc\portrait\npc2.png</Source>
+      <Name>npc\portrait\npc2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\portrait\npc2.xnb</Output>
+      <Time>2013-03-24T17:12:12.7339688+01:00</Time>
+    </Item>
+    <Item>
       <Source>lighting.fx</Source>
       <Name>lighting</Name>
       <Importer>EffectImporter</Importer>
@@ -309,7 +327,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\LevelContentExtension\bin\x86\Debug\LevelContentExtension.dll</Key>
-        <Value>2013-03-24T14:36:23.7124844+01:00</Value>
+        <Value>2013-03-24T14:36:23.7427578+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>

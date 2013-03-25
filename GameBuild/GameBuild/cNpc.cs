@@ -36,7 +36,7 @@ namespace GameBuild
 
         public string name;
         public string mapName;
-        
+
         public enum patrolType
         {
             upDown,
@@ -60,7 +60,7 @@ namespace GameBuild
             this.mapName = mapName;
             this.name = name;
             CheckMap(game);
-            
+
             patrolRect = new Rectangle(patrolX, patrolY, patrolWidth, patrolHeight);
             point1 = new Vector2(patrolX, patrolY);
             point2 = new Vector2(patrolX + patrolWidth, patrolY);
@@ -102,7 +102,7 @@ namespace GameBuild
                 isOnMap = true;
             }
             //else
-                //isOnMap = false; <------ Throws exception in the dialogue manager
+            //isOnMap = false; <------ Throws exception in the dialogue manager
 
             if (!isOnMap)
             {
@@ -154,7 +154,7 @@ namespace GameBuild
                     isInteracting = false;
                 }
             }
-            #endregion 
+            #endregion
 
             #region Player Interaction
             if (position.Intersects(player.interactRect))

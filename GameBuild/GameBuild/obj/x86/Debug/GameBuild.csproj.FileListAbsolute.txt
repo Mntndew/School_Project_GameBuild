@@ -345,3 +345,7 @@ C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\Game
 C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\portrait\npc2.xnb
 C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\dialogue\dialogue2.txt
 C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\npc\npc2.txt
+C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\sprite\npc2.xnb
+C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\portrait\npc2.xnb
+C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\dialogue\dialogue2.txt
+C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\npc\npc2.txt
