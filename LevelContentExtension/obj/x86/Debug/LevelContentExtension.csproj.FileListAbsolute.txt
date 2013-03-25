@@ -40,3 +40,9 @@ C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\LevelCon
 C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\LevelContentExtension\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\LevelContentExtension\obj\x86\Debug\LevelContentExtension.dll
 C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\LevelContentExtension\obj\x86\Debug\LevelContentExtension.pdb
+C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\LevelContentExtension\bin\x86\Debug\LevelContentExtension.dll
+C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\LevelContentExtension\bin\x86\Debug\LevelContentExtension.pdb
+C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\LevelContentExtension\bin\x86\Debug\H_Map.dll
+C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\LevelContentExtension\obj\x86\Debug\LevelContentExtension.csprojResolveAssemblyReference.cache
+C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\LevelContentExtension\obj\x86\Debug\LevelContentExtension.dll
+C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\LevelContentExtension\obj\x86\Debug\LevelContentExtension.pdb
