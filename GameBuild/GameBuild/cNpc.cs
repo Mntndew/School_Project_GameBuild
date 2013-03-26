@@ -31,6 +31,7 @@ namespace GameBuild
         public bool point1Tagged = false, point2Tagged = false, point3Tagged = false, point4Tagged = false;
         public bool canInteract;
         public bool isOnMap;
+        public bool hasBeenAdded = false;
         public bool isInteracting = false;
         bool addA = false;
 
@@ -103,11 +104,6 @@ namespace GameBuild
             }
             else
                 isOnMap = false;
-
-            if (!isOnMap)
-            {
-                game.LoadNpcs();
-            }
         }
 
         public void Update(cCharacter player, H_Map.TileMap tiles, Game1 game)

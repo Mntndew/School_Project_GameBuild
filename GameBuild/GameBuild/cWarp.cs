@@ -22,8 +22,7 @@ namespace GameBuild
 
         Rectangle warpField;
 
-        public cWarp(string sourceMap, int sourceX, int sourceY, int width, int height, string targetMap, int targetX, int targetY,
-            cCharacter player, Game1 game)
+        public cWarp(string sourceMap, int sourceX, int sourceY, int width, int height, string targetMap, int targetX, int targetY)
         {
             this.sourceMap = sourceMap;
             this.targetMap = targetMap;
@@ -73,6 +72,15 @@ namespace GameBuild
             {
                 game.map = game.Content.Load<H_Map.TileMap>(targetMap);
                 game.map.tileset = game.Content.Load<Texture2D>("tileset");
+                game.LoadNpcs();
+                for (int i = 0; i < game.Npcs.Count; i++)
+                {
+                    if (!game.Npcs[i].hasBeenAdded)
+                    {
+                        game.UpdateActiveNpcs();
+                    }
+                }
+                
                 if (targetX != -1)
                 {
                     player.position.X = targetX;

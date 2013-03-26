@@ -51,7 +51,7 @@ namespace GameBuild
 
         public SpriteFont spriteFont;
 
-        public List<cNpc> mapNpcs = new List<cNpc>();
+        public List<cNpc> activeNpcs = new List<cNpc>();
         public List<cNpc> Npcs = new List<cNpc>();
         int files = Directory.GetFiles(@"Content\npc\npc\").Length; //number of npcs
         string[] names; // array of all npc names
@@ -129,25 +129,34 @@ namespace GameBuild
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
             LoadWarps();
             LoadNpcs();
+            UpdateActiveNpcs();
         }
 
         public void LoadNpcs()
         {
             names = new string[files];
+
             for (int i = 0; i < files; i++)
             {
                 names[i] = Directory.GetFiles(@"Content\npc\npc\")[i];
-                Console.WriteLine(names[i]);
                 StreamReader reader = new StreamReader(names[i]);
                 cNpc npc = new cNpc(reader.ReadLine(), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
-                    bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), reader.ReadLine(), reader.ReadLine(),
-                    bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
-                    int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), this, reader.ReadLine());
-                reader.Close();
-                npc.CheckMap(this);
-                if (npc.isOnMap)
+                bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), reader.ReadLine(), reader.ReadLine(),
+                bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
+                int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), this, reader.ReadLine());
+                Npcs.Add(npc);
+            }
+        }
+
+        public void UpdateActiveNpcs()
+        {
+            for (int i = 0; i < Npcs.Count; i++)
+            {
+                Npcs[i].CheckMap(this);
+                if (Npcs[i].isOnMap && !Npcs[i].hasBeenAdded)
                 {
-                    mapNpcs.Add(npc);
+                    activeNpcs.Add(Npcs[i]);
+                    Npcs[i].hasBeenAdded = true;
                 }
             }
         }
@@ -160,7 +169,7 @@ namespace GameBuild
                 warp[i] = Directory.GetFiles(@"Content\warp\")[i];
                 StreamReader reader = new StreamReader(warp[i]);
                 cWarp Warp = new cWarp(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
-                    int.Parse(reader.ReadLine()), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), character, this);
+                    int.Parse(reader.ReadLine()), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()));
                 reader.Close();
                 warps.Add(Warp);
             }
@@ -187,7 +196,6 @@ namespace GameBuild
             oldState = keyState;
             keyState = Keyboard.GetState();
             testLight.Update(character.position.X, character.position.Y);
-
             foreach (cWarp warp in warps)
             {
                 warp.CheckMap(this);
@@ -205,25 +213,25 @@ namespace GameBuild
             camera.Pos = character.vectorPos;
 
             //Update NPCs 
-            foreach (cNpc npc in mapNpcs)
+            foreach (cNpc npc in activeNpcs)
             {
-                    npc.Update(character, map, this);
-                    if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && npc.canInteract)
+                npc.Update(character, map, this);
+                if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && npc.canInteract)
+                {
+                    if (npc.isInteracting)
                     {
-                        if (npc.isInteracting)
-                        {
-                            npc.isInteracting = false;
-                            npc.dialogue.isTalking = false;
-                            npc.dialogue.ResetDialogue();
-                            currentGameState = GameState.PLAY;
-                        }
-                        else
-                        {
-                            npc.isInteracting = true;
-                            npc.dialogue.isTalking = true;
-                            currentGameState = GameState.INTERACT;
-                            Console.WriteLine(npc.mapName);
-                        }
+                        npc.isInteracting = false;
+                        npc.dialogue.isTalking = false;
+                        npc.dialogue.ResetDialogue();
+                        currentGameState = GameState.PLAY;
+                    }
+                    else
+                    {
+                        npc.isInteracting = true;
+                        npc.dialogue.isTalking = true;
+                        currentGameState = GameState.INTERACT;
+                        Console.WriteLine(npc.mapName);
+                    }
                 }
             }
 
@@ -260,21 +268,15 @@ namespace GameBuild
             map.DrawInteractiveLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
             character.Draw(spriteBatch);
 
-            for (int i = 0; i < mapNpcs.Count; i++)
+            for (int i = 0; i < activeNpcs.Count; i++)
             {
-                if (mapNpcs[i].isOnMap)
-                {
-                    mapNpcs[i].Draw(spriteBatch);
-                }
+                activeNpcs[i].Draw(spriteBatch);
             }
 
             map.DrawForegroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
-            for (int i = 0; i < mapNpcs.Count; i++)
+            for (int i = 0; i < activeNpcs.Count; i++)
             {
-                if (mapNpcs[i].isOnMap)
-                {
-                    mapNpcs[i].DrawA(spriteBatch);
-                }
+                activeNpcs[i].DrawA(spriteBatch);
             }
             spriteBatch.DrawString(spriteFont, "" + character.hp, new Vector2(character.position.X + (character.position.Width / 2), character.position.Y - 10), Color.Red);
             //debugging
@@ -300,13 +302,13 @@ namespace GameBuild
 
             //Spritebatch for HUD stuff
             spriteBatch.Begin();
-            for (int i = 0; i < mapNpcs.Count; i++)
+            for (int i = 0; i < activeNpcs.Count; i++)
             {
-                if (mapNpcs[i].isOnMap)
+                if (activeNpcs[i].isOnMap)
                 {
-                    if (mapNpcs[i].isInteracting)
+                    if (activeNpcs[i].isInteracting)
                     {
-                        mapNpcs[i].dialogue.Draw(spriteBatch);
+                        activeNpcs[i].dialogue.Draw(spriteBatch);
                     }
                 }
             }
@@ -318,8 +320,10 @@ namespace GameBuild
         }
     }
 }
+
+
 #region stuff
-/*    
+/*
 
      /MMMMMMMMM\\  \  /  //MMMMMMMMM\
     /NNNNNMMMMMN\\  ||  //NMMMMMNNNNN\
