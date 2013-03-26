@@ -72,7 +72,6 @@ namespace GameBuild
             {
                 game.map = game.Content.Load<H_Map.TileMap>(targetMap);
                 game.map.tileset = game.Content.Load<Texture2D>("tileset");
-                game.LoadNpcs();
                 for (int i = 0; i < game.Npcs.Count; i++)
                 {
                     if (!game.Npcs[i].hasBeenAdded)

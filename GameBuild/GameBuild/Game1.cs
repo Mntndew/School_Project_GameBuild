@@ -196,6 +196,7 @@ namespace GameBuild
             oldState = keyState;
             keyState = Keyboard.GetState();
             testLight.Update(character.position.X, character.position.Y);
+
             foreach (cWarp warp in warps)
             {
                 warp.CheckMap(this);
@@ -204,7 +205,6 @@ namespace GameBuild
                     warp.Update(character, this);
                 }
             }
-
             if (currentGameState == GameState.PLAY) //TODO: gamestates for making the game update objects logicly *FIXED MUTHA FUCKAH UR WELCOME PAST SELF*
             {
                 character.Update(this, map, gameTime, oldState, GraphicsDevice);
