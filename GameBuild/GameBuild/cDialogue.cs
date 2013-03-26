@@ -42,7 +42,7 @@ namespace GameBuild
             int screenWidth = game.graphics.PreferredBackBufferWidth;
             int screenHeight = game.graphics.PreferredBackBufferHeight;
 
-            portraitPos = new Rectangle(game.graphics.PreferredBackBufferWidth - width, game.graphics.PreferredBackBufferHeight - height, width, height);
+            portraitPos = new Rectangle(screenWidth-portrait.Width,screenHeight -portrait.Height, portrait.Width, portrait.Height);
             textBoxPos = new Rectangle(screenWidth/2 - textBox.Width/2, screenHeight - screenHeight/4 - 150, textBox.Width, textBox.Height);
 
             dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + dialogueFileName + ".txt");
