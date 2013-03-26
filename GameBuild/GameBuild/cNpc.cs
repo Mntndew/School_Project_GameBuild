@@ -101,8 +101,8 @@ namespace GameBuild
             {
                 isOnMap = true;
             }
-            //else
-            //isOnMap = false; <------ Throws exception in the dialogue manager
+            else
+                isOnMap = false;
 
             if (!isOnMap)
             {
@@ -157,43 +157,47 @@ namespace GameBuild
             #endregion
 
             #region Player Interaction
-            if (position.Intersects(player.interactRect))
+            if (isOnMap)
             {
-                canInteract = true;
-                if (!isInteracting)
+                if (position.Intersects(player.interactRect))
                 {
-                    if (!addA)
+                    canInteract = true;
+                    if (!isInteracting)
                     {
-                        aColor.A -= 10;
-                        aColor.B += 10;
-                        aColor.R -= 10;
-                        aColor.G += 10;
+                        if (!addA)
+                        {
+                            aColor.A -= 10;
+                            aColor.B += 10;
+                            aColor.R -= 10;
+                            aColor.G += 10;
+                        }
+                        if (aColor.A <= 50)
+                        {
+                            addA = true;
+                        }
+                        if (addA)
+                        {
+                            aColor.A += 10;
+                            aColor.R += 10;
+                            aColor.B -= 10;
+                            aColor.G -= 10;
+                        }
+                        if (aColor.A >= 240)
+                        {
+                            addA = false;
+                        }
                     }
-                    if (aColor.A <= 50)
+                    else
                     {
-                        addA = true;
-                    }
-                    if (addA)
-                    {
-                        aColor.A += 10;
-                        aColor.R += 10;
-                        aColor.B -= 10;
-                        aColor.G -= 10;
-                    }
-                    if (aColor.A >= 240)
-                    {
-                        addA = false;
+                        this.dialogue.isTalking = true;
                     }
                 }
                 else
                 {
-                    this.dialogue.isTalking = true;
+                    canInteract = false;
                 }
             }
-            else
-            {
-                canInteract = false;
-            }
+            
             #endregion
         }
 

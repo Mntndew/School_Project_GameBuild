@@ -51,6 +51,7 @@ namespace GameBuild
 
         public SpriteFont spriteFont;
 
+        public List<cNpc> mapNpcs = new List<cNpc>();
         public List<cNpc> Npcs = new List<cNpc>();
         int files = Directory.GetFiles(@"Content\npc\npc\").Length; //number of npcs
         string[] names; // array of all npc names
@@ -143,7 +144,11 @@ namespace GameBuild
                     bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
                     int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), this, reader.ReadLine());
                 reader.Close();
-                Npcs.Add(npc);
+                npc.CheckMap(this);
+                if (npc.isOnMap)
+                {
+                    mapNpcs.Add(npc);
+                }
             }
         }
 
@@ -200,11 +205,8 @@ namespace GameBuild
             camera.Pos = character.vectorPos;
 
             //Update NPCs 
-            foreach (cNpc npc in Npcs)
+            foreach (cNpc npc in mapNpcs)
             {
-                npc.CheckMap(this);
-                if (npc.isOnMap)
-                {
                     npc.Update(character, map, this);
                     if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && npc.canInteract)
                     {
@@ -222,7 +224,6 @@ namespace GameBuild
                             currentGameState = GameState.INTERACT;
                             Console.WriteLine(npc.mapName);
                         }
-                    }
                 }
             }
 
@@ -259,20 +260,20 @@ namespace GameBuild
             map.DrawInteractiveLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
             character.Draw(spriteBatch);
 
-            for (int i = 0; i < Npcs.Count; i++)
+            for (int i = 0; i < mapNpcs.Count; i++)
             {
-                if (Npcs[i].isOnMap)
+                if (mapNpcs[i].isOnMap)
                 {
-                    Npcs[i].Draw(spriteBatch);
+                    mapNpcs[i].Draw(spriteBatch);
                 }
             }
 
             map.DrawForegroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
-            for (int i = 0; i < Npcs.Count; i++)
+            for (int i = 0; i < mapNpcs.Count; i++)
             {
-                if (Npcs[i].isOnMap)
+                if (mapNpcs[i].isOnMap)
                 {
-                    Npcs[i].DrawA(spriteBatch);
+                    mapNpcs[i].DrawA(spriteBatch);
                 }
             }
             spriteBatch.DrawString(spriteFont, "" + character.hp, new Vector2(character.position.X + (character.position.Width / 2), character.position.Y - 10), Color.Red);
@@ -299,13 +300,13 @@ namespace GameBuild
 
             //Spritebatch for HUD stuff
             spriteBatch.Begin();
-            for (int i = 0; i < Npcs.Count; i++)
+            for (int i = 0; i < mapNpcs.Count; i++)
             {
-                if (Npcs[i].isOnMap)
+                if (mapNpcs[i].isOnMap)
                 {
-                    if (Npcs[i].isInteracting)
+                    if (mapNpcs[i].isInteracting)
                     {
-                        Npcs[i].dialogue.Draw(spriteBatch);
+                        mapNpcs[i].dialogue.Draw(spriteBatch);
                     }
                 }
             }
