@@ -65,7 +65,7 @@ namespace GameBuild
 
         Random rand = new Random();
 
-        cCharacter character;
+        public cCharacter character;
 
         //Debugging stuffs
         public Texture2D collisionTex;
@@ -215,22 +215,25 @@ namespace GameBuild
             //Update NPCs 
             foreach (cNpc npc in activeNpcs)
             {
-                npc.Update(character, map, this);
-                if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && npc.canInteract)
+                if (npc.health > 0)
                 {
-                    if (npc.isInteracting)
+                    npc.Update(character, map, this, gameTime);
+                    if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && npc.canInteract)
                     {
-                        npc.isInteracting = false;
-                        npc.dialogue.isTalking = false;
-                        npc.dialogue.ResetDialogue();
-                        currentGameState = GameState.PLAY;
-                    }
-                    else
-                    {
-                        npc.isInteracting = true;
-                        npc.dialogue.isTalking = true;
-                        currentGameState = GameState.INTERACT;
-                        Console.WriteLine(npc.mapName);
+                        if (npc.isInteracting)
+                        {
+                            npc.isInteracting = false;
+                            npc.dialogue.isTalking = false;
+                            npc.dialogue.ResetDialogue();
+                            currentGameState = GameState.PLAY;
+                        }
+                        else
+                        {
+                            npc.isInteracting = true;
+                            npc.dialogue.isTalking = true;
+                            currentGameState = GameState.INTERACT;
+                            Console.WriteLine(npc.mapName);
+                        }
                     }
                 }
             }
@@ -244,6 +247,7 @@ namespace GameBuild
                 }
             }
             #endregion
+
             base.Update(gameTime);
         }
 
@@ -278,7 +282,7 @@ namespace GameBuild
             {
                 activeNpcs[i].DrawA(spriteBatch);
             }
-            spriteBatch.DrawString(spriteFont, "" + character.hp, new Vector2(character.position.X + (character.position.Width / 2), character.position.Y - 10), Color.Red);
+            //spriteBatch.DrawString(spriteFont, "" + character.hp, new Vector2(character.position.X + (character.position.Width / 2), character.position.Y - 10), Color.Red);
             //debugging
             for (int i = 0; i < warps.Count; i++)
             {
@@ -287,8 +291,9 @@ namespace GameBuild
                     warps[i].Draw(spriteBatch, this);
                 }
             }
+            //Spritebatch for HUD stuff
+            character.DrawHealthBar(spriteBatch);
             spriteBatch.End();
-            // TODO: Add your drawing code here
 
             //draws out the light mask over the world, uses multiplication blending to create the effect
             BlendState blendState = new BlendState();
@@ -300,7 +305,6 @@ namespace GameBuild
             spriteBatch.Draw(lightMask, new Vector2(0, 0), Color.White);
             spriteBatch.End();
 
-            //Spritebatch for HUD stuff
             spriteBatch.Begin();
             for (int i = 0; i < activeNpcs.Count; i++)
             {
@@ -313,7 +317,6 @@ namespace GameBuild
                 }
             }
             spriteBatch.End();
-
             float framerate = 1f / (float)gameTime.ElapsedGameTime.TotalSeconds;
             //Console.WriteLine(framerate);
             base.Draw(gameTime);

@@ -17,8 +17,6 @@ namespace GameBuild
         public Rectangle portraitPos;
         public Rectangle textBoxPos;
 
-        int width = 0, height = 0;
-
         public bool isTalking;
 
         int selection = 1;

@@ -17,8 +17,8 @@ namespace GameBuild
         public bool up = false, right = false, down = true, left = false;
         public bool faceUp = false, faceDown = false, faceLeft = false, faceRight = false;
         public bool attacking = false;
+        bool inCombat;
 
-        public int hp;
         public int playerHeight = 48; //size of the player sprite in pixels
         public int playerWidth = 48;
 
@@ -26,11 +26,14 @@ namespace GameBuild
         public Rectangle interactRect; //for npcs and stuff
         Rectangle colRect;
         public Vector2 vectorPos; //for camera
+        public Rectangle attackRectangle;
+        Rectangle healthPos;
 
         public Texture2D spriteWalkSheet;
         public Texture2D spriteAttackSheet;
         public Texture2D shadowBlob;
         Texture2D debugTexture;
+        Texture2D healthTexture;
 
         cAnimationManager walkAnimations;
         cAnimationManager attackAnimations;
@@ -40,15 +43,22 @@ namespace GameBuild
         public Color color = new Color(255, 255, 255, 255); //blink when player gets hit
         public Color hpColor;
 
+        public float health;
+        float healthPct;
+        float maxHealth;
+        float regenTimer = 1;
+        const float REGENTIMER = 1;
+
         public cCharacter(Game1 game)
         {
-            hp = 100;
-
+            health = 100;
+            maxHealth = health;
             #region Textures
             debugTexture = game.Content.Load<Texture2D>("blackness");
             spriteWalkSheet = game.Content.Load<Texture2D>("player/CharaWalkSheet");
             spriteAttackSheet = game.Content.Load<Texture2D>("player/CharaAttackSheet V2");
             shadowBlob = game.Content.Load<Texture2D>("player/shadowTex");
+            healthTexture = game.Content.Load<Texture2D>("health100");
             #endregion
 
             #region Rectangles and Vectors
@@ -56,6 +66,8 @@ namespace GameBuild
             interactRect = new Rectangle(position.X - (position.Width / 2), position.Y - (position.Height / 2), position.Width * 2, position.Height * 2);
             vectorPos = new Vector2(position.X, position.Y);
             colRect = new Rectangle();
+            attackRectangle = new Rectangle();
+            healthPos = new Rectangle();
             #endregion
 
             #region Animations
@@ -78,6 +90,51 @@ namespace GameBuild
         public void Update(Game1 game, H_Map.TileMap tiles, GameTime gameTime, KeyboardState oldState, GraphicsDevice graphicsDevice)
         {
             #region Things to update every frame, positions and stuff
+            healthPct = (health / maxHealth) * 100;
+            if (healthPct <= 37)
+            {
+                healthTexture = game.Content.Load<Texture2D>("health25");
+            }
+            if (healthPct > 37 && healthPct <= 62)
+            {
+                healthTexture = game.Content.Load<Texture2D>("health50");
+            }
+            if (healthPct > 62 && healthPct <= 87)
+            {
+                healthTexture = game.Content.Load<Texture2D>("health75");
+            }
+            if (healthPct > 87)
+            {
+                healthTexture = game.Content.Load<Texture2D>("health100");
+            }
+            if (healthPct <= 0)
+            {
+                healthTexture = game.Content.Load<Texture2D>("healthEmpty");
+            }
+            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            if (inCombat)
+            {
+                regenTimer = REGENTIMER;
+            }
+            else
+                regenTimer -= elapsed;
+
+            if (regenTimer <= 0)
+            {
+                if (health < maxHealth)
+                {
+                    if (maxHealth - health >= 5)
+                    {
+                        health += 5;
+                    }
+                    else
+                        health += maxHealth - health;
+                }
+                
+                regenTimer = REGENTIMER;
+            }
+            Console.WriteLine(health);
             tile = tiles;
             interactRect.X = position.X - (position.Width / 2);
             interactRect.Y = position.Y - (position.Height / 2);
@@ -86,8 +143,40 @@ namespace GameBuild
             Rectangle corner2 = new Rectangle(colRect.X, colRect.Y, colRect.Width, colRect.Height);
             Rectangle halfcorner1 = new Rectangle(colRect.X, colRect.Y, colRect.Width, colRect.Height);
             Rectangle halfcorner2 = new Rectangle(colRect.X, colRect.Y + halfcorner1.Height, colRect.Width, colRect.Height);
+            healthPos.X = position.X;
+            healthPos.Y = position.Y;
+            healthPos.Width = healthTexture.Width;
+            healthPos.Height = healthTexture.Height;
             vectorPos.X = position.X;
             vectorPos.Y = position.Y;
+            if (left)
+            {
+                attackRectangle.Width = position.Width * 2;
+                attackRectangle.Height = 48;
+                attackRectangle.X = position.X - position.Width;
+                attackRectangle.Y = position.Y + 5;
+            }
+            if (right)
+            {
+                attackRectangle.Width = position.Width * 2;
+                attackRectangle.Height = 48;
+                attackRectangle.X = position.X;
+                attackRectangle.Y = position.Y + 5;
+            }
+            if (up)
+            {
+                attackRectangle.Width = position.Width;
+                attackRectangle.Height = position.Height * 2;
+                attackRectangle.X = position.X;
+                attackRectangle.Y = position.Y - position.Height;
+            }
+            if (down)
+            {
+                attackRectangle.Width = position.Width;
+                attackRectangle.Height = position.Height * 2;
+                attackRectangle.X = position.X;
+                attackRectangle.Y = position.Y;
+            }
             #endregion
 
             #region walk
@@ -207,13 +296,45 @@ namespace GameBuild
                 {
                     walkAnimations.StopAnimation();
                 }
+            }
+
 
             #endregion
 
-                //Hp Color for lighting
-                hpColor.B = (byte)(hp * 2.55);
-                hpColor.G = (byte)(hp * 2.55);
+            //Attack
+            if (game.keyState.IsKeyDown(Keys.Z) && game.oldState.IsKeyUp(Keys.Z))
+            {
+                foreach (cNpc npc in game.activeNpcs)
+                {
+                    if (npc.position.Intersects(attackRectangle))
+                    {
+                        if (npc.health <= 25)
+                        {
+                            npc.healthTexture = game.Content.Load<Texture2D>("healthEmpty");
+                            npc.health = 0;
+                        }
+                        if (npc.health > 0)
+                        {
+                            npc.health -= 25;
+                            npc.attackPlayer = true;
+                        }
+                    }
+                }
             }
+                foreach (cNpc npc in game.activeNpcs)
+                {
+                    if (npc.health > 0)
+                    {
+                        if (npc.attackPlayer)
+                        {
+                            inCombat = true;
+                        }
+                        else
+                            inCombat = false;
+                    }
+                    else
+                        inCombat = false;
+                }
         }
 
         public bool IsCollision(H_Map.TileMap tiles, Rectangle location)
@@ -221,17 +342,6 @@ namespace GameBuild
             tile = tiles;
             Point tileIndex = tile.GetTileIndexFromVector(new Vector2(location.X, location.Y));
             return (tile.interactiveLayer[tileIndex.X, tileIndex.Y].isPassable == false);
-        }
-
-        public void AddHp(int amount)
-        {
-            if (hp < 100)
-                hp += amount;
-        }
-        public void RemoveHp(int amount)
-        {
-            if (hp > 0)
-                hp -= amount;
         }
 
         public void CheckCollision(H_Map.TileMap tiles, GameTime gameTime)
@@ -262,8 +372,8 @@ namespace GameBuild
         {
             Rectangle shadowPos = new Rectangle(position.X + 8, position.Bottom - shadowBlob.Height / 2, shadowBlob.Width, shadowBlob.Height);
             spriteBatch.Draw(shadowBlob, shadowPos, Color.White);
+            spriteBatch.Draw(debugTexture, attackRectangle, new Color(100, 100, 100, 100));
             spriteBatch.Draw(debugTexture, interactRect, new Color(100, 100, 100, 100));
-            //spriteBatch.Draw(testTexture, frontOf, new Color(10, 10, 10));
             if (!attacking)
             {
                 walkAnimations.Draw(spriteBatch, position);
@@ -273,6 +383,14 @@ namespace GameBuild
                 attackAnimations.Draw(spriteBatch, position);
             }
 
+        }
+
+        public void DrawHealthBar(SpriteBatch spriteBatch)
+        {
+            if (healthTexture != null)
+            {
+                spriteBatch.Draw(healthTexture, healthPos, Color.White);
+            }
         }
     }
 }

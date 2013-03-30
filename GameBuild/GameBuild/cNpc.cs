@@ -13,26 +13,33 @@ namespace GameBuild
         Vector2 point2;
         Vector2 point3;
         Vector2 point4;
-        Rectangle position;
+        public Rectangle position;
         Rectangle corner1;
         Rectangle corner2;
         Rectangle colRect;
         Vector2 velocity;
         Rectangle patrolRect;
         Rectangle aPosition;
+        Rectangle healthPos;
 
         Texture2D texture;
         Texture2D aTexture;
+        public Texture2D healthTexture;
 
-        public int health;
+        float maxHealth;
+        public float health;
+        float healthPct;
 
         public float speed;
+        float attackTimer = 1;
+        const float ATTACKTIMER = 1;
 
         public bool point1Tagged = false, point2Tagged = false, point3Tagged = false, point4Tagged = false;
         public bool canInteract;
         public bool isOnMap;
         public bool hasBeenAdded = false;
         public bool isInteracting = false;
+        public bool attackPlayer = false;
         bool addA = false;
 
         public string name;
@@ -68,8 +75,9 @@ namespace GameBuild
             point3 = new Vector2(patrolX, patrolY + patrolHeight);
             point4 = new Vector2(patrolX + patrolWidth, patrolY + patrolHeight);
             position = new Rectangle(x, y, width, height);
+            healthPos = new Rectangle(position.X + 8, position.Y - 15, 48, 10);
             velocity = new Vector2(0, 0);
-            health = 50;
+            health = 200;
             aTexture = game.Content.Load<Texture2D>("A");
             aPosition = new Rectangle(0, 0, aTexture.Width, aTexture.Height);
             aColor = Color.White;
@@ -93,6 +101,8 @@ namespace GameBuild
                 currentPatrolType = patrolType.none;
             }
 
+            maxHealth = 200;
+
             this.speed = speed;
         }
 
@@ -106,7 +116,39 @@ namespace GameBuild
                 isOnMap = false;
         }
 
-        public void Update(cCharacter player, H_Map.TileMap tiles, Game1 game)
+        public void Attack(Game1 game, GameTime gameTime)
+        {
+            if (game.character.position.X < position.X)
+            {
+                velocity.X = -speed * 2;
+            }
+            if (game.character.position.X > position.X)
+            {
+                velocity.X = speed * 2;
+            }
+            if (game.character.position.Y < position.Y)
+            {
+                velocity.Y = -speed * 2;
+            }
+            if (game.character.position.Y > position.Y)
+            {
+                velocity.Y = speed * 2;
+            }
+            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (game.character.position.Intersects(position))
+            {
+
+                attackTimer -= elapsed;
+                if (attackTimer <= 0)
+                {
+                    game.character.health -= 15;
+                    attackTimer = ATTACKTIMER;
+                }
+                
+            }
+        }
+
+        public void Update(cCharacter player, H_Map.TileMap tiles, Game1 game, GameTime gameTime)
         {
             #region things to update every frame, positions
             aPosition.X = position.X - (position.Width / 2);
@@ -116,8 +158,11 @@ namespace GameBuild
             corner2 = new Rectangle(colRect.X, colRect.Y, colRect.Width, colRect.Height);
             position.X += (int)velocity.X;
             position.Y += (int)velocity.Y;
+            healthPos.X = position.X + 8;
+            healthPos.Y = position.Y - 15;
+            healthPos.Width = 48;
+            healthPos.Height = 10;
             #endregion
-
             CheckMap(game);
 
             #region collision
@@ -132,6 +177,33 @@ namespace GameBuild
             }
             #endregion
 
+            healthPct = (health / maxHealth) * 100;
+            Console.WriteLine(healthPct);
+                if (healthPct <= 37)
+                {
+                    healthTexture = game.Content.Load<Texture2D>("health25");
+                }
+                if (healthPct > 37 && healthPct <= 62)
+                {
+                    healthTexture = game.Content.Load<Texture2D>("health50");
+                }
+                if (healthPct > 62 && healthPct <= 87)
+                {
+                    healthTexture = game.Content.Load<Texture2D>("health75");
+                }
+                if (healthPct > 87)
+                {
+                    healthTexture = game.Content.Load<Texture2D>("health100");
+                }
+                if (healthPct <= 0)
+                {
+                    healthTexture = game.Content.Load<Texture2D>("healthEmpty");
+                }
+                if (attackPlayer)
+                {
+                    canInteract = false;
+                    Attack(game, gameTime);
+                }
             if (game.currentGameState == Game1.GameState.PLAY)
             {
                 if (currentPatrolType != patrolType.none)
@@ -155,7 +227,7 @@ namespace GameBuild
             #region Player Interaction
             if (isOnMap)
             {
-                if (position.Intersects(player.interactRect))
+                if (position.Intersects(player.interactRect) && !attackPlayer)
                 {
                     canInteract = true;
                     if (!isInteracting)
@@ -538,6 +610,12 @@ namespace GameBuild
                 {
                     spriteBatch.Draw(texture, position, color);
                     spriteBatch.Draw(texture, patrolRect, new Color(20, 20, 20, 100));
+                    
+                    
+                }
+                if (healthTexture != null)
+                {
+                    spriteBatch.Draw(healthTexture, healthPos, Color.White);
                 }
             }
         }

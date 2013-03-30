@@ -1,7 +1,7 @@
 //This is a comment test
-0.0 Hello dear child, are you a boy or a girl?
-0.1 Boy.
-0.2 Girl.
+0.0 Do you like little girls, or little boys?
+0.1 Boys.
+0.2 Girls.
 1.0 Would you like a race car or a toy sword?
 1.3 Race car.
 1.3 Toy sword.

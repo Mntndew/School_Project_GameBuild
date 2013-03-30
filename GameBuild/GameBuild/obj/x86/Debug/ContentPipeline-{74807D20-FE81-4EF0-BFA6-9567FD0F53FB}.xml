@@ -29,42 +29,6 @@
       <Time>2013-03-21T13:05:09+01:00</Time>
     </Item>
     <Item>
-      <Source>enemy\Down.png</Source>
-      <Name>enemy\Down</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Down.xnb</Output>
-      <Time>2013-03-21T13:05:09+01:00</Time>
-    </Item>
-    <Item>
-      <Source>enemy\Left.png</Source>
-      <Name>enemy\Left</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Left.xnb</Output>
-      <Time>2013-03-21T13:05:09+01:00</Time>
-    </Item>
-    <Item>
-      <Source>enemy\Right.png</Source>
-      <Name>enemy\Right</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Right.xnb</Output>
-      <Time>2013-03-21T13:05:09+01:00</Time>
-    </Item>
-    <Item>
-      <Source>enemy\Up.png</Source>
-      <Name>enemy\Up</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Up.xnb</Output>
-      <Time>2013-03-21T13:05:09+01:00</Time>
-    </Item>
-    <Item>
       <Source>lightTexture.png</Source>
       <Name>lightTexture</Name>
       <Importer>TextureImporter</Importer>
@@ -107,33 +71,6 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\A.xnb</Output>
-      <Time>2013-03-21T13:05:09+01:00</Time>
-    </Item>
-    <Item>
-      <Source>questReceive.png</Source>
-      <Name>questReceive</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\questReceive.xnb</Output>
-      <Time>2013-03-21T13:05:09+01:00</Time>
-    </Item>
-    <Item>
-      <Source>npc_test_portrait.png</Source>
-      <Name>npc_test_portrait</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc_test_portrait.xnb</Output>
-      <Time>2013-03-21T13:05:09+01:00</Time>
-    </Item>
-    <Item>
-      <Source>npc_test_portrait2.png</Source>
-      <Name>npc_test_portrait2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc_test_portrait2.xnb</Output>
       <Time>2013-03-21T13:05:09+01:00</Time>
     </Item>
     <Item>
@@ -206,7 +143,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\sprite\Test.xnb</Output>
-      <Time>2013-03-21T14:29:57+01:00</Time>
+      <Time>2013-03-27T10:57:12.1556872+01:00</Time>
     </Item>
     <Item>
       <Source>npc\portrait\Testing.png</Source>
@@ -215,15 +152,6 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\portrait\Testing.xnb</Output>
-      <Time>2013-03-24T15:17:30+01:00</Time>
-    </Item>
-    <Item>
-      <Source>npc\sprite\Testing.png</Source>
-      <Name>npc\sprite\Testing</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\sprite\Testing.xnb</Output>
       <Time>2013-03-24T15:17:30+01:00</Time>
     </Item>
     <Item>
@@ -288,6 +216,51 @@
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\target.xnb</Output>
       <Time>2013-03-25T17:22:50.1609365+01:00</Time>
+    </Item>
+    <Item>
+      <Source>health100.png</Source>
+      <Name>health100</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\health100.xnb</Output>
+      <Time>2013-03-30T04:27:29.0383028+01:00</Time>
+    </Item>
+    <Item>
+      <Source>health25.png</Source>
+      <Name>health25</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\health25.xnb</Output>
+      <Time>2013-03-30T04:27:29.0553037+01:00</Time>
+    </Item>
+    <Item>
+      <Source>health50.png</Source>
+      <Name>health50</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\health50.xnb</Output>
+      <Time>2013-03-30T04:27:29.0413029+01:00</Time>
+    </Item>
+    <Item>
+      <Source>health75.png</Source>
+      <Name>health75</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\health75.xnb</Output>
+      <Time>2013-03-30T04:27:29.0453032+01:00</Time>
+    </Item>
+    <Item>
+      <Source>healthEmpty.png</Source>
+      <Name>healthEmpty</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\healthEmpty.xnb</Output>
+      <Time>2013-03-30T04:27:29.0433031+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
