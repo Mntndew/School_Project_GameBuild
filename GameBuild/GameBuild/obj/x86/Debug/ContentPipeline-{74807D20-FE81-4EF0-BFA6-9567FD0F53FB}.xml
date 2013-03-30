@@ -262,6 +262,15 @@
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\healthEmpty.xnb</Output>
       <Time>2013-03-30T04:27:29.0433031+01:00</Time>
     </Item>
+    <Item>
+      <Source>emptySlot.png</Source>
+      <Name>emptySlot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\emptySlot.xnb</Output>
+      <Time>2013-03-30T18:08:58.547576+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}</ContentProjectGUID>

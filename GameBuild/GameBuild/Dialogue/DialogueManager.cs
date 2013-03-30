@@ -60,7 +60,7 @@ namespace GameBuild
                 }
                 catch
                 {
-                    Console.WriteLine("Derp broke retard l2code");
+                    //Console.WriteLine("Derp broke retard l2code");
                 }
             }
         }
@@ -71,8 +71,8 @@ namespace GameBuild
             {
                 for (int j = 0; j < items[i].Count; j++)
                 {
-                    Console.WriteLine(items[i][j].Line);
-                    Console.WriteLine(items[i][j].NextStatement);
+                    //Console.WriteLine(items[i][j].Line);
+                    //Console.WriteLine(items[i][j].NextStatement);
                 }
             }
         }

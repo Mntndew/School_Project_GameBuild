@@ -18,6 +18,7 @@ namespace GameBuild
         public bool faceUp = false, faceDown = false, faceLeft = false, faceRight = false;
         public bool attacking = false;
         bool inCombat;
+        public bool showInventory;
 
         public int playerHeight = 48; //size of the player sprite in pixels
         public int playerWidth = 48;
@@ -45,14 +46,17 @@ namespace GameBuild
 
         public float health;
         float healthPct;
-        float maxHealth;
+        public float maxHealth;
         float regenTimer = 1;
         const float REGENTIMER = 1;
+
+        public Inventory inventory;
 
         public cCharacter(Game1 game)
         {
             health = 100;
             maxHealth = health;
+
             #region Textures
             debugTexture = game.Content.Load<Texture2D>("blackness");
             spriteWalkSheet = game.Content.Load<Texture2D>("player/CharaWalkSheet");
@@ -85,6 +89,8 @@ namespace GameBuild
             #endregion
 
             hpColor = new Color(200, 200, 200, 255);
+
+            inventory = new Inventory(game);
         }
 
         public void Update(Game1 game, H_Map.TileMap tiles, GameTime gameTime, KeyboardState oldState, GraphicsDevice graphicsDevice)
@@ -134,7 +140,6 @@ namespace GameBuild
                 
                 regenTimer = REGENTIMER;
             }
-            Console.WriteLine(health);
             tile = tiles;
             interactRect.X = position.X - (position.Width / 2);
             interactRect.Y = position.Y - (position.Height / 2);
@@ -144,7 +149,7 @@ namespace GameBuild
             Rectangle halfcorner1 = new Rectangle(colRect.X, colRect.Y, colRect.Width, colRect.Height);
             Rectangle halfcorner2 = new Rectangle(colRect.X, colRect.Y + halfcorner1.Height, colRect.Width, colRect.Height);
             healthPos.X = position.X;
-            healthPos.Y = position.Y;
+            healthPos.Y = position.Y - 10;
             healthPos.Width = healthTexture.Width;
             healthPos.Height = healthTexture.Height;
             vectorPos.X = position.X;
@@ -301,6 +306,16 @@ namespace GameBuild
 
             #endregion
 
+            if (game.keyState.IsKeyDown(Keys.Tab) && oldState.IsKeyUp(Keys.Tab))
+            {
+                if (showInventory)
+                {
+                    showInventory = false;
+                }
+                else
+                    showInventory = true;
+            }
+
             //Attack
             if (game.keyState.IsKeyDown(Keys.Z) && game.oldState.IsKeyUp(Keys.Z))
             {
@@ -321,59 +336,36 @@ namespace GameBuild
                     }
                 }
             }
-                foreach (cNpc npc in game.activeNpcs)
+            foreach (cNpc npc in game.activeNpcs)
+            {
+                if (npc.health > 0)
                 {
-                    if (npc.health > 0)
+                    if (npc.attackPlayer)
                     {
-                        if (npc.attackPlayer)
-                        {
-                            inCombat = true;
-                        }
-                        else
-                            inCombat = false;
+                        inCombat = true;
                     }
                     else
                         inCombat = false;
                 }
+                else
+                    inCombat = false;
+            }
         }
 
         public bool IsCollision(H_Map.TileMap tiles, Rectangle location)
         {
-            tile = tiles;
-            Point tileIndex = tile.GetTileIndexFromVector(new Vector2(location.X, location.Y));
-            return (tile.interactiveLayer[tileIndex.X, tileIndex.Y].isPassable == false);
+            Point tileIndex = tiles.GetTileIndexFromVector(new Vector2(location.X, location.Y));
+            return (tiles.interactiveLayer[tileIndex.X, tileIndex.Y].isPassable == false);
         }
 
-        public void CheckCollision(H_Map.TileMap tiles, GameTime gameTime)
-        {
-            tile = tiles;
-            Rectangle colRect = position;
-            Point tileIndex = tile.GetTileIndexFromVector(new Vector2(colRect.X, colRect.Y));
-
-            if (up)
-            {
-                colRect.Height += 10;
-            }
-            else if (left)
-            {
-                colRect.Width += 10;
-            }
-            else if (down)
-            {
-                colRect.Height += 10;
-            }
-            else if (right)
-            {
-                colRect.Width += 10;
-            }
-        }
+        
 
         public void Draw(SpriteBatch spriteBatch)
         {
             Rectangle shadowPos = new Rectangle(position.X + 8, position.Bottom - shadowBlob.Height / 2, shadowBlob.Width, shadowBlob.Height);
             spriteBatch.Draw(shadowBlob, shadowPos, Color.White);
-            spriteBatch.Draw(debugTexture, attackRectangle, new Color(100, 100, 100, 100));
-            spriteBatch.Draw(debugTexture, interactRect, new Color(100, 100, 100, 100));
+            //spriteBatch.Draw(debugTexture, attackRectangle, new Color(100, 100, 100, 100));
+            //spriteBatch.Draw(debugTexture, interactRect, new Color(100, 100, 100, 100));
             if (!attacking)
             {
                 walkAnimations.Draw(spriteBatch, position);
@@ -385,11 +377,12 @@ namespace GameBuild
 
         }
 
-        public void DrawHealthBar(SpriteBatch spriteBatch)
+        public void DrawHealthBar(SpriteBatch spriteBatch, Game1 game)
         {
             if (healthTexture != null)
             {
                 spriteBatch.Draw(healthTexture, healthPos, Color.White);
+                inventory.Draw(spriteBatch, game);
             }
         }
     }

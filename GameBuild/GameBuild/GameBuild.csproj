@@ -89,11 +89,13 @@
     <Compile Include="cAnimationManager.cs" />
     <Compile Include="cCharacter.cs" />
     <Compile Include="cDialogue.cs" />
+    <Compile Include="Inventory.cs" />
     <Compile Include="cLighting.cs" />
     <Compile Include="cNpc.cs" />
     <Compile Include="cWarp.cs" />
     <Compile Include="Dialogue\DialogueItem.cs" />
     <Compile Include="Dialogue\DialogueManager.cs" />
+    <Compile Include="InventorySlot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />

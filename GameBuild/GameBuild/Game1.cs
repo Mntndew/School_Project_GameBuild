@@ -60,9 +60,6 @@ namespace GameBuild
         int warpFiles = Directory.GetFiles(@"Content\warp\").Length;
         string[] warp;
 
-        cLighting testLight = new cLighting(new Rectangle(0, 0, 2000, 2000), 140, 20, new Color(245, 225, 170, 200)); //for ambient lighting 
-        RenderTarget2D lightMask; //what he said ^
-
         Random rand = new Random();
 
         public cCharacter character;
@@ -121,11 +118,9 @@ namespace GameBuild
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             collisionTex = Content.Load<Texture2D>("blackness");
-            testLight.LoadTexture(Content, "lightTexture");
-            lightMask = new RenderTarget2D(GraphicsDevice, GraphicsDevice.PresentationParameters.BackBufferWidth, GraphicsDevice.PresentationParameters.BackBufferHeight);
             map = Content.Load<H_Map.TileMap>("source");
             map.tileset = Content.Load<Texture2D>("tileset");
-            Console.WriteLine(map.mapName);
+            //Console.WriteLine(map.mapName);
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
             LoadWarps();
             LoadNpcs();
@@ -195,7 +190,6 @@ namespace GameBuild
                 this.Exit();
             oldState = keyState;
             keyState = Keyboard.GetState();
-            testLight.Update(character.position.X, character.position.Y);
 
             foreach (cWarp warp in warps)
             {
@@ -232,7 +226,7 @@ namespace GameBuild
                             npc.isInteracting = true;
                             npc.dialogue.isTalking = true;
                             currentGameState = GameState.INTERACT;
-                            Console.WriteLine(npc.mapName);
+                            //Console.WriteLine(npc.mapName);
                         }
                     }
                 }
@@ -243,7 +237,7 @@ namespace GameBuild
             {
                 for (int i = 0; i < Npcs.Count; i++)
                 {
-                    Console.WriteLine(Npcs[i].name);
+                    //Console.WriteLine(Npcs[i].name);
                 }
             }
             #endregion
@@ -257,12 +251,6 @@ namespace GameBuild
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            //draws the lightmask to a separate render target
-            GraphicsDevice.SetRenderTarget(lightMask);
-            GraphicsDevice.Clear(Color.Black);
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Additive);
-            testLight.Draw(spriteBatch);
-            spriteBatch.End();
 
             //draws out the world on the default back buffer with all entities 
             GraphicsDevice.SetRenderTarget(null);
@@ -282,17 +270,17 @@ namespace GameBuild
             {
                 activeNpcs[i].DrawA(spriteBatch);
             }
-            //spriteBatch.DrawString(spriteFont, "" + character.hp, new Vector2(character.position.X + (character.position.Width / 2), character.position.Y - 10), Color.Red);
+            spriteBatch.DrawString(spriteFont, character.health + "/" + character.maxHealth, new Vector2(character.position.X - 10, character.position.Y - 35), Color.Red);
             //debugging
             for (int i = 0; i < warps.Count; i++)
             {
                 if (warps[i].isOnMap)
                 {
-                    warps[i].Draw(spriteBatch, this);
+                    //warps[i].Draw(spriteBatch, this);
                 }
             }
             //Spritebatch for HUD stuff
-            character.DrawHealthBar(spriteBatch);
+            character.DrawHealthBar(spriteBatch, this);
             spriteBatch.End();
 
             //draws out the light mask over the world, uses multiplication blending to create the effect
@@ -302,7 +290,6 @@ namespace GameBuild
             blendState.AlphaSourceBlend = Blend.Zero;
             blendState.AlphaDestinationBlend = Blend.SourceAlpha;
             spriteBatch.Begin(SpriteSortMode.Immediate, blendState);
-            spriteBatch.Draw(lightMask, new Vector2(0, 0), Color.White);
             spriteBatch.End();
 
             spriteBatch.Begin();

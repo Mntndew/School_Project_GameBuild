@@ -108,7 +108,7 @@ namespace GameBuild
             else
             {
                 ResetDialogue();
-                Console.WriteLine("FREE");
+                //Console.WriteLine("FREE");
             }
         }
 

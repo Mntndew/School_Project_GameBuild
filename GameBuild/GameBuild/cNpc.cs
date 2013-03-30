@@ -14,6 +14,7 @@ namespace GameBuild
         Vector2 point3;
         Vector2 point4;
         public Rectangle position;
+        Rectangle location;
         Rectangle corner1;
         Rectangle corner2;
         Rectangle colRect;
@@ -57,7 +58,6 @@ namespace GameBuild
         Color color = new Color(255, 50, 50, 100);
         Color aColor;
 
-        H_Map.TileMap tile;
         public cDialogue dialogue;
 
         public cNpc(string mapName, string name, int x, int y, int width, int height, bool up, bool down, bool left, bool right, string spritePath, string portraitPath, bool patrolNone, bool patrolUpDown, bool patrolLeftRight, bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game, string dialoguePath)
@@ -116,23 +116,44 @@ namespace GameBuild
                 isOnMap = false;
         }
 
-        public void Attack(Game1 game, GameTime gameTime)
+        public void Attack(Game1 game, GameTime gameTime, H_Map.TileMap tiles)
         {
-            if (game.character.position.X < position.X)
-            {
-                velocity.X = -speed * 2;
-            }
-            if (game.character.position.X > position.X)
-            {
-                velocity.X = speed * 2;
-            }
+            
             if (game.character.position.Y < position.Y)
             {
-                velocity.Y = -speed * 2;
+                location.Y += (int)-speed * 2;
+                corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + (position.Height / 2));
+                corner2 = tiles.GetTileRectangleFromPosition(location.X + texture.Width, location.Y + (position.Height / 2));
             }
             if (game.character.position.Y > position.Y)
             {
-                velocity.Y = speed * 2;
+                location.Y += (int)speed * 2;
+                corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + texture.Height);
+                corner2 = tiles.GetTileRectangleFromPosition(location.X + texture.Width, location.Y + texture.Height);
+            }
+            if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
+            {
+                position.Y = location.Y;
+                colRect = position;
+            }
+            if (game.character.position.X < position.X)
+            {
+                location.X += (int)-speed * 2;
+                location.Y = position.Y;
+                corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + (position.Height / 2));
+                corner2 = tiles.GetTileRectangleFromPosition(location.X, location.Y + texture.Height);
+            }
+            if (game.character.position.X > position.X)
+            {
+                location.Y = position.Y;
+                location.X += (int)speed * 2;
+                corner1 = tiles.GetTileRectangleFromPosition(location.X + texture.Width, location.Y + (position.Height / 2));
+                corner2 = tiles.GetTileRectangleFromPosition(location.X + texture.Width, location.Y + texture.Height);
+            }
+            if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
+            {
+                position.X = location.X;
+                colRect = position;
             }
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             if (game.character.position.Intersects(position))
@@ -148,37 +169,43 @@ namespace GameBuild
             }
         }
 
+        public bool IsCollision(H_Map.TileMap tiles, Rectangle location)
+        {
+            Point tileIndex = tiles.GetTileIndexFromVector(new Vector2(location.X, location.Y));
+            return (tiles.interactiveLayer[tileIndex.X, tileIndex.Y].isPassable == false);
+        }
+
         public void Update(cCharacter player, H_Map.TileMap tiles, Game1 game, GameTime gameTime)
         {
             #region things to update every frame, positions
             aPosition.X = position.X - (position.Width / 2);
             aPosition.Y = position.Y - (position.Height / 2);
-            CheckCollision(tiles);
             corner1 = new Rectangle(colRect.X, colRect.Y, colRect.Width, colRect.Height);
             corner2 = new Rectangle(colRect.X, colRect.Y, colRect.Width, colRect.Height);
+            Rectangle location = new Rectangle(position.X, position.Y, position.Width, position.Height);
             position.X += (int)velocity.X;
             position.Y += (int)velocity.Y;
             healthPos.X = position.X + 8;
             healthPos.Y = position.Y - 15;
             healthPos.Width = 48;
             healthPos.Height = 10;
+            for (int x = 0; x < game.map.mapWidth; x++)
+            {
+                for (int y = 0; y < game.map.mapHeight; y++)
+                {
+                    if (position.Intersects(game.map.interactiveLayer[x, y].textureRectangle))
+                    {
+                        if (!game.map.interactiveLayer[x, y].isPassable)
+                        {
+                            Console.WriteLine("INTERSECTING");
+                        }
+                    }
+                }
+            }
             #endregion
             CheckMap(game);
 
-            #region collision
-            if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
-            {
-                colRect = position;
-            }
-            else if (IsCollision(tiles, corner1) || IsCollision(tiles, corner2))
-            {
-                velocity.X = 0;
-                velocity.Y = 0;
-            }
-            #endregion
-
             healthPct = (health / maxHealth) * 100;
-            Console.WriteLine(healthPct);
                 if (healthPct <= 37)
                 {
                     healthTexture = game.Content.Load<Texture2D>("health25");
@@ -202,7 +229,7 @@ namespace GameBuild
                 if (attackPlayer)
                 {
                     canInteract = false;
-                    Attack(game, gameTime);
+                    Attack(game, gameTime, tiles);
                 }
             if (game.currentGameState == Game1.GameState.PLAY)
             {
@@ -290,19 +317,18 @@ namespace GameBuild
                             velocity.Y = speed;
                         }
 
-
-                        if (point1.X > position.X)
-                        {
-                            velocity.X = speed;
-                        }
-                        if (point1.X < position.X)
-                        {
-                            velocity.X = -speed;
-                        }
-                        if (position.X == point1.X)
-                        {
+                        //if (point1.X > position.X)
+                        //{
+                        //    velocity.X = speed;
+                        //}
+                        //if (point1.X < position.X)
+                        //{
+                        //    velocity.X = -speed;
+                        //}
+                        //if (position.X == point1.X)
+                        //{
                             velocity.X = 0;
-                        }
+                        //}
 
 
                         if (position.Y <= point1.Y)
@@ -310,8 +336,6 @@ namespace GameBuild
                             point1Tagged = true;
                             point2Tagged = false;
                         }
-                        corner1 = tile.GetTileRectangleFromPosition(position.X, position.Y + 24);
-                        corner2 = tile.GetTileRectangleFromPosition(position.X + 48, position.Y + 24);
                     }
 
 
@@ -327,18 +351,18 @@ namespace GameBuild
                         }
 
 
-                        if (point2.X > position.X)
-                        {
-                            velocity.X = speed;
-                        }
-                        if (point2.X < position.X)
-                        {
-                            velocity.X = -speed;
-                        }
-                        if (position.X == point2.X)
-                        {
+                        //if (point2.X > position.X)
+                        //{
+                        //    velocity.X = speed;
+                        //}
+                        //if (point2.X < position.X)
+                        //{
+                        //    velocity.X = -speed;
+                        //}
+                        //if (position.X == point2.X)
+                        //{
                             velocity.X = 0;
-                        }
+                        //}
 
 
                         if (position.Y >= point2.Y - position.Height)
@@ -346,8 +370,6 @@ namespace GameBuild
                             point1Tagged = false;
                             point2Tagged = true;
                         }
-                        corner1 = tile.GetTileRectangleFromPosition(position.X, position.Y + 48);
-                        corner2 = tile.GetTileRectangleFromPosition(position.X + 48, position.Y + 48);
                     }
 
                     #endregion
@@ -360,18 +382,18 @@ namespace GameBuild
                     #region left/right
                     if (!point1Tagged)
                     {
-                        if (position.Y == point1.Y)
-                        {
+                        //if (position.Y == point1.Y)
+                        //{
                             velocity.Y = 0;
-                        }
-                        if (point1.Y > position.Y)
-                        {
-                            velocity.Y = speed;
-                        }
-                        if (point1.Y < position.Y)
-                        {
-                            velocity.Y = -speed;
-                        }
+                        //}
+                        //if (point1.Y > position.Y)
+                        //{
+                        //    velocity.Y = speed;
+                        //}
+                        //if (point1.Y < position.Y)
+                        //{
+                        //    velocity.Y = -speed;
+                        //}
                         if (point1.X > position.X)
                         {
                             velocity.X = speed;
@@ -380,8 +402,6 @@ namespace GameBuild
                         {
                             velocity.X = -speed;
                         }
-                        corner1 = tile.GetTileRectangleFromPosition(position.X, position.Y + 24);
-                        corner2 = tile.GetTileRectangleFromPosition(position.X, position.Y + 48);
                     }
                     if (position.X <= point1.X)
                     {
@@ -391,18 +411,18 @@ namespace GameBuild
 
                     if (point1Tagged && !point2Tagged)
                     {
-                        if (position.Y == point2.Y)
-                        {
+                        //if (position.Y == point2.Y)
+                        //{
                             velocity.Y = 0;
-                        }
-                        if (point2.Y > position.Y)
-                        {
-                            velocity.Y = speed;
-                        }
-                        if (point2.Y < position.Y)
-                        {
-                            velocity.Y = -speed;
-                        }
+                        //}
+                        //if (point2.Y > position.Y)
+                        //{
+                        //    velocity.Y = speed;
+                        //}
+                        //if (point2.Y < position.Y)
+                        //{
+                        //    velocity.Y = -speed;
+                        //}
                         if (point2.X > position.X)
                         {
                             velocity.X = speed;
@@ -411,8 +431,6 @@ namespace GameBuild
                         {
                             velocity.X = -speed;
                         }
-                        corner1 = tile.GetTileRectangleFromPosition(position.X + 48, position.Y + 24);
-                        corner2 = tile.GetTileRectangleFromPosition(position.X + 48, position.Y + 48);
                     }
                     if (position.X >= point2.X - position.Width)
                     {
@@ -447,8 +465,6 @@ namespace GameBuild
                         {
                             velocity.X = -speed;
                         }
-                        corner1 = tile.GetTileRectangleFromPosition(position.X, position.Y + 24);
-                        corner2 = tile.GetTileRectangleFromPosition(position.X + 48, position.Y + 24);
                     }
                     if (position.Y == point1.Y)
                     {
@@ -477,8 +493,6 @@ namespace GameBuild
                             velocity.X = -speed;
                             velocity.Y = 0;
                         }
-                        corner1 = tile.GetTileRectangleFromPosition(position.X + 48, position.Y + 24);
-                        corner2 = tile.GetTileRectangleFromPosition(position.X + 48, position.Y + 48);
                     }
                     if (position.X == point2.X - position.Width)
                     {
@@ -507,8 +521,6 @@ namespace GameBuild
                             velocity.Y = -2;
                             velocity.X = 0;
                         }
-                        corner1 = tile.GetTileRectangleFromPosition(position.X, position.Y + 48);
-                        corner2 = tile.GetTileRectangleFromPosition(position.X + 48, position.Y + 48);
                     }
                     if (position.Y == point3.Y - position.Height)
                     {
@@ -537,8 +549,6 @@ namespace GameBuild
                             velocity.X = -2;
                             velocity.Y = 0;
                         }
-                        corner1 = tile.GetTileRectangleFromPosition(position.X, position.Y + 24);
-                        corner2 = tile.GetTileRectangleFromPosition(position.X, position.Y + 48);
                     }
                     if (position.X == point1.X && point3Tagged)
                     {
@@ -553,53 +563,38 @@ namespace GameBuild
                     break;
                 case patrolType.none:
                     #region points
-                    point1 = new Vector2(patrolRect.X, patrolRect.Y);
-                    Rectangle area = new Rectangle((int)point1.X - 32, (int)point1.Y - 32, 64, 64);
-                    #endregion
-                    #region one spot
-                    if (!position.Intersects(area))
-                    {
-                        if (position.Y > point1.Y)
-                        {
-                            velocity.Y = -speed;
-                        }
-                        else if (position.Y < point1.Y)
-                        {
-                            velocity.Y = speed;
-                        }
-                        if (position.X < point1.X)
-                        {
-                            velocity.X = speed;
-                        }
-                        else if (position.X > point1.X)
-                        {
-                            velocity.X = -speed;
-                        }
-                    }
-                    else
-                    {
-                        velocity.X = 0;
-                        velocity.Y = 0;
-                    }
+                //    point1 = new Vector2(patrolRect.X, patrolRect.Y);
+                //    Rectangle area = new Rectangle((int)point1.X - 32, (int)point1.Y - 32, 64, 64);
+                //    #endregion
+                //    #region one spot
+                //    if (!position.Intersects(area))
+                //    {
+                //        if (position.Y > point1.Y)
+                //        {
+                //            velocity.Y = -speed;
+                //        }
+                //        else if (position.Y < point1.Y)
+                //        {
+                //            velocity.Y = speed;
+                //        }
+                //        if (position.X < point1.X)
+                //        {
+                //            velocity.X = speed;
+                //        }
+                //        else if (position.X > point1.X)
+                //        {
+                //            velocity.X = -speed;
+                //        }
+                //    }
+                //    else
+                //    {
+                //        velocity.X = 0;
+                //        velocity.Y = 0;
+                //    }
 
                     #endregion
-                    break;
+                  break;
             }
-        }
-
-
-        public bool IsCollision(H_Map.TileMap tiles, Rectangle location)
-        {
-            tile = tiles;
-            Point tileIndex = tile.GetTileIndexFromVector(new Vector2(location.X, location.Y));
-            return (tile.interactiveLayer[(int)tileIndex.X, (int)tileIndex.Y].isPassable == false) || (tile.interactiveLayer[(int)tileIndex.X, (int)tileIndex.Y].isDoor == true);
-        }
-
-        public void CheckCollision(H_Map.TileMap tiles)
-        {
-            tile = tiles;
-            Rectangle colRect = position;
-            Point tileIndex = tile.GetTileIndexFromVector(new Vector2(colRect.X, colRect.Y));
         }
 
         public void Draw(SpriteBatch spriteBatch)
