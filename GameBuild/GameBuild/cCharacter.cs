@@ -96,6 +96,10 @@ namespace GameBuild
         public void Update(Game1 game, H_Map.TileMap tiles, GameTime gameTime, KeyboardState oldState, GraphicsDevice graphicsDevice)
         {
             #region Things to update every frame, positions and stuff
+            if (showInventory)
+            {
+                inventory.Update(game, gameTime);
+            }
             healthPct = (health / maxHealth) * 100;
             if (healthPct <= 37)
             {
@@ -214,7 +218,7 @@ namespace GameBuild
                 faceDown = false;
             }
 
-            if (!attacking)
+            if (!attacking && !showInventory)
             {
                 if (game.keyState.IsKeyDown(Keys.Up))
                 {

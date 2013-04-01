@@ -74,7 +74,7 @@ namespace GameBuild
             point2 = new Vector2(patrolX + patrolWidth, patrolY);
             point3 = new Vector2(patrolX, patrolY + patrolHeight);
             point4 = new Vector2(patrolX + patrolWidth, patrolY + patrolHeight);
-            position = new Rectangle(x, y, width, height);
+            position = new Rectangle(x, y, width - 1, height - 1);
             healthPos = new Rectangle(position.X + 8, position.Y - 15, 48, 10);
             velocity = new Vector2(0, 0);
             health = 200;
@@ -172,7 +172,7 @@ namespace GameBuild
         public bool IsCollision(H_Map.TileMap tiles, Rectangle location)
         {
             Point tileIndex = tiles.GetTileIndexFromVector(new Vector2(location.X, location.Y));
-            return (tiles.interactiveLayer[tileIndex.X, tileIndex.Y].isPassable == false);
+            return (!tiles.interactiveLayer[tileIndex.X, tileIndex.Y].isPassable);
         }
 
         public void Update(cCharacter player, H_Map.TileMap tiles, Game1 game, GameTime gameTime)
