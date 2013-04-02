@@ -1,6 +1,6 @@
 source
 npc2
-256
+300
 300
 48
 48
@@ -14,9 +14,9 @@ False
 False
 True
 False
-256
+300
 300
 128
-48
+128
 1
 dialogue2
