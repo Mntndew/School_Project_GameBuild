@@ -168,6 +168,19 @@ namespace GameBuild
             return (!tiles.interactiveLayer[tileIndex.X, tileIndex.Y].isPassable);
         }
 
+        public void UpdateDialogue(Game1 game)
+        {
+            if (game.currentGameState == Game1.GameState.INTERACT)
+            {
+                dialogue.Update();
+                if (!dialogue.isTalking && isInteracting == true)
+                {
+                    game.currentGameState = Game1.GameState.PLAY;
+                    isInteracting = false;
+                }
+            }
+        }
+
         public void Update(cCharacter player, H_Map.TileMap tiles, Game1 game, GameTime gameTime)
         {
             #region things to update every frame, positions
@@ -211,23 +224,6 @@ namespace GameBuild
             }
 
             Patrol(tiles);
-
-            if (game.currentGameState == Game1.GameState.PLAY && canInteract)
-            {
-                
-            }
-
-            #region Dialogue update stuff
-            if (game.currentGameState == Game1.GameState.INTERACT)
-            {
-                dialogue.Update();
-                if (!dialogue.isTalking && isInteracting == true)
-                {
-                    game.currentGameState = Game1.GameState.PLAY;
-                    isInteracting = false;
-                }
-            }
-            #endregion
 
             #region Player Interaction
             if (isOnMap)

@@ -212,7 +212,11 @@ namespace GameBuild
             {
                 if (npc.health > 0)
                 {
-                    npc.Update(character, map, this, gameTime);
+                    if (!npc.isInteracting)
+                    {
+                        npc.Update(character, map, this, gameTime);
+                    }
+                    npc.UpdateDialogue(this);
                     if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && npc.canInteract)
                     {
                         if (npc.isInteracting)
@@ -277,7 +281,7 @@ namespace GameBuild
             {
                 if (warps[i].isOnMap)
                 {
-                    //warps[i].Draw(spriteBatch, this);
+                    warps[i].Draw(spriteBatch, this);
                 }
             }
             //Spritebatch for HUD stuff
