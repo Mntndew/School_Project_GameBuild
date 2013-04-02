@@ -36,9 +36,6 @@ namespace GameBuild
         Texture2D debugTexture;
         Texture2D healthTexture;
 
-        cAnimationManager walkAnimations;
-        cAnimationManager attackAnimations;
-
         H_Map.TileMap tile;
 
         public Color color = new Color(255, 255, 255, 255); //blink when player gets hit
@@ -51,6 +48,15 @@ namespace GameBuild
         const float REGENTIMER = 1;
 
         public Inventory inventory;
+
+        AnimationComponent animation;
+
+        //Animations
+        const int WALK_UP = 0;
+        const int WALK_LEFT = 3;
+        const int WALK_DOWN = 2;
+        const int WALK_RIGHT = 1;
+        bool walking = false;
 
         public cCharacter(Game1 game)
         {
@@ -74,23 +80,10 @@ namespace GameBuild
             healthPos = new Rectangle();
             #endregion
 
-            #region Animations
-            walkAnimations = new cAnimationManager(spriteWalkSheet, 3, 4);
-            attackAnimations = new cAnimationManager(spriteAttackSheet, 3, 4);
-
-            walkAnimations.AddAnimation(100, true, new Vector2(0, 0), 3, "walkUp", false);
-            walkAnimations.AddAnimation(100, true, new Vector2(0, 96), 3, "walkRight", false);
-            walkAnimations.AddAnimation(100, true, new Vector2(0, 192), 3, "walkDown", false);
-            walkAnimations.AddAnimation(100, true, new Vector2(0, 288), 3, "walkLeft", false);
-            attackAnimations.AddAnimation(50, false, new Vector2(0, 0), 3, "attackUp", true);
-            attackAnimations.AddAnimation(50, false, new Vector2(0, 96), 3, "attackRight", true);
-            attackAnimations.AddAnimation(50, false, new Vector2(0, 192), 3, "attackDown", true);
-            attackAnimations.AddAnimation(50, false, new Vector2(0, 288), 3, "attackLeft", true);
-            #endregion
-
             hpColor = new Color(200, 200, 200, 255);
 
             inventory = new Inventory(game);
+            animation = new AnimationComponent(3, 4, 72, 96, 100, Point.Zero);
         }
 
         public void Update(Game1 game, H_Map.TileMap tiles, GameTime gameTime, KeyboardState oldState, GraphicsDevice graphicsDevice)
@@ -186,6 +179,8 @@ namespace GameBuild
                 attackRectangle.X = position.X;
                 attackRectangle.Y = position.Y;
             }
+
+            animation.UpdateAnimation(gameTime);
             #endregion
 
             #region walk
@@ -220,6 +215,7 @@ namespace GameBuild
 
             if (!attacking && !showInventory)
             {
+                walking = false;
                 if (game.keyState.IsKeyDown(Keys.Up))
                 {
                     up = true;
@@ -231,6 +227,11 @@ namespace GameBuild
                     corner2 = tile.GetTileRectangleFromPosition(location.X + playerWidth, location.Y + (position.Height / 2));
                     halfcorner1 = tile.GetTileRectangleFromPosition(location.X, location.Y);
                     halfcorner2 = tile.GetTileRectangleFromPosition(location.X, location.Y);
+                    if (!animation.IsAnimationPlaying(WALK_UP))
+                    {
+                        animation.LoopAnimation(WALK_UP);
+                    }
+                    walking = true;
                 }
 
                 if (game.keyState.IsKeyDown(Keys.Down))
@@ -242,6 +243,11 @@ namespace GameBuild
                     location.Y += 4;
                     corner1 = tile.GetTileRectangleFromPosition(location.X, location.Y + playerHeight);
                     corner2 = tile.GetTileRectangleFromPosition(location.X + playerWidth, location.Y + playerHeight);
+                    if (!animation.IsAnimationPlaying(WALK_DOWN))
+                    {
+                        animation.LoopAnimation(WALK_DOWN);
+                    }
+                    walking = true;
                 }
 
                 if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
@@ -260,6 +266,11 @@ namespace GameBuild
                     location.X += 4;
                     corner1 = tile.GetTileRectangleFromPosition(location.X + playerWidth, location.Y + (position.Height / 2));
                     corner2 = tile.GetTileRectangleFromPosition(location.X + playerWidth, location.Y + playerHeight);
+                    if (!animation.IsAnimationPlaying(WALK_RIGHT))
+                    {
+                        animation.LoopAnimation(WALK_RIGHT);
+                    }
+                    walking = true;
                 }
 
                 if (game.keyState.IsKeyDown(Keys.Left))
@@ -272,38 +283,41 @@ namespace GameBuild
                     location.Y = position.Y;
                     corner1 = tile.GetTileRectangleFromPosition(location.X, location.Y + (position.Height / 2));
                     corner2 = tile.GetTileRectangleFromPosition(location.X, location.Y + playerHeight);
+                    if (!animation.IsAnimationPlaying(WALK_LEFT))
+                    {
+                        animation.LoopAnimation(WALK_LEFT);
+                    }
+                    walking = true;
+                }
+
+                if (!walking)
+                {
+                    animation.PauseAnimation();
+                }
+                else
+                {
+                    if (up && !animation.IsAnimationPlaying(WALK_UP))
+                    {
+                        animation.LoopAnimation(WALK_UP);
+                    }
+                    else if (down && !animation.IsAnimationPlaying(WALK_DOWN))
+                    {
+                        animation.LoopAnimation(WALK_DOWN);
+                    }
+                    else if (left && !animation.IsAnimationPlaying(WALK_LEFT))
+                    {
+                        animation.LoopAnimation(WALK_LEFT);
+                    }
+                    else if (right && !animation.IsAnimationPlaying(WALK_RIGHT))
+                    {
+                        animation.LoopAnimation(WALK_RIGHT);
+                    }
                 }
 
                 if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
                 {
                     position.X = location.X;
                     colRect = position;
-                }
-
-
-                if (up)
-                {
-                    walkAnimations.StartAnimation("walkUp");
-
-                }
-                if (down)
-                {
-                    walkAnimations.StartAnimation("walkDown");
-                }
-                if (left)
-                {
-                    walkAnimations.StartAnimation("walkLeft");
-                }
-                if (right)
-                {
-                    walkAnimations.StartAnimation("walkRight");
-                }
-
-                walkAnimations.UpdateFrame(gameTime);
-
-                if (game.keyState.IsKeyUp(Keys.Up) && game.keyState.IsKeyUp(Keys.Down) && game.keyState.IsKeyUp(Keys.Left) && game.keyState.IsKeyUp(Keys.Right))
-                {
-                    walkAnimations.StopAnimation();
                 }
             }
 
@@ -362,23 +376,13 @@ namespace GameBuild
             return (tiles.interactiveLayer[tileIndex.X, tileIndex.Y].isPassable == false);
         }
 
-        
-
         public void Draw(SpriteBatch spriteBatch)
         {
             Rectangle shadowPos = new Rectangle(position.X + 8, position.Bottom - shadowBlob.Height / 2, shadowBlob.Width, shadowBlob.Height);
             spriteBatch.Draw(shadowBlob, shadowPos, Color.White);
             //spriteBatch.Draw(debugTexture, attackRectangle, new Color(100, 100, 100, 100));
             //spriteBatch.Draw(debugTexture, interactRect, new Color(100, 100, 100, 100));
-            if (!attacking)
-            {
-                walkAnimations.Draw(spriteBatch, position);
-            }
-            else if (attacking)
-            {
-                attackAnimations.Draw(spriteBatch, position);
-            }
-
+            spriteBatch.Draw(spriteWalkSheet, position, animation.GetFrame(), Color.White);
         }
 
         public void DrawHealthBar(SpriteBatch spriteBatch, Game1 game)

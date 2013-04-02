@@ -73,29 +73,27 @@ namespace GameBuild
 
             health = 200;
             maxHealth = health;
-            this.speed = 1;
+            this.speed = speed;
 
             dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + portraitPath), game.Content.Load<Texture2D>("textBox"), game, game.spriteFont, dialoguePath, name);
             texture = game.Content.Load<Texture2D>(@"npc\sprite\" + spritePath);
 
-            //if (patrolLeftRight)
-            //{
-            //    currentPatrolType = patrolType.leftRight;
-            //}
-            //if (patrolUpDown)
-            //{
-            //    currentPatrolType = patrolType.upDown;
-            //}
-            //if (patrolBox)
-            //{
-            //    currentPatrolType = patrolType.box;
-            //}
-            //if (patrolNone)
-            //{
-            //    currentPatrolType = patrolType.none;
-            //}
-
-            currentPatrolType = patrolType.box;
+            if (patrolLeftRight)
+            {
+                currentPatrolType = patrolType.leftRight;
+            }
+            if (patrolUpDown)
+            {
+                currentPatrolType = patrolType.upDown;
+            }
+            if (patrolBox)
+            {
+                currentPatrolType = patrolType.box;
+            }
+            if (patrolNone)
+            {
+                currentPatrolType = patrolType.none;
+            }
 
             aColor = Color.White;
         }
@@ -361,10 +359,13 @@ namespace GameBuild
                     point4 = new Vector2(patrolRect.X, patrolRect.Y + patrolRect.Height);
                     if (!point1Tagged)
                     {
-                        location.X += (int)-speed;
-                        location.Y = position.Y;
-                        corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + (position.Height / 2));
-                        corner2 = tiles.GetTileRectangleFromPosition(location.X, location.Y + texture.Height);
+                        if (point1.X < position.X)
+                        {
+                            location.X += (int)-speed;
+                            location.Y = position.Y;
+                            corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + (position.Height / 2));
+                            corner2 = tiles.GetTileRectangleFromPosition(location.X, location.Y + texture.Height);
+                        }
 
                         if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
                         {
@@ -375,7 +376,6 @@ namespace GameBuild
                         if (point1.X == position.X)
                         {
                             point1Tagged = true;
-                            point2Tagged = false;
                         }
                     }
 
@@ -395,7 +395,6 @@ namespace GameBuild
                         if (position.X + position.Width == point2.X)
                         {
                             point2Tagged = true;
-                            point3Tagged = false;
                         }
                     }
 
@@ -414,13 +413,32 @@ namespace GameBuild
                         if (position.Y + position.Height == point3.Y)
                         {
                             point3Tagged = true;
-                            point4Tagged = false;
                         }
                     }
 
                     if (point3Tagged && !point4Tagged)
                     {
+                        location.X += (int)-speed;
+                        location.Y = position.Y;
+                        corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + (position.Height / 2));
+                        corner2 = tiles.GetTileRectangleFromPosition(location.X, location.Y + texture.Height);
+
+                        if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
+                        {
+                            position.X = location.X;
+                            colRect = position;
+                        }
+
+                        if (position.X == point1.X && point3Tagged)
+                        {
+                            point4Tagged = true;
+                        }
+                    }
+
+                    if (point4Tagged)
+                    {
                         location.Y += (int)-speed;
+                        location.X = position.X;
                         corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + texture.Height);
                         corner2 = tiles.GetTileRectangleFromPosition(location.X + texture.Width, location.Y + texture.Height);
 
@@ -430,7 +448,7 @@ namespace GameBuild
                             colRect = position;
                         }
 
-                        if (position.X == point1.X && point3Tagged)
+                        if (position.Y == point1.Y)
                         {
                             point1Tagged = false;
                             point2Tagged = false;
@@ -440,10 +458,6 @@ namespace GameBuild
                     }
                     break;
                 case patrolType.none:
-                    point1Tagged = true;
-                    point2Tagged = true;
-                    point3Tagged = true;
-                    point4Tagged = true;
                     break;
             }
         }
