@@ -323,7 +323,7 @@ namespace GameBuild
             //Attack
             if (game.keyState.IsKeyDown(Keys.Z) && game.oldState.IsKeyUp(Keys.Z))
             {
-                foreach (cNpc npc in game.activeNpcs)
+                foreach (Npc npc in game.activeNpcs)
                 {
                     if (npc.position.Intersects(attackRectangle))
                     {
@@ -340,7 +340,7 @@ namespace GameBuild
                     }
                 }
             }
-            foreach (cNpc npc in game.activeNpcs)
+            foreach (Npc npc in game.activeNpcs)
             {
                 if (npc.health > 0)
                 {

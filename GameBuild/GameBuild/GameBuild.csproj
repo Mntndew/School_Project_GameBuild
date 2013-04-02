@@ -96,6 +96,7 @@
     <Compile Include="Dialogue\DialogueItem.cs" />
     <Compile Include="Dialogue\DialogueManager.cs" />
     <Compile Include="InventorySlot.cs" />
+    <Compile Include="Npc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />

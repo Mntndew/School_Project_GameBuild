@@ -51,8 +51,8 @@ namespace GameBuild
 
         public SpriteFont spriteFont;
 
-        public List<cNpc> activeNpcs = new List<cNpc>();
-        public List<cNpc> Npcs = new List<cNpc>();
+        public List<Npc> activeNpcs = new List<Npc>();
+        public List<Npc> Npcs = new List<Npc>();
         int files = Directory.GetFiles(@"Content\npc\npc\").Length; //number of npcs
         string[] names; // array of all npc names
 
@@ -135,14 +135,15 @@ namespace GameBuild
             {
                 names[i] = Directory.GetFiles(@"Content\npc\npc\")[i];
                 StreamReader reader = new StreamReader(names[i]);
-                cNpc npc = new cNpc(reader.ReadLine(), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
+                Npc npc = new Npc(reader.ReadLine(), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
                 bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), reader.ReadLine(), reader.ReadLine(),
                 bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
                 int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), this, reader.ReadLine());
                 Npcs.Add(npc);
             }
         }
-
+        
+                
         public void UpdateActiveNpcs()
         {
             for (int i = 0; i < Npcs.Count; i++)
@@ -207,7 +208,7 @@ namespace GameBuild
             camera.Pos = character.vectorPos;
 
             //Update NPCs 
-            foreach (cNpc npc in activeNpcs)
+            foreach (Npc npc in activeNpcs)
             {
                 if (npc.health > 0)
                 {
