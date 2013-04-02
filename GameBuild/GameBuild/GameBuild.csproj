@@ -84,9 +84,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnimationComponent.cs" />
     <Compile Include="Camera2d.cs" />
-    <Compile Include="cAnimation.cs" />
-    <Compile Include="cAnimationManager.cs" />
     <Compile Include="cCharacter.cs" />
     <Compile Include="cDialogue.cs" />
     <Compile Include="Inventory.cs" />
