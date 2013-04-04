@@ -353,3 +353,4 @@ C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuil
 C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\health75.xnb
 C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\healthEmpty.xnb
 C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\emptySlot.xnb
+C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\NagaWalk.xnb

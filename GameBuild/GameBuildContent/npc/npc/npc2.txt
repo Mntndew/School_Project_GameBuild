@@ -12,8 +12,8 @@ npc2
 npc2
 False
 False
-True
 False
+True
 300
 300
 128

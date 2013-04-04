@@ -3,7 +3,6 @@ Content\CharacterIdleFront.xnb
 Content\CharaWalkSheet.xnb
 Content\lightTexture.xnb
 Content\shadowTex.xnb
-Content\tilesets.xnb
 Content\point.xnb
 Content\A.xnb
 Content\player\CharaAttackSheet V2.xnb
@@ -28,6 +27,8 @@ Content\health50.xnb
 Content\health75.xnb
 Content\healthEmpty.xnb
 Content\emptySlot.xnb
+Content\tilesets.xnb
+Content\NagaWalk.xnb
 Content\npc\npc\Test.txt
 Content\warp\source.txt
 Content\warp\target.txt

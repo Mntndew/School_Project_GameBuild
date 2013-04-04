@@ -127,7 +127,6 @@ namespace GameBuild
 
         public void LoopAnimation(int animation)
         {
-
             paused = false;
             if (animation < spriteSheetHeight)
             {
@@ -139,7 +138,6 @@ namespace GameBuild
             {
                 ExceptionAnimationOutOfBounds();
             }
-
         }
 
         public void StopAnimation()

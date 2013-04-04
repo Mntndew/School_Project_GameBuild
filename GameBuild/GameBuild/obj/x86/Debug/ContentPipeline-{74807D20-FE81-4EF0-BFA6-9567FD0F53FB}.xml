@@ -47,22 +47,13 @@
       <Time>2013-03-21T13:05:09+01:00</Time>
     </Item>
     <Item>
-      <Source>tilesets.png</Source>
-      <Name>tilesets</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\tilesets.xnb</Output>
-      <Time>2013-03-21T13:05:09+01:00</Time>
-    </Item>
-    <Item>
       <Source>point.png</Source>
       <Name>point</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\point.xnb</Output>
-      <Time>2013-03-21T13:05:09+01:00</Time>
+      <Time>2013-04-04T00:39:04.21127+02:00</Time>
     </Item>
     <Item>
       <Source>A.png</Source>
@@ -170,7 +161,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\sprite\npc2.xnb</Output>
-      <Time>2013-03-24T15:29:04+01:00</Time>
+      <Time>2013-04-03T17:15:05.0882351+02:00</Time>
     </Item>
     <Item>
       <Source>npc\portrait\npc2.png</Source>
@@ -206,7 +197,7 @@
       <Processor>TileMapProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\source.xnb</Output>
-      <Time>2013-03-25T17:22:50.1921365+01:00</Time>
+      <Time>2013-04-02T22:12:45.3184625+02:00</Time>
     </Item>
     <Item>
       <Source>target.tm</Source>
@@ -270,6 +261,24 @@
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\emptySlot.xnb</Output>
       <Time>2013-03-30T18:08:58.547576+01:00</Time>
+    </Item>
+    <Item>
+      <Source>tilesets.png</Source>
+      <Name>tilesets</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\tilesets.xnb</Output>
+      <Time>2013-04-03T14:04:40.4042136+02:00</Time>
+    </Item>
+    <Item>
+      <Source>NagaWalk.png</Source>
+      <Name>NagaWalk</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\NagaWalk.xnb</Output>
+      <Time>2013-04-03T14:23:41.4336165+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

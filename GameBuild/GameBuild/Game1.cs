@@ -155,6 +155,15 @@ namespace GameBuild
                     Npcs[i].hasBeenAdded = true;
                 }
             }
+            for (int i = 0; i < activeNpcs.Count; i++)
+            {
+                if (!activeNpcs[i].isOnMap)
+                {
+                    activeNpcs[i].hasBeenAdded = false;
+                    activeNpcs.RemoveAt(i);
+                    
+                }
+            }
         }
 
         public void LoadWarps()
@@ -207,12 +216,14 @@ namespace GameBuild
 
             camera.Pos = character.vectorPos;
 
-            //Update NPCs 
+            //Update NPCs
+            Console.WriteLine("active: " + activeNpcs.Count);
+            Console.WriteLine("npcs: " + Npcs.Count);
             foreach (Npc npc in activeNpcs)
             {
                 if (npc.health > 0)
                 {
-                    if (!npc.isInteracting)
+                    if (!npc.isInteracting && npc.isOnMap)
                     {
                         npc.Update(character, map, this, gameTime);
                     }

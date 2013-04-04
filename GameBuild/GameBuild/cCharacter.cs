@@ -53,9 +53,9 @@ namespace GameBuild
 
         //Animations
         const int WALK_UP = 0;
-        const int WALK_LEFT = 3;
-        const int WALK_DOWN = 2;
         const int WALK_RIGHT = 1;
+        const int WALK_DOWN = 2;
+        const int WALK_LEFT = 3;
         bool walking = false;
 
         public cCharacter(Game1 game)
@@ -293,25 +293,6 @@ namespace GameBuild
                 if (!walking)
                 {
                     animation.PauseAnimation();
-                }
-                else
-                {
-                    if (up && !animation.IsAnimationPlaying(WALK_UP))
-                    {
-                        animation.LoopAnimation(WALK_UP);
-                    }
-                    else if (down && !animation.IsAnimationPlaying(WALK_DOWN))
-                    {
-                        animation.LoopAnimation(WALK_DOWN);
-                    }
-                    else if (left && !animation.IsAnimationPlaying(WALK_LEFT))
-                    {
-                        animation.LoopAnimation(WALK_LEFT);
-                    }
-                    else if (right && !animation.IsAnimationPlaying(WALK_RIGHT))
-                    {
-                        animation.LoopAnimation(WALK_RIGHT);
-                    }
                 }
 
                 if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
