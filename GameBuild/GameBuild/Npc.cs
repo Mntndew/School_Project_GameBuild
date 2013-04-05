@@ -22,6 +22,7 @@ namespace GameBuild
         Vector2 point3;
         Vector2 point4;
 
+        Texture2D debugTile;
         Texture2D walkSprite;
         Texture2D aTexture;
         public Texture2D healthTexture;
@@ -68,7 +69,6 @@ namespace GameBuild
         public Npc(string mapName, string name, int x, int y, int width, int height, bool up, bool down, bool left, bool right, string spritePath, string portraitPath, bool patrolNone, bool patrolUpDown, bool patrolLeftRight, bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game, string dialoguePath)
         {
             position = new Rectangle(x, y, width, height);
-
             this.name = name;
             this.mapName = mapName;
             this.speed = speed;
@@ -84,6 +84,7 @@ namespace GameBuild
 
             dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + portraitPath), game.Content.Load<Texture2D>("textBox"), game, game.spriteFont, dialoguePath, name);
             walkSprite = game.Content.Load<Texture2D>(@"npc\sprite\" + spritePath);
+            debugTile = game.Content.Load<Texture2D>("emptySlot");
 
             if (patrolLeftRight)
             {
@@ -111,7 +112,7 @@ namespace GameBuild
 
         public void CheckMap(Game1 game)
         {
-            if (mapName == (game.map.mapName.Remove(game.map.mapName.Length - 1)))
+            if (mapName == (Game1.map.mapName.Remove(Game1.map.mapName.Length - 1)))
             {
                 isOnMap = true;
             }
@@ -123,9 +124,9 @@ namespace GameBuild
         {
             Rectangle location = position;
             walking = false;
-            if ((game.character.position.Y > position.Y + 16) || (game.character.position.Y < position.Y - 16) || (game.character.position.Y == position.Y))
+            if ((Game1.character.position.Y > position.Y + 16) || (Game1.character.position.Y < position.Y - 16) || (Game1.character.position.Y == position.Y))
             {
-                if (game.character.position.Y < position.Y)
+                if (Game1.character.position.Y < position.Y)
                 {
                     location.Y += (int)-(speed * 2);
                     corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + (position.Height / 2));
@@ -136,7 +137,7 @@ namespace GameBuild
                     }
                     walking = true;
                 }
-                if (game.character.position.Y > position.Y)
+                if (Game1.character.position.Y > position.Y)
                 {
                     location.Y += (int)(speed * 2);
                     corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + position.Height);
@@ -155,7 +156,7 @@ namespace GameBuild
             }
             else
             {
-                if (game.character.position.X < position.X)
+                if (Game1.character.position.X < position.X)
                 {
                     location.X += (int)-(speed * 2);
                     location.Y = position.Y;
@@ -167,7 +168,7 @@ namespace GameBuild
                     }
                     walking = true;
                 }
-                if (game.character.position.X > position.X)
+                if (Game1.character.position.X > position.X)
                 {
                     location.Y = position.Y;
                     location.X += (int)(speed * 2);
@@ -187,12 +188,12 @@ namespace GameBuild
             }
 
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            if (game.character.position.Intersects(position) && game.map.mapName.Remove(game.map.mapName.Length - 1) == mapName)
+            if (Game1.character.position.Intersects(position) && Game1.map.mapName.Remove(Game1.map.mapName.Length - 1) == mapName)
             {
                 attackTimer -= elapsed;
                 if (attackTimer <= 0)
                 {
-                    game.character.health -= 15;
+                    Game1.character.health -= 15;
                     attackTimer = ATTACKTIMER;
                 }
             }
@@ -252,7 +253,7 @@ namespace GameBuild
             }
             CheckMap(game);
             #endregion
-
+            
             if (attackPlayer)
             {
                 canInteract = false;

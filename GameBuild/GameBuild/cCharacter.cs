@@ -213,7 +213,7 @@ namespace GameBuild
                 faceDown = false;
             }
 
-            if (!attacking && !showInventory)
+            if (!attacking && !showInventory && cWarp.canWalk)
             {
                 walking = false;
                 if (game.keyState.IsKeyDown(Keys.Up))

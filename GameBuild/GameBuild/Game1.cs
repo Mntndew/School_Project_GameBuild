@@ -62,13 +62,13 @@ namespace GameBuild
 
         Random rand = new Random();
 
-        public cCharacter character;
+        public static cCharacter character;
 
         //Debugging stuffs
         public Texture2D collisionTex;
         Color collisionColor = new Color(100, 0, 0, 100);
 
-        public TileMap map;
+        public static TileMap map;
 
         public KeyboardState oldState;
         public KeyboardState keyState;
@@ -83,6 +83,8 @@ namespace GameBuild
         }
 
         public GameState currentGameState = new GameState();
+
+        Texture2D debugTile;
 
         public Game1()
         {
@@ -116,7 +118,6 @@ namespace GameBuild
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
             collisionTex = Content.Load<Texture2D>("blackness");
             map = Content.Load<H_Map.TileMap>("source");
             map.tileset = Content.Load<Texture2D>("tileset");
@@ -125,6 +126,7 @@ namespace GameBuild
             LoadWarps();
             LoadNpcs();
             UpdateActiveNpcs();
+            debugTile = Content.Load<Texture2D>("emptySlot");
         }
 
         public void LoadNpcs()
@@ -174,7 +176,7 @@ namespace GameBuild
                 warp[i] = Directory.GetFiles(@"Content\warp\")[i];
                 StreamReader reader = new StreamReader(warp[i]);
                 cWarp Warp = new cWarp(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
-                    int.Parse(reader.ReadLine()), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()));
+                    int.Parse(reader.ReadLine()), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), this);
                 reader.Close();
                 warps.Add(Warp);
             }

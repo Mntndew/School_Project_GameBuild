@@ -20,7 +20,7 @@ namespace GameBuild
 
         public void Draw(SpriteBatch spriteBatch, Game1 game)
         {
-            if (game.character.showInventory)
+            if (Game1.character.showInventory)
             {
                 if (!selected)
                 {

@@ -14,6 +14,9 @@ namespace GameBuild
         string targetMap;
 
         public bool isOnMap;
+        public bool doneEffect;
+        public static bool canWalk = true;
+        public bool addAlpha = true;
 
         int targetX;
         int targetY;
@@ -22,7 +25,11 @@ namespace GameBuild
 
         Rectangle warpField;
 
-        public cWarp(string sourceMap, int sourceX, int sourceY, int width, int height, string targetMap, int targetX, int targetY)
+        Rectangle screen;
+        Texture2D effectTexture;
+        Color effectColor;
+
+        public cWarp(string sourceMap, int sourceX, int sourceY, int width, int height, string targetMap, int targetX, int targetY, Game1 game)
         {
             this.sourceMap = sourceMap;
             this.targetMap = targetMap;
@@ -31,11 +38,16 @@ namespace GameBuild
             fileTargetY = targetY;
 
             warpField = new Rectangle(sourceX, sourceY, width, height);
+            screen = new Rectangle(0, 0, game.graphics.PreferredBackBufferWidth, game.graphics.PreferredBackBufferHeight);
+
+            effectTexture = game.Content.Load<Texture2D>("blackness");
+
+            effectColor = new Color(0, 0, 0, 0);
         }
 
         public void CheckMap(Game1 game)
         {
-            if (sourceMap == (game.map.mapName.Remove(game.map.mapName.Length - 1)))
+            if (sourceMap == (Game1.map.mapName.Remove(Game1.map.mapName.Length - 1)))
             {
                 isOnMap = true;
             }
@@ -70,25 +82,51 @@ namespace GameBuild
 
             if (player.position.Intersects(warpField))
             {
-                game.map = game.Content.Load<H_Map.TileMap>(targetMap);
-                game.map.tileset = game.Content.Load<Texture2D>("tileset");
-
-                for (int i = 0; i < game.Npcs.Count; i++)
+                Effect();
+                if (doneEffect)
                 {
-                    if (!game.Npcs[i].hasBeenAdded)
+                    Game1.map = game.Content.Load<H_Map.TileMap>(targetMap);
+                    Game1.map.tileset = game.Content.Load<Texture2D>("tileset");
+                    for (int i = 0; i < game.Npcs.Count; i++)
                     {
-                        game.UpdateActiveNpcs();
+                        if (!game.Npcs[i].hasBeenAdded)
+                        {
+                            game.UpdateActiveNpcs();
+                        }
                     }
+                    if (targetX != -1)
+                    {
+                        player.position.X = targetX;
+                    }
+                    if (targetY != -1)
+                    {
+                        player.position.Y = targetY;
+                    }
+                    addAlpha = true;
                 }
+            }
+        }
 
-                if (targetX != -1)
-                {
-                    player.position.X = targetX;
-                }
-                if (targetY != -1)
-                {
-                    player.position.Y = targetY;
-                }
+        public void Effect()
+        {
+            doneEffect = false;
+            canWalk = false;
+            if (addAlpha)
+            {
+                effectColor.A += 6;
+            }
+            if (effectColor.A >= 252)
+            {
+                addAlpha = false;
+            }
+            if (!addAlpha)
+            {
+                canWalk = true;
+                effectColor.A -= 18;
+            }
+            if (!addAlpha && effectColor.A == 0)
+            {
+                doneEffect = true;
             }
         }
 
@@ -96,8 +134,9 @@ namespace GameBuild
         {
             if (isOnMap)
             {
-                spriteBatch.Draw(game.collisionTex, warpField, new Color(200, 50, 200, 200));
+                //spriteBatch.Draw(game.collisionTex, warpField, new Color(200, 50, 200, 200));
             }
+            spriteBatch.Draw(effectTexture, screen, effectColor);
         }
     }
 }
