@@ -334,7 +334,10 @@ namespace GameBuild
                         inCombat = false;
                 }
                 else
+                {
                     inCombat = false;
+                    game.Npcs.Remove(npc);
+                }
             }
         }
 

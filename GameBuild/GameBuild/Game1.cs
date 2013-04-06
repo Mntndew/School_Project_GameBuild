@@ -149,10 +149,11 @@ namespace GameBuild
                 
         public void UpdateActiveNpcs()
         {
+            activeNpcs.Clear();
             for (int i = 0; i < Npcs.Count; i++)
             {
                 Npcs[i].CheckMap(this);
-                if (Npcs[i].isOnMap && !Npcs[i].hasBeenAdded)
+                if (Npcs[i].isOnMap)
                 {
                     activeNpcs.Add(Npcs[i]);
                     Npcs[i].hasBeenAdded = true;
@@ -164,7 +165,6 @@ namespace GameBuild
                 {
                     activeNpcs[i].hasBeenAdded = false;
                     activeNpcs.RemoveAt(i);
-                    
                 }
             }
         }
