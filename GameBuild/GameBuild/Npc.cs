@@ -10,13 +10,12 @@ namespace GameBuild
     public class Npc
     {
         public Rectangle position;
-        Rectangle healthPos;
+        public Rectangle healthPos;
         Rectangle patrolRect;
         Rectangle aPosition;
         Rectangle corner1;
         Rectangle corner2;
         Rectangle colRect;
-        Vector2 velocity;
         Vector2 point1;
         Vector2 point2;
         Vector2 point3;
@@ -30,9 +29,10 @@ namespace GameBuild
         string name;
         string mapName;
 
+        float healthBarWidth;
         float maxHealth;
         public float health;
-        float healthPct;
+        public float healthPct;
         public float speed;
         float attackTimer = 1;
         const float ATTACKTIMER = 1;
@@ -55,6 +55,7 @@ namespace GameBuild
         patrolType currentPatrolType = new patrolType();
 
         public cDialogue dialogue;
+        List<DamageEffect> damageEffectList = new List<DamageEffect>();
 
         AnimationComponent animation;
         const int WALK_UP = 0;
@@ -65,6 +66,8 @@ namespace GameBuild
 
         Color color = new Color(255, 255, 255, 255);
         Color aColor;
+
+        int damage;
 
         public Npc(string mapName, string name, int x, int y, int width, int height, bool up, bool down, bool left, bool right, string spritePath, string portraitPath, bool patrolNone, bool patrolUpDown, bool patrolLeftRight, bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game, string dialoguePath)
         {
@@ -85,6 +88,7 @@ namespace GameBuild
             dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + portraitPath), game.Content.Load<Texture2D>("textBox"), game, game.spriteFont, dialoguePath, name);
             walkSprite = game.Content.Load<Texture2D>(@"npc\sprite\" + spritePath);
             debugTile = game.Content.Load<Texture2D>("emptySlot");
+            healthTexture = game.Content.Load<Texture2D>("health100");
 
             if (patrolLeftRight)
             {
@@ -193,7 +197,9 @@ namespace GameBuild
                 attackTimer -= elapsed;
                 if (attackTimer <= 0)
                 {
-                    Game1.character.health -= 15;
+                    damage = game.damageObject.dealDamage(3, 20);
+                    damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(255, 255, 100, 255)));
+                    Game1.character.health -= damage;
                     attackTimer = ATTACKTIMER;
                 }
             }
@@ -228,31 +234,17 @@ namespace GameBuild
             Rectangle location = new Rectangle(position.X, position.Y, position.Width, position.Height);
             healthPos.X = position.X + 8;
             healthPos.Y = position.Y - 15;
-            healthPos.Width = 48;
+            healthPos.Width = (int)healthBarWidth;
             healthPos.Height = 10;
-            healthPct = (health / maxHealth) * 100;
-            if (healthPct <= 37)
-            {
-                healthTexture = game.Content.Load<Texture2D>("health25");
-            }
-            if (healthPct > 37 && healthPct <= 62)
-            {
-                healthTexture = game.Content.Load<Texture2D>("health50");
-            }
-            if (healthPct > 62 && healthPct <= 87)
-            {
-                healthTexture = game.Content.Load<Texture2D>("health75");
-            }
-            if (healthPct > 87)
-            {
-                healthTexture = game.Content.Load<Texture2D>("health100");
-            }
-            if (healthPct <= 0)
-            {
-                healthTexture = game.Content.Load<Texture2D>("healthEmpty");
-            }
+            healthPct = (health / maxHealth);
+            healthBarWidth = (float)healthTexture.Width * healthPct;
             CheckMap(game);
             #endregion
+
+            for (int i = 0; i < damageEffectList.Count; i++)
+            {
+                damageEffectList[i].Effect();
+            }
             
             if (attackPlayer)
             {
@@ -560,7 +552,7 @@ namespace GameBuild
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Game1 game)
         {
             if (isOnMap)
             {
@@ -569,9 +561,13 @@ namespace GameBuild
                     spriteBatch.Draw(walkSprite, position, animation.GetFrame(), Color.White);
                     //spriteBatch.Draw(walkSprite, patrolRect, new Color(20, 20, 20, 100));
                 }
-                if (healthTexture != null)
+                if (healthTexture != null && health > 0)
                 {
                     spriteBatch.Draw(healthTexture, healthPos, Color.White);
+                    for (int i = 0; i < damageEffectList.Count; i++)
+                    {
+                        damageEffectList[i].Draw(spriteBatch, game);
+                    }
                 }
             }
         }

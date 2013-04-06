@@ -22,6 +22,7 @@ namespace GameBuild
 
         public int playerHeight = 48; //size of the player sprite in pixels
         public int playerWidth = 48;
+        public int damage;
 
         public Rectangle position;
         public Rectangle interactRect; //for npcs and stuff
@@ -42,12 +43,14 @@ namespace GameBuild
         public Color hpColor;
 
         public float health;
+        float healthBarWidth;
         float healthPct;
         public float maxHealth;
         float regenTimer = 1;
         const float REGENTIMER = 1;
 
         public Inventory inventory;
+        public List<DamageEffect> damageEffectList = new List<DamageEffect>();
 
         AnimationComponent animation;
 
@@ -93,27 +96,8 @@ namespace GameBuild
             {
                 inventory.Update(game, gameTime);
             }
-            healthPct = (health / maxHealth) * 100;
-            if (healthPct <= 37)
-            {
-                healthTexture = game.Content.Load<Texture2D>("health25");
-            }
-            if (healthPct > 37 && healthPct <= 62)
-            {
-                healthTexture = game.Content.Load<Texture2D>("health50");
-            }
-            if (healthPct > 62 && healthPct <= 87)
-            {
-                healthTexture = game.Content.Load<Texture2D>("health75");
-            }
-            if (healthPct > 87)
-            {
-                healthTexture = game.Content.Load<Texture2D>("health100");
-            }
-            if (healthPct <= 0)
-            {
-                healthTexture = game.Content.Load<Texture2D>("healthEmpty");
-            }
+            healthPct = (health / maxHealth);
+            healthBarWidth = (float)healthTexture.Width * healthPct;
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             if (inCombat)
@@ -147,7 +131,7 @@ namespace GameBuild
             Rectangle halfcorner2 = new Rectangle(colRect.X, colRect.Y + halfcorner1.Height, colRect.Width, colRect.Height);
             healthPos.X = position.X;
             healthPos.Y = position.Y - 10;
-            healthPos.Width = healthTexture.Width;
+            healthPos.Width = (int)healthBarWidth;
             healthPos.Height = healthTexture.Height;
             vectorPos.X = position.X;
             vectorPos.Y = position.Y;
@@ -322,19 +306,22 @@ namespace GameBuild
                 {
                     if (npc.position.Intersects(attackRectangle))
                     {
-                        if (npc.health <= 25)
+                        damage = game.damageObject.dealDamage(5, 30);
+                        if (npc.health >= 1)
                         {
-                            npc.healthTexture = game.Content.Load<Texture2D>("healthEmpty");
-                            npc.health = 0;
-                        }
-                        if (npc.health > 0)
-                        {
-                            npc.health -= 25;
+                            damageEffectList.Add(new DamageEffect(damage, game, new Vector2(npc.position.X, npc.position.Y - 16), new Color(255, 255, 255, 255)));
+                            npc.health -= damage;
                             npc.attackPlayer = true;
                         }
                     }
                 }
             }
+
+            for (int i = 0; i < damageEffectList.Count; i++)
+            {
+                damageEffectList[i].Effect();
+            }
+
             foreach (Npc npc in game.activeNpcs)
             {
                 if (npc.health > 0)
@@ -372,6 +359,10 @@ namespace GameBuild
             {
                 spriteBatch.Draw(healthTexture, healthPos, Color.White);
                 inventory.Draw(spriteBatch, game);
+                for (int i = 0; i < damageEffectList.Count; i++)
+                {
+                    damageEffectList[i].Draw(spriteBatch, game);
+                }
             }
         }
     }

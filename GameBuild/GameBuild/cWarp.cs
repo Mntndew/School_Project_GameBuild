@@ -103,6 +103,7 @@ namespace GameBuild
                         player.position.Y = targetY;
                     }
                     addAlpha = true;
+                    canWalk = true;
                 }
             }
         }
@@ -121,7 +122,6 @@ namespace GameBuild
             }
             if (!addAlpha)
             {
-                canWalk = true;
                 effectColor.A -= 18;
             }
             if (!addAlpha && effectColor.A == 0)

@@ -63,6 +63,7 @@ namespace GameBuild
         Random rand = new Random();
 
         public static cCharacter character;
+        public Damage damageObject;
 
         //Debugging stuffs
         public Texture2D collisionTex;
@@ -106,7 +107,7 @@ namespace GameBuild
             this.IsMouseVisible = true;
             character = new cCharacter(this);
             spriteFont = Content.Load<SpriteFont>("SpriteFont1");
-
+            damageObject = new Damage();
             base.Initialize();
         }
 
@@ -280,7 +281,7 @@ namespace GameBuild
 
             for (int i = 0; i < activeNpcs.Count; i++)
             {
-                activeNpcs[i].Draw(spriteBatch);
+                activeNpcs[i].Draw(spriteBatch, this);
             }
 
             map.DrawForegroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));

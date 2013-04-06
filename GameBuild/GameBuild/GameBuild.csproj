@@ -108,6 +108,7 @@
     <Compile Include="Camera2d.cs" />
     <Compile Include="cCharacter.cs" />
     <Compile Include="cDialogue.cs" />
+    <Compile Include="Damage.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="cLighting.cs" />
     <Compile Include="cWarp.cs" />

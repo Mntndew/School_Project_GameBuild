@@ -16,7 +16,7 @@ namespace GameBuild
             closedList = new List<Node>[Game1.map.mapWidth, Game1.map.mapHeight];
         }
 
-        public void FindPath(int startX, int startY, int targetX, int targetY)
+        public void Start(int startX, int startY, int targetX, int targetY)
         {
             for (int x = 0; x < Game1.map.mapWidth; x++)
             {
@@ -28,7 +28,14 @@ namespace GameBuild
                     }
                 }
             }
+            if (startX != targetX && startY != targetY)
+            {
+                GetFValue(targetX, targetY);
+            }
+        }
 
+        public void GetFValue(int targetX, int targetY)
+        {
             while (openList[targetX, targetY] == null)
             {
                 for (int x = 0; x < Game1.map.mapWidth; x++)
@@ -268,36 +275,37 @@ namespace GameBuild
                             #endregion
 
                             //check the best node (lowest F)
-
+                            
                         }
                     }
                 }
-                //if (this node is the goal) 
-                //{
-                //    then we're done
-                //}
-                //else 
-                //{
-                //    move the current node to the closed list and consider all of its neighbors
-                //    for (each neighbor) 
-                //    {
-                //        if (this neighbor is in the closed list and our current g value is lower) 
-                //        {
-                //            update the neighbor with the new, lower, g value 
-                //            change the neighbor's parent to our current node
-                //        }
-                //        else if (this neighbor is in the open list and our current g value is lower) 
-                //        {
-                //            update the neighbor with the new, lower, g value 
-                //            change the neighbor's parent to our current node
-                //        }
-                //        else this neighbor is not in either the open or closed list 
-                //        {
-                //            add the neighbor to the open list and set its g value
-                //        }
-                //    }
-                //}
             }
         }
+
+        //if (this node is the goal) 
+        //{
+        //    then we're done
+        //}
+        //else 
+        //{
+        //    move the current node to the closed list and consider all of its neighbors
+        //    for (each neighbor) 
+        //    {
+        //        if (this neighbor is in the closed list and our current g value is lower) 
+        //        {
+        //            update the neighbor with the new, lower, g value 
+        //            change the neighbor's parent to our current node
+        //        }
+        //        else if (this neighbor is in the open list and our current g value is lower) 
+        //        {
+        //            update the neighbor with the new, lower, g value 
+        //            change the neighbor's parent to our current node
+        //        }
+        //        else this neighbor is not in either the open or closed list 
+        //        {
+        //            add the neighbor to the open list and set its g value
+        //        }
+        //    }
+        //}
     }
 }

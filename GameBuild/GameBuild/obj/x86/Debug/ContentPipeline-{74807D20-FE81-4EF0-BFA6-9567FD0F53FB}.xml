@@ -197,7 +197,7 @@
       <Processor>TileMapProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\source.xnb</Output>
-      <Time>2013-04-02T22:12:45.3184625+02:00</Time>
+      <Time>2013-04-06T19:00:26.57997+02:00</Time>
     </Item>
     <Item>
       <Source>target.tm</Source>
@@ -216,42 +216,6 @@
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\health100.xnb</Output>
       <Time>2013-03-30T04:27:29.0383028+01:00</Time>
-    </Item>
-    <Item>
-      <Source>health25.png</Source>
-      <Name>health25</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\health25.xnb</Output>
-      <Time>2013-03-30T04:27:29.0553037+01:00</Time>
-    </Item>
-    <Item>
-      <Source>health50.png</Source>
-      <Name>health50</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\health50.xnb</Output>
-      <Time>2013-03-30T04:27:29.0413029+01:00</Time>
-    </Item>
-    <Item>
-      <Source>health75.png</Source>
-      <Name>health75</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\health75.xnb</Output>
-      <Time>2013-03-30T04:27:29.0453032+01:00</Time>
-    </Item>
-    <Item>
-      <Source>healthEmpty.png</Source>
-      <Name>healthEmpty</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\healthEmpty.xnb</Output>
-      <Time>2013-03-30T04:27:29.0433031+01:00</Time>
     </Item>
     <Item>
       <Source>emptySlot.png</Source>
