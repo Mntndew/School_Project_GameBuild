@@ -25,10 +25,6 @@ namespace GameBuild
 
         Rectangle warpField;
 
-        Rectangle screen;
-        Texture2D effectTexture;
-        Color effectColor;
-
         public cWarp(string sourceMap, int sourceX, int sourceY, int width, int height, string targetMap, int targetX, int targetY, Game1 game)
         {
             this.sourceMap = sourceMap;
@@ -38,11 +34,6 @@ namespace GameBuild
             fileTargetY = targetY;
 
             warpField = new Rectangle(sourceX, sourceY, width, height);
-            screen = new Rectangle(0, 0, game.graphics.PreferredBackBufferWidth, game.graphics.PreferredBackBufferHeight);
-
-            effectTexture = game.Content.Load<Texture2D>("blackness");
-
-            effectColor = new Color(0, 0, 0, 0);
         }
 
         public void CheckMap(Game1 game)
@@ -82,18 +73,11 @@ namespace GameBuild
 
             if (player.position.Intersects(warpField))
             {
-                Effect();
+                Effect(game);
                 if (doneEffect)
                 {
                     Game1.map = game.Content.Load<H_Map.TileMap>(targetMap);
                     Game1.map.tileset = game.Content.Load<Texture2D>("tileset");
-                    //for (int i = 0; i < game.Npcs.Count; i++)
-                    {
-                        //if (!game.Npcs[i].hasBeenAdded)
-                        {
-                            game.UpdateActiveNpcs();
-                        }
-                    }
                     if (targetX != -1)
                     {
                         player.position.X = targetX;
@@ -108,23 +92,23 @@ namespace GameBuild
             }
         }
 
-        public void Effect()
+        public void Effect(Game1 game)
         {
             doneEffect = false;
             canWalk = false;
             if (addAlpha)
             {
-                effectColor.A += 6;
+                game.screenColor.A += 6;
             }
-            if (effectColor.A >= 252)
+            if (game.screenColor.A >= 252)
             {
                 addAlpha = false;
             }
             if (!addAlpha)
             {
-                effectColor.A -= 18;
+                game.screenColor.A -= 18;
             }
-            if (!addAlpha && effectColor.A == 0)
+            if (!addAlpha && game.screenColor.A == 0)
             {
                 doneEffect = true;
             }
@@ -136,7 +120,7 @@ namespace GameBuild
             {
                 //spriteBatch.Draw(game.collisionTex, warpField, new Color(200, 50, 200, 200));
             }
-            spriteBatch.Draw(effectTexture, screen, effectColor);
+            spriteBatch.Draw(game.screenTexture, game.screen, game.screenColor);
         }
     }
 }

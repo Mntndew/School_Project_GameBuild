@@ -9,6 +9,7 @@ namespace GameBuild
 {
     public class Npc
     {
+        #region shit load of variables
         public Rectangle position;
         public Rectangle healthPos;
         Rectangle patrolRect;
@@ -68,7 +69,8 @@ namespace GameBuild
         Color aColor;
 
         int damage;
-
+        #endregion
+        
         public Npc(string mapName, string name, int x, int y, int width, int height, bool up, bool down, bool left, bool right, string spritePath, string portraitPath, bool patrolNone, bool patrolUpDown, bool patrolLeftRight, bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game, string dialoguePath)
         {
             position = new Rectangle(x, y, width, height);
@@ -128,7 +130,7 @@ namespace GameBuild
         {
             Rectangle location = position;
             walking = false;
-            if ((Game1.character.position.Y > position.Y + 16) || (Game1.character.position.Y < position.Y - 16) || (Game1.character.position.Y == position.Y))
+            if ((Game1.character.position.Y > position.Y + 16) || (Game1.character.position.Y < position.Y - 16) || (Game1.character.position.Y == position.Y) && !Game1.character.dead)
             {
                 if (Game1.character.position.Y < position.Y)
                 {
@@ -192,13 +194,13 @@ namespace GameBuild
             }
 
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            if (Game1.character.position.Intersects(position) && Game1.map.mapName.Remove(Game1.map.mapName.Length - 1) == mapName)
+            if (Game1.character.position.Intersects(position) && Game1.map.mapName.Remove(Game1.map.mapName.Length - 1) == mapName && !Game1.character.dead)
             {
                 attackTimer -= elapsed;
                 if (attackTimer <= 0)
                 {
                     damage = game.damageObject.dealDamage(3, 20);
-                    damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(255, 255, 100, 255)));
+                    damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(255, 0, 0, 255)));
                     Game1.character.health -= damage;
                     attackTimer = ATTACKTIMER;
                 }
@@ -552,7 +554,7 @@ namespace GameBuild
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch, Game1 game)
+        public void Draw(SpriteBatch spriteBatch)
         {
             if (isOnMap)
             {
@@ -564,10 +566,6 @@ namespace GameBuild
                 if (healthTexture != null && health > 0)
                 {
                     spriteBatch.Draw(healthTexture, healthPos, Color.White);
-                    for (int i = 0; i < damageEffectList.Count; i++)
-                    {
-                        damageEffectList[i].Draw(spriteBatch, game);
-                    }
                 }
             }
         }
@@ -582,6 +580,17 @@ namespace GameBuild
                     {
                         spriteBatch.Draw(aTexture, aPosition, aColor);
                     }
+                }
+            }
+        }
+
+        public void DrawDamage(SpriteBatch spriteBatch, Game1 game)
+        {
+            for (int i = 0; i < damageEffectList.Count; i++)
+            {
+                if (health > 0)
+                {
+                    damageEffectList[i].Draw(spriteBatch, game);
                 }
             }
         }

@@ -74,6 +74,10 @@ namespace GameBuild
         public KeyboardState oldState;
         public KeyboardState keyState;
 
+        public Rectangle screen;
+        public Texture2D screenTexture;
+        public Color screenColor;
+
         Camera2d camera;
 
         public enum GameState
@@ -108,6 +112,8 @@ namespace GameBuild
             character = new cCharacter(this);
             spriteFont = Content.Load<SpriteFont>("SpriteFont1");
             damageObject = new Damage();
+            screenColor = new Color(0, 0, 0, 0);
+            screen = new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
             base.Initialize();
         }
 
@@ -128,6 +134,7 @@ namespace GameBuild
             LoadNpcs();
             UpdateActiveNpcs();
             debugTile = Content.Load<Texture2D>("emptySlot");
+            screenTexture = Content.Load<Texture2D>("blackness");
         }
 
         public void LoadNpcs()
@@ -198,6 +205,7 @@ namespace GameBuild
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            UpdateActiveNpcs();
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
@@ -281,7 +289,7 @@ namespace GameBuild
 
             for (int i = 0; i < activeNpcs.Count; i++)
             {
-                activeNpcs[i].Draw(spriteBatch, this);
+                activeNpcs[i].Draw(spriteBatch);
             }
 
             map.DrawForegroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
@@ -320,6 +328,7 @@ namespace GameBuild
                     {
                         activeNpcs[i].dialogue.Draw(spriteBatch);
                     }
+                    activeNpcs[i].DrawDamage(spriteBatch, this);
                 }
             }
             spriteBatch.End();

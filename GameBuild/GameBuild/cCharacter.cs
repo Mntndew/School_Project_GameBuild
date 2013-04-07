@@ -19,6 +19,7 @@ namespace GameBuild
         public bool attacking = false;
         bool inCombat;
         public bool showInventory;
+        public bool dead;
 
         public int playerHeight = 48; //size of the player sprite in pixels
         public int playerWidth = 48;
@@ -100,6 +101,12 @@ namespace GameBuild
             healthBarWidth = (float)healthTexture.Width * healthPct;
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
+            if (health <= 0)
+            {
+                dead = true;
+                DeathEffect(game);
+            }
+
             if (inCombat)
             {
                 regenTimer = REGENTIMER;
@@ -109,7 +116,7 @@ namespace GameBuild
 
             if (regenTimer <= 0)
             {
-                if (health < maxHealth)
+                if (health < maxHealth && !inCombat && !dead)
                 {
                     if (maxHealth - health >= 5)
                     {
@@ -137,14 +144,14 @@ namespace GameBuild
             vectorPos.Y = position.Y;
             if (left)
             {
-                attackRectangle.Width = position.Width * 2;
+                attackRectangle.Width = position.Width + (position.Width / 2);
                 attackRectangle.Height = 48;
-                attackRectangle.X = position.X - position.Width;
+                attackRectangle.X = position.X - (attackRectangle.Width / 2) + 12;
                 attackRectangle.Y = position.Y + 5;
             }
             if (right)
             {
-                attackRectangle.Width = position.Width * 2;
+                attackRectangle.Width = position.Width + (position.Width / 2);
                 attackRectangle.Height = 48;
                 attackRectangle.X = position.X;
                 attackRectangle.Y = position.Y + 5;
@@ -152,14 +159,14 @@ namespace GameBuild
             if (up)
             {
                 attackRectangle.Width = position.Width;
-                attackRectangle.Height = position.Height * 2;
+                attackRectangle.Height = position.Height + (position.Height / 2);
                 attackRectangle.X = position.X;
-                attackRectangle.Y = position.Y - position.Height;
+                attackRectangle.Y = position.Y - (position.Height / 2);
             }
             if (down)
             {
                 attackRectangle.Width = position.Width;
-                attackRectangle.Height = position.Height * 2;
+                attackRectangle.Height = position.Height  + (position.Height / 2);
                 attackRectangle.X = position.X;
                 attackRectangle.Y = position.Y;
             }
@@ -197,7 +204,7 @@ namespace GameBuild
                 faceDown = false;
             }
 
-            if (!attacking && !showInventory && cWarp.canWalk)
+            if (!attacking && !showInventory && cWarp.canWalk && !dead)
             {
                 walking = false;
                 if (game.keyState.IsKeyDown(Keys.Up))
@@ -289,7 +296,7 @@ namespace GameBuild
 
             #endregion
 
-            if (game.keyState.IsKeyDown(Keys.Tab) && oldState.IsKeyUp(Keys.Tab))
+            if (game.keyState.IsKeyDown(Keys.Tab) && oldState.IsKeyUp(Keys.Tab) && !dead)
             {
                 if (showInventory)
                 {
@@ -300,7 +307,7 @@ namespace GameBuild
             }
 
             //Attack
-            if (game.keyState.IsKeyDown(Keys.Z) && game.oldState.IsKeyUp(Keys.Z))
+            if (game.keyState.IsKeyDown(Keys.Z) && game.oldState.IsKeyUp(Keys.Z) && !dead)
             {
                 foreach (Npc npc in game.activeNpcs)
                 {
@@ -341,6 +348,14 @@ namespace GameBuild
             }
         }
 
+        public void DeathEffect(Game1 game)
+        {
+            if (game.screenColor.A < 255)
+            {
+                game.screenColor.A += 5;
+            }
+        }
+
         public bool IsCollision(H_Map.TileMap tiles, Rectangle location)
         {
             Point tileIndex = tiles.GetTileIndexFromVector(new Vector2(location.X, location.Y));
@@ -351,9 +366,14 @@ namespace GameBuild
         {
             Rectangle shadowPos = new Rectangle(position.X + 8, position.Bottom - shadowBlob.Height / 2, shadowBlob.Width, shadowBlob.Height);
             spriteBatch.Draw(shadowBlob, shadowPos, Color.White);
-            //spriteBatch.Draw(debugTexture, attackRectangle, new Color(100, 100, 100, 100));
-            //spriteBatch.Draw(debugTexture, interactRect, new Color(100, 100, 100, 100));
+            spriteBatch.Draw(debugTexture, attackRectangle, new Color(100, 100, 100, 100));
+            spriteBatch.Draw(debugTexture, interactRect, new Color(100, 100, 100, 100));
             spriteBatch.Draw(spriteWalkSheet, position, animation.GetFrame(), Color.White);
+        }
+
+        public void DrawDeath(SpriteBatch spriteBatch, Game1 game)
+        {
+            spriteBatch.Draw(game.screenTexture, game.screen, game.screenColor);
         }
 
         public void DrawHealthBar(SpriteBatch spriteBatch, Game1 game)
@@ -366,6 +386,10 @@ namespace GameBuild
                 {
                     damageEffectList[i].Draw(spriteBatch, game);
                 }
+            }
+            if (health <= 0)
+            {
+                DrawDeath(spriteBatch, game);
             }
         }
     }

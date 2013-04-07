@@ -41,14 +41,12 @@ namespace GameBuild
         public void Effect()
         {
             position.Y -= 1;
-            if (color.A > 5)
+            if (color.A > 0)
             {
                 if (color.R > color.B)
                 {
                     color.A -= 7;
                     color.R -= 7;
-                    color.G -= 7;
-                    color.B -= 1;
                 }
                 else
                 {
