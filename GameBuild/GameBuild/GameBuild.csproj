@@ -104,20 +104,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnimationComponent.cs" />
-    <Compile Include="Camera2d.cs" />
-    <Compile Include="cCharacter.cs" />
-    <Compile Include="cDialogue.cs" />
-    <Compile Include="Damage.cs" />
-    <Compile Include="Inventory.cs" />
-    <Compile Include="cLighting.cs" />
-    <Compile Include="cWarp.cs" />
+    <Compile Include="Game\AnimationComponent.cs" />
+    <Compile Include="Game\Camera2d.cs" />
+    <Compile Include="Player\cCharacter.cs" />
+    <Compile Include="Dialogue\cDialogue.cs" />
+    <Compile Include="Game\Damage.cs" />
+    <Compile Include="Player\Inventory.cs" />
+    <Compile Include="Game\cLighting.cs" />
+    <Compile Include="Game\cWarp.cs" />
     <Compile Include="Dialogue\DialogueItem.cs" />
     <Compile Include="Dialogue\DialogueManager.cs" />
-    <Compile Include="InventorySlot.cs" />
-    <Compile Include="Node.cs" />
-    <Compile Include="Npc.cs" />
-    <Compile Include="PathFinder.cs" />
+    <Compile Include="Player\InventorySlot.cs" />
+    <Compile Include="Npc\Npc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />

@@ -68,11 +68,11 @@ namespace GameBuild
             maxHealth = health;
 
             #region Textures
-            debugTexture = game.Content.Load<Texture2D>("blackness");
+            debugTexture = game.Content.Load<Texture2D>(@"Game\blackness");
             spriteWalkSheet = game.Content.Load<Texture2D>("player/CharaWalkSheet");
             spriteAttackSheet = game.Content.Load<Texture2D>("player/CharaAttackSheet V2");
             shadowBlob = game.Content.Load<Texture2D>("player/shadowTex");
-            healthTexture = game.Content.Load<Texture2D>("health100");
+            healthTexture = game.Content.Load<Texture2D>(@"Game\health100");
             #endregion
 
             #region Rectangles and Vectors

@@ -110,7 +110,7 @@ namespace GameBuild
         {
             this.IsMouseVisible = true;
             character = new cCharacter(this);
-            spriteFont = Content.Load<SpriteFont>("SpriteFont1");
+            spriteFont = Content.Load<SpriteFont>(@"Game\SpriteFont1");
             damageObject = new Damage();
             screenColor = new Color(0, 0, 0, 0);
             screen = new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
@@ -125,16 +125,16 @@ namespace GameBuild
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            collisionTex = Content.Load<Texture2D>("blackness");
-            map = Content.Load<H_Map.TileMap>("source");
-            map.tileset = Content.Load<Texture2D>("tileset");
+            collisionTex = Content.Load<Texture2D>(@"Game\blackness");
+            map = Content.Load<H_Map.TileMap>(@"Map\source");
+            map.tileset = Content.Load<Texture2D>(@"Game\tileset");
             //Console.WriteLine(map.mapName);
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
             LoadWarps();
             LoadNpcs();
             UpdateActiveNpcs();
-            debugTile = Content.Load<Texture2D>("emptySlot");
-            screenTexture = Content.Load<Texture2D>("blackness");
+            debugTile = Content.Load<Texture2D>(@"Player\emptySlot");
+            screenTexture = Content.Load<Texture2D>(@"Game\blackness");
         }
 
         public void LoadNpcs()

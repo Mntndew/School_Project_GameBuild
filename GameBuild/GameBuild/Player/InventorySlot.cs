@@ -15,7 +15,7 @@ namespace GameBuild
 
         public InventorySlot(Game1 game)
         {
-            texture = game.Content.Load<Texture2D>("emptySlot");
+            texture = game.Content.Load<Texture2D>(@"Player\emptySlot");
         }
 
         public void Draw(SpriteBatch spriteBatch, Game1 game)

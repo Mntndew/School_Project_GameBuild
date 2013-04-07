@@ -30,82 +30,55 @@
     <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.VideoImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="blackness.png">
+    <Compile Include="Game\blackness.png">
       <Name>blackness</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="CharacterIdleFront.png">
-      <Name>CharacterIdleFront</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="CharaWalkSheet.png">
-      <Name>CharaWalkSheet</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="lightTexture.png">
+    <Compile Include="Game\lightTexture.png">
       <Name>lightTexture</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="shadowTex.png">
-      <Name>shadowTex</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="lighting.fx">
+    <Compile Include="Game\lighting.fx">
       <Name>lighting</Name>
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="point.png">
-      <Name>point</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="A.png">
+    <Compile Include="Npc\A.png">
       <Name>A</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SpriteFont1.spritefont">
+    <Compile Include="Game\SpriteFont1.spritefont">
       <Name>SpriteFont1</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="player\CharaAttackSheet V2.png">
+    <Compile Include="Player\CharaAttackSheet V2.png">
       <Name>CharaAttackSheet V2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="player\CharacterIdleFront.png">
-      <Name>CharacterIdleFront</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="player\CharaWalkSheet.png">
+    <Compile Include="Player\CharaWalkSheet.png">
       <Name>CharaWalkSheet</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="player\CharaWalkSheetBKU.png">
+    <Compile Include="Player\CharaWalkSheetBKU.png">
       <Name>CharaWalkSheetBKU</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="player\shadowTex.png">
+    <Compile Include="Player\shadowTex.png">
       <Name>shadowTex</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -118,122 +91,99 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="source.tm">
+    <Compile Include="Map\source.tm">
       <Name>source</Name>
       <Importer>TileMapImporter</Importer>
       <Processor>TileMapProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="tileset.png">
-      <Name>tileset</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="target.tm">
+    <Compile Include="Map\target.tm">
       <Name>target</Name>
       <Importer>TileMapImporter</Importer>
       <Processor>TileMapProcessor</Processor>
     </Compile>
-    <None Include="npc\npc\Test.txt">
+    <None Include="Npc\npc\Test.txt">
       <Name>Test</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Compile Include="npc\portrait\Test.png">
+    <Compile Include="Npc\portrait\Test.png">
       <Name>Test</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="npc\sprite\Test.png">
+    <Compile Include="Npc\sprite\Test.png">
       <Name>Test</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="npc\dialogue\dialogueTest.txt">
+    <None Include="Npc\dialogue\dialogueTest.txt">
       <Name>dialogueTest</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="warp\source.txt">
+    <None Include="Warp\source.txt">
       <Name>source</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="npc\portrait\Testing.png">
-      <Name>Testing</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="warp\target.txt">
+    <None Include="Warp\target.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>target</Name>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="npc\dialogue\dialogue2.txt">
+    <None Include="Npc\dialogue\dialogue2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>dialogue2</Name>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="textBox.png">
-      <Name>textBox</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="npc\npc\npc2.txt">
+    <None Include="Npc\npc\npc2.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <Name>npc2</Name>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="npc\sprite\npc2.png">
+    <Compile Include="Npc\sprite\npc2.png">
       <Name>npc2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="npc\portrait\npc2.png">
+    <Compile Include="Npc\portrait\npc2.png">
       <Name>npc2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="health100.png">
+    <Compile Include="Game\health100.png">
       <Name>health100</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="emptySlot.png">
+    <Compile Include="Player\emptySlot.png">
       <Name>emptySlot</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="tilesets.png">
-      <Name>tilesets</Name>
+    <Compile Include="Game\textBox.png">
+      <Name>textBox</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="NagaWalk.png">
-      <Name>NagaWalk</Name>
+    <Compile Include="Game\tileset.png">
+      <Name>tileset</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

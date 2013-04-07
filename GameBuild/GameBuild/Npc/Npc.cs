@@ -80,17 +80,17 @@ namespace GameBuild
 
             patrolRect = new Rectangle(patrolX, patrolY, patrolWidth, patrolHeight);
 
-            aTexture = game.Content.Load<Texture2D>("A");
+            aTexture = game.Content.Load<Texture2D>(@"Npc\A");
             aPosition = new Rectangle(0, 0, aTexture.Width, aTexture.Height);
 
             health = 200;
             maxHealth = health;
             this.speed = speed;
 
-            dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + portraitPath), game.Content.Load<Texture2D>("textBox"), game, game.spriteFont, dialoguePath, name);
+            dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + portraitPath), game.Content.Load<Texture2D>(@"Game\textBox"), game, game.spriteFont, dialoguePath, name);
             walkSprite = game.Content.Load<Texture2D>(@"npc\sprite\" + spritePath);
-            debugTile = game.Content.Load<Texture2D>("emptySlot");
-            healthTexture = game.Content.Load<Texture2D>("health100");
+            debugTile = game.Content.Load<Texture2D>(@"Player\emptySlot");
+            healthTexture = game.Content.Load<Texture2D>(@"Game\health100");
 
             if (patrolLeftRight)
             {

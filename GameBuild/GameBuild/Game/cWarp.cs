@@ -76,8 +76,8 @@ namespace GameBuild
                 Effect(game);
                 if (doneEffect)
                 {
-                    Game1.map = game.Content.Load<H_Map.TileMap>(targetMap);
-                    Game1.map.tileset = game.Content.Load<Texture2D>("tileset");
+                    Game1.map = game.Content.Load<H_Map.TileMap>(@"Map\" + targetMap);
+                    Game1.map.tileset = game.Content.Load<Texture2D>(@"Game\tileset");
                     if (targetX != -1)
                     {
                         player.position.X = targetX;
