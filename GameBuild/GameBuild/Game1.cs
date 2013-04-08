@@ -65,6 +65,8 @@ namespace GameBuild
         public static cCharacter character;
         public Damage damageObject;
 
+        public List<Key> keys = new List<Key>();
+
         //Debugging stuffs
         public Texture2D collisionTex;
         Color collisionColor = new Color(100, 0, 0, 100);
@@ -114,6 +116,8 @@ namespace GameBuild
             damageObject = new Damage();
             screenColor = new Color(0, 0, 0, 0);
             screen = new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
+            keys.Add(new Key(new Rectangle(320, 320, 16, 16), "key 0", "source", this));
+            keys.Add(new Key(new Rectangle(320, 320, 16, 16), "key 1", "target", this));
             base.Initialize();
         }
 
@@ -184,7 +188,7 @@ namespace GameBuild
                 warp[i] = Directory.GetFiles(@"Content\warp\")[i];
                 StreamReader reader = new StreamReader(warp[i]);
                 cWarp Warp = new cWarp(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
-                    int.Parse(reader.ReadLine()), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), this);
+                    int.Parse(reader.ReadLine()), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), reader.ReadLine(), this);
                 reader.Close();
                 warps.Add(Warp);
             }
@@ -227,9 +231,15 @@ namespace GameBuild
 
             camera.Pos = character.vectorPos;
 
-            //Update NPCs
-            Console.WriteLine("active: " + activeNpcs.Count);
-            Console.WriteLine("npcs: " + Npcs.Count);
+            for (int i = 0; i < keys.Count; i++)
+            {
+                if (character.position.Intersects(keys[i].position) && map.mapName.Remove(map.mapName.Length - 1) == keys[i].mapName)
+                {
+                    keys[i].PickUp(character);
+                    keys.RemoveAt(i);
+                }
+            }
+
             foreach (Npc npc in activeNpcs)
             {
                 if (npc.health > 0)
@@ -285,6 +295,15 @@ namespace GameBuild
             spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, camera.GetTransformation());
             map.DrawBackgroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
             map.DrawInteractiveLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
+
+            for (int i = 0; i < keys.Count; i++)
+            {
+                if (keys[i].mapName == map.mapName.Remove(map.mapName.Length - 1))
+                {
+                    keys[i].Draw(spriteBatch);
+                }
+            }
+
             character.Draw(spriteBatch);
 
             for (int i = 0; i < activeNpcs.Count; i++)

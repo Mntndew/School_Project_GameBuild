@@ -12,6 +12,7 @@ namespace GameBuild
     {
         public string sourceMap;
         string targetMap;
+        string key;
 
         public bool isOnMap;
         public bool doneEffect;
@@ -25,10 +26,11 @@ namespace GameBuild
 
         Rectangle warpField;
 
-        public cWarp(string sourceMap, int sourceX, int sourceY, int width, int height, string targetMap, int targetX, int targetY, Game1 game)
+        public cWarp(string sourceMap, int sourceX, int sourceY, int width, int height, string targetMap, int targetX, int targetY, string key, Game1 game)
         {
             this.sourceMap = sourceMap;
             this.targetMap = targetMap;
+            this.key = key;
 
             fileTargetX = targetX;
             fileTargetY = targetY;
@@ -70,24 +72,41 @@ namespace GameBuild
             }
             else
                 this.targetY = player.position.Y;
-
-            if (player.position.Intersects(warpField))
+            
+            if (player.attackRectangle.Intersects(warpField))
             {
-                Effect(game);
-                if (doneEffect)
+                for (int x = 0; x < player.inventory.width; x++)
                 {
-                    Game1.map = game.Content.Load<H_Map.TileMap>(@"Map\" + targetMap);
-                    Game1.map.tileset = game.Content.Load<Texture2D>(@"Game\tileset");
-                    if (targetX != -1)
+                    for (int y = 0; y < player.inventory.height; y++)
                     {
-                        player.position.X = targetX;
+                        if (player.inventory.inventorySlot[x, y].item == key)
+                        {
+                            
+                            Effect(game);
+                            if (doneEffect)
+                            {
+                                if (player.position.X < warpField.X)
+                                {
+                                    if (targetX != -1)
+                                    {
+                                        targetX += 2;
+                                    }
+                                }
+                                Game1.map = game.Content.Load<H_Map.TileMap>(@"Map\" + targetMap);
+                                Game1.map.tileset = game.Content.Load<Texture2D>(@"Game\tileset");
+                                if (targetX != -1)
+                                {
+                                    player.position.X = targetX;
+                                }
+                                if (targetY != -1)
+                                {
+                                    player.position.Y = targetY;
+                                }
+                                addAlpha = true;
+                                canWalk = true;
+                            }
+                        }
                     }
-                    if (targetY != -1)
-                    {
-                        player.position.Y = targetY;
-                    }
-                    addAlpha = true;
-                    canWalk = true;
                 }
             }
         }
@@ -118,7 +137,7 @@ namespace GameBuild
         {
             if (isOnMap)
             {
-                //spriteBatch.Draw(game.collisionTex, warpField, new Color(200, 50, 200, 200));
+                spriteBatch.Draw(game.collisionTex, warpField, new Color(200, 50, 200, 200));
             }
             spriteBatch.Draw(game.screenTexture, game.screen, game.screenColor);
         }

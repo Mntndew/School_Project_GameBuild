@@ -28,11 +28,13 @@ namespace GameBuild
     {
         public Vector2 position;
         string damageString;
+        string type;
         Color color;
         public bool active;
 
-        public DamageEffect(int damage, Game1 game, Vector2 position, Color color)
+        public DamageEffect(int damage, Game1 game, Vector2 position, Color color, string type)
         {
+            this.type = type;
             this.position = position;
             this.color = color;
             damageString = "" + damage;
@@ -43,17 +45,27 @@ namespace GameBuild
             position.Y -= 1;
             if (color.A > 0)
             {
-                if (color.R > color.B)
+                if (type  == "damage")
                 {
-                    color.A -= 7;
-                    color.R -= 7;
+                    if (color.R > color.B)
+                    {
+                        color.A -= 7;
+                        color.R -= 7;
+                    }
+                    else
+                    {
+                        color.A -= 7;
+                        color.R -= 7;
+                        color.G -= 7;
+                        color.B -= 7;
+                    }
                 }
-                else
+                if (type == "regen")
                 {
-                    color.A -= 7;
-                    color.R -= 7;
-                    color.G -= 7;
-                    color.B -= 7;
+                    color.A -= 5;
+                    //color.R -= 5;
+                    color.G -= 5;
+                    //color.B -= 5;
                 }
             }
         }

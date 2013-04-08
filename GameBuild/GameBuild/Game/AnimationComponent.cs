@@ -81,7 +81,6 @@ namespace GameBuild
                 if (timer > frameDelay)
                 {
                     ResetTimer();
-                    Console.WriteLine(currentFrame.X);
                     currentFrame.X++;
                     
                     if (currentFrame.X > maxFrameCount && loop)

@@ -161,7 +161,7 @@
       <Processor>TileMapProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\source.xnb</Output>
-      <Time>2013-04-06T22:23:13.5078784+02:00</Time>
+      <Time>2013-04-08T13:33:41.4781705+02:00</Time>
     </Item>
     <Item>
       <Source>Map\target.tm</Source>
@@ -170,7 +170,7 @@
       <Processor>TileMapProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\target.xnb</Output>
-      <Time>2013-04-02T15:11:10.5814539+02:00</Time>
+      <Time>2013-04-08T14:40:31.7656508+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

@@ -25,6 +25,8 @@ namespace GameBuild
         public int playerWidth = 48;
         public int damage;
 
+        public float regenAmount;
+
         public Rectangle position;
         public Rectangle interactRect; //for npcs and stuff
         Rectangle colRect;
@@ -39,6 +41,7 @@ namespace GameBuild
         Texture2D healthTexture;
 
         H_Map.TileMap tile;
+        Random rand = new Random();
 
         public Color color = new Color(255, 255, 255, 255); //blink when player gets hit
         public Color hpColor;
@@ -118,12 +121,13 @@ namespace GameBuild
             {
                 if (health < maxHealth && !inCombat && !dead)
                 {
-                    if (maxHealth - health >= 5)
-                    {
-                        health += 5;
-                    }
-                    else
-                        health += maxHealth - health;
+                    regenAmount = rand.Next(3, 7);
+
+                    if (maxHealth - health < regenAmount)
+                        regenAmount = maxHealth - health;
+
+                    health += regenAmount;
+                    damageEffectList.Add(new DamageEffect((int)regenAmount, game, new Vector2(position.X, position.Y - 16), new Color(0, 255, 0, 255), "regen"));
                 }
                 
                 regenTimer = REGENTIMER;
@@ -306,7 +310,7 @@ namespace GameBuild
                     showInventory = true;
             }
 
-            //Attack
+            #region Attack
             if (game.keyState.IsKeyDown(Keys.Z) && game.oldState.IsKeyUp(Keys.Z) && !dead)
             {
                 foreach (Npc npc in game.activeNpcs)
@@ -316,7 +320,7 @@ namespace GameBuild
                         damage = game.damageObject.dealDamage(5, 30);
                         if (npc.health >= 1)
                         {
-                            damageEffectList.Add(new DamageEffect(damage, game, new Vector2(npc.position.X, npc.position.Y - 16), new Color(255, 255, 255, 255)));
+                            damageEffectList.Add(new DamageEffect(damage, game, new Vector2(npc.position.X, npc.position.Y - 16), new Color(255, 255, 255, 255), "damage"));
                             npc.health -= damage;
                             npc.attackPlayer = true;
                         }
@@ -346,6 +350,7 @@ namespace GameBuild
                     game.Npcs.Remove(npc);
                 }
             }
+            #endregion
         }
 
         public void DeathEffect(Game1 game)
