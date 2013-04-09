@@ -96,13 +96,14 @@ namespace GameBuild
         public void Update(Game1 game, H_Map.TileMap tiles, GameTime gameTime, KeyboardState oldState, GraphicsDevice graphicsDevice)
         {
             #region Things to update every frame, positions and stuff
-            if (showInventory)
-            {
-                inventory.Update(game, gameTime);
-            }
             healthPct = (health / maxHealth);
             healthBarWidth = (float)healthTexture.Width * healthPct;
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            if (showInventory)
+            {
+                animation.PauseAnimation();
+            }
 
             if (health <= 0)
             {
@@ -320,7 +321,7 @@ namespace GameBuild
                         damage = game.damageObject.dealDamage(5, 30);
                         if (npc.health >= 1)
                         {
-                            damageEffectList.Add(new DamageEffect(damage, game, new Vector2(npc.position.X, npc.position.Y - 16), new Color(255, 255, 255, 255), "damage"));
+                            damageEffectList.Add(new DamageEffect(damage, game, new Vector2(npc.position.X, npc.position.Y - 16), new Color(255, 255, 255, 255), "player"));
                             npc.health -= damage;
                             npc.attackPlayer = true;
                         }
@@ -386,7 +387,6 @@ namespace GameBuild
             if (healthTexture != null)
             {
                 spriteBatch.Draw(healthTexture, healthPos, Color.White);
-                inventory.Draw(spriteBatch, game);
                 for (int i = 0; i < damageEffectList.Count; i++)
                 {
                     damageEffectList[i].Draw(spriteBatch, game);
