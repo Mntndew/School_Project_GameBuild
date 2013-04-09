@@ -336,7 +336,7 @@ namespace GameBuild
             blendState.AlphaDestinationBlend = Blend.SourceAlpha;
             spriteBatch.Begin(SpriteSortMode.Immediate, blendState);
             spriteBatch.End();
-
+            float framerate = 1f / (float)gameTime.ElapsedGameTime.TotalSeconds;
             spriteBatch.Begin();
             for (int i = 0; i < activeNpcs.Count; i++)
             {
@@ -350,8 +350,9 @@ namespace GameBuild
                 }
             }
             character.inventory.Draw(spriteBatch, this);
+            spriteBatch.DrawString(spriteFont, framerate.ToString(), new Vector2(10, 10), Color.Red);
             spriteBatch.End();
-            float framerate = 1f / (float)gameTime.ElapsedGameTime.TotalSeconds;
+            
             //Console.WriteLine(framerate);
             base.Draw(gameTime);
         }
