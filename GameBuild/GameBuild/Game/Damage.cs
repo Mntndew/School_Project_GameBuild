@@ -59,8 +59,8 @@ namespace GameBuild
                 }
                 if (type == "regen")
                 {
-                    color.A -= 5;
-                    color.G -= 5;
+                    color.A -= 3;
+                    color.G -= 3;
                 }
             }
         }
