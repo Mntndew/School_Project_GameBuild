@@ -215,6 +215,12 @@ namespace GameBuild
                 this.Exit();
             oldState = keyState;
             keyState = Keyboard.GetState();
+            camera.Pos = character.vectorPos;
+
+            if (currentGameState == GameState.PLAY)
+            {
+                character.Update(this, map, gameTime, oldState, GraphicsDevice);
+            }
 
             foreach (cWarp warp in warps)
             {
@@ -224,12 +230,6 @@ namespace GameBuild
                     warp.Update(character, this);
                 }
             }
-            if (currentGameState == GameState.PLAY) //TODO: gamestates for making the game update objects logicly *FIXED MUTHA FUCKAH UR WELCOME PAST SELF*
-            {
-                character.Update(this, map, gameTime, oldState, GraphicsDevice);
-            }
-
-            camera.Pos = character.vectorPos;
 
             for (int i = 0; i < keys.Count; i++)
             {
@@ -244,7 +244,7 @@ namespace GameBuild
             {
                 if (npc.health > 0)
                 {
-                    if (!npc.isInteracting && npc.isOnMap)
+                    if (!npc.isInteracting && npc.isOnMap && !character.showInventory)
                     {
                         npc.Update(character, map, this, gameTime);
                     }
@@ -263,7 +263,6 @@ namespace GameBuild
                             npc.isInteracting = true;
                             npc.dialogue.isTalking = true;
                             currentGameState = GameState.INTERACT;
-                            //Console.WriteLine(npc.mapName);
                         }
                     }
                 }
@@ -350,6 +349,7 @@ namespace GameBuild
                     activeNpcs[i].DrawDamage(spriteBatch, this);
                 }
             }
+            character.inventory.Draw(spriteBatch, this);
             spriteBatch.End();
             float framerate = 1f / (float)gameTime.ElapsedGameTime.TotalSeconds;
             //Console.WriteLine(framerate);

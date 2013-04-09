@@ -200,7 +200,7 @@ namespace GameBuild
                 if (attackTimer <= 0)
                 {
                     damage = game.damageObject.dealDamage(3, 20);
-                    damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(255, 0, 0, 255), "damage"));
+                    damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(255, 0, 0, 255), "npc"));
                     Game1.character.health -= damage;
                     attackTimer = ATTACKTIMER;
                 }

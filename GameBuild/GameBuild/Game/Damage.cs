@@ -45,34 +45,34 @@ namespace GameBuild
             position.Y -= 1;
             if (color.A > 0)
             {
-                if (type  == "damage")
+                if (type == "npc")
                 {
-                    if (color.R > color.B)
-                    {
-                        color.A -= 7;
-                        color.R -= 7;
-                    }
-                    else
-                    {
-                        color.A -= 7;
-                        color.R -= 7;
-                        color.G -= 7;
-                        color.B -= 7;
-                    }
+                    color.A -= 5;
+                    color.R -= 5;
+                }
+                if (type == "player")
+                {
+                    color.A -= 5;
+                    color.R -= 5;
+                    color.G -= 5;
+                    color.B -= 5;
                 }
                 if (type == "regen")
                 {
                     color.A -= 5;
-                    //color.R -= 5;
                     color.G -= 5;
-                    //color.B -= 5;
                 }
             }
         }
 
         public void Draw(SpriteBatch spriteBatch, Game1 game)
         {
-            spriteBatch.DrawString(game.spriteFont, damageString, position, color);
+            if (type != "regen")
+            {
+                spriteBatch.DrawString(game.spriteFont, damageString, position, color);
+            }
+            else
+                spriteBatch.DrawString(game.spriteFont, "+" + damageString, position, color);
         }
     }
 }
