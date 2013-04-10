@@ -106,6 +106,8 @@
   <ItemGroup>
     <Compile Include="Game\AnimationComponent.cs" />
     <Compile Include="Game\Camera2d.cs" />
+    <Compile Include="Pathfinding\Node.cs" />
+    <Compile Include="Pathfinding\PathFinder.cs" />
     <Compile Include="Player\cCharacter.cs" />
     <Compile Include="Dialogue\cDialogue.cs" />
     <Compile Include="Game\Damage.cs" />

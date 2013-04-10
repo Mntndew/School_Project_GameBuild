@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using GameBuild.Pathfinding;
 
 namespace GameBuild
 {
@@ -21,6 +22,7 @@ namespace GameBuild
         Vector2 point2;
         Vector2 point3;
         Vector2 point4;
+        Vector2[] path;
 
         Texture2D debugTile;
         Texture2D walkSprite;
@@ -35,8 +37,12 @@ namespace GameBuild
         public float health;
         public float healthPct;
         public float speed;
-        float attackTimer = 1;
-        const float ATTACKTIMER = 1;
+        float attackTimer = 1000f;
+        float pathTimer = 1000f;
+        const float ATTACKTIMER = 1000f;//milliseconds
+        const float PATHTIMER = 1000f;//milliseconds
+        int pathIndex;
+        bool followPath;
 
         public bool point1Tagged = false, point2Tagged = false, point3Tagged = false, point4Tagged = false;
         public bool canInteract;
@@ -45,6 +51,7 @@ namespace GameBuild
         public bool isInteracting = false;
         public bool attackPlayer = false;
         bool addA = false;
+        bool hasPath = false;
 
         public enum patrolType
         {
@@ -53,6 +60,7 @@ namespace GameBuild
             box,
             none
         }
+
         patrolType currentPatrolType = new patrolType();
 
         public cDialogue dialogue;
@@ -70,7 +78,7 @@ namespace GameBuild
 
         int damage;
         #endregion
-        
+
         public Npc(string mapName, string name, int x, int y, int width, int height, bool up, bool down, bool left, bool right, string spritePath, string portraitPath, bool patrolNone, bool patrolUpDown, bool patrolLeftRight, bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game, string dialoguePath)
         {
             position = new Rectangle(x, y, width, height);
@@ -113,7 +121,13 @@ namespace GameBuild
 
             aColor = Color.White;
 
-            animation = new AnimationComponent(2, 4, 50, 71, 175, Point.Zero);
+            animation = new AnimationComponent(2, 4, 50, 71, 175, Microsoft.Xna.Framework.Point.Zero);
+        }
+
+        public Npc(Rectangle position, Texture2D walkSprite)
+        {
+            this.position = position;
+            this.walkSprite = walkSprite;
         }
 
         public void CheckMap(Game1 game)
@@ -129,74 +143,47 @@ namespace GameBuild
         public void Attack(Game1 game, GameTime gameTime, H_Map.TileMap tiles)
         {
             Rectangle location = position;
+            float elapsed = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+            Console.WriteLine(hasPath);
             walking = false;
-            if ((Game1.character.position.Y > position.Y + 16) || (Game1.character.position.Y < position.Y - 16) || (Game1.character.position.Y == position.Y) && !Game1.character.dead)
+            
+            if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
             {
-                if (Game1.character.position.Y < position.Y)
-                {
-                    location.Y += (int)-(speed * 2);
-                    corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + (position.Height / 2));
-                    corner2 = tiles.GetTileRectangleFromPosition(location.X + position.Width, location.Y + (position.Height / 2));
-                    if (!animation.IsAnimationPlaying(WALK_UP))
-                    {
-                        animation.LoopAnimation(WALK_UP);
-                    }
-                    walking = true;
-                }
-                if (Game1.character.position.Y > position.Y)
-                {
-                    location.Y += (int)(speed * 2);
-                    corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + position.Height);
-                    corner2 = tiles.GetTileRectangleFromPosition(location.X + position.Width, location.Y + position.Height);
-                    if (!animation.IsAnimationPlaying(WALK_DOWN))
-                    {
-                        animation.LoopAnimation(WALK_DOWN);
-                    }
-                    walking = true;
-                }
-                if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
-                {
-                    position.Y = location.Y;
-                    colRect = position;
-                }
-            }
-            else
-            {
-                if (Game1.character.position.X < position.X)
-                {
-                    location.X += (int)-(speed * 2);
-                    location.Y = position.Y;
-                    corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + (position.Height / 2));
-                    corner2 = tiles.GetTileRectangleFromPosition(location.X, location.Y + position.Height);
-                    if (!animation.IsAnimationPlaying(WALK_LEFT))
-                    {
-                        animation.LoopAnimation(WALK_LEFT);
-                    }
-                    walking = true;
-                }
-                if (Game1.character.position.X > position.X)
-                {
-                    location.Y = position.Y;
-                    location.X += (int)(speed * 2);
-                    corner1 = tiles.GetTileRectangleFromPosition(location.X + position.Width, location.Y + (position.Height / 2));
-                    corner2 = tiles.GetTileRectangleFromPosition(location.X + position.Width, location.Y + position.Height);
-                    if (!animation.IsAnimationPlaying(WALK_RIGHT))
-                    {
-                        animation.LoopAnimation(WALK_RIGHT);
-                    }
-                    walking = true;
-                }
-                if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
-                {
-                    position.X = location.X;
-                    colRect = position;
-                }
+                position.X = location.X;
+                colRect = position;
             }
 
-            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            attackTimer -= elapsed;
+            pathTimer -= elapsed;
+
+            if ((pathTimer <= 0 && !Game1.character.dead) || (!hasPath && !Game1.character.dead))
+            {
+                int[,] map = new int[Game1.map.mapWidth, Game1.map.mapHeight];
+                for (int x = 0; x < Game1.map.mapWidth; x++)
+                {
+                    for (int y = 0; y < Game1.map.mapHeight; y++)
+                    {
+                        if (Game1.map.interactiveLayer[x,y].isPassable == true)
+                        {
+                            map[x, y] = 0;
+                        }
+                        else
+                        {
+                            map[x, y] = 1;
+                        }
+                    }
+                }
+                Pathfinding.Point start = new Pathfinding.Point(position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight);
+                Pathfinding.Point end = new Pathfinding.Point(Game1.character.position.X / Game1.map.tileWidth, Game1.character.position.Y / Game1.map.tileHeight);
+
+                path = PathFinder.GetVectorPath(PathFinder.FindPath(map, start, end), Game1.map.tileWidth, Game1.map.tileHeight);
+                hasPath = true;
+                followPath = true;
+                pathTimer = PATHTIMER;
+            }
+
             if (Game1.character.position.Intersects(position) && Game1.map.mapName.Remove(Game1.map.mapName.Length - 1) == mapName && !Game1.character.dead)
             {
-                attackTimer -= elapsed;
                 if (attackTimer <= 0)
                 {
                     damage = game.damageObject.dealDamage(3, 20);
@@ -204,12 +191,98 @@ namespace GameBuild
                     Game1.character.health -= damage;
                     attackTimer = ATTACKTIMER;
                 }
+                followPath = false;
             }
+            else
+            {
+                followPath = true;
+            }
+
+            if (hasPath && pathIndex < path.Length && followPath)
+            {
+                Rectangle prevLocation = location;
+                if (Math.Abs(location.X - path[pathIndex].X) < 10 && Math.Abs(location.Y - path[pathIndex].Y) < 10)
+                {
+                    pathIndex++;
+                    if (pathIndex >= path.Length)
+                    {
+                        hasPath = false;
+                        pathIndex = 0;
+                        followPath = false;
+                    }
+                }
+                if (followPath)
+                {
+                    if (path[pathIndex].X < location.X)
+                    {
+                        MoveLeft(ref location);
+                    }
+                    else if (path[pathIndex].X > location.X)
+                    {
+                        MoveRight(ref location);
+                    }
+                    if (path[pathIndex].Y < location.Y)
+                    {
+                        MoveUp(ref location);
+                    }
+                    else if (path[pathIndex].Y > location.Y)
+                    {
+                        MoveDown(ref location);
+                    }
+                }
+            }
+            position = location;
         }
+
+
+        //fucking swag
+        #region Swaggy movement functions
+        private void MoveUp(ref Rectangle location)
+        {
+            location.Y += (int)-(speed * 2);
+            if (!animation.IsAnimationPlaying(WALK_UP))
+            {
+                animation.LoopAnimation(WALK_UP);
+            }
+            walking = true;
+        }
+
+        private void MoveDown(ref Rectangle location)
+        {
+            location.Y += (int)(speed * 2);
+            if (!animation.IsAnimationPlaying(WALK_DOWN))
+            {
+                animation.LoopAnimation(WALK_DOWN);
+            }
+            walking = true;
+        }
+
+        private void MoveLeft(ref Rectangle location)
+        {
+            location.X += (int)-(speed * 2);
+            location.Y = position.Y;
+            if (!animation.IsAnimationPlaying(WALK_LEFT))
+            {
+                animation.LoopAnimation(WALK_LEFT);
+            }
+            walking = true;
+        }
+
+        private void MoveRight(ref Rectangle location)
+        {
+            location.Y = position.Y;
+            location.X += (int)(speed * 2);
+            if (!animation.IsAnimationPlaying(WALK_RIGHT))
+            {
+                animation.LoopAnimation(WALK_RIGHT);
+            }
+            walking = true;
+        } 
+        #endregion
 
         public bool IsCollision(H_Map.TileMap tiles, Rectangle location)
         {
-            Point tileIndex = tiles.GetTileIndexFromVector(new Vector2(location.X, location.Y));
+            Microsoft.Xna.Framework.Point tileIndex = tiles.GetTileIndexFromVector(new Vector2(location.X, location.Y));
             return (!tiles.interactiveLayer[tileIndex.X, tileIndex.Y].isPassable);
         }
 
@@ -247,7 +320,7 @@ namespace GameBuild
             {
                 damageEffectList[i].Effect();
             }
-            
+
             if (attackPlayer)
             {
                 canInteract = false;
@@ -314,7 +387,7 @@ namespace GameBuild
         public void Patrol(H_Map.TileMap tiles)
         {
             Rectangle location = position;
-            
+
             switch (currentPatrolType)
             {
                 case patrolType.upDown:
@@ -543,7 +616,7 @@ namespace GameBuild
                         }
                     }
                     #endregion
-                    
+
                     break;
                 case patrolType.none:
                     break;
@@ -566,6 +639,13 @@ namespace GameBuild
                 if (healthTexture != null && health > 0)
                 {
                     spriteBatch.Draw(healthTexture, healthPos, Color.White);
+                }
+                if (path != null)
+                {
+                    for (int i = 0; i < path.Length; i++)
+                    {
+                        spriteBatch.Draw(debugTile, path[i], new Color(200, 200, 200, 200));
+                    }
                 }
             }
         }
