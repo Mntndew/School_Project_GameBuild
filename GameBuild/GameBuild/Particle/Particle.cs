@@ -45,9 +45,8 @@ namespace GameBuild
             position.Y += (int)velocity.Y;
             
             elapsed += (float)gameTime.ElapsedGameTime.TotalSeconds;
-            timer -= elapsed;
 
-            if (elapsed >= 0.5f)
+            if (elapsed >= timer)
             {
                 if (color.R > 0)
                 {
@@ -65,7 +64,7 @@ namespace GameBuild
 
             if (hasGravity)
             {
-                velocity.Y += (float)gameTime.ElapsedGameTime.TotalMilliseconds / 200;
+                velocity.Y += (float)gameTime.ElapsedGameTime.TotalSeconds * 10;
                 if (velocity.X > 0)
                 {
                     velocity.X -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 70;
@@ -73,12 +72,6 @@ namespace GameBuild
                 if (velocity.X < 0)
                 {
                     velocity.X += (float)gameTime.ElapsedGameTime.TotalMilliseconds / 70;
-                }
-
-                if (position.X <= 0 || position.X >= 800)
-                {
-                    velocity.X /= 2;
-                    velocity.X *= -1;
                 }
             }
 

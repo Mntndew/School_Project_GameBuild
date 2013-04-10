@@ -19,44 +19,17 @@ namespace GameBuild
         float timer = 0.075f;
         const float TIMER = 0.075f;
 
-        //for testing
-        MouseState mouse;
-        Rectangle position;
-        bool left = true;
-        bool right;
-
         public ParticleSystem(Game1 game, int amount)
         {
             texture = game.Content.Load<Texture2D>(@"Particle\blood");
             this.amount = amount;
-            position = new Rectangle(700, 200, 1, 1);
             rand = new Random();
         }
 
         public void Update(GameTime gameTime)
         {
-            mouse = Mouse.GetState();
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             timer -= elapsed;
-            if (left)
-            {
-                position.X -= 4;
-                if (position.X <= 0)
-                {
-                    right = true;
-                    left = false;
-                }
-            }
-            if (right)
-            {
-                position.X += 4;
-                if (position.X >= 800)
-                {
-                    left = true;
-                    right = false;
-                }
-            }
-            
             for (int i = 0; i < particles.Count; i++)
             {
                 particles[i].Update(gameTime);
@@ -67,11 +40,13 @@ namespace GameBuild
             }
         }
 
-        public void Add(int x, int y)
+        public void Add(int x, int y, int width, int height, int amount, int minVelocityX, int maxVelocityX, int minVelocityY, int maxVelocityY, float timer, float scaleModifier, float rotationModifier, bool scaleMultiplicative,
+            bool rotationMultiplicative, bool hasGravity)
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < amount; i++)
             {
-                particles.Add(new Particle(new Rectangle(x, y, texture.Width, texture.Height), new Vector2((float)rand.Next(-4, 4), rand.Next(0, 2)), 1, 2, 1, false, false, true));
+                particles.Add(new Particle(new Rectangle(x, y, width, height), new Vector2(rand.Next(minVelocityX, maxVelocityX), rand.Next(minVelocityY, maxVelocityY)), timer, scaleModifier,
+                    rotationModifier, rotationMultiplicative, scaleMultiplicative, hasGravity));
             }
         }
 

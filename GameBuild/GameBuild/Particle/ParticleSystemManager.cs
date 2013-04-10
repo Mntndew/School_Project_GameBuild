@@ -11,8 +11,9 @@ namespace GameBuild
 
         public ParticleSystemManager(Game1 game)
         {
-            particleSystem = new ParticleSystem[1];
+            particleSystem = new ParticleSystem[2];
             particleSystem[0] = new ParticleSystem(game, 10);
+            particleSystem[1] = new ParticleSystem(game, 10);
         }
     }
 }
