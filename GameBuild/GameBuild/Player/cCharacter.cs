@@ -323,7 +323,7 @@ namespace GameBuild
                         {
                             damageEffectList.Add(new DamageEffect(damage, game, new Vector2(npc.position.X, npc.position.Y - 16), new Color(255, 255, 255, 255), "player"));
                             npc.health -= damage;
-                            Game1.particleSystemManager.particleSystem[0].Add(npc.position.X + (npc.position.Width / 2), npc.position.Y + 32, 4, 4, damage, -4, 4, 0, 2, 0.2f, 1, 1, false, false, true);
+                            Game1.particleSystemManager.particleSystem[0].Add(npc.position.X + (npc.position.Width / 2), npc.position.Y + 32, 4, 4, damage, -4, 4, 0, 2, new Color(25, 50, 50), 0.2f, 1, 1, false, false, true);
                             npc.attackPlayer = true;
                         }
                     }

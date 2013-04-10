@@ -190,8 +190,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Compile Include="Particle\blood.png">
-      <Name>blood</Name>
+    <Compile Include="Particle\particle.png">
+      <Name>particle</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

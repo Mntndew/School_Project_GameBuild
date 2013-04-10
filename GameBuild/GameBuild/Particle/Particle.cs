@@ -25,7 +25,7 @@ namespace GameBuild
         bool hasGravity;
         public bool dead;
 
-        public Particle(Rectangle position, Vector2 velocity, float timer, float scaleModifier, float rotationModifier,
+        public Particle(Rectangle position, Vector2 velocity, Color color, float timer, float scaleModifier, float rotationModifier,
             bool rotationMultiplicatvie, bool scaleMultiplicative, bool hasGravity)
         {
             this.position = position;
@@ -36,7 +36,7 @@ namespace GameBuild
             this.scaleMultiplicative = scaleMultiplicative;
             this.scaleModifier = scaleModifier;
             this.timer = timer;
-            color = new Color(255, 255, 255, 255);
+            this.color = color;
         }
 
         public void Update(GameTime gameTime)
@@ -46,18 +46,13 @@ namespace GameBuild
             
             elapsed += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
+
             if (elapsed >= timer)
             {
-                if (color.R > 0)
-                {
-                    color.R -= 15;
-                    color.G -= 15;
-                    color.B -= 15;
-                    color.A -= 15;
-                }
+                color *= 0.90f;
             }
 
-            if (color.R <= 0)
+            if (color.A <= 0)
             {
                 dead = true;
             }

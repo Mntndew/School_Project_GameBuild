@@ -173,13 +173,13 @@
       <Time>2013-04-08T14:40:31.7656508+02:00</Time>
     </Item>
     <Item>
-      <Source>Particle\blood.png</Source>
-      <Name>Particle\blood</Name>
+      <Source>Particle\particle.png</Source>
+      <Name>Particle\particle</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Particle\blood.xnb</Output>
-      <Time>2013-04-10T20:33:57.418635+02:00</Time>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Particle\particle.xnb</Output>
+      <Time>2013-04-10T22:36:14.8536489+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

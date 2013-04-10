@@ -119,7 +119,8 @@ namespace GameBuild
             screen = new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
             keys.Add(new Key(new Rectangle(320, 320, 16, 16), "key 0", "source", this));
             keys.Add(new Key(new Rectangle(320, 320, 16, 16), "key 1", "target", this));
-            particleSystemManager = new ParticleSystemManager(this);
+            particleSystemManager = new ParticleSystemManager();
+            particleSystemManager.AddParticleSystem(this);
             base.Initialize();
         }
 
@@ -293,7 +294,6 @@ namespace GameBuild
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-
             //draws out the world on the default back buffer with all entities 
             GraphicsDevice.SetRenderTarget(null);
             GraphicsDevice.Clear(Color.Black);
@@ -310,10 +310,8 @@ namespace GameBuild
             }
 
             character.Draw(spriteBatch);
-            for (int i = 0; i < particleSystemManager.particleSystem.Length; i++)
-            {
-                particleSystemManager.particleSystem[i].Draw(spriteBatch);
-            }
+
+            particleSystemManager.Draw(spriteBatch);
 
             for (int i = 0; i < activeNpcs.Count; i++)
             {
