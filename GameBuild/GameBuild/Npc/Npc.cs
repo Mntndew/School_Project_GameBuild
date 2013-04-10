@@ -140,7 +140,6 @@ namespace GameBuild
         {
             Rectangle location = position;
             float elapsed = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-            Console.WriteLine(hasPath);
             walking = false;
             
             if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
@@ -175,7 +174,6 @@ namespace GameBuild
 
                 path = PathFinder.GetVectorPath(PathFinder.FindPath(map, start, end), Game1.map.tileWidth, Game1.map.tileHeight);
                 hasPath = true;
-                followPath = true;
             }
 
             if (Game1.character.position.Intersects(position) && Game1.map.mapName.Remove(Game1.map.mapName.Length - 1) == mapName && !Game1.character.dead)
@@ -188,6 +186,12 @@ namespace GameBuild
                     attackTimer = ATTACKTIMER;
                 }
                 followPath = false;
+            }
+
+            if ((path.Length == 1 && path[0].X == -32 && path[0].Y == -32))
+            {
+                followPath = false;
+                hasPath = false;
             }
             else
             {
@@ -227,6 +231,7 @@ namespace GameBuild
                     }
                 }
             }
+            Console.WriteLine(followPath);
             position = location;
         }
 
@@ -628,6 +633,14 @@ namespace GameBuild
                 if (health > 0)
                 {
                     spriteBatch.Draw(walkSprite, position, animation.GetFrame(), Color.White);
+                    if (path != null)
+                    {
+                        for (int i = 0; i < path.Length; i++)
+                        {
+                            spriteBatch.Draw(debugTile, path[i], Color.Pink);
+                        }
+                    }
+                    
                     //spriteBatch.Draw(walkSprite, patrolRect, new Color(20, 20, 20, 100));
                 }
                 if (healthTexture != null && health > 0)

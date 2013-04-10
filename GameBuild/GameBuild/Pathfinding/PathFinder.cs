@@ -43,10 +43,9 @@ namespace GameBuild.Pathfinding
                     bool exited = false;
                     for (int j = 0; j < openList.Count; j++)
                     {
-                        if (successors[i].Position == openList[j].Position && successors[i].F < openList[j].F)
+                        if (successors[i].Position == openList[j].Position && successors[i].F >= openList[j].F)
                         {
                             exited = true;
-                            openList.Add(successors[i]);
                             break;
                         }
                     }
@@ -54,7 +53,7 @@ namespace GameBuild.Pathfinding
                     {
                         for (int j = 0; j < closedList.Count; j++)
                         {
-                            if (successors[i].Position == closedList[j].Position && successors[i].F > closedList[j].F)
+                            if (successors[i].Position == closedList[j].Position && successors[i].F >= closedList[j].F)
                             {
                                 exited = true;
                                 break;
@@ -79,6 +78,7 @@ namespace GameBuild.Pathfinding
             closedListLength = closedList.Count;
             if (openList.Count == 0)
             {
+                Console.WriteLine("didn't find path...");
                 return NoPath();
             }
             return GetPath(closedList, startPoint);
