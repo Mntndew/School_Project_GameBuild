@@ -372,8 +372,8 @@ namespace GameBuild
         {
             Rectangle shadowPos = new Rectangle(position.X + 8, position.Bottom - shadowBlob.Height / 2, shadowBlob.Width, shadowBlob.Height);
             spriteBatch.Draw(shadowBlob, shadowPos, Color.White);
-            spriteBatch.Draw(debugTexture, attackRectangle, new Color(100, 100, 100, 100));
-            spriteBatch.Draw(debugTexture, interactRect, new Color(100, 100, 100, 100));
+            //spriteBatch.Draw(debugTexture, attackRectangle, new Color(100, 100, 100, 100));
+            //spriteBatch.Draw(debugTexture, interactRect, new Color(100, 100, 100, 100));
             spriteBatch.Draw(spriteWalkSheet, position, animation.GetFrame(), Color.White);
         }
 

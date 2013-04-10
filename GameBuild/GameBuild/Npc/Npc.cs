@@ -188,6 +188,7 @@ namespace GameBuild
                     damage = game.damageObject.dealDamage(3, 20);
                     damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(255, 0, 0, 255), "npc"));
                     Game1.character.health -= damage;
+                    Game1.particleSystemManager.particleSystem[0].Add(Game1.character.position.X + (Game1.character.position.Width / 2), Game1.character.position.Y + 32);
                     attackTimer = ATTACKTIMER;
                 }
                 followPath = false;
@@ -644,7 +645,7 @@ namespace GameBuild
                     {
                         for (int i = 0; i < path.Length; i++)
                         {
-                            spriteBatch.Draw(debugTile, path[i], Color.Pink);
+                            //spriteBatch.Draw(debugTile, path[i], Color.Pink);
                         }
                     }
                     
@@ -658,7 +659,7 @@ namespace GameBuild
                 {
                     for (int i = 0; i < path.Length; i++)
                     {
-                        spriteBatch.Draw(debugTile, path[i], new Color(200, 200, 200, 200));
+                        //spriteBatch.Draw(debugTile, path[i], new Color(200, 200, 200, 200));
                     }
                 }
             }

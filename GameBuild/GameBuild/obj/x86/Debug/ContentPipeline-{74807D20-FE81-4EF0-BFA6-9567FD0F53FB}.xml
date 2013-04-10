@@ -172,6 +172,15 @@
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\target.xnb</Output>
       <Time>2013-04-08T14:40:31.7656508+02:00</Time>
     </Item>
+    <Item>
+      <Source>Particle\blood.png</Source>
+      <Name>Particle\blood</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Particle\blood.xnb</Output>
+      <Time>2013-04-10T20:33:57.418635+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}</ContentProjectGUID>
