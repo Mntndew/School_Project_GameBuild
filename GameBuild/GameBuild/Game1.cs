@@ -350,6 +350,7 @@ namespace GameBuild
                 }
             }
             character.inventory.Draw(spriteBatch, this);
+
             spriteBatch.DrawString(spriteFont, framerate.ToString(), new Vector2(10, 10), Color.Red);
             spriteBatch.End();
             
@@ -358,7 +359,6 @@ namespace GameBuild
         }
     }
 }
-
 
 #region stuff
 /*

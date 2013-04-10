@@ -144,7 +144,6 @@ namespace GameBuild
         {
             Rectangle location = position;
             float elapsed = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-            Console.WriteLine(hasPath);
             walking = false;
             
             if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
@@ -193,6 +192,12 @@ namespace GameBuild
                 }
                 followPath = false;
             }
+
+            if ((path.Length == 1 && path[0].X == -32 && path[0].Y == -32))
+            {
+                followPath = false;
+                hasPath = false;
+            }
             else
             {
                 followPath = true;
@@ -231,6 +236,7 @@ namespace GameBuild
                     }
                 }
             }
+            Console.WriteLine(followPath);
             position = location;
         }
 
@@ -634,6 +640,14 @@ namespace GameBuild
                 if (health > 0)
                 {
                     spriteBatch.Draw(walkSprite, position, animation.GetFrame(), Color.White);
+                    if (path != null)
+                    {
+                        for (int i = 0; i < path.Length; i++)
+                        {
+                            spriteBatch.Draw(debugTile, path[i], Color.Pink);
+                        }
+                    }
+                    
                     //spriteBatch.Draw(walkSprite, patrolRect, new Color(20, 20, 20, 100));
                 }
                 if (healthTexture != null && health > 0)
