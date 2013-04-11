@@ -11,7 +11,7 @@ namespace GameBuild
         #region Declarations
         bool playing;
         bool loop;
-        bool paused;
+        bool paused; //never used, only set
 
         int spriteSheetWidth, spriteSheetHeight;
         int frameWidth, frameHeight;

@@ -37,7 +37,7 @@ namespace GameBuild
         public float health;
         public float healthPct;
         public float speed;
-        float attackTimer = 1000f;
+        public float attackTimer = 1000f;
         float pathTimer = 1000f;
         const float ATTACKTIMER = 1000f;//milliseconds
         const float PATHTIMER = 1000f;//milliseconds
@@ -188,7 +188,7 @@ namespace GameBuild
                     damage = game.damageObject.dealDamage(3, 20);
                     damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(255, 0, 0, 255), "npc"));
                     Game1.character.health -= damage;
-                    Game1.particleSystemManager.particleSystem[0].Add(Game1.character.position.X + (Game1.character.position.Width / 2), Game1.character.position.Y + 32, 4, 4, damage, -4, 4, 0, 2, new Color(255, 0, 0), 0.2f, 1, 1, false, false, true);
+                    Game1.character.Bleed();
                     attackTimer = ATTACKTIMER;
                 }
                 followPath = false;

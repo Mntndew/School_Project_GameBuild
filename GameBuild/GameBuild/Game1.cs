@@ -81,7 +81,8 @@ namespace GameBuild
         public Color screenColor;
 
         Camera2d camera;
-        public static ParticleSystemManager particleSystemManager;
+
+        public static ParticleSystem particleSystem;
 
         public enum GameState
         {
@@ -119,8 +120,7 @@ namespace GameBuild
             screen = new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
             keys.Add(new Key(new Rectangle(320, 320, 16, 16), "key 0", "source", this));
             keys.Add(new Key(new Rectangle(320, 320, 16, 16), "key 1", "target", this));
-            particleSystemManager = new ParticleSystemManager();
-            particleSystemManager.AddParticleSystem(this);
+            particleSystem = new ParticleSystem(2, this);
             base.Initialize();
         }
 
@@ -224,11 +224,6 @@ namespace GameBuild
             {
                 character.Update(this, map, gameTime, oldState, GraphicsDevice);
             }
-            for (int i = 0; i < particleSystemManager.particleSystem.Length; i++)
-            {
-                particleSystemManager.particleSystem[i].Update(gameTime);
-            }
-
             foreach (cWarp warp in warps)
             {
                 warp.CheckMap(this);
@@ -310,8 +305,6 @@ namespace GameBuild
             }
 
             character.Draw(spriteBatch);
-
-            particleSystemManager.Draw(spriteBatch);
 
             for (int i = 0; i < activeNpcs.Count; i++)
             {

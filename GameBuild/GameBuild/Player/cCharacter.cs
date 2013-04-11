@@ -58,6 +58,8 @@ namespace GameBuild
 
         AnimationComponent animation;
 
+        public ParticleSystemEmitter emitter;
+
         //Animations
         const int WALK_UP = 0;
         const int WALK_RIGHT = 1;
@@ -91,6 +93,7 @@ namespace GameBuild
 
             inventory = new Inventory(game);
             animation = new AnimationComponent(3, 4, 72, 96, 100, Point.Zero);
+            emitter = new ParticleSystemEmitter(game);
         }
 
         public void Update(Game1 game, H_Map.TileMap tiles, GameTime gameTime, KeyboardState oldState, GraphicsDevice graphicsDevice)
@@ -98,6 +101,7 @@ namespace GameBuild
             #region Things to update every frame, positions and stuff
             healthPct = (health / maxHealth);
             healthBarWidth = (float)healthTexture.Width * healthPct;
+            emitter.Update(gameTime);
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             if (showInventory)
@@ -323,7 +327,6 @@ namespace GameBuild
                         {
                             damageEffectList.Add(new DamageEffect(damage, game, new Vector2(npc.position.X, npc.position.Y - 16), new Color(255, 255, 255, 255), "player"));
                             npc.health -= damage;
-                            Game1.particleSystemManager.particleSystem[0].Add(npc.position.X + (npc.position.Width / 2), npc.position.Y + 32, 4, 4, damage, -4, 4, 0, 2, new Color(25, 50, 50), 0.2f, 1, 1, false, false, true);
                             npc.attackPlayer = true;
                         }
                     }
@@ -363,6 +366,11 @@ namespace GameBuild
             }
         }
 
+        public void Bleed()
+        {
+            emitter.Add(Game1.character.position.X + 24, Game1.character.position.Y + 24, 6, 6, 10, -2, 2, -2, 2, new Color(255, 10, 10), 0.07f, 1, 1, false, false, true);
+        }
+
         public bool IsCollision(H_Map.TileMap tiles, Rectangle location)
         {
             Point tileIndex = tiles.GetTileIndexFromVector(new Vector2(location.X, location.Y));
@@ -376,6 +384,7 @@ namespace GameBuild
             //spriteBatch.Draw(debugTexture, attackRectangle, new Color(100, 100, 100, 100));
             //spriteBatch.Draw(debugTexture, interactRect, new Color(100, 100, 100, 100));
             spriteBatch.Draw(spriteWalkSheet, position, animation.GetFrame(), Color.White);
+            emitter.Draw(spriteBatch);
         }
 
         public void DrawDeath(SpriteBatch spriteBatch, Game1 game)

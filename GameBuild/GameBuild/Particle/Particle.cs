@@ -10,11 +10,12 @@ namespace GameBuild
     {
         public Rectangle position;
         Vector2 velocity;
+        public Vector2 origion;
 
         float timer;
-        float scale = 1;
+        public float scale = 1;
         float scaleModifier;
-        float rotation = 0;
+        public float rotation = 0;
         float rotationModifier;
         float elapsed;
 
@@ -43,9 +44,19 @@ namespace GameBuild
         {
             position.X += (int)velocity.X;
             position.Y += (int)velocity.Y;
-            
+            origion = new Vector2(position.X + (position.Width / 2), position.Y + (position.Height / 2));
             elapsed += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
+            if (position.X <= 0 && velocity.X < 0)
+            {
+                velocity.X /= 1.3f;
+                velocity.X *= -1;
+            }
+            if (position.X >= 800 && velocity.X > 0)
+            {
+                velocity.X /= 1.3f;
+                velocity.X *= -1;
+            }
 
             if (elapsed >= timer)
             {
@@ -59,15 +70,7 @@ namespace GameBuild
 
             if (hasGravity)
             {
-                velocity.Y += (float)gameTime.ElapsedGameTime.TotalSeconds * 10;
-                if (velocity.X > 0)
-                {
-                    velocity.X -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 70;
-                }
-                if (velocity.X < 0)
-                {
-                    velocity.X += (float)gameTime.ElapsedGameTime.TotalMilliseconds / 70;
-                }
+                velocity.Y += (float)gameTime.ElapsedGameTime.TotalMilliseconds / 60;
             }
 
             #region scale and rotation
@@ -88,8 +91,6 @@ namespace GameBuild
             {
                 rotation += rotationModifier;
             }
-            //position.Width += (int)scale;
-            //position.Height += (int)scale;
             #endregion
         }
     }

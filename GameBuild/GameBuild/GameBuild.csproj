@@ -108,7 +108,7 @@
     <Compile Include="Game\Camera2d.cs" />
     <Compile Include="Particle\Particle.cs" />
     <Compile Include="Particle\ParticleSystem.cs" />
-    <Compile Include="Particle\ParticleSystemManager.cs" />
+    <Compile Include="Particle\ParticleSystemEmitter.cs" />
     <Compile Include="Pathfinding\Node.cs" />
     <Compile Include="Pathfinding\PathFinder.cs" />
     <Compile Include="Player\cCharacter.cs" />
@@ -166,6 +166,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!--
