@@ -26,6 +26,10 @@ namespace GameBuild
 
         Rectangle warpField;
 
+        cDialogue lockedDialogue;
+
+        bool hasShowedLockedMessage = false;
+
         public cWarp(string sourceMap, int sourceX, int sourceY, int width, int height, string targetMap, int targetX, int targetY, string key, Game1 game)
         {
             this.sourceMap = sourceMap;
@@ -50,15 +54,14 @@ namespace GameBuild
 
         public void Update(cCharacter player, Game1 game)
         {
-            //Console.WriteLine();
-            //Console.WriteLine("Loaded map: " + game.map.mapName.Remove(game.map.mapName.Length - 1));
-            //Console.WriteLine();
-            //Console.WriteLine("Warp source map: " + sourceMap);
-            //Console.WriteLine("Warp target map: " + targetMap);
-            //Console.WriteLine();
-            //Console.WriteLine("X: " + player.position.X);
-            //Console.WriteLine("Y: " + player.position.Y);
-
+            if (lockedDialogue.isTalking)
+            {
+                lockedDialogue.Update();
+                if (lockedDialogue.isTalking == false)
+                {
+                    game.currentGameState = Game1.GameState.PLAY;
+                }
+            }
             if (targetX != -1)
             {
                 targetX = fileTargetX;
@@ -75,6 +78,7 @@ namespace GameBuild
             
             if (player.attackRectangle.Intersects(warpField))
             {
+                bool hasKey = false;
                 for (int x = 0; x < player.inventory.width; x++)
                 {
                     for (int y = 0; y < player.inventory.height; y++)
@@ -107,6 +111,16 @@ namespace GameBuild
                         }
                     }
                 }
+                if (!hasKey && !hasShowedLockedMessage)
+                {
+                    game.currentGameState = Game1.GameState.INTERACT;
+                    lockedDialogue.isTalking = true;
+                    hasShowedLockedMessage = true;
+                }
+            }
+            else
+            {
+                hasShowedLockedMessage = false;
             }
         }
 
@@ -139,6 +153,7 @@ namespace GameBuild
                 spriteBatch.Draw(game.collisionTex, warpField, new Color(200, 50, 200, 200));
             }
             spriteBatch.Draw(game.screenTexture, game.screen, game.screenColor);
+            lockedDialogue.Draw(spriteBatch);
         }
     }
 }

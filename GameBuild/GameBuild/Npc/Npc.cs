@@ -124,7 +124,7 @@ namespace GameBuild
             maxHealth = health;
             this.speed = speed;
 
-            dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + portraitPath), game.Content.Load<Texture2D>(@"Game\textBox"), game, game.spriteFont, dialoguePath, name);
+            dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + portraitPath), game.textBox, game, game.spriteFont, dialoguePath, name);
             walkSprite = game.Content.Load<Texture2D>(@"npc\sprite\" + spritePath);
             debugTile = game.Content.Load<Texture2D>(@"Player\emptySlot");
             healthTexture = game.Content.Load<Texture2D>(@"Game\health100");

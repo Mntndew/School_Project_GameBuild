@@ -82,6 +82,8 @@ namespace GameBuild
 
         Camera2d camera;
 
+        public Texture2D textBox;
+
         public static ParticleSystem particleSystem;
 
         public enum GameState
@@ -135,7 +137,7 @@ namespace GameBuild
             collisionTex = Content.Load<Texture2D>(@"Game\blackness");
             map = Content.Load<H_Map.TileMap>(@"Map\new map");
             map.tileset = Content.Load<Texture2D>(@"Game\tileset");
-            //Console.WriteLine(map.mapName);
+            textBox = Content.Load<Texture2D>(@"Game\textBox");
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
             LoadWarps();
             LoadNpcs();
