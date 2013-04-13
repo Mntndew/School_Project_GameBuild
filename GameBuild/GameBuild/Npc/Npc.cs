@@ -50,6 +50,7 @@ namespace GameBuild
         public bool hasBeenAdded = false;
         public bool isInteracting = false;
         public bool attackPlayer = false;
+        bool up, down, left, right;
         bool addA = false;
         bool hasPath = false;
 
@@ -79,12 +80,40 @@ namespace GameBuild
         int damage;
         #endregion
 
-        public Npc(string mapName, string name, int x, int y, int width, int height, bool up, bool down, bool left, bool right, string spritePath, string portraitPath, bool patrolNone, bool patrolUpDown, bool patrolLeftRight, bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game, string dialoguePath)
+        public Npc(string mapName, string name, int x, int y, int width, int height, string up, string down, string left, string right, string spritePath, string portraitPath, bool patrolNone, bool patrolUpDown, bool patrolLeftRight, bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game, string dialoguePath)
         {
             position = new Rectangle(x, y, width - 16, height - 16);
             this.name = name;
             this.mapName = mapName;
             this.speed = speed;
+
+            if (up == "False")
+            {
+                this.up = false;
+            }
+            else
+                this.up = true;
+
+            if (down == "False")
+            {
+                this.down = false;
+            }
+            else
+                this.down = true;
+
+            if (left == "False")
+            {
+                this.left = false;
+            }
+            else
+                this.left = true;
+
+            if (right == "False")
+            {
+                this.right = false;
+            }
+            else
+                this.right = true;
 
             patrolRect = new Rectangle(patrolX, patrolY, patrolWidth, patrolHeight);
 
@@ -121,8 +150,6 @@ namespace GameBuild
             {
                 currentPatrolType = patrolType.none;
             }
-
-            currentPatrolType = patrolType.box;
 
             aColor = Color.White;
 
@@ -340,11 +367,6 @@ namespace GameBuild
             }
 
             animation.UpdateAnimation(gameTime);
-
-            if (!walking)
-            {
-                animation.PauseAnimation();
-            }
 
             if (!attackPlayer)
             {
@@ -628,10 +650,42 @@ namespace GameBuild
                         }
                     }
                     #endregion
-
                     break;
                 case patrolType.none:
-                    animation.PauseAnimation();
+                    walking = false;
+                    if (up)
+                    {
+                        if (!animation.IsAnimationPlaying(WALK_UP))
+                        {
+                            animation.LoopAnimation(WALK_UP);
+                        }
+                        walking = true;
+                    }
+                    if (down)
+                    {
+                        if (!animation.IsAnimationPlaying(WALK_DOWN))
+                        {
+                            animation.LoopAnimation(WALK_DOWN);
+                        }
+                        walking = true;
+                    }
+                    if (left)
+                    {
+                        if (!animation.IsAnimationPlaying(WALK_LEFT))
+                        {
+                            animation.LoopAnimation(WALK_LEFT);
+                        }
+                        walking = true;
+                    }
+                    if (right)
+                    {
+                        if (!animation.IsAnimationPlaying(WALK_RIGHT))
+                        {
+                            animation.LoopAnimation(WALK_RIGHT);
+                        }
+                        walking = true;
+                    }
+                    
                     break;
             }
             if (!walking)
