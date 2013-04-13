@@ -308,6 +308,7 @@ namespace GameBuild
             }
 
             character.Draw(spriteBatch);
+            particleSystem.Draw(spriteBatch);
 
             for (int i = 0; i < activeNpcs.Count; i++)
             {
@@ -353,7 +354,6 @@ namespace GameBuild
                     activeNpcs[i].DrawDamage(spriteBatch, this);
                 }
             }
-            particleSystem.Draw(spriteBatch);
             character.inventory.Draw(spriteBatch, this);
 
             spriteBatch.DrawString(spriteFont, framerate.ToString(), new Vector2(10, 10), Color.Red);

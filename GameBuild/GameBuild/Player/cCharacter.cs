@@ -96,6 +96,7 @@ namespace GameBuild
 
             inventory = new Inventory(game);
             animation = new AnimationComponent(3, 4, 72, 96, 100, Point.Zero);
+            emitter = new ParticleSystemEmitter(game);
             Game1.particleSystem.emitters.Add(emitter);
         }
 
