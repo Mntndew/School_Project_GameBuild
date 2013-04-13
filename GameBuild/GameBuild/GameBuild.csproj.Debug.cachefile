@@ -19,9 +19,14 @@ Content\Map\source.xnb
 Content\Map\target.xnb
 Content\Particle\particle.xnb
 Content\particle.xnb
+Content\Npc\portrait\YOOOYOYOYOYOYO.xnb
+Content\Npc\sprite\YOOOYOYOYOYOYO.xnb
+Content\Map\new map.xnb
 Content\Npc\npc\Test.txt
 Content\Warp\source.txt
 Content\Warp\target.txt
 Content\Npc\dialogue\dialogue2.txt
+Content\Npc\npc\YOOOYOYOYOYOYO.txt
+Content\Npc\dialogue\yo.txt
 Content\Npc\dialogue\dialogueTest.txt
 Content\Npc\npc\npc2.txt

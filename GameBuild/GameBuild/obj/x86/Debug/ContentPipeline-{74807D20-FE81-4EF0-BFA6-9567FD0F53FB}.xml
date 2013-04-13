@@ -134,7 +134,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\tileset.xnb</Output>
-      <Time>2013-03-21T13:05:09+01:00</Time>
+      <Time>2013-04-13T14:48:12.7472283+02:00</Time>
     </Item>
     <Item>
       <Source>Game\lighting.fx</Source>
@@ -189,6 +189,33 @@
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\particle.xnb</Output>
       <Time>2013-04-12T00:52:44.8764154+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\portrait\YOOOYOYOYOYOYO.png</Source>
+      <Name>Npc\portrait\YOOOYOYOYOYOYO</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\YOOOYOYOYOYOYO.xnb</Output>
+      <Time>2013-04-13T14:46:54.8537731+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\sprite\YOOOYOYOYOYOYO.png</Source>
+      <Name>Npc\sprite\YOOOYOYOYOYOYO</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\YOOOYOYOYOYOYO.xnb</Output>
+      <Time>2013-04-13T14:44:20.4229401+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Map\new map.tm</Source>
+      <Name>Map\new map</Name>
+      <Importer>TileMapImporter</Importer>
+      <Processor>TileMapProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\new map.xnb</Output>
+      <Time>2013-04-13T14:43:29.1360067+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

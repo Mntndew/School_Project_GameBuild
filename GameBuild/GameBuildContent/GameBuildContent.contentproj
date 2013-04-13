@@ -103,6 +103,11 @@
       <Importer>TileMapImporter</Importer>
       <Processor>TileMapProcessor</Processor>
     </Compile>
+    <Compile Include="Map\new map.tm">
+      <Name>new map</Name>
+      <Importer>TileMapImporter</Importer>
+      <Processor>TileMapProcessor</Processor>
+    </Compile>
     <None Include="Npc\npc\Test.txt">
       <Name>Test</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -182,11 +187,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Game\tileset.png">
-      <Name>tileset</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="particle.png">
@@ -198,6 +198,39 @@
   <ItemGroup>
     <Compile Include="Particle\particle.png">
       <Name>particle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\npc\YOOOYOYOYOYOYO.txt">
+      <Name>YOOOYOYOYOYOYO</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\portrait\YOOOYOYOYOYOYO.png">
+      <Name>YOOOYOYOYOYOYO</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\sprite\YOOOYOYOYOYOYO.png">
+      <Name>YOOOYOYOYOYOYO</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\dialogue\yo.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>yo</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\tileset.png">
+      <Name>tileset</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

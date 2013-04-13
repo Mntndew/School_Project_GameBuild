@@ -81,7 +81,7 @@ namespace GameBuild
 
         public Npc(string mapName, string name, int x, int y, int width, int height, bool up, bool down, bool left, bool right, string spritePath, string portraitPath, bool patrolNone, bool patrolUpDown, bool patrolLeftRight, bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game, string dialoguePath)
         {
-            position = new Rectangle(x, y, width, height);
+            position = new Rectangle(x, y, width - 16, height - 16);
             this.name = name;
             this.mapName = mapName;
             this.speed = speed;
@@ -113,6 +113,11 @@ namespace GameBuild
                 currentPatrolType = patrolType.box;
             }
             if (patrolNone)
+            {
+                currentPatrolType = patrolType.none;
+            }
+
+            if (!patrolBox && !patrolUpDown && !patrolLeftRight)
             {
                 currentPatrolType = patrolType.none;
             }
@@ -188,7 +193,7 @@ namespace GameBuild
                     damage = game.damageObject.dealDamage(3, 20);
                     damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(255, 0, 0, 255), "npc"));
                     Game1.character.health -= damage;
-                    Game1.character.Bleed();
+                    Game1.character.Hit();
                     attackTimer = ATTACKTIMER;
                 }
                 followPath = false;
@@ -626,6 +631,7 @@ namespace GameBuild
 
                     break;
                 case patrolType.none:
+                    animation.PauseAnimation();
                     break;
             }
             if (!walking)

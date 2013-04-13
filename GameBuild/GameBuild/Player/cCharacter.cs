@@ -20,6 +20,7 @@ namespace GameBuild
         bool inCombat;
         public bool showInventory;
         public bool dead;
+        bool isHit = false;
 
         public int playerHeight = 48; //size of the player sprite in pixels
         public int playerWidth = 48;
@@ -52,6 +53,8 @@ namespace GameBuild
         public float maxHealth;
         float regenTimer = 1;
         const float REGENTIMER = 1;
+        float bleedTimer = 3;
+        const float BLEEDTIMER = 3;
 
         public Inventory inventory;
         public List<DamageEffect> damageEffectList = new List<DamageEffect>();
@@ -107,6 +110,17 @@ namespace GameBuild
             if (showInventory)
             {
                 animation.PauseAnimation();
+            }
+
+            if (isHit)
+            {
+                Bleed();
+                bleedTimer -= elapsed;
+            }
+            if (bleedTimer <= 0)
+            {
+                isHit = false;
+                bleedTimer = BLEEDTIMER;
             }
 
             if (health <= 0)
@@ -366,9 +380,16 @@ namespace GameBuild
             }
         }
 
+        public void Hit()
+        {
+            emitter.Add(position.X + 24, position.Y + 24, 6, 6, 10, -2, 2, -2, 2, new Color(255, 10, 10), 0.07f, 1, 1, false, false, true);
+            emitter.Add(position.X + 32, position.Y + 32, 6, 6, 10, -4, 4, -4, 4, new Color(255, 10, 10), 0.035f, 1, 1, false, false, true);
+            isHit = true;
+        }
+
         public void Bleed()
         {
-            emitter.Add(Game1.character.position.X + 24, Game1.character.position.Y + 24, 6, 6, 10, -2, 2, -2, 2, new Color(255, 10, 10), 0.07f, 1, 1, false, false, true);
+            emitter.Add(position.X + 24, position.Y + 24, 6, 6, 1, 0, 0, -1, 3, new Color(255, 10, 10), 0.07f, 1, 1, false, false, true);
         }
 
         public bool IsCollision(H_Map.TileMap tiles, Rectangle location)
