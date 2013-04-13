@@ -52,7 +52,6 @@ namespace GameBuild
                     //spriteBatch.Draw(texture, new Vector2(particles[i].position.X, particles[i].position.Y), particles[i].position, particles[i].color, particles[i].rotation, new Vector2(particles[i].position.Width / 2, particles[i].position.Height / 2), particles[i].scale, SpriteEffects.None, 0);
                     spriteBatch.Draw(texture, particles[i].position, particles[i].color);
                 }
-                
             }
         }
     }

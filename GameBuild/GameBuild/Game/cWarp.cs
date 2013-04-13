@@ -86,6 +86,7 @@ namespace GameBuild
                     {
                         if (player.inventory.inventorySlot[x, y].item == key)
                         {
+                            hasKey = true;
                             Effect(game);
                             if (doneEffect)
                             {

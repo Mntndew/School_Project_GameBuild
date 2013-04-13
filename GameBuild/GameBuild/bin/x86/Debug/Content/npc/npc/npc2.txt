@@ -2,8 +2,8 @@ source
 npc2
 300
 300
-48
-48
+64
+64
 False
 True
 False

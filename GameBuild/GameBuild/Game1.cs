@@ -115,6 +115,7 @@ namespace GameBuild
         protected override void Initialize()
         {
             this.IsMouseVisible = true;
+            particleSystem = new ParticleSystem();
             character = new cCharacter(this);
             spriteFont = Content.Load<SpriteFont>(@"Game\SpriteFont1");
             damageObject = new Damage();
@@ -122,7 +123,6 @@ namespace GameBuild
             screen = new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
             keys.Add(new Key(new Rectangle(320, 320, 16, 16), "key 0", "source", this));
             keys.Add(new Key(new Rectangle(320, 320, 16, 16), "key 1", "target", this));
-            particleSystem = new ParticleSystem(2, this);
             base.Initialize();
         }
 
@@ -135,7 +135,7 @@ namespace GameBuild
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             collisionTex = Content.Load<Texture2D>(@"Game\blackness");
-            map = Content.Load<H_Map.TileMap>(@"Map\new map");
+            map = Content.Load<H_Map.TileMap>(@"Map\source");
             map.tileset = Content.Load<Texture2D>(@"Game\tileset");
             textBox = Content.Load<Texture2D>(@"Game\textBox");
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
@@ -214,10 +214,11 @@ namespace GameBuild
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            UpdateActiveNpcs();
-            // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
+
+            particleSystem.Update(gameTime);
+            UpdateActiveNpcs();
             oldState = keyState;
             keyState = Keyboard.GetState();
             camera.Pos = character.vectorPos;
@@ -226,12 +227,12 @@ namespace GameBuild
             {
                 character.Update(this, map, gameTime, oldState, GraphicsDevice);
             }
-            foreach (cWarp warp in warps)
+            for (int i = 0; i < warp.Length; i++)
             {
-                warp.CheckMap(this);
-                if (warp.isOnMap)
+                warps[i].CheckMap(this);
+                if (warps[i].isOnMap)
                 {
-                    warp.Update(character, this);
+                    warps[i].Update(character, this);
                 }
             }
 
@@ -244,28 +245,28 @@ namespace GameBuild
                 }
             }
 
-            foreach (Npc npc in activeNpcs)
+            for (int i = 0; i < Npcs.Count; i++)
             {
-                if (npc.health > 0)
+                if (Npcs[i].health > 0)
                 {
-                    if (!npc.isInteracting && npc.isOnMap && !character.showInventory)
+                    if (!Npcs[i].isInteracting && Npcs[i].isOnMap && !character.showInventory)
                     {
-                        npc.Update(character, map, this, gameTime);
+                        Npcs[i].Update(character, map, this, gameTime);
                     }
-                    npc.UpdateDialogue(this);
-                    if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && npc.canInteract)
+                    Npcs[i].UpdateDialogue(this);
+                    if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && Npcs[i].canInteract)
                     {
-                        if (npc.isInteracting)
+                        if (Npcs[i].isInteracting)
                         {
-                            npc.isInteracting = false;
-                            npc.dialogue.isTalking = false;
-                            npc.dialogue.ResetDialogue();
+                            Npcs[i].isInteracting = false;
+                            Npcs[i].dialogue.isTalking = false;
+                            Npcs[i].dialogue.ResetDialogue();
                             currentGameState = GameState.PLAY;
                         }
                         else
                         {
-                            npc.isInteracting = true;
-                            npc.dialogue.isTalking = true;
+                            Npcs[i].isInteracting = true;
+                            Npcs[i].dialogue.isTalking = true;
                             currentGameState = GameState.INTERACT;
                         }
                     }
@@ -352,6 +353,7 @@ namespace GameBuild
                     activeNpcs[i].DrawDamage(spriteBatch, this);
                 }
             }
+            particleSystem.Draw(spriteBatch);
             character.inventory.Draw(spriteBatch, this);
 
             spriteBatch.DrawString(spriteFont, framerate.ToString(), new Vector2(10, 10), Color.Red);
