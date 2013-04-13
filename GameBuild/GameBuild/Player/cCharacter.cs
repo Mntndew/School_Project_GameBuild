@@ -22,6 +22,8 @@ namespace GameBuild
         public bool dead;
         bool isHit = false;
 
+        public string gender;
+
         public int playerHeight = 48; //size of the player sprite in pixels
         public int playerWidth = 48;
         public int damage;
@@ -70,10 +72,12 @@ namespace GameBuild
         const int WALK_LEFT = 3;
         bool walking = false;
 
-        public cCharacter(Game1 game)
+        public cCharacter(Game1 game, string gender)
         {
             health = 100;
             maxHealth = health;
+
+            this.gender = gender;
 
             #region Textures
             debugTexture = game.Content.Load<Texture2D>(@"Game\blackness");

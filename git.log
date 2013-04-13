@@ -266,7 +266,7 @@ user:Mntndew
 :100644 100644 cc4baf7... 8f4a216... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
 :100644 100644 4e6abe3... 8c84b42... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
 
-user:HoWseR
+user:Howser
 1363881849
 :100644 100644 98280e4... 22c635f... M	GameBuild.suo
 :100644 100644 2700ee2... 4044dd1... M	GameBuild/GameBuild/Dialogue/DialogueManager.cs
@@ -550,7 +550,7 @@ user:Howser
 :000000 100644 0000000... 03968ff... A	GameBuild/GameBuildContent/textBox.png
 :100644 100644 09ba7bc... 1a69f5b... M	LevelContentExtension/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 
-user:=
+user:Mntndew
 1364141523
 :100644 100644 a18c75d... 05b74f1... M	GameBuild.suo
 :100644 100644 dff8cbd... ce91d49... M	GameBuild/GameBuild/GameBuild.csproj.Debug.cachefile
@@ -571,7 +571,7 @@ user:=
 :000000 100644 0000000... 03968ff... A	GameBuild/GameBuildContent/textBox.png
 :100644 100644 09ba7bc... 6d66c04... M	LevelContentExtension/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 
-user:=
+user:Mntndew
 1364141606
 user:Howser
 1364141959
@@ -580,7 +580,7 @@ user:Howser
 :100644 100644 c8271d8... bdf16c3... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
 :100644 100644 1358e31... 025af07... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
 
-user:=
+user:Mntndew
 1364146177
 :100644 100644 05b74f1... d2bd143... M	GameBuild.suo
 :100644 100644 d89d825... 24fde3d... M	GameBuild/GameBuild/Game1.cs
@@ -657,7 +657,7 @@ user:Mntndew
 :100644 100644 d30c2d9... 26cedad... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
 :100644 100644 344ddc8... c53aec6... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
 
-user:HoWseR
+user:Howser
 1364329521
 :100644 100644 11456ce... a2c5843... M	GameBuild/GameBuild/bin/x86/Debug/Content/lighting.xnb
 :100644 100644 26cedad... 373a2ae... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
@@ -797,7 +797,7 @@ user:Mntndew
 :100644 100644 5efcbcc... 2b439df... M	GameBuild/GameBuildContent/warp/source.txt
 :100644 100644 3ab7600... a5522ec... M	GameBuild/GameBuildContent/warp/target.txt
 
-user:HoWseR
+user:Howser
 1364922782
 :100644 100644 ddfaf1e... 2dcb8f9... M	GameBuild.suo
 :000000 100644 0000000... 6b9d979... A	GameBuild/GameBuild/AnimationComponent.cs

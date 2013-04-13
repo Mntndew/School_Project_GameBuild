@@ -51,51 +51,54 @@ namespace GameBuild
 
         public SpriteFont spriteFont;
 
-        public List<Npc> activeNpcs = new List<Npc>();
-        public List<Npc> Npcs = new List<Npc>();
-        int files = Directory.GetFiles(@"Content\npc\npc\").Length; //number of npcs
-        string[] names; // array of all npc names
-
-        List<cWarp> warps = new List<cWarp>();
-        int warpFiles = Directory.GetFiles(@"Content\warp\").Length;
-        string[] warp;
-
         Random rand = new Random();
 
-        public static cCharacter character;
-        public Damage damageObject;
-
-        public List<Key> keys = new List<Key>();
-
-        //Debugging stuffs
-        public Texture2D collisionTex;
         Color collisionColor = new Color(100, 0, 0, 100);
-
-        public static TileMap map;
+        public Color screenColor;
 
         public KeyboardState oldState;
         public KeyboardState keyState;
+        MouseState mouse;
 
         public Rectangle screen;
-        public Texture2D screenTexture;
-        public Color screenColor;
 
-        Camera2d camera;
+        Rectangle malePos;
+        //these are for choosing a gender.
+        Rectangle femalePos;
 
         public Texture2D textBox;
+        Texture2D debugTile;
+        public Texture2D screenTexture;
+        public Texture2D collisionTex;
+        Texture2D male;
+        Texture2D female;
 
         public static ParticleSystem particleSystem;
+        public static TileMap map;
+        Camera2d camera;
+        public List<Key> keys = new List<Key>();
+        public static cCharacter character;
+        public Damage damageObject;
+        List<cWarp> warps = new List<cWarp>();
+        public List<Npc> activeNpcs = new List<Npc>();
+        public List<Npc> Npcs = new List<Npc>();
+
+        int files = Directory.GetFiles(@"Content\npc\npc\").Length; //number of npcs
+        int warpFiles = Directory.GetFiles(@"Content\warp\").Length;
+
+        string[] warp;
+        string[] names; // array of all npc names
+        string gender;
 
         public enum GameState
         {
             PLAY,
             INTERACT,
             PAUSE,
+            GENDER,
         }
 
         public GameState currentGameState = new GameState();
-
-        Texture2D debugTile;
 
         public Game1()
         {
@@ -116,13 +119,15 @@ namespace GameBuild
         {
             this.IsMouseVisible = true;
             particleSystem = new ParticleSystem();
-            character = new cCharacter(this);
+            
             spriteFont = Content.Load<SpriteFont>(@"Game\SpriteFont1");
             damageObject = new Damage();
             screenColor = new Color(0, 0, 0, 0);
             screen = new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
             keys.Add(new Key(new Rectangle(320, 320, 16, 16), "key 0", "source", this));
             keys.Add(new Key(new Rectangle(320, 320, 16, 16), "key 1", "target", this));
+            malePos = new Rectangle(0, 0, graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight);
+            femalePos = new Rectangle(graphics.PreferredBackBufferWidth / 2, 0, graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight);
             base.Initialize();
         }
 
@@ -144,6 +149,8 @@ namespace GameBuild
             UpdateActiveNpcs();
             debugTile = Content.Load<Texture2D>(@"Player\emptySlot");
             screenTexture = Content.Load<Texture2D>(@"Game\blackness");
+            male = Content.Load<Texture2D>(@"Game\blackness");
+            female = Content.Load<Texture2D>(@"Game\blackness");
         }
 
         public void LoadNpcs()
@@ -216,74 +223,96 @@ namespace GameBuild
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
-
-            particleSystem.Update(gameTime);
-            UpdateActiveNpcs();
-            oldState = keyState;
-            keyState = Keyboard.GetState();
-            camera.Pos = character.vectorPos;
-
-            if (currentGameState == GameState.PLAY)
+            mouse = Mouse.GetState();
+            if (gender == null)
             {
-                character.Update(this, map, gameTime, oldState, GraphicsDevice);
+                ChooseGender();
             }
-            for (int i = 0; i < warp.Length; i++)
+
+            if (gender != null)
             {
-                warps[i].CheckMap(this);
-                if (warps[i].isOnMap)
+                particleSystem.Update(gameTime);
+                UpdateActiveNpcs();
+                oldState = keyState;
+                keyState = Keyboard.GetState();
+                camera.Pos = character.vectorPos;
+
+                if (currentGameState == GameState.PLAY)
                 {
-                    warps[i].Update(character, this);
+                    character.Update(this, map, gameTime, oldState, GraphicsDevice);
                 }
-            }
-
-            for (int i = 0; i < keys.Count; i++)
-            {
-                if (character.position.Intersects(keys[i].position) && map.mapName.Remove(map.mapName.Length - 1) == keys[i].mapName)
+                for (int i = 0; i < warp.Length; i++)
                 {
-                    keys[i].PickUp(character);
-                    keys.RemoveAt(i);
-                }
-            }
-
-            for (int i = 0; i < Npcs.Count; i++)
-            {
-                if (Npcs[i].health > 0)
-                {
-                    if (!Npcs[i].isInteracting && Npcs[i].isOnMap && !character.showInventory)
+                    warps[i].CheckMap(this);
+                    if (warps[i].isOnMap)
                     {
-                        Npcs[i].Update(character, map, this, gameTime);
-                    }
-                    Npcs[i].UpdateDialogue(this);
-                    if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && Npcs[i].canInteract)
-                    {
-                        if (Npcs[i].isInteracting)
-                        {
-                            Npcs[i].isInteracting = false;
-                            Npcs[i].dialogue.isTalking = false;
-                            Npcs[i].dialogue.ResetDialogue();
-                            currentGameState = GameState.PLAY;
-                        }
-                        else
-                        {
-                            Npcs[i].isInteracting = true;
-                            Npcs[i].dialogue.isTalking = true;
-                            currentGameState = GameState.INTERACT;
-                        }
+                        warps[i].Update(character, this);
                     }
                 }
-            }
 
-            #region Debugging
-            if (keyState.IsKeyDown(Keys.Tab))
-            {
+                for (int i = 0; i < keys.Count; i++)
+                {
+                    if (character.position.Intersects(keys[i].position) && map.mapName.Remove(map.mapName.Length - 1) == keys[i].mapName)
+                    {
+                        keys[i].PickUp(character);
+                        keys.RemoveAt(i);
+                    }
+                }
+
                 for (int i = 0; i < Npcs.Count; i++)
                 {
-                    //Console.WriteLine(Npcs[i].name);
+                    if (Npcs[i].health > 0)
+                    {
+                        if (!Npcs[i].isInteracting && Npcs[i].isOnMap && !character.showInventory)
+                        {
+                            Npcs[i].Update(character, map, this, gameTime);
+                        }
+                        Npcs[i].UpdateDialogue(this);
+                        if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && Npcs[i].canInteract)
+                        {
+                            if (Npcs[i].isInteracting)
+                            {
+                                Npcs[i].isInteracting = false;
+                                Npcs[i].dialogue.isTalking = false;
+                                Npcs[i].dialogue.ResetDialogue();
+                                currentGameState = GameState.PLAY;
+                            }
+                            else
+                            {
+                                Npcs[i].isInteracting = true;
+                                Npcs[i].dialogue.isTalking = true;
+                                currentGameState = GameState.INTERACT;
+                            }
+                        }
+                    }
                 }
             }
-            #endregion
-
             base.Update(gameTime);
+        }
+
+        public void ChooseGender()
+        {
+            mouse = Mouse.GetState();
+            Rectangle mousePos = new Rectangle(mouse.X, mouse.Y, 1, 1);
+            if (mousePos.Intersects(femalePos))
+            {
+                if (mouse.LeftButton == ButtonState.Pressed)
+                {
+                    gender = "female";
+                }
+            }
+            if (mousePos.Intersects(malePos))
+            {
+                if (mouse.LeftButton == ButtonState.Pressed)
+                {
+                    gender = "male";
+                }
+            }
+            if (gender != null)
+            {
+                character = new cCharacter(this, gender);
+                currentGameState = GameState.PLAY;
+            }
         }
 
         /// <summary>
@@ -295,7 +324,9 @@ namespace GameBuild
             //draws out the world on the default back buffer with all entities 
             GraphicsDevice.SetRenderTarget(null);
             GraphicsDevice.Clear(Color.Black);
-            spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, camera.GetTransformation());
+            if (gender != null)
+            {
+                spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, camera.GetTransformation());
             map.DrawBackgroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
             map.DrawInteractiveLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
 
@@ -358,8 +389,16 @@ namespace GameBuild
 
             spriteBatch.DrawString(spriteFont, framerate.ToString(), new Vector2(10, 10), Color.Red);
             spriteBatch.End();
-            
-            //Console.WriteLine(framerate);
+            }
+
+            if (gender == null)
+            {
+                spriteBatch.Begin();
+                spriteBatch.Draw(male, malePos, Color.Blue);
+                spriteBatch.Draw(female, femalePos, Color.Magenta);
+                spriteBatch.DrawString(spriteFont, "Choose a gender, please.", new Vector2((graphics.PreferredBackBufferWidth / 2) - 20 * 6.38f, 6), new Color(200, 200, 200));
+                spriteBatch.End();
+            }
             base.Draw(gameTime);
         }
     }
