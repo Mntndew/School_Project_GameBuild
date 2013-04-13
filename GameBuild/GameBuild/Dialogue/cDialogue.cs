@@ -39,8 +39,11 @@ namespace GameBuild
 
             int screenWidth = game.graphics.PreferredBackBufferWidth;
             int screenHeight = game.graphics.PreferredBackBufferHeight;
-
-            portraitPos = new Rectangle(screenWidth-portrait.Width,screenHeight -portrait.Height, portrait.Width, portrait.Height);
+            if (portrait != null)
+            {
+                portraitPos = new Rectangle(screenWidth - portrait.Width, screenHeight - portrait.Height, portrait.Width, portrait.Height);    
+            }
+            
             textBoxPos = new Rectangle(screenWidth/2 - textBox.Width/2, screenHeight - screenHeight/4 - 150, textBox.Width, textBox.Height);
 
             dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + dialogueFileName + ".txt");
@@ -80,9 +83,12 @@ namespace GameBuild
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (isTalking && portrait != null)
+            if (isTalking)
             {
-                spriteBatch.Draw(portrait, portraitPos, Color.White);
+                if (portrait != null)
+                {
+                    spriteBatch.Draw(portrait, portraitPos, Color.White);
+                }
                 spriteBatch.Draw(textBox, textBoxPos, Color.White);
                 for (int i = 1; i < currentLines.Length; i++)
                 {

@@ -40,6 +40,7 @@ namespace GameBuild
             fileTargetY = targetY;
 
             warpField = new Rectangle(sourceX, sourceY, width, height);
+            lockedDialogue = new cDialogue(null, game.textBox, game, game.spriteFont, "doorLocked", "Door");
         }
 
         public void CheckMap(Game1 game)
