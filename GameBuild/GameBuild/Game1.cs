@@ -149,7 +149,7 @@ namespace GameBuild
             UpdateActiveNpcs();
             debugTile = Content.Load<Texture2D>(@"Player\emptySlot");
             screenTexture = Content.Load<Texture2D>(@"Game\blackness");
-            male = Content.Load<Texture2D>(@"Game\blackness");
+            male = Content.Load<Texture2D>(@"Player\Male");
             female = Content.Load<Texture2D>(@"Game\blackness");
         }
 
@@ -310,6 +310,7 @@ namespace GameBuild
             }
             if (gender != null)
             {
+                Console.WriteLine(gender);
                 character = new cCharacter(this, gender);
                 currentGameState = GameState.PLAY;
             }
@@ -394,8 +395,8 @@ namespace GameBuild
             if (gender == null)
             {
                 spriteBatch.Begin();
-                spriteBatch.Draw(male, malePos, Color.Blue);
-                spriteBatch.Draw(female, femalePos, Color.Magenta);
+                spriteBatch.Draw(male, new Rectangle(0, 0, male.Width / 2, male.Height / 2), Color.White);
+                spriteBatch.Draw(female, new Rectangle(graphics.PreferredBackBufferWidth / 2, 0, female.Width / 2, female.Height / 2), Color.White);
                 spriteBatch.DrawString(spriteFont, "Choose a gender, please.", new Vector2((graphics.PreferredBackBufferWidth / 2) - 20 * 6.38f, 6), new Color(200, 200, 200));
                 spriteBatch.End();
             }

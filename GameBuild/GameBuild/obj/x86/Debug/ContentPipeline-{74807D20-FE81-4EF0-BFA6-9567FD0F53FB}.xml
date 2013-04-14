@@ -217,6 +217,15 @@
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\new map.xnb</Output>
       <Time>2013-04-13T16:34:26.5110939+02:00</Time>
     </Item>
+    <Item>
+      <Source>Player\Male.png</Source>
+      <Name>Player\Male</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Male.xnb</Output>
+      <Time>2013-04-14T02:02:59.6159812+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}</ContentProjectGUID>
