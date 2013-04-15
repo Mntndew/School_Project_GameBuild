@@ -18,7 +18,8 @@ namespace GameBuild.Game
             warpFileCount = Directory.GetFiles(@"Content\Warp\").Length;
             warps = new List<WarpItem>();
         }
-        public void UpdateList()
+
+        public void UpdateList(string mapName)
         {
             warps.Clear();
             warpFiles = new string[warpFileCount];//initialize the string[] with the amount of files
@@ -26,9 +27,15 @@ namespace GameBuild.Game
             {
                 warpFiles[i] = Directory.GetFiles(@"Content\Warp\")[i];
                 StreamReader reader = new StreamReader(warpFiles[i]);
-                warps.Add(new WarpItem(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), 
-                    int.Parse(reader.ReadLine()), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), reader.ReadLine()));
+                WarpItem w = new WarpItem(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
+                    int.Parse(reader.ReadLine()), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), reader.ReadLine());
                 reader.Close();
+                Console.WriteLine(w.sourceMap);
+                if (w.sourceMap == mapName.Remove(mapName.Length-1))
+                {
+                    warps.Add(w);
+                    Console.WriteLine("Added warp mofo");
+                }
             }
         }
 
@@ -50,11 +57,13 @@ namespace GameBuild.Game
                         {
                             Game1.character.position.Y = warp.targetY;
                         }
-                        UpdateList();
+                        UpdateList(Game1.map.mapName);
+                        break;
                     }
                     else
                     {
                         //show locked message
+                        break;
                     }
                 }
             }
@@ -69,6 +78,11 @@ namespace GameBuild.Game
                     Warp(warps[i], warps[i].key, warps[i].targetX, warps[i].targetY, warps[i].targetMap, game);
                 }
             }
+        }
+
+        public void Draw(SpriteBatch s)
+        {
+
         }
     }
 }
