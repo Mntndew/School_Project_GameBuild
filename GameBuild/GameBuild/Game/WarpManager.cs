@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace GameBuild.Game
 {
@@ -27,7 +28,6 @@ namespace GameBuild.Game
             {
                 warpFiles[i] = Directory.GetFiles(@"Content\Warp\")[i];
                 StreamReader reader = new StreamReader(warpFiles[i]);
-<<<<<<< HEAD
                 WarpItem warp = new WarpItem(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
                     int.Parse(reader.ReadLine()), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), reader.ReadLine());
                 reader.Close();
@@ -36,34 +36,33 @@ namespace GameBuild.Game
                     warps.Add(warp);
                 }
             }
-            for (int i = 0; i < warps.Count; i++)
-            {
-                Console.WriteLine(warps[i].sourceMap);
-=======
-                WarpItem w = new WarpItem(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
-                    int.Parse(reader.ReadLine()), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), reader.ReadLine());
-                reader.Close();
-                Console.WriteLine(w.sourceMap);
-                if (w.sourceMap == mapName.Remove(mapName.Length-1))
-                {
-                    warps.Add(w);
-                    Console.WriteLine("Added warp mofo");
-                }
->>>>>>> 39944af4dadd8427d60792381f7b13514ec57d39
-            }
+            //for (int i = 0; i < warps.Count; i++)
+            //{
+            //    Console.WriteLine(warps[i].sourceMap);
+            //    WarpItem w = new WarpItem(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
+            //        int.Parse(reader.ReadLine()), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), reader.ReadLine());
+            //    reader.Close();
+            //    Console.WriteLine(w.sourceMap);
+            //    if (w.sourceMap == mapName.Remove(mapName.Length-1))
+            //    {
+            //        warps.Add(w);
+            //        Console.WriteLine("Added warp mofo");
+            //    }
+            //}
         }
 
         public void Warp(WarpItem warp, string key, int targetX, int targetY, string map, Game1 game)//the key to unlock the door, targeted x coordinate, targeted y coordinate, targeted map
         {
+            //UpdateList(Game1.map.mapName);
             for (int x = 0; x < Game1.character.inventory.width; x++)//player inventory slots
             {
                 for (int y = 0; y < Game1.character.inventory.height; y++)
                 {
-                    if (Game1.character.inventory.inventorySlot[x, y].item == key || key == "." && warp.isOnMap)//checks if the player has the key or if the key is ".", aka no key required
+                    if ((Game1.character.inventory.inventorySlot[x, y].item == key || key == "."))//checks if the player has the key or if the key is ".", aka no key required
                     {
                         Game1.map = game.Content.Load<H_Map.TileMap>(@"Map\" + map);
                         Game1.map.tileset = game.Content.Load<Texture2D>(@"Game\tileset");
-                        UpdateList();
+                        
                         if (warp.targetX != -1)//warp the X value if it isnt -1(tha player's X value)
                         {
                             Game1.character.position.X = warp.targetX;
@@ -72,15 +71,11 @@ namespace GameBuild.Game
                         {
                             Game1.character.position.Y = warp.targetY;
                         }
-<<<<<<< HEAD
-=======
-                        UpdateList(Game1.map.mapName);
                         break;
->>>>>>> 39944af4dadd8427d60792381f7b13514ec57d39
                     }
                     else
                     {
-                        //show locked message
+                        Console.WriteLine("locked");
                         break;
                     }
                 }
@@ -89,6 +84,7 @@ namespace GameBuild.Game
 
         public void Update(Game1 game)
         {
+            UpdateList(Game1.map.mapName);
             for (int i = 0; i < warps.Count; i++)
             {
                 if (Game1.character.attackRectangle.Intersects(warps[i].warpField))
@@ -98,9 +94,13 @@ namespace GameBuild.Game
             }
         }
 
-        public void Draw(SpriteBatch s)
+        public void Draw(SpriteBatch spriteBatch, Game1 game)
         {
-
+            for (int i = 0; i < warps.Count; i++)
+            {
+                spriteBatch.Draw(game.screenTexture, warps[i].warpField, new Color(100, 100, 100, 100));
+                spriteBatch.DrawString(game.spriteFont, warps[i].targetMap, new Vector2(warps[i].warpField.X, warps[i].warpField.Y), Color.Red);
+            }
         }
     }
 }

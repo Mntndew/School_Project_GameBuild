@@ -154,7 +154,7 @@ namespace GameBuild
             male = Content.Load<Texture2D>(@"Player\Male");
             female = Content.Load<Texture2D>(@"Game\blackness");
             //LoadWarps();
-            Console.WriteLine(map.mapName);
+            //Console.WriteLine(map.mapName);
             warpManager.UpdateList(map.mapName);
             LoadNpcs();
         }
@@ -235,6 +235,7 @@ namespace GameBuild
                 ChooseGender();
             }
             warpManager.Update(this);
+            Console.WriteLine(character.position.Y);
             if (keyState.IsKeyDown(Keys.Space))
             {
                 orbs.Add(new Orb(new Rectangle(256, 256, 8, 8)));
@@ -364,7 +365,6 @@ namespace GameBuild
             }
             particleSystem.Draw(spriteBatch);
             character.Draw(spriteBatch);
-            
 
             for (int i = 0; i < activeNpcs.Count; i++)
             {
@@ -372,6 +372,7 @@ namespace GameBuild
             }
 
             map.DrawForegroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
+            warpManager.Draw(spriteBatch, this);
             for (int i = 0; i < activeNpcs.Count; i++)
             {
                 activeNpcs[i].DrawA(spriteBatch);
@@ -420,6 +421,7 @@ namespace GameBuild
             //        warps[i].DrawDialogue(spriteBatch);
             //    }
             //}
+            
             spriteBatch.End();
             }
 
