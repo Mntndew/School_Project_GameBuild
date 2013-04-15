@@ -26,9 +26,17 @@ namespace GameBuild.Game
             {
                 warpFiles[i] = Directory.GetFiles(@"Content\Warp\")[i];
                 StreamReader reader = new StreamReader(warpFiles[i]);
-                warps.Add(new WarpItem(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), 
-                    int.Parse(reader.ReadLine()), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), reader.ReadLine()));
+                WarpItem warp = new WarpItem(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
+                    int.Parse(reader.ReadLine()), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), reader.ReadLine());
                 reader.Close();
+                if (warp.isOnMap)
+                {
+                    warps.Add(warp);
+                }
+            }
+            for (int i = 0; i < warps.Count; i++)
+            {
+                Console.WriteLine(warps[i].sourceMap);
             }
         }
 
@@ -38,10 +46,11 @@ namespace GameBuild.Game
             {
                 for (int y = 0; y < Game1.character.inventory.height; y++)
                 {
-                    if (Game1.character.inventory.inventorySlot[x, y].item == key || key == ".")//checks if the player has the key or if the key is ".", aka no key required
+                    if (Game1.character.inventory.inventorySlot[x, y].item == key || key == "." && warp.isOnMap)//checks if the player has the key or if the key is ".", aka no key required
                     {
                         Game1.map = game.Content.Load<H_Map.TileMap>(@"Map\" + map);
                         Game1.map.tileset = game.Content.Load<Texture2D>(@"Game\tileset");
+                        UpdateList();
                         if (warp.targetX != -1)//warp the X value if it isnt -1(tha player's X value)
                         {
                             Game1.character.position.X = warp.targetX;
@@ -50,7 +59,6 @@ namespace GameBuild.Game
                         {
                             Game1.character.position.Y = warp.targetY;
                         }
-                        UpdateList();
                     }
                     else
                     {

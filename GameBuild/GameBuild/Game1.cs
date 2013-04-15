@@ -87,10 +87,10 @@ namespace GameBuild
         int files = Directory.GetFiles(@"Content\npc\npc\").Length; //number of npcs
         int warpFiles = Directory.GetFiles(@"Content\Warp\").Length;
 
-        string[] warp;
+        string[] warp; //old
         string[] names; // array of all npc names
         string gender = "male";
-
+        
         public enum GameState
         {
             PLAY,
