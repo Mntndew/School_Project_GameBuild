@@ -79,7 +79,7 @@ namespace GameBuild
         public List<Key> keys = new List<Key>();
         public static cCharacter character;
         public Damage damageObject;
-        List<cWarp> warps = new List<cWarp>();
+        public static Game.WarpManager warpManager = new Game.WarpManager();
         public List<Npc> activeNpcs = new List<Npc>();
         public List<Npc> Npcs = new List<Npc>();
         public List<Orb> orbs = new List<Orb>();
@@ -153,7 +153,8 @@ namespace GameBuild
             screenTexture = Content.Load<Texture2D>(@"Game\blackness");
             male = Content.Load<Texture2D>(@"Player\Male");
             female = Content.Load<Texture2D>(@"Game\blackness");
-            LoadWarps();
+            //LoadWarps();
+            warpManager.UpdateList();
             LoadNpcs();
         }
 
@@ -196,19 +197,19 @@ namespace GameBuild
             }
         }
 
-        public void LoadWarps()
-        {
-            warp = new string[warpFiles];
-            for (int i = 0; i < warpFiles; i++)
-            {
-                warp[i] = Directory.GetFiles(@"Content\Warp\")[i];
-                StreamReader reader = new StreamReader(warp[i]);
-                cWarp Warp = new cWarp(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
-                    int.Parse(reader.ReadLine()), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), reader.ReadLine(), this);
-                reader.Close();
-                warps.Add(Warp);
-            }
-        }
+        //public void LoadWarps()
+        //{
+        //    warp = new string[warpFiles];
+        //    for (int i = 0; i < warpFiles; i++)
+        //    {
+        //        warp[i] = Directory.GetFiles(@"Content\Warp\")[i];
+        //        StreamReader reader = new StreamReader(warp[i]);
+        //        cWarp Warp = new cWarp(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
+        //            int.Parse(reader.ReadLine()), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), reader.ReadLine(), this);
+        //        reader.Close();
+        //        warps.Add(Warp);
+        //    }
+        //}
 
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
@@ -232,7 +233,7 @@ namespace GameBuild
             {
                 ChooseGender();
             }
-
+            warpManager.Update(this);
             if (keyState.IsKeyDown(Keys.Space))
             {
                 orbs.Add(new Orb(new Rectangle(256, 256, 8, 8)));
@@ -259,14 +260,15 @@ namespace GameBuild
                 {
                     character.Update(this, map, gameTime, oldState, GraphicsDevice);
                 }
-                for (int i = 0; i < warp.Length; i++)
-                {
-                    warps[i].CheckMap(this);
-                    if (warps[i].isOnMap)
-                    {
-                        warps[i].Update(character, this);
-                    }
-                }
+
+                //for (int i = 0; i < warp.Length; i++)
+                //{
+                //    warps[i].CheckMap(this);
+                //    if (warps[i].isOnMap)
+                //    {
+                //        warps[i].Update(character, this);
+                //    }
+                //}
 
                 for (int i = 0; i < keys.Count; i++)
                 {
@@ -375,13 +377,13 @@ namespace GameBuild
             }
             spriteBatch.DrawString(spriteFont, character.health + "/" + character.maxHealth, new Vector2(character.position.X - 10, character.position.Y - 35), new Color(200, 10, 10, 200));
             //debugging
-            for (int i = 0; i < warps.Count; i++)
-            {
-                if (warps[i].isOnMap)
-                {
-                    warps[i].Draw(spriteBatch, this);
-                }
-            }
+            //for (int i = 0; i < warps.Count; i++)
+            //{
+            //    if (warps[i].isOnMap)
+            //    {
+            //        warps[i].Draw(spriteBatch, this);
+            //    }
+            //}
             //Spritebatch for HUD stuff
             character.DrawHealthBar(spriteBatch, this);
             spriteBatch.End();
@@ -410,6 +412,13 @@ namespace GameBuild
             character.inventory.Draw(spriteBatch, this);
 
             spriteBatch.DrawString(spriteFont, framerate.ToString(), new Vector2(10, 10), Color.Red);
+            //for (int i = 0; i < warps.Count; i++)
+            //{
+            //    if (!warps[i].hasKey)
+            //    {
+            //        warps[i].DrawDialogue(spriteBatch);
+            //    }
+            //}
             spriteBatch.End();
             }
 

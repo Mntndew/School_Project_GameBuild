@@ -110,7 +110,6 @@ namespace GameBuild
             healthPct = (health / maxHealth);
             healthBarWidth = (float)healthTexture.Width * healthPct;
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
-
             if (showInventory)
             {
                 animation.PauseAnimation();
@@ -232,7 +231,7 @@ namespace GameBuild
                 faceDown = false;
             }
 
-            if (!attacking && !showInventory && cWarp.canWalk && !dead)
+            if (!attacking && !showInventory && !dead)// && cWarp.canWalk
             {
                 walking = false;
                 if (game.keyState.IsKeyDown(Keys.Up))

@@ -106,8 +106,8 @@
   <ItemGroup>
     <Compile Include="Game\AnimationComponent.cs" />
     <Compile Include="Game\Camera2d.cs" />
-    <Compile Include="Npc\Boss.cs" />
-    <Compile Include="Npc\Projectile.cs" />
+    <Compile Include="Game\WarpItem.cs" />
+    <Compile Include="Game\WarpManager.cs" />
     <Compile Include="Particle\Orb.cs" />
     <Compile Include="Particle\Particle.cs" />
     <Compile Include="Particle\ParticleSystem.cs" />
@@ -119,7 +119,6 @@
     <Compile Include="Game\Damage.cs" />
     <Compile Include="Player\Inventory.cs" />
     <Compile Include="Game\cLighting.cs" />
-    <Compile Include="Game\cWarp.cs" />
     <Compile Include="Dialogue\DialogueItem.cs" />
     <Compile Include="Dialogue\DialogueManager.cs" />
     <Compile Include="Player\InventorySlot.cs" />
