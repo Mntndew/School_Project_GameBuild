@@ -53,7 +53,8 @@ namespace GameBuild
                             }
 
                             string l = line;
-                            l = l.Remove(0, 4); 
+                            l = l.Remove(0, 4);
+                            l = l.Replace("|", System.Environment.NewLine);
                             items[i].Add(new DialogueItem(l, j, isExit));
                         }
                     }
@@ -63,6 +64,7 @@ namespace GameBuild
                     //Console.WriteLine("Derp broke retard l2code");
                 }
             }
+            
         }
 
         public void DisplayAllStrings()
