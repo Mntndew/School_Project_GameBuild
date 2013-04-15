@@ -18,7 +18,8 @@ namespace GameBuild.Game
             warpFileCount = Directory.GetFiles(@"Content\Warp\").Length;
             warps = new List<WarpItem>();
         }
-        public void UpdateList()
+
+        public void UpdateList(string mapName)
         {
             warps.Clear();
             warpFiles = new string[warpFileCount];//initialize the string[] with the amount of files
@@ -26,6 +27,7 @@ namespace GameBuild.Game
             {
                 warpFiles[i] = Directory.GetFiles(@"Content\Warp\")[i];
                 StreamReader reader = new StreamReader(warpFiles[i]);
+<<<<<<< HEAD
                 WarpItem warp = new WarpItem(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
                     int.Parse(reader.ReadLine()), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), reader.ReadLine());
                 reader.Close();
@@ -37,6 +39,17 @@ namespace GameBuild.Game
             for (int i = 0; i < warps.Count; i++)
             {
                 Console.WriteLine(warps[i].sourceMap);
+=======
+                WarpItem w = new WarpItem(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
+                    int.Parse(reader.ReadLine()), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), reader.ReadLine());
+                reader.Close();
+                Console.WriteLine(w.sourceMap);
+                if (w.sourceMap == mapName.Remove(mapName.Length-1))
+                {
+                    warps.Add(w);
+                    Console.WriteLine("Added warp mofo");
+                }
+>>>>>>> 39944af4dadd8427d60792381f7b13514ec57d39
             }
         }
 
@@ -59,10 +72,16 @@ namespace GameBuild.Game
                         {
                             Game1.character.position.Y = warp.targetY;
                         }
+<<<<<<< HEAD
+=======
+                        UpdateList(Game1.map.mapName);
+                        break;
+>>>>>>> 39944af4dadd8427d60792381f7b13514ec57d39
                     }
                     else
                     {
                         //show locked message
+                        break;
                     }
                 }
             }
@@ -77,6 +96,11 @@ namespace GameBuild.Game
                     Warp(warps[i], warps[i].key, warps[i].targetX, warps[i].targetY, warps[i].targetMap, game);
                 }
             }
+        }
+
+        public void Draw(SpriteBatch s)
+        {
+
         }
     }
 }

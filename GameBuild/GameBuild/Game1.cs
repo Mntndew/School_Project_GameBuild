@@ -154,7 +154,8 @@ namespace GameBuild
             male = Content.Load<Texture2D>(@"Player\Male");
             female = Content.Load<Texture2D>(@"Game\blackness");
             //LoadWarps();
-            warpManager.UpdateList();
+            Console.WriteLine(map.mapName);
+            warpManager.UpdateList(map.mapName);
             LoadNpcs();
         }
 
