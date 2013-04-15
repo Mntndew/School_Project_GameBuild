@@ -90,16 +90,24 @@ namespace GameBuild
                     spriteBatch.Draw(portrait, portraitPos, Color.White);
                 }
                 spriteBatch.Draw(textBox, textBoxPos, Color.White);
+
+                Vector2 baseVector = new Vector2(textBoxPos.X + 60, textBoxPos.Y + 75);
+                Vector2 offsetVector = Vector2.Zero;
+                spriteBatch.DrawString(font, "" + name, new Vector2(textBoxPos.X + textBox.Width - 190, textBoxPos.Y + 25), Color.Black);
+                spriteBatch.DrawString(font, currentLines[0], new Vector2(textBoxPos.X + 75, textBoxPos.Y + 75), Color.Black);
+                offsetVector.Y = font.MeasureString(currentLines[0]).Y;
                 for (int i = 1; i < currentLines.Length; i++)
                 {
-                    spriteBatch.DrawString(font, currentLines[i], new Vector2(textBoxPos.X + 60, textBoxPos.Y + 75 + i*20), Color.DarkOrange);
+                    if (i == selection && currentLines.Length > 1)
+                    {
+                        spriteBatch.DrawString(font, currentLines[i], new Vector2(baseVector.X + offsetVector.X, baseVector.Y + offsetVector.Y), Color.Red);
+                    }
+                    else
+                    {
+                        spriteBatch.DrawString(font, currentLines[i], new Vector2(baseVector.X + offsetVector.X, baseVector.Y + offsetVector.Y), Color.DarkOrange);
+                    }
+                    offsetVector.Y += font.MeasureString(currentLines[i]).Y;
                 }
-                if (currentLines.Length>1)
-                {
-                    spriteBatch.DrawString(font, currentLines[selection], new Vector2(textBoxPos.X + 60, textBoxPos.Y + 75 + selection*20), Color.Red);
-                }
-                spriteBatch.DrawString(font, currentLines[0], new Vector2(textBoxPos.X + 75, textBoxPos.Y + 75), Color.Black);
-                spriteBatch.DrawString(font, "" + name, new Vector2(textBoxPos.X + textBox.Width - 190, textBoxPos.Y + 25), Color.Black);
             }
         }
 
