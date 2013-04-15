@@ -82,13 +82,14 @@ namespace GameBuild
         List<cWarp> warps = new List<cWarp>();
         public List<Npc> activeNpcs = new List<Npc>();
         public List<Npc> Npcs = new List<Npc>();
+        public List<Orb> orbs = new List<Orb>();
 
         int files = Directory.GetFiles(@"Content\npc\npc\").Length; //number of npcs
         int warpFiles = Directory.GetFiles(@"Content\warp\").Length;
 
         string[] warp;
         string[] names; // array of all npc names
-        string gender;
+        string gender = "male";
 
         public enum GameState
         {
@@ -119,7 +120,6 @@ namespace GameBuild
         {
             this.IsMouseVisible = true;
             particleSystem = new ParticleSystem();
-            
             spriteFont = Content.Load<SpriteFont>(@"Game\SpriteFont1");
             damageObject = new Damage();
             screenColor = new Color(0, 0, 0, 0);
@@ -128,6 +128,10 @@ namespace GameBuild
             keys.Add(new Key(new Rectangle(320, 320, 16, 16), "key 1", "target", this));
             malePos = new Rectangle(0, 0, graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight);
             femalePos = new Rectangle(graphics.PreferredBackBufferWidth / 2, 0, graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight);
+            if (gender != null)
+            {
+                character = new cCharacter(this, gender);
+            }
             base.Initialize();
         }
 
@@ -140,7 +144,7 @@ namespace GameBuild
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             collisionTex = Content.Load<Texture2D>(@"Game\blackness");
-            map = Content.Load<H_Map.TileMap>(@"Map\source");
+            map = Content.Load<H_Map.TileMap>(@"Map\new map");
             map.tileset = Content.Load<Texture2D>(@"Game\tileset");
             textBox = Content.Load<Texture2D>(@"Game\textBox");
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
@@ -229,6 +233,20 @@ namespace GameBuild
                 ChooseGender();
             }
 
+            if (keyState.IsKeyDown(Keys.Space))
+            {
+                orbs.Add(new Orb(new Rectangle(256, 256, 8, 8)));
+            }
+
+            for (int i = 0; i < orbs.Count; i++)
+            {
+                orbs[i].Update();
+                if (orbs[i].color.A == 0f)
+                {
+                    orbs.RemoveAt(i);
+                }
+            }
+
             if (gender != null)
             {
                 particleSystem.Update(gameTime);
@@ -310,7 +328,6 @@ namespace GameBuild
             }
             if (gender != null)
             {
-                Console.WriteLine(gender);
                 character = new cCharacter(this, gender);
                 currentGameState = GameState.PLAY;
             }
@@ -338,9 +355,13 @@ namespace GameBuild
                     keys[i].Draw(spriteBatch);
                 }
             }
-
-            character.Draw(spriteBatch);
+            for (int i = 0; i < orbs.Count; i++)
+            {
+                spriteBatch.Draw(Content.Load<Texture2D>(@"Particle\particle"), orbs[i].position, orbs[i].color);
+            }
             particleSystem.Draw(spriteBatch);
+            character.Draw(spriteBatch);
+            
 
             for (int i = 0; i < activeNpcs.Count; i++)
             {
@@ -352,7 +373,7 @@ namespace GameBuild
             {
                 activeNpcs[i].DrawA(spriteBatch);
             }
-            spriteBatch.DrawString(spriteFont, character.health + "/" + character.maxHealth, new Vector2(character.position.X - 10, character.position.Y - 35), Color.Red);
+            spriteBatch.DrawString(spriteFont, character.health + "/" + character.maxHealth, new Vector2(character.position.X - 10, character.position.Y - 35), new Color(200, 10, 10, 200));
             //debugging
             for (int i = 0; i < warps.Count; i++)
             {

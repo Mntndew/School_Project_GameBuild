@@ -151,6 +151,7 @@ namespace GameBuild
 
                     health += regenAmount;
                     damageEffectList.Add(new DamageEffect((int)regenAmount, game, new Vector2(position.X, position.Y - 16), new Color(0, 255, 0, 255), "regen"));
+                    Regen((int)regenAmount);
                 }
                 
                 regenTimer = REGENTIMER;
@@ -236,6 +237,7 @@ namespace GameBuild
                 walking = false;
                 if (game.keyState.IsKeyDown(Keys.Up))
                 {
+                    Walk();
                     up = true;
                     down = false;
                     left = false;
@@ -254,6 +256,7 @@ namespace GameBuild
 
                 if (game.keyState.IsKeyDown(Keys.Down))
                 {
+                    Walk();
                     down = true;
                     up = false;
                     right = false;
@@ -276,6 +279,7 @@ namespace GameBuild
 
                 if (game.keyState.IsKeyDown(Keys.Right))
                 {
+                    Walk();
                     right = true;
                     left = false;
                     up = false;
@@ -293,6 +297,7 @@ namespace GameBuild
 
                 if (game.keyState.IsKeyDown(Keys.Left))
                 {
+                    Walk();
                     left = true;
                     right = false;
                     up = false;
@@ -370,7 +375,6 @@ namespace GameBuild
                 else
                 {
                     inCombat = false;
-                    game.Npcs.Remove(npc);
                 }
             }
             #endregion
@@ -386,15 +390,26 @@ namespace GameBuild
 
         public void Hit()
         {
-            emitter.Add(position.X + 24, position.Y + 24, 6, 6, 10, -2, 2, -2, 2, new Color(255, 10, 10), 0.07f, 1, 1, false, false, true);
-            emitter.Add(position.X + 32, position.Y + 32, 6, 6, 10, -4, 4, -4, 4, new Color(255, 10, 10), 0.035f, 1, 1, false, false, true);
+            emitter.Add(position.X + 24, position.Y + 24, 6, 6, 10, -4, 4, -4, 4, new Color(255, 10, 10), 0.35f, 1, 1, false, false, true);
             isHit = true;
         }
 
+        #region Particle Effects
         public void Bleed()
         {
             emitter.Add(position.X + 24, position.Y + 24, 6, 6, 1, 0, 0, -1, 3, new Color(255, 10, 10), 0.07f, 1, 1, false, false, true);
         }
+
+        public void Regen(int amount)
+        {
+            emitter.Add(position.X + 24, position.Y + 24, 6, 6, amount * 2, -4, 4, -4, 4, new Color(10, 240, 10), 0.7f, 1, 1, false, false, false);
+        }
+
+        public void Walk()
+        {
+            emitter.Add(position.X + 22, position.Y + position.Height - 5, 6, 6, 1, -2, 2, -3, -1, new Color(rand.Next(50, 65), rand.Next(35, 50), rand.Next(35, 50), rand.Next(100, 250)), 0.0f, 1, 1, false, false, true);
+        }
+        #endregion
 
         public bool IsCollision(H_Map.TileMap tiles, Rectangle location)
         {

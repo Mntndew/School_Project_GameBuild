@@ -269,7 +269,7 @@ namespace GameBuild
                     }
                 }
             }
-            Console.WriteLine(followPath);
+            //Console.WriteLine(followPath);
             position = location;
         }
 

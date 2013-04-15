@@ -27,6 +27,13 @@ namespace GameBuild
                     string line;
                     while ((line = s.ReadLine()) != null)
                     {
+                        for (int i = 0; i < line.Length; i++)
+                        {
+                            if (line[i] == '|')
+                            {
+                                //new line
+                            }
+                        }
                         if (line[0] != '/' && line[1] != '/')
                         {
                             string tempS = String.Empty + line[0];

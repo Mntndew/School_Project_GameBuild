@@ -47,17 +47,6 @@ namespace GameBuild
             origion = new Vector2(position.X + (position.Width / 2), position.Y + (position.Height / 2));
             elapsed += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            if (position.X <= 0 && velocity.X < 0)
-            {
-                velocity.X /= 1.3f;
-                velocity.X *= -1;
-            }
-            if (position.X >= 800 && velocity.X > 0)
-            {
-                velocity.X /= 1.3f;
-                velocity.X *= -1;
-            }
-
             if (elapsed >= timer)
             {
                 color *= 0.90f;
