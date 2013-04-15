@@ -11,7 +11,7 @@ namespace GameBuild
         #region Declarations
         bool playing;
         bool loop;
-        bool paused; //never used, only set
+        //bool paused; //never used, only set
 
         int spriteSheetWidth, spriteSheetHeight;
         int frameWidth, frameHeight;
@@ -42,7 +42,7 @@ namespace GameBuild
 
             playing = false;
             loop = false;
-            paused = false;
+            //paused = false;
 
             maxFrameCount = spriteSheetWidth;
         }
@@ -61,7 +61,7 @@ namespace GameBuild
 
             playing = false;
             loop = false;
-            paused = false;
+            //paused = false;
 
             maxFrameCount = spriteSheetWidth-1; //cuz the points work off of a Zero based index
         }
@@ -126,7 +126,7 @@ namespace GameBuild
 
         public void LoopAnimation(int animation)
         {
-            paused = false;
+            //paused = false;
             if (animation < spriteSheetHeight)
             {
                 currentFrame.Y = animation;
@@ -150,13 +150,13 @@ namespace GameBuild
         public void PauseAnimation()
         {
             playing = false;
-            paused = true;
+            //paused = true;
         }
 
         public void ResumeAnimation()
         {
             playing = true;
-            paused = false;
+            //paused = false;
         }
 
         public void ResetAnimation()
