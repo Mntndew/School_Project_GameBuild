@@ -85,7 +85,7 @@ namespace GameBuild
         public List<Orb> orbs = new List<Orb>();
 
         int files = Directory.GetFiles(@"Content\npc\npc\").Length; //number of npcs
-        int warpFiles = Directory.GetFiles(@"Content\warp\").Length;
+        int warpFiles = Directory.GetFiles(@"Content\Warp\").Length;
 
         string[] warp;
         string[] names; // array of all npc names
@@ -144,17 +144,17 @@ namespace GameBuild
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             collisionTex = Content.Load<Texture2D>(@"Game\blackness");
-            map = Content.Load<H_Map.TileMap>(@"Map\new map");
+            map = Content.Load<H_Map.TileMap>(@"Map\Testing Ground");
             map.tileset = Content.Load<Texture2D>(@"Game\tileset");
             textBox = Content.Load<Texture2D>(@"Game\textBox");
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
-            LoadWarps();
-            LoadNpcs();
             UpdateActiveNpcs();
             debugTile = Content.Load<Texture2D>(@"Player\emptySlot");
             screenTexture = Content.Load<Texture2D>(@"Game\blackness");
             male = Content.Load<Texture2D>(@"Player\Male");
             female = Content.Load<Texture2D>(@"Game\blackness");
+            LoadWarps();
+            LoadNpcs();
         }
 
         public void LoadNpcs()
@@ -201,7 +201,7 @@ namespace GameBuild
             warp = new string[warpFiles];
             for (int i = 0; i < warpFiles; i++)
             {
-                warp[i] = Directory.GetFiles(@"Content\warp\")[i];
+                warp[i] = Directory.GetFiles(@"Content\Warp\")[i];
                 StreamReader reader = new StreamReader(warp[i]);
                 cWarp Warp = new cWarp(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
                     int.Parse(reader.ReadLine()), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), reader.ReadLine(), this);

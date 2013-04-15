@@ -106,6 +106,8 @@
   <ItemGroup>
     <Compile Include="Game\AnimationComponent.cs" />
     <Compile Include="Game\Camera2d.cs" />
+    <Compile Include="Npc\Boss.cs" />
+    <Compile Include="Npc\Projectile.cs" />
     <Compile Include="Particle\Orb.cs" />
     <Compile Include="Particle\Particle.cs" />
     <Compile Include="Particle\ParticleSystem.cs" />
