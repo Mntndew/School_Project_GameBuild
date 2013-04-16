@@ -106,8 +106,9 @@
   <ItemGroup>
     <Compile Include="Game\AnimationComponent.cs" />
     <Compile Include="Game\Camera2d.cs" />
-    <Compile Include="Game\WarpItem.cs" />
-    <Compile Include="Game\WarpManager.cs" />
+    <Compile Include="Game\Warp\WarpItem.cs" />
+    <Compile Include="Game\Warp\WarpManager.cs" />
+    <Compile Include="KeyManager.cs" />
     <Compile Include="Particle\Orb.cs" />
     <Compile Include="Particle\Particle.cs" />
     <Compile Include="Particle\ParticleSystem.cs" />
@@ -116,14 +117,14 @@
     <Compile Include="Pathfinding\PathFinder.cs" />
     <Compile Include="Player\cCharacter.cs" />
     <Compile Include="Dialogue\cDialogue.cs" />
-    <Compile Include="Game\Damage.cs" />
+    <Compile Include="Game\Effects\Damage.cs" />
     <Compile Include="Player\Inventory.cs" />
-    <Compile Include="Game\cLighting.cs" />
+    <Compile Include="Game\Effects\cLighting.cs" />
     <Compile Include="Dialogue\DialogueItem.cs" />
     <Compile Include="Dialogue\DialogueManager.cs" />
     <Compile Include="Player\InventorySlot.cs" />
     <Compile Include="Npc\Npc.cs" />
-    <Compile Include="Player\Key.cs" />
+    <Compile Include="Game\Items\Key.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />

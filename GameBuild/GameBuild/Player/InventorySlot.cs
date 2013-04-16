@@ -11,8 +11,8 @@ namespace GameBuild
     {
         public Rectangle position;
         public Texture2D texture;
+        public Texture2D itemTexture;
         public string item;
-        public bool selected = true;
 
         public InventorySlot(Game1 game)
         {
@@ -23,13 +23,10 @@ namespace GameBuild
         {
             if (Game1.character.showInventory)
             {
-                if (!selected)
+                spriteBatch.Draw(texture, position, Color.White);
+                if (itemTexture != null)
                 {
-                    spriteBatch.Draw(texture, position, new Color(50, 50, 50, 200));
-                }
-                if (selected)
-                {
-                    spriteBatch.Draw(texture, position, Color.White);
+                    spriteBatch.Draw(itemTexture, new Rectangle(position.X + (itemTexture.Width / 2), position.Y + (itemTexture.Height / 2), itemTexture.Width, itemTexture.Height), Color.White);
                 }
             }
         }

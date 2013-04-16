@@ -242,7 +242,25 @@
       <Processor>TileMapProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Testing Ground 2.xnb</Output>
-      <Time>2013-04-15T21:13:59.4052464+02:00</Time>
+      <Time>2013-04-15T23:27:35.3935398+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Game\key.png</Source>
+      <Name>Game\key</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\key.xnb</Output>
+      <Time>2013-04-16T07:10:31.6990414+02:00</Time>
+    </Item>
+    <Item>
+      <Source>dic.spritefont</Source>
+      <Name>dic</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\dic.xnb</Output>
+      <Time>2013-04-16T08:31:13.7235439+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

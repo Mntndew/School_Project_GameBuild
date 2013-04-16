@@ -45,7 +45,6 @@ namespace GameBuild
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-        //Variable declaration
         public GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -72,6 +71,7 @@ namespace GameBuild
         public Texture2D collisionTex;
         Texture2D male;
         Texture2D female;
+        Texture2D[] keyTextures;
 
         public static ParticleSystem particleSystem;
         public static TileMap map;
@@ -87,10 +87,9 @@ namespace GameBuild
         int files = Directory.GetFiles(@"Content\npc\npc\").Length; //number of npcs
         int warpFiles = Directory.GetFiles(@"Content\Warp\").Length;
 
-        string[] warp; //old
         string[] names; // array of all npc names
         string gender = "male";
-        
+
         public enum GameState
         {
             PLAY,
@@ -124,8 +123,6 @@ namespace GameBuild
             damageObject = new Damage();
             screenColor = new Color(0, 0, 0, 0);
             screen = new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
-            keys.Add(new Key(new Rectangle(320, 320, 16, 16), "key 0", "source", this));
-            keys.Add(new Key(new Rectangle(320, 320, 16, 16), "key 1", "target", this));
             malePos = new Rectangle(0, 0, graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight);
             femalePos = new Rectangle(graphics.PreferredBackBufferWidth / 2, 0, graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight);
             if (gender != null)
@@ -153,10 +150,19 @@ namespace GameBuild
             screenTexture = Content.Load<Texture2D>(@"Game\blackness");
             male = Content.Load<Texture2D>(@"Player\Male");
             female = Content.Load<Texture2D>(@"Game\blackness");
-            //LoadWarps();
-            //Console.WriteLine(map.mapName);
             warpManager.UpdateList(map.mapName);
+            LoadKeys();
             LoadNpcs();
+        }
+
+        public void LoadKeys()
+        {
+            keyTextures = new Texture2D[2];
+            for (int i = 0; i < keyTextures.Length; i++)
+            {
+                keyTextures[i] = Content.Load<Texture2D>(@"Game\key");
+            }
+            keys.Add(new Key(new Rectangle(320, 320, keyTextures[0].Width, keyTextures[0].Height), "key 0", keyTextures[0], "Testing Ground", this));
         }
 
         public void LoadNpcs()
@@ -198,20 +204,6 @@ namespace GameBuild
             }
         }
 
-        //public void LoadWarps()
-        //{
-        //    warp = new string[warpFiles];
-        //    for (int i = 0; i < warpFiles; i++)
-        //    {
-        //        warp[i] = Directory.GetFiles(@"Content\Warp\")[i];
-        //        StreamReader reader = new StreamReader(warp[i]);
-        //        cWarp Warp = new cWarp(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
-        //            int.Parse(reader.ReadLine()), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), reader.ReadLine(), this);
-        //        reader.Close();
-        //        warps.Add(Warp);
-        //    }
-        //}
-
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
         /// all content.
@@ -241,15 +233,6 @@ namespace GameBuild
                 orbs.Add(new Orb(new Rectangle(256, 256, 8, 8)));
             }
 
-            for (int i = 0; i < orbs.Count; i++)
-            {
-                orbs[i].Update();
-                if (orbs[i].color.A == 0f)
-                {
-                    orbs.RemoveAt(i);
-                }
-            }
-
             if (gender != null)
             {
                 particleSystem.Update(gameTime);
@@ -262,15 +245,6 @@ namespace GameBuild
                 {
                     character.Update(this, map, gameTime, oldState, GraphicsDevice);
                 }
-
-                //for (int i = 0; i < warp.Length; i++)
-                //{
-                //    warps[i].CheckMap(this);
-                //    if (warps[i].isOnMap)
-                //    {
-                //        warps[i].Update(character, this);
-                //    }
-                //}
 
                 for (int i = 0; i < keys.Count; i++)
                 {
@@ -378,15 +352,7 @@ namespace GameBuild
                 activeNpcs[i].DrawA(spriteBatch);
             }
             spriteBatch.DrawString(spriteFont, character.health + "/" + character.maxHealth, new Vector2(character.position.X - 10, character.position.Y - 35), new Color(200, 10, 10, 200));
-            //debugging
-            //for (int i = 0; i < warps.Count; i++)
-            //{
-            //    if (warps[i].isOnMap)
-            //    {
-            //        warps[i].Draw(spriteBatch, this);
-            //    }
-            //}
-            //Spritebatch for HUD stuff
+
             character.DrawHealthBar(spriteBatch, this);
             spriteBatch.End();
 
@@ -414,14 +380,6 @@ namespace GameBuild
             character.inventory.Draw(spriteBatch, this);
 
             spriteBatch.DrawString(spriteFont, framerate.ToString(), new Vector2(10, 10), Color.Red);
-            //for (int i = 0; i < warps.Count; i++)
-            //{
-            //    if (!warps[i].hasKey)
-            //    {
-            //        warps[i].DrawDialogue(spriteBatch);
-            //    }
-            //}
-            
             spriteBatch.End();
             }
 

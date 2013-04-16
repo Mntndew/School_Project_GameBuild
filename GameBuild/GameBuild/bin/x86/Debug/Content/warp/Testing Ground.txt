@@ -6,4 +6,4 @@ Testing Ground
 Testing Ground 2
 -1
 640
-.
+key 0
