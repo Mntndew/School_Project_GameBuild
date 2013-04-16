@@ -27,77 +27,44 @@ namespace GameBuild
                     string line;
                     while ((line = s.ReadLine()) != null)
                     {
-                        for (int i = 0; i < line.Length; i++)
-                        {
-                            if (line[i] == '|')
-                            {
-                                //new line
-                            }
-                        }
                         if (line[0] != '/' && line[1] != '/')
                         {
                             string tempS = String.Empty + line[0];
-                            
+
                             int i = int.Parse(tempS);
-                            if (i > items.Count-1)
+                            if (i > items.Count - 1)
                             {
                                 items.Add(new List<DialogueItem>());
                             }
 
                             tempS = String.Empty + line[2];
 
-                            int j = 0;
-                            bool isExit;
-                            if (tempS == "e")
-                            {
-                                j = 0;
-                                isExit = true;
-                            }
-                            else
-                            {
-                                j = int.Parse(tempS);
-                                isExit = false;
-                            }
+                            int j = int.Parse(tempS);
+                            int exitNumber = line[line.Length - 1];
 
                             string l = line;
                             l = l.Remove(0, 4);
                             l = l.Replace("|", System.Environment.NewLine);
-                            items[i].Add(new DialogueItem(l, j, isExit));
+                            items[i].Add(new DialogueItem(l, j, exitNumber));
                         }
                     }
                 }
                 catch
                 {
-                    //Console.WriteLine("Derp broke retard l2code");
-                }
-            }
-            
-        }
-
-        public void DisplayAllStrings()
-        {
-            for (int i = 0; i < items.Count; i++)
-            {
-                for (int j = 0; j < items[i].Count; j++)
-                {
-                    //Console.WriteLine(items[i][j].Line);
-                    //Console.WriteLine(items[i][j].NextStatement);
+                    throw new Exception("Failed to load dialogue.");
                 }
             }
         }
 
         public int GetNextStatementIndex(int statement, int choice)
         {
-            if (statement < items.Count-1  && !items[statement][0].IsExit)
+            if (statement < items.Count - 1 && IndexIsExit(statement, 0))
             {
                 return items[statement][choice].NextStatement;
             }
-            else
-            {
-                return -1;
-            }
+            return -1;
         }
-
+        
         public string[] GetDialogueLinesFromIndex(int index)
         {
             string[] s = new string[items[index].Count];
@@ -108,9 +75,9 @@ namespace GameBuild
             return s;
         }
 
-        public bool CheckIfIndexIsExit(int statement, int index)
+        public bool IndexIsExit(int statement, int index)
         {
-            if (items[statement][index].IsExit)
+            if (items[statement][index].ExitNumber > 0)
                 return true;
             else
                 return false;

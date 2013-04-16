@@ -339,8 +339,6 @@ namespace GameBuild
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            //draws out the world on the default back buffer with all entities 
-            GraphicsDevice.SetRenderTarget(null);
             GraphicsDevice.Clear(Color.Black);
             if (gender != null)
             {
@@ -362,7 +360,6 @@ namespace GameBuild
             particleSystem.Draw(spriteBatch);
             character.Draw(spriteBatch);
             
-
             for (int i = 0; i < activeNpcs.Count; i++)
             {
                 activeNpcs[i].Draw(spriteBatch);
@@ -386,14 +383,6 @@ namespace GameBuild
             character.DrawHealthBar(spriteBatch, this);
             spriteBatch.End();
 
-            //draws out the light mask over the world, uses multiplication blending to create the effect
-            BlendState blendState = new BlendState();
-            blendState.ColorSourceBlend = Blend.Zero;
-            blendState.ColorDestinationBlend = Blend.SourceColor;
-            blendState.AlphaSourceBlend = Blend.Zero;
-            blendState.AlphaDestinationBlend = Blend.SourceAlpha;
-            spriteBatch.Begin(SpriteSortMode.Immediate, blendState);
-            spriteBatch.End();
             float framerate = 1f / (float)gameTime.ElapsedGameTime.TotalSeconds;
             spriteBatch.Begin();
             for (int i = 0; i < activeNpcs.Count; i++)
