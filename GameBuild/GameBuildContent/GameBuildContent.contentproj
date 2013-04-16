@@ -122,6 +122,7 @@
       <Name>dic</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
+      <SubType>Designer</SubType>
     </Compile>
     <None Include="Npc\npc\Test.txt">
       <Name>Test</Name>

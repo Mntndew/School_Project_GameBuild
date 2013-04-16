@@ -18,15 +18,15 @@ Content\Npc\portrait\YOOOYOYOYOYOYO.xnb
 Content\Npc\sprite\YOOOYOYOYOYOYO.xnb
 Content\Game\tileset.xnb
 Content\Player\Male.xnb
+Content\Game\key.xnb
 Content\Game\lighting.xnb
 Content\Game\SpriteFont1.xnb
+Content\dic.xnb
 Content\Map\source.xnb
 Content\Map\target.xnb
 Content\Map\new map.xnb
 Content\Map\Testing Ground.xnb
 Content\Map\Testing Ground 2.xnb
-Content\Game\key.xnb
-Content\dic.xnb
 Content\Npc\npc\Test.txt
 Content\Npc\dialogue\dialogueTest.txt
 Content\Warp\source.txt
