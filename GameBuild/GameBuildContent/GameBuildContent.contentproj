@@ -91,96 +91,62 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Map\source.tm">
+    <Compile Include="Map\testing maps\source.tm">
       <Name>source</Name>
       <Importer>TileMapImporter</Importer>
       <Processor>TileMapProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Map\target.tm">
+    <Compile Include="Map\testing maps\target.tm">
       <Name>target</Name>
       <Importer>TileMapImporter</Importer>
       <Processor>TileMapProcessor</Processor>
     </Compile>
-    <Compile Include="Map\new map.tm">
+    <Compile Include="Map\testing maps\new map.tm">
       <Name>new map</Name>
       <Importer>TileMapImporter</Importer>
       <Processor>TileMapProcessor</Processor>
     </Compile>
-    <Compile Include="Map\Testing Ground.tm">
+    <Compile Include="Map\testing maps\Testing Ground.tm">
       <Name>Testing Ground</Name>
       <Importer>TileMapImporter</Importer>
       <Processor>TileMapProcessor</Processor>
     </Compile>
-    <Compile Include="Map\Testing Ground 2.tm">
+    <Compile Include="Map\testing maps\Testing Ground 2.tm">
       <Name>Testing Ground 2</Name>
       <Importer>TileMapImporter</Importer>
       <Processor>TileMapProcessor</Processor>
     </Compile>
-    <Compile Include="dic.spritefont">
-      <Name>dic</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <SubType>Designer</SubType>
+    <Compile Include="Map\Map4_C.tm">
+      <Name>Map4_C</Name>
+      <Importer>TileMapImporter</Importer>
+      <Processor>TileMapProcessor</Processor>
     </Compile>
-    <None Include="Npc\npc\Test.txt">
-      <Name>Test</Name>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <Compile Include="Npc\portrait\Test.png">
-      <Name>Test</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+    <Compile Include="Map\Map4_B.tm">
+      <Name>Map4_B</Name>
+      <Importer>TileMapImporter</Importer>
+      <Processor>TileMapProcessor</Processor>
     </Compile>
-    <Compile Include="Npc\sprite\Test.png">
-      <Name>Test</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+    <Compile Include="Map\Map3_B.tm">
+      <Name>Map3_B</Name>
+      <Importer>TileMapImporter</Importer>
+      <Processor>TileMapProcessor</Processor>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Npc\dialogue\dialogueTest.txt">
-      <Name>dialogueTest</Name>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Warp\source.txt">
-      <Name>source</Name>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Warp\target.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>target</Name>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Npc\dialogue\dialogue2.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>dialogue2</Name>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Npc\npc\npc2.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>npc2</Name>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Npc\sprite\npc2.png">
-      <Name>npc2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+    <Compile Include="Map\Map3_A.tm">
+      <Name>Map3_A</Name>
+      <Importer>TileMapImporter</Importer>
+      <Processor>TileMapProcessor</Processor>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Npc\portrait\npc2.png">
-      <Name>npc2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+    <Compile Include="Map\Map2_A.tm">
+      <Name>Map2_A</Name>
+      <Importer>TileMapImporter</Importer>
+      <Processor>TileMapProcessor</Processor>
+    </Compile>
+    <Compile Include="Map\Map1_A.tm">
+      <Name>Map1_A</Name>
+      <Importer>TileMapImporter</Importer>
+      <Processor>TileMapProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -219,41 +185,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Npc\npc\YOOOYOYOYOYOYO.txt">
-      <Name>YOOOYOYOYOYOYO</Name>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="Npc\dialogue\test.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>test</Name>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Npc\portrait\YOOOYOYOYOYOYO.png">
-      <Name>YOOOYOYOYOYOYO</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Npc\sprite\YOOOYOYOYOYOYO.png">
-      <Name>YOOOYOYOYOYOYO</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Npc\dialogue\yo.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>yo</Name>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Game\tileset.png">
-      <Name>tileset</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Npc\dialogue\doorLocked.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <Name>doorLocked</Name>
     </None>
   </ItemGroup>
@@ -265,23 +204,89 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Warp\Testing Ground 2.txt">
-      <Name>Testing Ground 2</Name>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Warp\Testing Ground.txt">
-      <Name>Testing Ground</Name>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Game\key.png">
       <Name>key</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\tileset.png">
+      <Name>tileset</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\portrait\Headmaster.png">
+      <Name>Headmaster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Npc\portrait\Nurse.png">
+      <Name>Nurse</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\sprite\Headmaster.png">
+      <Name>Headmaster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Npc\sprite\Nurse.png">
+      <Name>Nurse</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Npc\npc\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Warp\Map1_A_0.txt">
+      <Name>Map1_A_0</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Warp\Map2_A_0.txt">
+      <Name>Map2_A_0</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Warp\Map2_A_1.txt">
+      <Name>Map2_A_1</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Warp\Map3_A_0.txt">
+      <Name>Map3_A_0</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Warp\Map3_A_1.txt">
+      <Name>Map3_A_1</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Warp\Map3_B_0.txt">
+      <Name>Map3_B_0</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Warp\Map4_B_0.txt">
+      <Name>Map4_B_0</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\dialogue\dialogue2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>dialogue2</Name>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
