@@ -201,6 +201,8 @@ namespace GameBuild
             animation.UpdateAnimation(gameTime);
             #endregion
 
+            Console.WriteLine(Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID);
+
             #region walk
             if (up)
             {
@@ -236,7 +238,14 @@ namespace GameBuild
                 walking = false;
                 if (game.keyState.IsKeyDown(Keys.Up))
                 {
-                    Walk();
+                    if (Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 4
+                        || Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 8)
+                    {
+                        Splash();
+                    }
+                    else
+                        Walk();
+                    
                     up = true;
                     down = false;
                     left = false;
@@ -255,7 +264,14 @@ namespace GameBuild
 
                 if (game.keyState.IsKeyDown(Keys.Down))
                 {
-                    Walk();
+                    if (Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 4
+                        || Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 8)
+                    {
+                        Splash();
+                    }
+                    else
+                        Walk();
+
                     down = true;
                     up = false;
                     right = false;
@@ -278,7 +294,14 @@ namespace GameBuild
 
                 if (game.keyState.IsKeyDown(Keys.Right))
                 {
-                    Walk();
+                    if (Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 4 
+                        || Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 8)
+                    {
+                        Splash();
+                    }
+                    else
+                        Walk();
+
                     right = true;
                     left = false;
                     up = false;
@@ -296,7 +319,14 @@ namespace GameBuild
 
                 if (game.keyState.IsKeyDown(Keys.Left))
                 {
-                    Walk();
+                    if (Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 4
+                        || Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 8)
+                    {
+                        Splash();
+                    }
+                    else
+                        Walk();
+
                     left = true;
                     right = false;
                     up = false;
@@ -408,6 +438,11 @@ namespace GameBuild
         {
             emitter.Add(position.X + 22, position.Y + position.Height - 5, 6, 6, 1, -2, 2, -3, -1, new Color(rand.Next(50, 65), rand.Next(35, 50), rand.Next(35, 50), rand.Next(100, 250)), 0.0f, 1, 1, false, false, true);
         }
+
+        public void Splash()
+        {
+            emitter.Add(position.X + 22, position.Y + position.Height - 5, rand.Next(5, 8), rand.Next(5, 8), 6, -2, 2, -3, -1, new Color(rand.Next(120, 200), rand.Next(120, 200), 200), 0.05f, 1, 1, false, false, true);
+        }
         #endregion
 
         public bool IsCollision(H_Map.TileMap tiles, Rectangle location)
@@ -420,7 +455,7 @@ namespace GameBuild
         {
             Rectangle shadowPos = new Rectangle(position.X + 8, position.Bottom - shadowBlob.Height / 2, shadowBlob.Width, shadowBlob.Height);
             spriteBatch.Draw(shadowBlob, shadowPos, Color.White);
-            spriteBatch.Draw(debugTexture, attackRectangle, new Color(100, 100, 100, 100));
+            //spriteBatch.Draw(debugTexture, attackRectangle, new Color(100, 100, 100, 100));
             //spriteBatch.Draw(debugTexture, interactRect, new Color(100, 100, 100, 100));
             spriteBatch.Draw(spriteWalkSheet, position, animation.GetFrame(), Color.White);
         }
