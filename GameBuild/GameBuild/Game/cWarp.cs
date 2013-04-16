@@ -79,12 +79,13 @@ namespace GameBuild
             
             if (player.attackRectangle.Intersects(warpField))
             {
+                Console.WriteLine("intersecting");
                 bool hasKey = false;
                 for (int x = 0; x < player.inventory.width; x++)
                 {
                     for (int y = 0; y < player.inventory.height; y++)
                     {
-                        if (player.inventory.inventorySlot[x, y].item == key)
+                        if (player.inventory.inventorySlot[x, y].item == key || key == ".")
                         {
                             hasKey = true;
                             Effect(game);

@@ -44,7 +44,7 @@ namespace GameBuild
 
             if (position.Intersects(Game1.character.attackRectangle))
             {
-                picked = true;
+                //picked = true;
             }
         }
     }

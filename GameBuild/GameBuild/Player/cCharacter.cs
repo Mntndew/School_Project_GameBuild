@@ -110,7 +110,6 @@ namespace GameBuild
             healthPct = (health / maxHealth);
             healthBarWidth = (float)healthTexture.Width * healthPct;
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
-
             if (showInventory)
             {
                 animation.PauseAnimation();
@@ -232,7 +231,7 @@ namespace GameBuild
                 faceDown = false;
             }
 
-            if (!attacking && !showInventory && cWarp.canWalk && !dead)
+            if (!attacking && !showInventory && !dead)// && cWarp.canWalk
             {
                 walking = false;
                 if (game.keyState.IsKeyDown(Keys.Up))
@@ -421,7 +420,7 @@ namespace GameBuild
         {
             Rectangle shadowPos = new Rectangle(position.X + 8, position.Bottom - shadowBlob.Height / 2, shadowBlob.Width, shadowBlob.Height);
             spriteBatch.Draw(shadowBlob, shadowPos, Color.White);
-            //spriteBatch.Draw(debugTexture, attackRectangle, new Color(100, 100, 100, 100));
+            spriteBatch.Draw(debugTexture, attackRectangle, new Color(100, 100, 100, 100));
             //spriteBatch.Draw(debugTexture, interactRect, new Color(100, 100, 100, 100));
             spriteBatch.Draw(spriteWalkSheet, position, animation.GetFrame(), Color.White);
         }

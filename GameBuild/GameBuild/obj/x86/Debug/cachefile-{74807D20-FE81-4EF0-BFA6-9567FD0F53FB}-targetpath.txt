@@ -23,6 +23,8 @@ Content\Game\SpriteFont1.xnb
 Content\Map\source.xnb
 Content\Map\target.xnb
 Content\Map\new map.xnb
+Content\Map\Testing Ground.xnb
+Content\Map\Testing Ground 2.xnb
 Content\Npc\npc\Test.txt
 Content\Npc\dialogue\dialogueTest.txt
 Content\Warp\source.txt
@@ -32,3 +34,5 @@ Content\Npc\npc\YOOOYOYOYOYOYO.txt
 Content\Npc\dialogue\yo.txt
 Content\Npc\dialogue\doorLocked.txt
 Content\Npc\npc\npc2.txt
+Content\Warp\Testing Ground 2.txt
+Content\Warp\Testing Ground.txt

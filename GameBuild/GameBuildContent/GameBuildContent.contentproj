@@ -108,6 +108,16 @@
       <Importer>TileMapImporter</Importer>
       <Processor>TileMapProcessor</Processor>
     </Compile>
+    <Compile Include="Map\Testing Ground.tm">
+      <Name>Testing Ground</Name>
+      <Importer>TileMapImporter</Importer>
+      <Processor>TileMapProcessor</Processor>
+    </Compile>
+    <Compile Include="Map\Testing Ground 2.tm">
+      <Name>Testing Ground 2</Name>
+      <Importer>TileMapImporter</Importer>
+      <Processor>TileMapProcessor</Processor>
+    </Compile>
     <None Include="Npc\npc\Test.txt">
       <Name>Test</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -247,6 +257,18 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Warp\Testing Ground 2.txt">
+      <Name>Testing Ground 2</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Warp\Testing Ground.txt">
+      <Name>Testing Ground</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

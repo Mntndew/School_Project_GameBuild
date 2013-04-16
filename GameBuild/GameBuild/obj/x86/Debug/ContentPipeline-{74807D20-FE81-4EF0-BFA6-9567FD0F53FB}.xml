@@ -226,6 +226,24 @@
       <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\new map.xnb</Output>
       <Time>2013-04-15T08:51:24.6827092+02:00</Time>
     </Item>
+    <Item>
+      <Source>Map\Testing Ground.tm</Source>
+      <Name>Map\Testing Ground</Name>
+      <Importer>TileMapImporter</Importer>
+      <Processor>TileMapProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Testing Ground.xnb</Output>
+      <Time>2013-04-16T08:44:41.5748958+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Map\Testing Ground 2.tm</Source>
+      <Name>Map\Testing Ground 2</Name>
+      <Importer>TileMapImporter</Importer>
+      <Processor>TileMapProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Testing Ground 2.xnb</Output>
+      <Time>2013-04-16T08:44:41.5689642+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}</ContentProjectGUID>

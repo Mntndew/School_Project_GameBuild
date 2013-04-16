@@ -53,3 +53,9 @@ C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\LevelContentExtensi
 C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\LevelContentExtension\obj\x86\Debug\LevelContentExtension.csprojResolveAssemblyReference.cache
 C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\LevelContentExtension\obj\x86\Debug\LevelContentExtension.dll
 C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\LevelContentExtension\obj\x86\Debug\LevelContentExtension.pdb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\LevelContentExtension\bin\x86\Debug\LevelContentExtension.dll
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\LevelContentExtension\bin\x86\Debug\LevelContentExtension.pdb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\LevelContentExtension\bin\x86\Debug\H_Map.dll
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\LevelContentExtension\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\LevelContentExtension\obj\x86\Debug\LevelContentExtension.dll
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\LevelContentExtension\obj\x86\Debug\LevelContentExtension.pdb
