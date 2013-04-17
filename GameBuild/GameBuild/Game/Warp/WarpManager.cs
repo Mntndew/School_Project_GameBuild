@@ -84,7 +84,7 @@ namespace GameBuild.Game
             UpdateList(Game1.map.mapName);
             for (int i = 0; i < warps.Count; i++)
             {
-                if (Game1.character.attackRectangle.Intersects(warps[i].warpField))
+                if (Game1.character.warpRectangle.Intersects(warps[i].warpField))
                 {
                     Warp(warps[i], warps[i].key, warps[i].targetX, warps[i].targetY, warps[i].targetMap, game);
                 }
