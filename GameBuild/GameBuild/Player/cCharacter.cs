@@ -260,6 +260,7 @@ namespace GameBuild
                 walking = false;
                 if (game.keyState.IsKeyDown(Keys.Up))
                 {
+                    //effects
                     if (Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 4
                         || Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 8)
                     {
@@ -283,9 +284,9 @@ namespace GameBuild
                     }
                     walking = true;
                 }
-
-                if (game.keyState.IsKeyDown(Keys.Down))
+                else if (game.keyState.IsKeyDown(Keys.Down))
                 {
+                    //effects
                     if (Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 4
                         || Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 8)
                     {
@@ -316,6 +317,7 @@ namespace GameBuild
 
                 if (game.keyState.IsKeyDown(Keys.Right))
                 {
+                    //effects
                     if (Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 4 
                         || Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 8)
                     {
@@ -338,9 +340,9 @@ namespace GameBuild
                     }
                     walking = true;
                 }
-
-                if (game.keyState.IsKeyDown(Keys.Left))
+                else if (game.keyState.IsKeyDown(Keys.Left))
                 {
+                    //effects
                     if (Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 4
                         || Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 8)
                     {
@@ -397,11 +399,24 @@ namespace GameBuild
                     if (npc.position.Intersects(attackRectangle))
                     {
                         damage = game.damageObject.dealDamage(5, 30);
-                        if (npc.health >= 1)
+                        if (npc.health > 0)
                         {
                             damageEffectList.Add(new DamageEffect(damage, game, new Vector2(npc.position.X, npc.position.Y - 16), new Color(255, 255, 255, 255), "player"));
                             npc.health -= damage;
                             npc.attackPlayer = true;
+                        }
+                    }
+                }
+                for (int i = 0; i < game.Mobs.Count; i++)
+                {
+                    if (game.Mobs[i].position.Intersects(attackRectangle))
+                    {
+                        damage = game.damageObject.dealDamage(5, 30);
+                        if (game.Mobs[i].health > 0)
+                        {
+                            damageEffectList.Add(new DamageEffect(damage, game, new Vector2(game.Mobs[i].position.X, game.Mobs[i].position.Y - 16), new Color(255, 255, 255, 255), "player"));
+                            game.Mobs[i].health -= damage;
+                            game.Mobs[i].attackPlayer = true;
                         }
                     }
                 }
@@ -439,13 +454,13 @@ namespace GameBuild
             }
         }
 
+        #region Particle Effects
         public void Hit()
         {
             emitter.Add(position.X + 24, position.Y + 24, 6, 6, 10, -4, 4, -4, 4, new Color(255, 10, 10), 0.35f, 1, 1, false, false, true);
             isHit = true;
         }
 
-        #region Particle Effects
         public void Bleed()
         {
             emitter.Add(position.X + 24, position.Y + 24, 6, 6, 1, 0, 0, -1, 3, new Color(255, 10, 10), 0.07f, 1, 1, false, false, true);
@@ -463,7 +478,8 @@ namespace GameBuild
 
         public void Splash()
         {
-            emitter.Add(position.X + 22, position.Y + position.Height - 5, rand.Next(5, 8), rand.Next(5, 8), 6, -2, 2, -3, -1, new Color(rand.Next(120, 200), rand.Next(120, 200), 200), 0.05f, 1, 1, false, false, true);
+            emitter.Add(position.X + 22, position.Y + position.Height - 5, rand.Next(5, 8), rand.Next(5, 8), 6, -2, 2, -3, -1, new Color(50, 50, 255), 0.05f, 1, 1, false, false, true);
+            emitter.Add(position.X + 22, position.Y + position.Height - 5, rand.Next(5, 8), rand.Next(5, 8), 6, -2, 2, -3, -1, new Color(200, 200, 200), 0.05f, 1, 1, false, false, true);
         }
         #endregion
 
@@ -496,10 +512,6 @@ namespace GameBuild
                 {
                     damageEffectList[i].Draw(spriteBatch, game);
                 }
-            }
-            if (health <= 0)
-            {
-                DrawDeath(spriteBatch, game);
             }
         }
     }

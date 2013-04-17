@@ -83,6 +83,7 @@ namespace GameBuild
         public static Game.WarpManager warpManager = new Game.WarpManager();
         public List<Npc> activeNpcs = new List<Npc>();
         public List<Npc> Npcs = new List<Npc>();
+        public List<Npc> Mobs = new List<Npc>();
         public List<Orb> orbs = new List<Orb>();
 
         int files = Directory.GetFiles(@"Content\npc\npc\").Length; //number of npcs
@@ -155,6 +156,11 @@ namespace GameBuild
             LoadKeys();
             LoadNpcs();
             debugFont = Content.Load<SpriteFont>(@"Game\SpriteFont1");
+            for (int i = 0; i < 50; i++)
+            {
+                Mobs.Add(new Npc(new Rectangle(256 + (i * 2), 256 + (i * 2), 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), this, "Map1_A"));
+            }
+            
         }
 
         public void LoadKeys()
@@ -284,6 +290,14 @@ namespace GameBuild
                         }
                     }
                 }
+                for (int i = 0; i < Mobs.Count; i++)
+                {
+                    Mobs[i].Update(character, map, this, gameTime);
+                    if (Mobs[i].health <= 0)
+                    {
+                        Mobs.RemoveAt(i);
+                    }
+                }
             }
             base.Update(gameTime);
         }
@@ -343,7 +357,10 @@ namespace GameBuild
             {
                 activeNpcs[i].Draw(spriteBatch);
             }
-
+            for (int i = 0; i < Mobs.Count; i++)
+            {
+                Mobs[i].Draw(spriteBatch);
+            }
             map.DrawForegroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
             warpManager.Draw(spriteBatch, this);
             for (int i = 0; i < activeNpcs.Count; i++)
@@ -379,6 +396,12 @@ namespace GameBuild
                 spriteBatch.Draw(male, new Rectangle(0, 0, male.Width / 2, male.Height / 2), Color.White);
                 spriteBatch.Draw(female, new Rectangle(graphics.PreferredBackBufferWidth / 2, 0, female.Width / 2, female.Height / 2), Color.White);
                 spriteBatch.DrawString(spriteFont, "Choose a gender, please.", new Vector2((graphics.PreferredBackBufferWidth / 2) - 20 * 6.38f, 6), new Color(200, 200, 200));
+                spriteBatch.End();
+            }
+            if (character.health <= 0)
+            {
+                spriteBatch.Begin();
+                character.DrawDeath(spriteBatch, this);
                 spriteBatch.End();
             }
             base.Draw(gameTime);
