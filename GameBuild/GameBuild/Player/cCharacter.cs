@@ -88,7 +88,7 @@ namespace GameBuild
             #endregion
 
             #region Rectangles and Vectors
-            position = new Rectangle(640, 256, playerWidth, playerWidth);
+            position = new Rectangle(640, 640, playerWidth, playerWidth);
             interactRect = new Rectangle(position.X - (position.Width / 2), position.Y - (position.Height / 2), position.Width * 2, position.Height * 2);
             vectorPos = new Vector2(position.X, position.Y);
             colRect = new Rectangle();
