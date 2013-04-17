@@ -23,6 +23,7 @@ namespace GameBuild
         Vector2 point3;
         Vector2 point4;
         Vector2[] path;
+        Vector2 randomWalkTarget;
 
         Texture2D debugTile;
         Texture2D walkSprite;
@@ -54,6 +55,7 @@ namespace GameBuild
         bool up, down, left, right;
         bool addA = false;
         bool hasPath = false;
+        bool hasTarget;
 
         public enum patrolType
         {
@@ -69,6 +71,9 @@ namespace GameBuild
         List<DamageEffect> damageEffectList = new List<DamageEffect>();
 
         AnimationComponent animation;
+
+        Random rand = new Random();
+
         const int WALK_UP = 0;
         const int WALK_RIGHT = 1;
         const int WALK_DOWN = 2;
@@ -165,6 +170,7 @@ namespace GameBuild
             this.position = position;
             this.walkSprite = walkSprite;
             healthTexture = game.Content.Load<Texture2D>(@"Game\health100");
+            debugTile = game.Content.Load<Texture2D>(@"Player\emptySlot");
             speed = 1;
             health = 100;
             maxHealth = health;
@@ -184,18 +190,24 @@ namespace GameBuild
                 isOnMap = false;
         }
 
-        public void GoTo(Vector2 targetPoint, GameTime gameTime)
+        public void GoTo(Vector2 targetPoint, GameTime gameTime)//manages findpath and followpath
         {
             float elapsed = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             pathTimer -= elapsed;
-            if (pathTimer <= 0)
+            if (pathTimer <= 0 && !mob)
             {
+                FindPath(targetPoint);
+                pathTimer = PATHTIMER;
+            }
+            else if (pathTimer <= -5000)
+            {
+                GetTargetLocation();
                 FindPath(targetPoint);
                 pathTimer = PATHTIMER;
             }
             if (path != null)
             {
-                FollowPath();
+                FollowPath(gameTime);
             }
         }
 
@@ -219,7 +231,13 @@ namespace GameBuild
                     }
                 }
                 Pathfinding.Point start = new Pathfinding.Point((position.X + position.Width / 2) / Game1.map.tileWidth, (position.Y + position.Height / 2) / Game1.map.tileHeight);
-                Pathfinding.Point end = new Pathfinding.Point((int)targetPoint.X / Game1.map.tileWidth, (int)targetPoint.Y / Game1.map.tileHeight);
+                Pathfinding.Point end;
+                if (!mob || attackPlayer)
+                {
+                    end = new Pathfinding.Point((int)targetPoint.X / Game1.map.tileWidth, (int)targetPoint.Y / Game1.map.tileHeight);
+                }
+                else
+                    end = new Pathfinding.Point((int)targetPoint.X, (int)targetPoint.Y);
 
                 path = PathFinder.GetVectorPath(PathFinder.FindPath(map, start, end), Game1.map.tileWidth, Game1.map.tileHeight);
                 //path.Reverse<Vector2>();
@@ -229,7 +247,7 @@ namespace GameBuild
             }
         }
 
-        private void FollowPath()
+        private void FollowPath(GameTime gameTime)
         {
             if ((path.Length == 1 && path[0].X == -32 && path[0].Y == -32) || position.Intersects(Game1.character.position))
             {
@@ -252,6 +270,7 @@ namespace GameBuild
                         hasPath = false;
                         pathIndex = 0;
                         followPath = false;
+                        RandomMovement(gameTime);
                     }
                 }
                 if (followPath)
@@ -276,17 +295,41 @@ namespace GameBuild
             }
         }
 
-        public void Attack(Game1 game, GameTime gameTime, H_Map.TileMap tiles)
+        private void RandomMovement(GameTime gameTime)
+        {
+            GetTargetLocation();
+            if (hasTarget)
+            {
+                GoTo(randomWalkTarget, gameTime);
+            }
+        }
+
+        public void GetTargetLocation()
+        {
+            hasTarget = false;
+            randomWalkTarget = new Vector2(rand.Next(0, 30), rand.Next(0, 30));
+
+            //(position.X / Game1.map.tileWidth + (rand.Next(-10, 10) * Game1.map.tileWidth),
+                //position.Y / Game1.map.tileHeight + (rand.Next(-10, 10) * Game1.map.tileHeight))
+
+            if (randomWalkTarget.X > 0 && randomWalkTarget.X < Game1.map.mapWidth && randomWalkTarget.Y > 0 && randomWalkTarget.Y < Game1.map.mapHeight)
+            {
+                if (Game1.map.interactiveLayer[(int)randomWalkTarget.X, (int)randomWalkTarget.Y].isPassable)
+                {
+                    hasTarget = true;
+                }
+                else
+                    GetTargetLocation();
+            }
+            else
+                GetTargetLocation();
+        }
+
+        public void Attack(Game1 game, GameTime gameTime)
         {
             Rectangle location = position;
             float elapsed = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             walking = false;
-            
-            if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
-            {
-                position.X = location.X;
-                colRect = position;
-            }
 
             if (Game1.character.position.Intersects(position) && Game1.map.mapName.Remove(Game1.map.mapName.Length - 1) == mapName && !Game1.character.dead)
             {
@@ -302,15 +345,9 @@ namespace GameBuild
             }
 
             attackTimer -= elapsed;
-            
 
-            //if (pathTimer <= 0)
-            {
-                GoTo(new Vector2((Game1.character.position.X + (Game1.character.position.Width / 2)), (Game1.character.position.Y + (Game1.character.position.Height / 2))), gameTime);
-              //  pathTimer = PATHTIMER;
-            }
+            GoTo(new Vector2((Game1.character.position.X + (Game1.character.position.Width / 2)), (Game1.character.position.Y + (Game1.character.position.Height / 2))), gameTime);
         }
-
 
         //fucking swag
         #region Swaggy movement functions
@@ -392,7 +429,12 @@ namespace GameBuild
             healthBarWidth = (float)healthTexture.Width * healthPct;
             CheckMap(game);
             #endregion
-            //debug
+
+            if (mob && !attackPlayer)
+            {
+                RandomMovement(gameTime);
+            }
+
             if (position.Intersects(Game1.character.position))
             {
                 Console.WriteLine("INTERSECTING");
@@ -406,7 +448,7 @@ namespace GameBuild
             if (attackPlayer)
             {
                 canInteract = false;
-                Attack(game, gameTime, tiles);
+                Attack(game, gameTime);
             }
 
             animation.UpdateAnimation(gameTime);
@@ -748,14 +790,14 @@ namespace GameBuild
                 {
                     spriteBatch.Draw(healthTexture, healthPos, Color.White);
                 }
-                //if (path != null)
-                //{
-                //    for (int i = 0; i < path.Length; i++)
-                //    {
-                //        spriteBatch.Draw(debugTile, new Vector2(path[i].X - 32, path[i].Y - 32), new Color(200, 200, 200, 200));
-                //        spriteBatch.DrawString(Game1.debugFont, i.ToString(), new Vector2(path[i].X - 32, path[i].Y - 32), Color.Black);
-                //    }
-                //}
+                if (path != null)
+                {
+                    for (int i = 0; i < path.Length; i++)
+                    {
+                        spriteBatch.Draw(debugTile, new Vector2(path[i].X - 32, path[i].Y - 32), new Color(200, 200, 200, 200));
+                        spriteBatch.DrawString(Game1.debugFont, i.ToString(), new Vector2(path[i].X - 32, path[i].Y - 32), Color.Black);
+                    }
+                }
             }
         }
 

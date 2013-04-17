@@ -156,9 +156,9 @@ namespace GameBuild
             LoadKeys();
             LoadNpcs();
             debugFont = Content.Load<SpriteFont>(@"Game\SpriteFont1");
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 2; i++)
             {
-                Mobs.Add(new Npc(new Rectangle(256 + (i * 2), 256 + (i * 2), 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), this, "Map1_A"));
+                Mobs.Add(new Npc(new Rectangle(256 + (i * 48), 256, 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), this, "Map1_A"));
             }
             
         }
