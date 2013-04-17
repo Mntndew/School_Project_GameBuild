@@ -58,6 +58,8 @@ namespace GameBuild
         const float REGENTIMER = 1;
         float bleedTimer = 3;
         const float BLEEDTIMER = 3;
+        const float ATTACKTIMER = 500f; //in total milliseconds
+        float attackTimer = 500f;
 
         public Inventory inventory;
         public List<DamageEffect> damageEffectList = new List<DamageEffect>();
@@ -223,7 +225,6 @@ namespace GameBuild
             animation.UpdateAnimation(gameTime);
             #endregion
 
-            Console.WriteLine(Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID);
 
             #region walk
             if (up)
@@ -361,7 +362,7 @@ namespace GameBuild
                     corner2 = tile.GetTileRectangleFromPosition(location.X, location.Y + playerHeight);
                     if (!animation.IsAnimationPlaying(WALK_LEFT))
                     {
-                        animation.LoopAnimation(WALK_LEFT);
+                        animation.LoopAnimation(WALK_LEFT); 
                     }
                     walking = true;
                 }
@@ -392,8 +393,10 @@ namespace GameBuild
             }
 
             #region Attack
-            if (game.keyState.IsKeyDown(Keys.Z) && game.oldState.IsKeyUp(Keys.Z) && !dead)
+            attackTimer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+            if (game.keyState.IsKeyDown(Keys.Z) && game.oldState.IsKeyUp(Keys.Z) && !dead && attackTimer <= 0)
             {
+                attackTimer = ATTACKTIMER;
                 foreach (Npc npc in game.activeNpcs)
                 {
                     if (npc.position.Intersects(attackRectangle))
@@ -513,6 +516,11 @@ namespace GameBuild
                     damageEffectList[i].Draw(spriteBatch, game);
                 }
             }
+        }
+
+        public void Push(Vector2 direction)
+        {
+
         }
     }
 }

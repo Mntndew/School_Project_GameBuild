@@ -41,7 +41,7 @@ namespace GameBuild
         public float attackTimer = 1000f;
         float pathTimer = 200f;
         const float ATTACKTIMER = 1000f;//milliseconds
-        const float PATHTIMER = 1000f;//milliseconds
+        float PATHTIMER = 1000f;//milliseconds
         int pathIndex;
         bool followPath;
 
@@ -164,7 +164,7 @@ namespace GameBuild
             mob = false;
         }
 
-        public Npc(Rectangle position, Texture2D walkSprite, Game1 game, string mapName)
+        public Npc(Rectangle position, Texture2D walkSprite, Game1 game, string mapName, float timerMod)
         {
             this.mapName = mapName;
             this.position = position;
@@ -174,6 +174,7 @@ namespace GameBuild
             speed = 1;
             health = 100;
             maxHealth = health;
+            PATHTIMER = rand.Next(2000, 10000) * timerMod;
             mob = true;
             CheckMap(game);
             currentPatrolType = patrolType.none;
@@ -194,14 +195,8 @@ namespace GameBuild
         {
             float elapsed = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             pathTimer -= elapsed;
-            if (pathTimer <= 0 && !mob)
+            if (pathTimer <= 0)
             {
-                FindPath(targetPoint);
-                pathTimer = PATHTIMER;
-            }
-            else if (pathTimer <= -5000)
-            {
-                GetTargetLocation();
                 FindPath(targetPoint);
                 pathTimer = PATHTIMER;
             }
@@ -270,7 +265,7 @@ namespace GameBuild
                         hasPath = false;
                         pathIndex = 0;
                         followPath = false;
-                        RandomMovement(gameTime);
+                        //RandomMovement(gameTime);
                     }
                 }
                 if (followPath)
@@ -304,13 +299,10 @@ namespace GameBuild
             }
         }
 
-        public void GetTargetLocation()
+        private void GetTargetLocation()
         {
             hasTarget = false;
             randomWalkTarget = new Vector2(rand.Next(0, 30), rand.Next(0, 30));
-
-            //(position.X / Game1.map.tileWidth + (rand.Next(-10, 10) * Game1.map.tileWidth),
-                //position.Y / Game1.map.tileHeight + (rand.Next(-10, 10) * Game1.map.tileHeight))
 
             if (randomWalkTarget.X > 0 && randomWalkTarget.X < Game1.map.mapWidth && randomWalkTarget.Y > 0 && randomWalkTarget.Y < Game1.map.mapHeight)
             {
@@ -433,11 +425,6 @@ namespace GameBuild
             if (mob && !attackPlayer)
             {
                 RandomMovement(gameTime);
-            }
-
-            if (position.Intersects(Game1.character.position))
-            {
-                Console.WriteLine("INTERSECTING");
             }
 
             for (int i = 0; i < damageEffectList.Count; i++)
