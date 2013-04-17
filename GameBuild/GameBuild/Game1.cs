@@ -49,6 +49,7 @@ namespace GameBuild
         SpriteBatch spriteBatch;
 
         public SpriteFont spriteFont;
+        public static SpriteFont debugFont;
 
         Random rand = new Random();
 
@@ -153,6 +154,7 @@ namespace GameBuild
             warpManager.UpdateList(map.mapName);
             LoadKeys();
             LoadNpcs();
+            debugFont = Content.Load<SpriteFont>(@"Game\SpriteFont1");
         }
 
         public void LoadKeys()

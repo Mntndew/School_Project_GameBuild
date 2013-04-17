@@ -8,17 +8,8 @@ namespace GameBuild.Pathfinding
 {
     static class PathFinder
     {
-        public static int diagonals = 0;
-        public static int horver = 0;
-        public static int closedListLength = 0;
-        public static int openListLength = 0;
-
         public static Point[] FindPath(int[,] map, Point startPoint, Point endPoint)
         {
-            diagonals = 0;
-            horver = 0;
-            closedListLength = 0;
-            openListLength = 0;
             List<Node> openList = new List<Node>();
             List<Node> closedList = new List<Node>();
 
@@ -74,8 +65,6 @@ namespace GameBuild.Pathfinding
                     break;
                 }
             }
-            openListLength = openList.Count;
-            closedListLength = closedList.Count;
             if (openList.Count == 0)
             {
                 Console.WriteLine("didn't find path...");
@@ -116,14 +105,12 @@ namespace GameBuild.Pathfinding
                                     Point p = new Point(n.Position.X - x, n.Position.Y - y);
                                     int h = (Math.Abs(endPoint.X - p.X) + Math.Abs(endPoint.Y - p.Y)) * 10;
                                     tempList.Add(new Node(p, n.G + 10, h, n));
-                                    horver++;
                                 }
-                                else
+                                else if (!CuttingCorner(map, n.Position, new Point(n.Position.X + x, n.Position.Y + y)))
                                 {
                                     Point p = new Point(n.Position.X - x, n.Position.Y - y);
                                     int h = (Math.Abs(endPoint.X - p.X) + Math.Abs(endPoint.Y - p.Y)) * 10;
                                     tempList.Add(new Node(p, n.G + 14, h, n));
-                                    diagonals++;
                                 }
                             }
                         }
@@ -163,6 +150,22 @@ namespace GameBuild.Pathfinding
                 vPath[i] = path[i].ToVector(nodeWidth, nodeHeight);
             }
             return vPath;
+        }
+
+        private static bool CuttingCorner(int[,] map, Point position, Point goalPosition)
+        {
+            if (goalPosition.X >= 0 && goalPosition.X < map.GetLength(0) && goalPosition.Y >= 0 && goalPosition.Y < map.GetLength(1))
+            {
+                int dx = position.X - goalPosition.X;
+                int dy = position.Y - goalPosition.Y;
+
+                if (map[position.X, position.Y + dy] == 1 || map[position.X + dx, position.Y] == 1)
+                {
+                    return true;
+                }
+                return false;
+            }
+            return true;
         }
     }
 }

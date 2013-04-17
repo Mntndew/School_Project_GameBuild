@@ -209,9 +209,11 @@ namespace GameBuild
                     (Game1.character.position.Y + Game1.character.position.Height/2) / Game1.map.tileHeight);
 
                 path = PathFinder.GetVectorPath(PathFinder.FindPath(map, start, end), Game1.map.tileWidth, Game1.map.tileHeight);
+                //path.Reverse<Vector2>();
                 hasPath = true;
                 followPath = true;
                 pathTimer = PATHTIMER;
+                pathIndex = path.Length-1;
             }
 
             if (Game1.character.position.Intersects(position) && Game1.map.mapName.Remove(Game1.map.mapName.Length - 1) == mapName && !Game1.character.dead)
@@ -242,8 +244,8 @@ namespace GameBuild
                 Rectangle prevLocation = location;
                 if (Math.Abs((location.X + location.Width/2) - path[pathIndex].X) < 10 && Math.Abs((location.Y + location.Height/2) - path[pathIndex].Y) < 10)
                 {
-                    pathIndex++;
-                    if (pathIndex >= path.Length)
+                    pathIndex--;
+                    if (pathIndex < 0)
                     {
                         hasPath = false;
                         pathIndex = 0;
@@ -701,27 +703,19 @@ namespace GameBuild
                 if (health > 0)
                 {
                     spriteBatch.Draw(walkSprite, position, animation.GetFrame(), Color.White);
-                    if (path != null)
-                    {
-                        for (int i = 0; i < path.Length; i++)
-                        {
-                            //spriteBatch.Draw(debugTile, path[i], Color.Pink);
-                        }
-                    }
-                    
-                    //spriteBatch.Draw(walkSprite, patrolRect, new Color(20, 20, 20, 100));
                 }
                 if (healthTexture != null && health > 0)
                 {
                     spriteBatch.Draw(healthTexture, healthPos, Color.White);
                 }
-                if (path != null)
-                {
-                    for (int i = 0; i < path.Length; i++)
-                    {
-                        //spriteBatch.Draw(debugTile, path[i], new Color(200, 200, 200, 200));
-                    }
-                }
+                //if (path != null)
+                //{
+                //    for (int i = 0; i < path.Length; i++)
+                //    {
+                //        spriteBatch.Draw(debugTile, new Vector2(path[i].X - 32, path[i].Y - 32), new Color(200, 200, 200, 200));
+                //        spriteBatch.DrawString(Game1.debugFont, i.ToString(), new Vector2(path[i].X - 32, path[i].Y - 32), Color.Black);
+                //    }
+                //}
             }
         }
 

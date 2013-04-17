@@ -402,3 +402,4 @@ C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\
 C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_B_0.txt
 C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_C_0.txt
 C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_B_1.txt
+C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Headmaster.txt
