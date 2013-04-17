@@ -35,6 +35,7 @@ namespace GameBuild
         Rectangle colRect;
         public Vector2 vectorPos; //for camera
         public Rectangle attackRectangle;
+        public Rectangle warpRectangle;
         Rectangle healthPos;
 
         public Texture2D spriteWalkSheet;
@@ -93,6 +94,7 @@ namespace GameBuild
             vectorPos = new Vector2(position.X, position.Y);
             colRect = new Rectangle();
             attackRectangle = new Rectangle();
+            warpRectangle = new Rectangle();
             healthPos = new Rectangle();
             #endregion
 
@@ -175,6 +177,11 @@ namespace GameBuild
                 attackRectangle.Height = 48;
                 attackRectangle.X = position.X - (attackRectangle.Width / 2) + 12;
                 attackRectangle.Y = position.Y + 5;
+
+                warpRectangle.Width = position.Width / 2;
+                warpRectangle.Height = 5;
+                warpRectangle.X = position.X - warpRectangle.Width;
+                warpRectangle.Y = position.Y + (position.Height / 2) + 2;
             }
             if (right)
             {
@@ -182,6 +189,11 @@ namespace GameBuild
                 attackRectangle.Height = 48;
                 attackRectangle.X = position.X;
                 attackRectangle.Y = position.Y + 5;
+
+                warpRectangle.Width = position.Width / 2;
+                warpRectangle.Height = 5;
+                warpRectangle.X = position.X + position.Width;
+                warpRectangle.Y = position.Y + (position.Height / 2) + 2;
             }
             if (up)
             {
@@ -189,6 +201,11 @@ namespace GameBuild
                 attackRectangle.Height = position.Height + (position.Height / 2);
                 attackRectangle.X = position.X;
                 attackRectangle.Y = position.Y - (position.Height / 2);
+
+                warpRectangle.Width = 5;
+                warpRectangle.Height = position.Height / 2;
+                warpRectangle.X = position.X + (position.Width / 2) + 2;
+                warpRectangle.Y = position.Y - warpRectangle.Height;
             }
             if (down)
             {
@@ -196,6 +213,11 @@ namespace GameBuild
                 attackRectangle.Height = position.Height  + (position.Height / 2);
                 attackRectangle.X = position.X;
                 attackRectangle.Y = position.Y;
+
+                warpRectangle.Width = 5;
+                warpRectangle.Height = position.Height / 2;
+                warpRectangle.X = position.X + (position.Width / 2);
+                warpRectangle.Y = position.Y + position.Height;
             }
 
             animation.UpdateAnimation(gameTime);
@@ -455,7 +477,7 @@ namespace GameBuild
         {
             Rectangle shadowPos = new Rectangle(position.X + 8, position.Bottom - shadowBlob.Height / 2, shadowBlob.Width, shadowBlob.Height);
             spriteBatch.Draw(shadowBlob, shadowPos, Color.White);
-            //spriteBatch.Draw(debugTexture, attackRectangle, new Color(100, 100, 100, 100));
+            //spriteBatch.Draw(debugTexture, warpRectangle, new Color(100, 100, 100, 100));
             //spriteBatch.Draw(debugTexture, interactRect, new Color(100, 100, 100, 100));
             spriteBatch.Draw(spriteWalkSheet, position, animation.GetFrame(), Color.White);
         }
