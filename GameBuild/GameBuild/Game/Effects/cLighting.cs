@@ -72,7 +72,6 @@ namespace GameBuild
                     increaseAlpha = true;
                 }
             }
-            //Console.WriteLine(lightColor.A);
         }
 
         public void Draw(SpriteBatch spriteBatch)

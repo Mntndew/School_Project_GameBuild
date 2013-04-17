@@ -229,7 +229,6 @@ namespace GameBuild
                 ChooseGender();
             }
             warpManager.Update(this);
-            Console.WriteLine(character.position.Y);
             if (keyState.IsKeyDown(Keys.Space))
             {
                 orbs.Add(new Orb(new Rectangle(256, 256, 8, 8)));

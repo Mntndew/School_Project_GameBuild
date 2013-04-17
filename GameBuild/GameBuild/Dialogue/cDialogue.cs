@@ -48,6 +48,7 @@ namespace GameBuild
 
             dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + dialogueFileName + ".txt");
             GetLines(0);
+            dialogueManager.ReachedExit += new ExitEventHandler(ExitDialogue);
         }
 
         public void Update()
@@ -136,6 +137,13 @@ namespace GameBuild
             selection = 1;
             currentLines = dialogueManager.GetDialogueLinesFromIndex(0);
             currentStatement = 0;
+        }
+
+        private void ExitDialogue(object sender, DialogueEventArgs e)
+        {
+            ResetDialogue();
+            Console.WriteLine("I just exited a dialogue at exit {0}", e.exitNumber);
+            //TODO: Add events to the npc class to pick up the exit type and respond accordingly
         }
     }
 }

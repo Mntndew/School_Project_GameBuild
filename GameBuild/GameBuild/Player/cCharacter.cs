@@ -223,7 +223,6 @@ namespace GameBuild
             animation.UpdateAnimation(gameTime);
             #endregion
 
-            Console.WriteLine(Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID);
 
             #region walk
             if (up)
