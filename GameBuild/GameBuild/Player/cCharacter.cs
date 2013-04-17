@@ -397,7 +397,7 @@ namespace GameBuild
             if (game.keyState.IsKeyDown(Keys.Z) && game.oldState.IsKeyUp(Keys.Z) && !dead && attackTimer <= 0)
             {
                 attackTimer = ATTACKTIMER;
-                foreach (Npc npc in game.activeNpcs)
+                foreach (Npc.Npc npc in game.activeNpcs)
                 {
                     if (npc.position.Intersects(attackRectangle))
                     {
@@ -430,16 +430,30 @@ namespace GameBuild
                 damageEffectList[i].Effect();
             }
 
-            foreach (Npc npc in game.activeNpcs)
+            for (int i = 0; i < game.Npcs.Count; i++)
             {
-                if (npc.health > 0)
+                if (game.Npcs[i].health > 0)
                 {
-                    if (npc.attackPlayer)
+                    if (game.Npcs[i].attackPlayer)
                     {
                         inCombat = true;
                     }
                     else
                         inCombat = false;
+                }
+                else
+                {
+                    inCombat = false;
+                }
+            }
+            for (int i = 0; i < game.Mobs.Count; i++)
+            {
+                if (game.Mobs[i].health > 0)
+                {
+                    if (game.Mobs[i].attackPlayer)
+                    {
+                        inCombat = true;
+                    }
                 }
                 else
                 {

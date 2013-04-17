@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using GameBuild.Pathfinding;
 
-namespace GameBuild
+namespace GameBuild.Npc
 {
     public class Npc
     {
@@ -58,6 +58,7 @@ namespace GameBuild
         bool addA = false;
         bool hasPath = false;
         bool hasTarget;
+        bool reached = true;//for waypoint
 
         public enum patrolType
         {
@@ -71,7 +72,6 @@ namespace GameBuild
 
         public cDialogue dialogue;
         List<DamageEffect> damageEffectList = new List<DamageEffect>();
-
         AnimationComponent animation;
 
         Random rand = new Random();
@@ -88,7 +88,9 @@ namespace GameBuild
         int damage;
         #endregion
 
-        public Npc(string mapName, string name, int x, int y, int width, int height, string up, string down, string left, string right, string spritePath, string portraitPath, bool patrolNone, bool patrolUpDown, bool patrolLeftRight, bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game, string dialoguePath)
+        public Npc(string mapName, string name, int x, int y, int width, int height, string up, string down, string left, string right,
+            string spritePath, string portraitPath, bool patrolNone, bool patrolUpDown, bool patrolLeftRight,
+            bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game, string dialoguePath)
         {
             position = new Rectangle(x, y, width - 16, height - 16);
             this.name = name;
@@ -160,9 +162,7 @@ namespace GameBuild
             }
 
             aColor = Color.White;
-
             animation = new AnimationComponent(2, 4, 50, 71, 175, Microsoft.Xna.Framework.Point.Zero);
-
             mob = false;
         }
 
@@ -194,7 +194,7 @@ namespace GameBuild
                 isOnMap = false;
         }
 
-        public void GoTo(Vector2 targetPoint, GameTime gameTime)//manages findpath and followpath
+        public void GoTo(Vector2 targetPoint, bool isWaypoint, GameTime gameTime)//manages findpath and followpath
         {
             float elapsed = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             pathTimer -= elapsed;
@@ -218,7 +218,7 @@ namespace GameBuild
             }
             if (path != null)
             {
-                FollowPath(gameTime);
+                FollowPath(gameTime, isWaypoint);
             }
         }
 
@@ -258,16 +258,24 @@ namespace GameBuild
             }
         }
 
-        private void FollowPath(GameTime gameTime)
+        private void FollowPath(GameTime gameTime, bool isWaypoint)
         {
             if ((path.Length == 1 && path[0].X == -32 && path[0].Y == -32) || position.Intersects(Game1.character.position))
             {
                 followPath = false;
                 hasPath = false;
+                reached = true;
             }
             else
             {
                 followPath = true;
+            }
+            if (Math.Abs(path[0].X - position.X) <= 32 && Math.Abs(path[0].Y - position.Y) <= 32)
+            {
+                if (isWaypoint)
+                {
+                    reached = true;
+                }
             }
 
             if (hasPath && pathIndex < path.Length && followPath)
@@ -310,7 +318,7 @@ namespace GameBuild
             GetTargetLocation();
             if (hasTarget)
             {
-                GoTo(randomWalkTarget, gameTime);
+                GoTo(randomWalkTarget, false, gameTime);
             }
         }
 
@@ -344,7 +352,7 @@ namespace GameBuild
                 {
                     damage = game.damageObject.dealDamage(3, 20);
                     damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(255, 0, 0, 255), "npc"));
-                    //Game1.character.health -= damage;
+                    Game1.character.health -= damage;
                     Game1.character.Hit();
                     attackTimer = ATTACKTIMER;
                 }
@@ -353,7 +361,10 @@ namespace GameBuild
 
             attackTimer -= elapsed;
 
-            GoTo(new Vector2((Game1.character.position.X + (Game1.character.position.Width / 2)), (Game1.character.position.Y + (Game1.character.position.Height / 2))), gameTime);
+            if (isOnMap)
+            {
+                GoTo(new Vector2((Game1.character.position.X + (Game1.character.position.Width / 2)), (Game1.character.position.Y + (Game1.character.position.Height / 2))), false, gameTime);
+            }
         }
 
         //fucking swag
@@ -437,9 +448,14 @@ namespace GameBuild
             CheckMap(game);
             #endregion
 
+            if (!mob && !reached)
+            {
+                GoTo(new Vector2(20*64, 20*64), true, gameTime);
+            }
+
             if (mob)
             {
-                if (!attackPlayer)
+                if (!attackPlayer && isOnMap)
                 {
                     RandomMovement(gameTime);
                 }

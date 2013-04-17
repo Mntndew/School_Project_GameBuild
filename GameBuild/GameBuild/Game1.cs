@@ -81,9 +81,9 @@ namespace GameBuild
         public static cCharacter character;
         public Damage damageObject;
         public static Game.WarpManager warpManager = new Game.WarpManager();
-        public List<Npc> activeNpcs = new List<Npc>();
-        public List<Npc> Npcs = new List<Npc>();
-        public List<Npc> Mobs = new List<Npc>();
+        public List<Npc.Npc> activeNpcs = new List<Npc.Npc>();
+        public List<Npc.Npc> Npcs = new List<Npc.Npc>();
+        public List<Npc.Npc> Mobs = new List<Npc.Npc>();
         public List<Orb> orbs = new List<Orb>();
 
         int files = Directory.GetFiles(@"Content\npc\npc\").Length; //number of npcs
@@ -158,7 +158,7 @@ namespace GameBuild
             debugFont = Content.Load<SpriteFont>(@"Game\SpriteFont1");
             for (int i = 0; i < 2; i++)
             {
-                Mobs.Add(new Npc(new Rectangle(256 + (i * 48), 256, 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), this, "Map1_A", i + 1));
+                Mobs.Add(new Npc.Npc(new Rectangle(256 + (i * 48), 256, 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), this, "Map1_A", i + 1));
             }
         }
 
@@ -180,7 +180,7 @@ namespace GameBuild
             {
                 names[i] = Directory.GetFiles(@"Content\npc\npc\")[i];
                 StreamReader reader = new StreamReader(names[i]);
-                Npc npc = new Npc(reader.ReadLine(), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
+                Npc.Npc npc = new Npc.Npc(reader.ReadLine(), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
                 reader.ReadLine(), reader.ReadLine(), reader.ReadLine(), reader.ReadLine(), reader.ReadLine(), reader.ReadLine(),
                 bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
                 int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), this, reader.ReadLine());
