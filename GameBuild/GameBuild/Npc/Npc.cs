@@ -687,7 +687,6 @@ namespace GameBuild
                         }
                         walking = true;
                     }
-                    
                     break;
             }
             if (!walking)

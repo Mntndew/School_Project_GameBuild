@@ -283,8 +283,7 @@ namespace GameBuild
                     }
                     walking = true;
                 }
-
-                if (game.keyState.IsKeyDown(Keys.Down))
+                else if (game.keyState.IsKeyDown(Keys.Down))
                 {
                     if (Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 4
                         || Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 8)
@@ -338,8 +337,7 @@ namespace GameBuild
                     }
                     walking = true;
                 }
-
-                if (game.keyState.IsKeyDown(Keys.Left))
+                else if (game.keyState.IsKeyDown(Keys.Left))
                 {
                     if (Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 4
                         || Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 8)
