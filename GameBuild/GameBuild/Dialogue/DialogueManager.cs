@@ -61,6 +61,7 @@ namespace GameBuild
 
                         //get the line
                         string l = args[2];
+                        l.Replace('|', '\n');
                         items[index].Add(new DialogueItem(l, nextIndex, exitNumber));
                     }
                 }
