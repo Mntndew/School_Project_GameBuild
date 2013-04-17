@@ -41,7 +41,9 @@ namespace GameBuild
         public float attackTimer = 1000f;
         float pathTimer = 200f;
         const float ATTACKTIMER = 1000f;//milliseconds
-        float PATHTIMER = 1000f;//milliseconds
+        const float PATHTIMER = 1000f;//milliseconds
+        float MOBPATHTIMER = PATHTIMER;
+        float pathTimerMod;
         int pathIndex;
         bool followPath;
 
@@ -169,12 +171,13 @@ namespace GameBuild
             this.mapName = mapName;
             this.position = position;
             this.walkSprite = walkSprite;
+            pathTimerMod = timerMod;
             healthTexture = game.Content.Load<Texture2D>(@"Game\health100");
             debugTile = game.Content.Load<Texture2D>(@"Player\emptySlot");
             speed = 1;
             health = 100;
             maxHealth = health;
-            PATHTIMER = rand.Next(2000, 10000) * timerMod;
+            MOBPATHTIMER = rand.Next(2000, 10000) * timerMod;
             mob = true;
             CheckMap(game);
             currentPatrolType = patrolType.none;
@@ -198,7 +201,20 @@ namespace GameBuild
             if (pathTimer <= 0)
             {
                 FindPath(targetPoint);
-                pathTimer = PATHTIMER;
+                if (mob)
+                {
+                    if (!attackPlayer)
+                    {
+                        MOBPATHTIMER = (PATHTIMER * 3) * pathTimerMod;
+                        MOBPATHTIMER += rand.Next((int)-(PATHTIMER / 2), (int)PATHTIMER / 2);
+                    }
+                    else
+                        MOBPATHTIMER = PATHTIMER;
+
+                    pathTimer = MOBPATHTIMER;
+                }
+                else
+                    pathTimer = PATHTIMER;
             }
             if (path != null)
             {
@@ -265,7 +281,6 @@ namespace GameBuild
                         hasPath = false;
                         pathIndex = 0;
                         followPath = false;
-                        //RandomMovement(gameTime);
                     }
                 }
                 if (followPath)

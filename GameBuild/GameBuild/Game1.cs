@@ -160,7 +160,6 @@ namespace GameBuild
             {
                 Mobs.Add(new Npc(new Rectangle(256 + (i * 48), 256, 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), this, "Map1_A", i + 1));
             }
-            
         }
 
         public void LoadKeys()
@@ -188,7 +187,6 @@ namespace GameBuild
                 Npcs.Add(npc);
             }
         }
-        
                 
         public void UpdateActiveNpcs()
         {
