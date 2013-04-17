@@ -36,19 +36,6 @@ namespace GameBuild.Game
                     warps.Add(warp);
                 }
             }
-            //for (int i = 0; i < warps.Count; i++)
-            //{
-            //    Console.WriteLine(warps[i].sourceMap);
-            //    WarpItem w = new WarpItem(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
-            //        int.Parse(reader.ReadLine()), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), reader.ReadLine());
-            //    reader.Close();
-            //    Console.WriteLine(w.sourceMap);
-            //    if (w.sourceMap == mapName.Remove(mapName.Length-1))
-            //    {
-            //        warps.Add(w);
-            //        Console.WriteLine("Added warp mofo");
-            //    }
-            //}
         }
 
         public void Warp(WarpItem warp, string key, int targetX, int targetY, string map, Game1 game)//the key to unlock the door, targeted x coordinate, targeted y coordinate, targeted map

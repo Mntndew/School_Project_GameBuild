@@ -266,7 +266,7 @@ namespace GameBuild
                             Npcs[i].Update(character, map, this, gameTime);
                         }
                         Npcs[i].UpdateDialogue(this);
-                        if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && Npcs[i].canInteract)
+                        if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && Npcs[i].canInteract && !Npcs[i].mob)
                         {
                             if (Npcs[i].isInteracting)
                             {

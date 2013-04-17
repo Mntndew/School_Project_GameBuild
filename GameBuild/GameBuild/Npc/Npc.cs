@@ -50,6 +50,7 @@ namespace GameBuild
         public bool hasBeenAdded = false;
         public bool isInteracting = false;
         public bool attackPlayer = false;
+        public bool mob;
         bool up, down, left, right;
         bool addA = false;
         bool hasPath = false;
@@ -154,12 +155,17 @@ namespace GameBuild
             aColor = Color.White;
 
             animation = new AnimationComponent(2, 4, 50, 71, 175, Microsoft.Xna.Framework.Point.Zero);
+
+            mob = false;
         }
 
         public Npc(Rectangle position, Texture2D walkSprite)
         {
             this.position = position;
             this.walkSprite = walkSprite;
+            speed = 1;
+            health = 100;
+            mob = true;
         }
 
         public void CheckMap(Game1 game)
