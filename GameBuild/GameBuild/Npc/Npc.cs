@@ -204,8 +204,9 @@ namespace GameBuild
                         }
                     }
                 }
-                Pathfinding.Point start = new Pathfinding.Point(position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight);
-                Pathfinding.Point end = new Pathfinding.Point(Game1.character.position.X / Game1.map.tileWidth, Game1.character.position.Y / Game1.map.tileHeight);
+                Pathfinding.Point start = new Pathfinding.Point((position.X + position.Width/2)/ Game1.map.tileWidth, (position.Y + position.Height/2)/ Game1.map.tileHeight);
+                Pathfinding.Point end = new Pathfinding.Point((Game1.character.position.X + Game1.character.position.Width/2) / Game1.map.tileWidth, 
+                    (Game1.character.position.Y + Game1.character.position.Height/2) / Game1.map.tileHeight);
 
                 path = PathFinder.GetVectorPath(PathFinder.FindPath(map, start, end), Game1.map.tileWidth, Game1.map.tileHeight);
                 hasPath = true;
@@ -239,7 +240,7 @@ namespace GameBuild
             if (hasPath && pathIndex < path.Length && followPath)
             {
                 Rectangle prevLocation = location;
-                if (Math.Abs(location.X - path[pathIndex].X) < 10 && Math.Abs(location.Y - path[pathIndex].Y) < 10)
+                if (Math.Abs((location.X + location.Width/2) - path[pathIndex].X) < 10 && Math.Abs((location.Y + location.Height/2) - path[pathIndex].Y) < 10)
                 {
                     pathIndex++;
                     if (pathIndex >= path.Length)
@@ -251,25 +252,24 @@ namespace GameBuild
                 }
                 if (followPath)
                 {
-                    if (path[pathIndex].X < location.X)
+                    if (path[pathIndex].X < location.X + location.Width/2)
                     {
                         MoveLeft(ref location);
                     }
-                    else if (path[pathIndex].X > location.X)
+                    else if (path[pathIndex].X > location.X + location.Width / 2)
                     {
                         MoveRight(ref location);
                     }
-                    if (path[pathIndex].Y < location.Y)
+                    if (path[pathIndex].Y < location.Y + location.Height/2)
                     {
                         MoveUp(ref location);
                     }
-                    else if (path[pathIndex].Y > location.Y)
+                    else if (path[pathIndex].Y > location.Y + location.Height/2)
                     {
                         MoveDown(ref location);
                     }
                 }
             }
-            //Console.WriteLine(followPath);
             position = location;
         }
 

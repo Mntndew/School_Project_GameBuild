@@ -51,6 +51,7 @@ namespace GameBuild.Pathfinding
         {
             return new Vector2(x, y);
         }
+
         public Vector2 ToVector(float width, float height)
         {
             return new Vector2(x*width + (width/2), y*height + (height/2));

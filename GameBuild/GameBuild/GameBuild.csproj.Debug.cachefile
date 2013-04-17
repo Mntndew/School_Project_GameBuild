@@ -10,26 +10,26 @@ Content\Player\emptySlot.xnb
 Content\Game\textBox.xnb
 Content\particle.xnb
 Content\Particle\particle.xnb
-Content\Game\tileset.xnb
 Content\Player\Male.xnb
 Content\Game\key.xnb
-Content\Game\lighting.xnb
-Content\Game\SpriteFont1.xnb
-Content\Map\Map1_A.xnb
-Content\Map\Map2_A.xnb
+Content\Game\tileset.xnb
 Content\Npc\portrait\Headmaster.xnb
 Content\Npc\portrait\Nurse.xnb
 Content\Npc\sprite\Headmaster.xnb
 Content\Npc\sprite\Nurse.xnb
-Content\Map\Map3_A.xnb
-Content\Map\Map4_C.xnb
-Content\Map\Map4_B.xnb
-Content\Map\Map3_B.xnb
+Content\Game\lighting.xnb
+Content\Game\SpriteFont1.xnb
 Content\Map\testing maps\source.xnb
 Content\Map\testing maps\target.xnb
 Content\Map\testing maps\new map.xnb
 Content\Map\testing maps\Testing Ground.xnb
 Content\Map\testing maps\Testing Ground 2.xnb
+Content\Map\Map4_C.xnb
+Content\Map\Map4_B.xnb
+Content\Map\Map3_B.xnb
+Content\Map\Map3_A.xnb
+Content\Map\Map2_A.xnb
+Content\Map\Map1_A.xnb
 Content\Npc\dialogue\test.txt
 Content\Npc\dialogue\doorLocked.txt
 Content\Warp\Map1_A_0.txt
