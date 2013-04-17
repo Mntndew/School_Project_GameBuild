@@ -437,9 +437,14 @@ namespace GameBuild
             CheckMap(game);
             #endregion
 
-            if (mob && !attackPlayer)
+            if (mob)
             {
-                RandomMovement(gameTime);
+                if (!attackPlayer)
+                {
+                    RandomMovement(gameTime);
+                }
+                else
+                    pathTimer = 0;
             }
 
             for (int i = 0; i < damageEffectList.Count; i++)
