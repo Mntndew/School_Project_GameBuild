@@ -18,6 +18,7 @@ namespace GameBuild.Npc
         Rectangle corner1;
         Rectangle corner2;
         Rectangle colRect;
+        public Rectangle combatRectangle;
         Vector2 point1;
         Vector2 point2;
         Vector2 point3;
@@ -49,7 +50,6 @@ namespace GameBuild.Npc
 
         public bool point1Tagged = false, point2Tagged = false, point3Tagged = false, point4Tagged = false;
         public bool canInteract;
-        public bool isOnMap;
         public bool hasBeenAdded = false;
         public bool isInteracting = false;
         public bool attackPlayer = false;
@@ -86,6 +86,10 @@ namespace GameBuild.Npc
         Color aColor;
 
         int damage;
+        int minDamage;//for mobs
+        int maxDamage;
+        int hitChance;
+        int chance;
         #endregion
 
         public Npc(string mapName, string name, int x, int y, int width, int height, string up, string down, string left, string right,
@@ -96,6 +100,8 @@ namespace GameBuild.Npc
             this.name = name;
             this.mapName = mapName;
             this.speed = speed;
+
+            combatRectangle = new Rectangle(position.X - 128, position.Y - 128, 256, 256);
 
             if (up == "False")
             {
@@ -166,32 +172,37 @@ namespace GameBuild.Npc
             mob = false;
         }
 
-        public Npc(Rectangle position, Texture2D walkSprite, Game1 game, string mapName, float timerMod)
+        public Npc(Rectangle position, Texture2D walkSprite, Game1 game, string mapName,
+            float timerMod, bool attackPlayer, int health, int minDamage, int maxDamage, int hitChance)
         {
             this.mapName = mapName;
             this.position = position;
             this.walkSprite = walkSprite;
+            this.attackPlayer = attackPlayer;
+            this.health = health;
+            this.minDamage = minDamage;
+            this.maxDamage = maxDamage;
+            this.hitChance = hitChance;
+            combatRectangle = new Rectangle(position.X - 128, position.Y - 128, 256, 256);
             pathTimerMod = timerMod;
             healthTexture = game.Content.Load<Texture2D>(@"Game\health100");
             debugTile = game.Content.Load<Texture2D>(@"Player\emptySlot");
             speed = 1;
-            health = 100;
             maxHealth = health;
             MOBPATHTIMER = rand.Next(2000, 10000) * timerMod;
             mob = true;
-            CheckMap(game);
             currentPatrolType = patrolType.none;
             animation = new AnimationComponent(2, 4, 50, 71, 175, Microsoft.Xna.Framework.Point.Zero);
         }
 
-        public void CheckMap(Game1 game)
+        public bool IsOnMap()
         {
-            if (mapName == (Game1.map.mapName.Remove(Game1.map.mapName.Length - 1)))
+            if (Game1.map.mapName.Remove(Game1.map.mapName.Length - 1) == mapName)
             {
-                isOnMap = true;
+                return true;
             }
             else
-                isOnMap = false;
+                return false;
         }
 
         public void GoTo(Vector2 targetPoint, bool isWaypoint, GameTime gameTime)//manages findpath and followpath
@@ -264,20 +275,18 @@ namespace GameBuild.Npc
             {
                 followPath = false;
                 hasPath = false;
-                reached = true;
             }
             else
             {
                 followPath = true;
             }
-            if (Math.Abs(path[0].X - position.X) <= 32 && Math.Abs(path[0].Y - position.Y) <= 32)
+            if (isWaypoint)
             {
-                if (isWaypoint)
+                if (Math.Abs(path[0].X - position.X) <= 32 && Math.Abs(path[0].Y - position.Y) <= 32)
                 {
                     reached = true;
                 }
             }
-
             if (hasPath && pathIndex < path.Length && followPath)
             {
                 Rectangle prevLocation = position;
@@ -350,18 +359,34 @@ namespace GameBuild.Npc
             {
                 if (attackTimer <= 0)
                 {
-                    damage = game.damageObject.dealDamage(3, 20);
-                    damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(255, 0, 0, 255), "npc"));
-                    Game1.character.health -= damage;
-                    Game1.character.Hit();
-                    attackTimer = ATTACKTIMER;
+                    if (mob)
+                    {
+                        chance = rand.Next(1, 100);
+                        if (chance <= hitChance)
+                        {
+                            damage = game.damageObject.dealDamage(minDamage, maxDamage);
+                            damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(255, 0, 0, 255), "npc"));
+                            Game1.character.health -= damage;
+                            Game1.character.Hit();
+                            chance = 101;
+                            attackTimer = ATTACKTIMER;
+                        }
+                    }
+                    else
+                    {
+                        damage = game.damageObject.dealDamage(minDamage, maxDamage);
+                        damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(255, 0, 0, 255), "npc"));
+                        Game1.character.health -= damage;
+                        Game1.character.Hit();
+                        attackTimer = ATTACKTIMER;
+                    }
                 }
                 followPath = false;
             }
 
             attackTimer -= elapsed;
 
-            if (isOnMap)
+            if (IsOnMap())
             {
                 GoTo(new Vector2((Game1.character.position.X + (Game1.character.position.Width / 2)), (Game1.character.position.Y + (Game1.character.position.Height / 2))), false, gameTime);
             }
@@ -372,6 +397,7 @@ namespace GameBuild.Npc
         private void MoveUp(ref Rectangle location)
         {
             location.Y += (int)-(speed * 2);
+            combatRectangle.Y += (int)-(speed * 2);
             if (!animation.IsAnimationPlaying(WALK_UP))
             {
                 animation.LoopAnimation(WALK_UP);
@@ -382,6 +408,7 @@ namespace GameBuild.Npc
         private void MoveDown(ref Rectangle location)
         {
             location.Y += (int)(speed * 2);
+            combatRectangle.Y += (int)(speed * 2);
             if (!animation.IsAnimationPlaying(WALK_DOWN))
             {
                 animation.LoopAnimation(WALK_DOWN);
@@ -392,7 +419,7 @@ namespace GameBuild.Npc
         private void MoveLeft(ref Rectangle location)
         {
             location.X += (int)-(speed * 2);
-            location.Y = position.Y;
+            combatRectangle.X += (int)-(speed * 2);
             if (!animation.IsAnimationPlaying(WALK_LEFT))
             {
                 animation.LoopAnimation(WALK_LEFT);
@@ -402,8 +429,8 @@ namespace GameBuild.Npc
 
         private void MoveRight(ref Rectangle location)
         {
-            location.Y = position.Y;
             location.X += (int)(speed * 2);
+            combatRectangle.X += (int)(speed * 2);
             if (!animation.IsAnimationPlaying(WALK_RIGHT))
             {
                 animation.LoopAnimation(WALK_RIGHT);
@@ -445,17 +472,16 @@ namespace GameBuild.Npc
             healthPos.Height = 10;
             healthPct = (health / maxHealth);
             healthBarWidth = (float)healthTexture.Width * healthPct;
-            CheckMap(game);
             #endregion
 
             if (!mob && !reached)
             {
-                GoTo(new Vector2(20*64, 20*64), true, gameTime);
+                GoTo(new Vector2(20*64, 19*64), true, gameTime);
             }
 
             if (mob)
             {
-                if (!attackPlayer && isOnMap)
+                if (!attackPlayer && IsOnMap())
                 {
                     RandomMovement(gameTime);
                 }
@@ -482,7 +508,7 @@ namespace GameBuild.Npc
             }
 
             #region Player Interaction
-            if (isOnMap)
+            if (IsOnMap())
             {
                 if (position.Intersects(player.interactRect) && !attackPlayer)
                 {
@@ -803,7 +829,7 @@ namespace GameBuild.Npc
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (isOnMap)
+            if (IsOnMap())
             {
                 if (health > 0)
                 {
@@ -826,7 +852,7 @@ namespace GameBuild.Npc
 
         public void DrawA(SpriteBatch spriteBatch)
         {
-            if (isOnMap)
+            if (IsOnMap())
             {
                 if (health > 0)
                 {

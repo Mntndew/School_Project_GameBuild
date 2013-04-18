@@ -289,6 +289,15 @@
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map1_A.xnb</Output>
       <Time>2013-04-16T22:50:05.0053285+02:00</Time>
     </Item>
+    <Item>
+      <Source>Game\Hp bar.png</Source>
+      <Name>Game\Hp bar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Hp bar.xnb</Output>
+      <Time>2013-04-18T16:06:49.9817915+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}</ContentProjectGUID>

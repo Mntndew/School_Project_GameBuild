@@ -85,6 +85,7 @@ namespace GameBuild
         public List<Npc.Npc> Npcs = new List<Npc.Npc>();
         public List<Npc.Npc> Mobs = new List<Npc.Npc>();
         public List<Orb> orbs = new List<Orb>();
+        public static Npc.Boss testBoss;
 
         int files = Directory.GetFiles(@"Content\npc\npc\").Length; //number of npcs
         int warpFiles = Directory.GetFiles(@"Content\Warp\").Length;
@@ -131,6 +132,7 @@ namespace GameBuild
             {
                 character = new cCharacter(this, gender);
             }
+            testBoss = new Npc.Boss(new Rectangle(5*64, 5*64, 64, 64), this, "Testing Ground");
             base.Initialize();
         }
 
@@ -143,7 +145,7 @@ namespace GameBuild
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             collisionTex = Content.Load<Texture2D>(@"Game\blackness");
-            map = Content.Load<H_Map.TileMap>(@"Map\Map1_A");
+            map = Content.Load<H_Map.TileMap>(@"Map\testing maps\Testing Ground");
             map.tileset = Content.Load<Texture2D>(@"Game\tileset");
             textBox = Content.Load<Texture2D>(@"Game\textBox");
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
@@ -158,7 +160,7 @@ namespace GameBuild
             debugFont = Content.Load<SpriteFont>(@"Game\SpriteFont1");
             for (int i = 0; i < 2; i++)
             {
-                Mobs.Add(new Npc.Npc(new Rectangle(256 + (i * 48), 256, 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), this, "Map1_A", i + 1));
+                Mobs.Add(new Npc.Npc(new Rectangle(256 + (i * 48), 256, 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), this, "Map1_A", i + 1, false, 50, 1, 5, 1));
             }
         }
 
@@ -193,8 +195,7 @@ namespace GameBuild
             activeNpcs.Clear();
             for (int i = 0; i < Npcs.Count; i++)
             {
-                Npcs[i].CheckMap(this);
-                if (Npcs[i].isOnMap)
+                if (Npcs[i].IsOnMap())
                 {
                     activeNpcs.Add(Npcs[i]);
                     Npcs[i].hasBeenAdded = true;
@@ -202,7 +203,7 @@ namespace GameBuild
             }
             for (int i = 0; i < activeNpcs.Count; i++)
             {
-                if (!activeNpcs[i].isOnMap)
+                if (!activeNpcs[i].IsOnMap())
                 {
                     activeNpcs[i].hasBeenAdded = false;
                     activeNpcs.RemoveAt(i);
@@ -237,7 +238,10 @@ namespace GameBuild
             {
                 orbs.Add(new Orb(new Rectangle(256, 256, 8, 8)));
             }
-
+            if (testBoss.IsOnMap())
+            {
+                testBoss.Update(this, gameTime);
+            }
             if (gender != null)
             {
                 particleSystem.Update(gameTime);
@@ -264,7 +268,7 @@ namespace GameBuild
                 {
                     if (Npcs[i].health > 0)
                     {
-                        if (!Npcs[i].isInteracting && Npcs[i].isOnMap && !character.showInventory)
+                        if (!Npcs[i].isInteracting && Npcs[i].IsOnMap() && !character.showInventory)
                         {
                             Npcs[i].Update(character, map, this, gameTime);
                         }
@@ -358,6 +362,10 @@ namespace GameBuild
             {
                 Mobs[i].Draw(spriteBatch);
             }
+            if (testBoss.IsOnMap())
+            {
+                testBoss.Draw(spriteBatch);
+            }
             map.DrawForegroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
             warpManager.Draw(spriteBatch, this);
             for (int i = 0; i < activeNpcs.Count; i++)
@@ -366,13 +374,17 @@ namespace GameBuild
             }
             spriteBatch.DrawString(spriteFont, character.health + "/" + character.maxHealth, new Vector2(character.position.X - 10, character.position.Y - 35), new Color(200, 10, 10, 200));
             character.DrawHealthBar(spriteBatch, this);
+            for (int i = 0; i < testBoss.projectiles.Count; i++)
+            {
+                testBoss.projectiles[i].DrawParticles(spriteBatch);
+            }
             spriteBatch.End();
 
             float framerate = 1f / (float)gameTime.ElapsedGameTime.TotalSeconds;
             spriteBatch.Begin();
             for (int i = 0; i < activeNpcs.Count; i++)
             {
-                if (activeNpcs[i].isOnMap)
+                if (activeNpcs[i].IsOnMap())
                 {
                     if (activeNpcs[i].isInteracting)
                     {
@@ -382,6 +394,7 @@ namespace GameBuild
                 }
             }
             character.inventory.Draw(spriteBatch, this);
+            testBoss.DrawHealth(spriteBatch);
 
             spriteBatch.DrawString(spriteFont, framerate.ToString(), new Vector2(10, 10), Color.Red);
             spriteBatch.End();

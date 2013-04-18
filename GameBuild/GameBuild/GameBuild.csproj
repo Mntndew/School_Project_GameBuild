@@ -108,7 +108,8 @@
     <Compile Include="Game\Camera2d.cs" />
     <Compile Include="Game\Warp\WarpItem.cs" />
     <Compile Include="Game\Warp\WarpManager.cs" />
-    <Compile Include="KeyManager.cs" />
+    <Compile Include="Npc\Boss.cs" />
+    <Compile Include="Npc\Projectile.cs" />
     <Compile Include="Particle\Orb.cs" />
     <Compile Include="Particle\Particle.cs" />
     <Compile Include="Particle\ParticleSystem.cs" />

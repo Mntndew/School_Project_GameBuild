@@ -27,6 +27,7 @@ namespace GameBuild
         public int playerHeight = 48; //size of the player sprite in pixels
         public int playerWidth = 48;
         public int damage;
+        public int speed;
 
         public float regenAmount;
 
@@ -37,12 +38,14 @@ namespace GameBuild
         public Rectangle attackRectangle;
         public Rectangle warpRectangle;
         Rectangle healthPos;
+        public Vector2 bossTarget;//when the boss shoots.. follows the player with less speed...
 
         public Texture2D spriteWalkSheet;
         public Texture2D spriteAttackSheet;
         public Texture2D shadowBlob;
         Texture2D debugTexture;
         Texture2D healthTexture;
+        Texture2D healthBar;
 
         H_Map.TileMap tile;
         Random rand = new Random();
@@ -78,8 +81,9 @@ namespace GameBuild
         public cCharacter(Game1 game, string gender)
         {
             health = 100;
+            speed = 4;
             maxHealth = health;
-
+            healthBar = game.Content.Load<Texture2D>(@"Game\Hp bar");
             this.gender = gender;
 
             #region Textures
@@ -106,6 +110,7 @@ namespace GameBuild
             animation = new AnimationComponent(3, 4, 72, 96, 100, Point.Zero);
             emitter = new ParticleSystemEmitter(game);
             Game1.particleSystem.emitters.Add(emitter);
+            bossTarget = new Vector2(position.X, position.Y);
         }
 
         public void Update(Game1 game, H_Map.TileMap tiles, GameTime gameTime, KeyboardState oldState, GraphicsDevice graphicsDevice)
@@ -114,9 +119,27 @@ namespace GameBuild
             healthPct = (health / maxHealth);
             healthBarWidth = (float)healthTexture.Width * healthPct;
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
             if (showInventory)
             {
                 animation.PauseAnimation();
+            }
+
+            if (position.X > bossTarget.X)
+            {
+                bossTarget.X += 2;
+            }
+            if (position.X < bossTarget.X)
+            {
+                bossTarget.X -= 2;
+            }
+            if (position.Y > bossTarget.Y)
+            {
+                bossTarget.Y += 2;
+            }
+            if (position.Y < bossTarget.Y)
+            {
+                bossTarget.Y -= 2f;
             }
 
             if (isHit)
@@ -156,7 +179,7 @@ namespace GameBuild
                     damageEffectList.Add(new DamageEffect((int)regenAmount, game, new Vector2(position.X, position.Y - 16), new Color(0, 255, 0, 255), "regen"));
                     Regen((int)regenAmount);
                 }
-                
+
                 regenTimer = REGENTIMER;
             }
             tile = tiles;
@@ -212,7 +235,7 @@ namespace GameBuild
             if (down)
             {
                 attackRectangle.Width = position.Width;
-                attackRectangle.Height = position.Height  + (position.Height / 2);
+                attackRectangle.Height = position.Height + (position.Height / 2);
                 attackRectangle.X = position.X;
                 attackRectangle.Y = position.Y;
 
@@ -269,12 +292,12 @@ namespace GameBuild
                     }
                     else
                         Walk();
-                    
+
                     up = true;
                     down = false;
                     left = false;
                     right = false;
-                    location.Y -= 4;
+                    location.Y -= speed;
                     corner1 = tile.GetTileRectangleFromPosition(location.X, location.Y + (position.Height / 2));
                     corner2 = tile.GetTileRectangleFromPosition(location.X + playerWidth, location.Y + (position.Height / 2));
                     halfcorner1 = tile.GetTileRectangleFromPosition(location.X, location.Y);
@@ -300,7 +323,7 @@ namespace GameBuild
                     up = false;
                     right = false;
                     left = false;
-                    location.Y += 4;
+                    location.Y += speed;
                     corner1 = tile.GetTileRectangleFromPosition(location.X, location.Y + playerHeight);
                     corner2 = tile.GetTileRectangleFromPosition(location.X + playerWidth, location.Y + playerHeight);
                     if (!animation.IsAnimationPlaying(WALK_DOWN))
@@ -319,7 +342,7 @@ namespace GameBuild
                 if (game.keyState.IsKeyDown(Keys.Right))
                 {
                     //effects
-                    if (Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 4 
+                    if (Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 4
                         || Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 8)
                     {
                         Splash();
@@ -332,7 +355,7 @@ namespace GameBuild
                     up = false;
                     down = false;
                     location.Y = position.Y;
-                    location.X += 4;
+                    location.X += speed;
                     corner1 = tile.GetTileRectangleFromPosition(location.X + playerWidth, location.Y + (position.Height / 2));
                     corner2 = tile.GetTileRectangleFromPosition(location.X + playerWidth, location.Y + playerHeight);
                     if (!animation.IsAnimationPlaying(WALK_RIGHT))
@@ -356,13 +379,13 @@ namespace GameBuild
                     right = false;
                     up = false;
                     down = false;
-                    location.X -= 4;
+                    location.X -= speed;
                     location.Y = position.Y;
                     corner1 = tile.GetTileRectangleFromPosition(location.X, location.Y + (position.Height / 2));
                     corner2 = tile.GetTileRectangleFromPosition(location.X, location.Y + playerHeight);
                     if (!animation.IsAnimationPlaying(WALK_LEFT))
                     {
-                        animation.LoopAnimation(WALK_LEFT); 
+                        animation.LoopAnimation(WALK_LEFT);
                     }
                     walking = true;
                 }
@@ -396,13 +419,13 @@ namespace GameBuild
             attackTimer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             if (game.keyState.IsKeyDown(Keys.Z) && game.oldState.IsKeyUp(Keys.Z) && !dead && attackTimer <= 0)
             {
+                damage = game.damageObject.dealDamage(5, 30);
                 attackTimer = ATTACKTIMER;
                 foreach (Npc.Npc npc in game.activeNpcs)
                 {
                     if (npc.position.Intersects(attackRectangle))
                     {
-                        damage = game.damageObject.dealDamage(5, 30);
-                        if (npc.health > 0)
+                        if (npc.health > 0 && npc.IsOnMap())
                         {
                             damageEffectList.Add(new DamageEffect(damage, game, new Vector2(npc.position.X, npc.position.Y - 16), new Color(255, 255, 255, 255), "player"));
                             npc.health -= damage;
@@ -410,12 +433,19 @@ namespace GameBuild
                         }
                     }
                 }
+                if (position.Intersects(Game1.testBoss.position))
+                {
+                    if (Game1.testBoss.health > 0 && Game1.testBoss.IsOnMap())
+                    {
+                        damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.testBoss.position.X, Game1.testBoss.position.Y - 16), new Color(255, 255, 255, 255), "player"));
+                        Game1.testBoss.health -= damage;
+                    }
+                }
                 for (int i = 0; i < game.Mobs.Count; i++)
                 {
                     if (game.Mobs[i].position.Intersects(attackRectangle))
                     {
-                        damage = game.damageObject.dealDamage(5, 30);
-                        if (game.Mobs[i].health > 0)
+                        if (game.Mobs[i].health > 0 && game.Mobs[i].IsOnMap())
                         {
                             damageEffectList.Add(new DamageEffect(damage, game, new Vector2(game.Mobs[i].position.X, game.Mobs[i].position.Y - 16), new Color(255, 255, 255, 255), "player"));
                             game.Mobs[i].health -= damage;
@@ -434,7 +464,13 @@ namespace GameBuild
             {
                 if (game.Npcs[i].health > 0)
                 {
-                    if (game.Npcs[i].attackPlayer)
+                    if (game.Npcs[i].position.Intersects(position))
+                    {
+                        speed = 2;
+                    }
+                    else
+                        speed = 4;
+                    if (game.Npcs[i].combatRectangle.Intersects(position))
                     {
                         inCombat = true;
                     }
@@ -450,10 +486,36 @@ namespace GameBuild
             {
                 if (game.Mobs[i].health > 0)
                 {
-                    if (game.Mobs[i].attackPlayer)
+                    if (game.Mobs[i].position.Intersects(position))
+                    {
+                        speed = 2;
+                    }
+                    if (game.Mobs[i].combatRectangle.Intersects(position))
                     {
                         inCombat = true;
                     }
+                    else
+                        inCombat = false;
+                }
+                else
+                {
+                    inCombat = false;
+                }
+            }
+            for (int i = 0; i < Game1.testBoss.mobs.Count; i++)
+            {
+                if (Game1.testBoss.mobs[i].health > 0)
+                {
+                    if (Game1.testBoss.mobs[i].position.Intersects(position))
+                    {
+                        speed = 2;
+                    }
+                    if (Game1.testBoss.mobs[i].combatRectangle.Intersects(position))
+                    {
+                        inCombat = true;
+                    }
+                    else
+                        inCombat = false;
                 }
                 else
                 {
@@ -524,7 +586,8 @@ namespace GameBuild
         {
             if (healthTexture != null)
             {
-                spriteBatch.Draw(healthTexture, healthPos, Color.White);
+                spriteBatch.Draw(healthTexture, new Rectangle(healthPos.X, healthPos.Y, healthPos.Width - 2, healthPos.Height), Color.White);
+                spriteBatch.Draw(healthBar, new Rectangle(healthPos.X - 7, healthPos.Y - 15, 64, 30), Color.White);
                 for (int i = 0; i < damageEffectList.Count; i++)
                 {
                     damageEffectList[i].Draw(spriteBatch, game);
