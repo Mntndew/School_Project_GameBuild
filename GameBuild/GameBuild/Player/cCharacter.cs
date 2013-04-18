@@ -167,13 +167,6 @@ namespace GameBuild
             }
             tile = tiles;
 
-            interactRect.X = positionRectangle.X - (positionRectangle.Width / 2);
-            interactRect.Y = positionRectangle.Y - (positionRectangle.Height / 2);
-
-            healthPos.X = positionRectangle.X;
-            healthPos.Y = positionRectangle.Y - 10;
-            healthPos.Width = (int)healthBarWidth;
-            healthPos.Height = healthTexture.Height;
             if (left)
             {
                 attackRectangle.Width = positionRectangle.Width + (positionRectangle.Width / 2);
@@ -247,7 +240,7 @@ namespace GameBuild
                     left = false;
                     right = false;
 
-                    ApplyForce(new Vector2(0, -1));
+                    ApplyForce(new Vector2(0, -2));
 
                     if (!animation.IsAnimationPlaying(WALK_UP))
                     {
@@ -271,7 +264,7 @@ namespace GameBuild
                     right = false;
                     left = false;
 
-                    ApplyForce(new Vector2(0, 1));
+                    ApplyForce(new Vector2(0, 2));
                     
                     if (!animation.IsAnimationPlaying(WALK_DOWN))
                     {
@@ -297,7 +290,7 @@ namespace GameBuild
                     down = false;
 
 
-                    ApplyForce(new Vector2(1, 0));
+                    ApplyForce(new Vector2(2, 0));
 
                     if (!animation.IsAnimationPlaying(WALK_RIGHT))
                     {
@@ -321,7 +314,7 @@ namespace GameBuild
                     up = false;
                     down = false;
 
-                    ApplyForce(new Vector2(-1, 0));
+                    ApplyForce(new Vector2(-2, 0));
 
                     if (!animation.IsAnimationPlaying(WALK_LEFT))
                     {
@@ -329,10 +322,30 @@ namespace GameBuild
                     }
                     walking = true;
                 }
-
                 if (!walking)
                 {
                     animation.PauseAnimation();
+                }
+
+                if (leftSide.Intersects(tile.GetTileRectangleFromPosition(leftSide.X, leftSide.Y)) && !tile.CheckCellPositionPassable(new Vector2(leftSide.X, leftSide.Y)))
+                {
+                    position.X = tile.GetTileRectangleFromPosition(leftSide.X, leftSide.Y).Right;
+                    velocity.X = 0;
+                }
+                if (rightSide.Intersects(tile.GetTileRectangleFromPosition(rightSide.X, rightSide.Y)) && !tile.CheckCellPositionPassable(new Vector2(rightSide.X, rightSide.Y)))
+                {
+                    position.X = tile.GetTileRectangleFromPosition(rightSide.X, rightSide.Y).Left;
+                    velocity.X = 0;
+                }
+                if (upSide.Intersects(tile.GetTileRectangleFromPosition(upSide.X, upSide.Y)) && !tile.CheckCellPositionPassable(new Vector2(upSide.X, upSide.Y)))
+                {
+                    position.X = tile.GetTileRectangleFromPosition(upSide.X, upSide.Y).Bottom;
+                    velocity.Y = 0;
+                }
+                if (downSide.Intersects(tile.GetTileRectangleFromPosition(downSide.X, downSide.Y)) && !tile.CheckCellPositionPassable(new Vector2(downSide.X, downSide.Y)))
+                {
+                    position.X = tile.GetTileRectangleFromPosition(downSide.X, downSide.Y).Top;
+                    velocity.Y = 0;
                 }
             }
 
@@ -494,29 +507,49 @@ namespace GameBuild
 
         private void CalculateFriction()
         {
-            Vector2 friction = -velocity;
+            if (velocity == Vector2.Zero)
+            {
+                return;
+            }
+            Vector2 friction = velocity;
             friction.Normalize();
             float c = 0.01f; //coefficient of the friction (how slippery a material is)
             float normal = 1; //power of the normal force pushing on the object making it not slip through the floor(not important here)
             float magnitude = c * normal;
-            friction *= magnitude;
-            //ApplyForce(friction);
+            friction *= magnitude-1;
+            ApplyForce(friction);
         }
 
         private void SetPosition()
         {
             velocity += acceleration;
-            velocity = Vector2.Clamp(velocity, new Vector2(-8, -8), new Vector2(8,8));
+            if ((velocity.X < 0.5 && velocity.X > -0.5) && (velocity.Y < 0.5 && velocity.Y > -0.5))
+            {
+                velocity = Vector2.Zero;
+            }
+            else if (velocity.Length() > 8f)
+            {
+                velocity = Vector2.Normalize(velocity) * 6;
+            }
+
             position += velocity;
             positionRectangle.X = (int)position.X;
             positionRectangle.Y = (int)position.Y;
             acceleration = Vector2.Zero;
 
-            leftSide = new Rectangle(positionRectangle.X, positionRectangle.Y, 1, positionRectangle.Height);
-            rightSide = new Rectangle(positionRectangle.Right, positionRectangle.Y, 1, positionRectangle.Height);
-            upSide = new Rectangle(positionRectangle.X, positionRectangle.Y, positionRectangle.Width, 1);
-            downSide = new Rectangle(positionRectangle.X, positionRectangle.Bottom, positionRectangle.Width, 1);
-            Console.WriteLine("X: {0}, Y: {1}", position.X, position.Y);
+            leftSide = new Rectangle(positionRectangle.X, positionRectangle.Y + 2, 1, positionRectangle.Height - 4);
+            rightSide = new Rectangle(positionRectangle.Right, positionRectangle.Y + 2, 1, positionRectangle.Height - 4);
+            upSide = new Rectangle(positionRectangle.X + 2, positionRectangle.Y, positionRectangle.Width - 4, 1);
+            downSide = new Rectangle(positionRectangle.X + 2, positionRectangle.Bottom, positionRectangle.Width - 4, 1);
+            Console.WriteLine("X: {0}, Y: {1}", velocity.X, velocity.Y);
+
+            interactRect.X = positionRectangle.X - (positionRectangle.Width / 2);
+            interactRect.Y = positionRectangle.Y - (positionRectangle.Height / 2);
+
+            healthPos.X = positionRectangle.X;
+            healthPos.Y = positionRectangle.Y - 10;
+            healthPos.Width = (int)healthBarWidth;
+            healthPos.Height = healthTexture.Height;
         }
     }
 }
