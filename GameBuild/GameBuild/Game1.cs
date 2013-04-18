@@ -244,7 +244,7 @@ namespace GameBuild
                 UpdateActiveNpcs();
                 oldState = keyState;
                 keyState = Keyboard.GetState();
-                camera.Pos = character.vectorPos;
+                camera.Pos = character.position;
 
                 if (currentGameState == GameState.PLAY)
                 {
@@ -253,7 +253,7 @@ namespace GameBuild
 
                 for (int i = 0; i < keys.Count; i++)
                 {
-                    if (character.position.Intersects(keys[i].position) && map.mapName.Remove(map.mapName.Length - 1) == keys[i].mapName)
+                    if (character.positionRectangle.Intersects(keys[i].position) && map.mapName.Remove(map.mapName.Length - 1) == keys[i].mapName)
                     {
                         keys[i].PickUp(character);
                         keys.RemoveAt(i);
@@ -364,7 +364,7 @@ namespace GameBuild
             {
                 activeNpcs[i].DrawA(spriteBatch);
             }
-            spriteBatch.DrawString(spriteFont, character.health + "/" + character.maxHealth, new Vector2(character.position.X - 10, character.position.Y - 35), new Color(200, 10, 10, 200));
+            spriteBatch.DrawString(spriteFont, character.health + "/" + character.maxHealth, new Vector2(character.positionRectangle.X - 10, character.positionRectangle.Y - 35), new Color(200, 10, 10, 200));
             character.DrawHealthBar(spriteBatch, this);
             spriteBatch.End();
 

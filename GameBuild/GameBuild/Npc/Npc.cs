@@ -260,7 +260,7 @@ namespace GameBuild.Npc
 
         private void FollowPath(GameTime gameTime, bool isWaypoint)
         {
-            if ((path.Length == 1 && path[0].X == -32 && path[0].Y == -32) || position.Intersects(Game1.character.position))
+            if ((path.Length == 1 && path[0].X == -32 && path[0].Y == -32) || position.Intersects(Game1.character.positionRectangle))
             {
                 followPath = false;
                 hasPath = false;
@@ -346,12 +346,12 @@ namespace GameBuild.Npc
             float elapsed = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             walking = false;
 
-            if (Game1.character.position.Intersects(position) && Game1.map.mapName.Remove(Game1.map.mapName.Length - 1) == mapName && !Game1.character.dead)
+            if (Game1.character.positionRectangle.Intersects(position) && Game1.map.mapName.Remove(Game1.map.mapName.Length - 1) == mapName && !Game1.character.dead)
             {
                 if (attackTimer <= 0)
                 {
                     damage = game.damageObject.dealDamage(3, 20);
-                    damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(255, 0, 0, 255), "npc"));
+                    damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.positionRectangle.X, Game1.character.positionRectangle.Y), new Color(255, 0, 0, 255), "npc"));
                     Game1.character.health -= damage;
                     Game1.character.Hit();
                     attackTimer = ATTACKTIMER;
@@ -363,7 +363,7 @@ namespace GameBuild.Npc
 
             if (isOnMap)
             {
-                GoTo(new Vector2((Game1.character.position.X + (Game1.character.position.Width / 2)), (Game1.character.position.Y + (Game1.character.position.Height / 2))), false, gameTime);
+                GoTo(new Vector2((Game1.character.positionRectangle.X + (Game1.character.positionRectangle.Width / 2)), (Game1.character.positionRectangle.Y + (Game1.character.positionRectangle.Height / 2))), false, gameTime);
             }
         }
 

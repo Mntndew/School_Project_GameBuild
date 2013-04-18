@@ -50,11 +50,11 @@ namespace GameBuild.Game
 
                     if (warp.targetX != -1)//warp the X value if it isnt -1(tha player's X value)
                     {
-                        Game1.character.position.X = warp.targetX;
+                        Game1.character.positionRectangle.X = warp.targetX;
                     }
                     if (warp.targetY != -1)//warp the Y value if it isnt -1(tha player's Y value)
                     {
-                        Game1.character.position.Y = warp.targetY;
+                        Game1.character.positionRectangle.Y = warp.targetY;
                     }
                     break;
                 }
