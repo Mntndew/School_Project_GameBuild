@@ -289,7 +289,6 @@ namespace GameBuild
                     up = false;
                     down = false;
 
-
                     ApplyForce(new Vector2(2, 0));
 
                     if (!animation.IsAnimationPlaying(WALK_RIGHT))
@@ -327,6 +326,9 @@ namespace GameBuild
                     animation.PauseAnimation();
                 }
 
+                CalculateFriction();
+                SetPosition();
+
                 if (leftSide.Intersects(tile.GetTileRectangleFromPosition(leftSide.X, leftSide.Y)) && !tile.CheckCellPositionPassable(new Vector2(leftSide.X, leftSide.Y)))
                 {
                     position.X = tile.GetTileRectangleFromPosition(leftSide.X, leftSide.Y).Right;
@@ -334,7 +336,7 @@ namespace GameBuild
                 }
                 if (rightSide.Intersects(tile.GetTileRectangleFromPosition(rightSide.X, rightSide.Y)) && !tile.CheckCellPositionPassable(new Vector2(rightSide.X, rightSide.Y)))
                 {
-                    position.X = tile.GetTileRectangleFromPosition(rightSide.X, rightSide.Y).Left;
+                    position.X = tile.GetTileRectangleFromPosition(rightSide.X, rightSide.Y).Left - positionRectangle.Width;
                     velocity.X = 0;
                 }
                 if (upSide.Intersects(tile.GetTileRectangleFromPosition(upSide.X, upSide.Y)) && !tile.CheckCellPositionPassable(new Vector2(upSide.X, upSide.Y)))
@@ -344,7 +346,29 @@ namespace GameBuild
                 }
                 if (downSide.Intersects(tile.GetTileRectangleFromPosition(downSide.X, downSide.Y)) && !tile.CheckCellPositionPassable(new Vector2(downSide.X, downSide.Y)))
                 {
-                    position.Y = tile.GetTileRectangleFromPosition(downSide.X, downSide.Y).Top;
+                    position.Y = tile.GetTileRectangleFromPosition(downSide.X, downSide.Y).Top - positionRectangle.Height;
+                    velocity.Y = 0;
+                }
+
+                //Second side so yo say...
+                if (leftSide.Intersects(tile.GetTileRectangleFromPosition(leftSide.X, leftSide.Bottom)) && !tile.CheckCellPositionPassable(new Vector2(leftSide.X, leftSide.Bottom)))
+                {
+                    position.X = tile.GetTileRectangleFromPosition(leftSide.X, leftSide.Bottom).Right;
+                    velocity.X = 0;
+                }
+                if (rightSide.Intersects(tile.GetTileRectangleFromPosition(rightSide.X, rightSide.Bottom)) && !tile.CheckCellPositionPassable(new Vector2(rightSide.X, rightSide.Bottom)))
+                {
+                    position.X = tile.GetTileRectangleFromPosition(rightSide.X, rightSide.Bottom).Left - positionRectangle.Width;
+                    velocity.X = 0;
+                }
+                if (upSide.Intersects(tile.GetTileRectangleFromPosition(upSide.Right, upSide.Y)) && !tile.CheckCellPositionPassable(new Vector2(upSide.Right, upSide.Y)))
+                {
+                    position.Y = tile.GetTileRectangleFromPosition(upSide.Right, upSide.Y).Bottom;
+                    velocity.Y = 0;
+                }
+                if (downSide.Intersects(tile.GetTileRectangleFromPosition(downSide.Right, downSide.Y)) && !tile.CheckCellPositionPassable(new Vector2(downSide.Right, downSide.Y)))
+                {
+                    position.Y = tile.GetTileRectangleFromPosition(downSide.Right, downSide.Y).Top - positionRectangle.Height;
                     velocity.Y = 0;
                 }
             }
@@ -430,8 +454,10 @@ namespace GameBuild
                 }
             }
             #endregion
-            CalculateFriction();
-            SetPosition();
+
+            //REMOVE WHEN FINISHED
+            if (Keyboard.GetState().IsKeyDown(Keys.Space))
+                ResetPosition();
         }
 
         public void DeathEffect(Game1 game)
@@ -531,7 +557,7 @@ namespace GameBuild
             {
                 velocity = Vector2.Zero;
             }
-            else if (velocity.Length() > 8f)
+            else if (velocity.Length() > 6f)
             {
                 velocity = Vector2.Normalize(velocity) * 6;
             }
@@ -541,10 +567,10 @@ namespace GameBuild
             positionRectangle.Y = (int)position.Y;
             acceleration = Vector2.Zero;
 
-            leftSide = new Rectangle(positionRectangle.X, positionRectangle.Y + 2, 1, positionRectangle.Height - 4);
-            rightSide = new Rectangle(positionRectangle.Right, positionRectangle.Y + 2, 1, positionRectangle.Height - 4);
-            upSide = new Rectangle(positionRectangle.X + 2, positionRectangle.Y, positionRectangle.Width - 4, 1);
-            downSide = new Rectangle(positionRectangle.X + 2, positionRectangle.Bottom, positionRectangle.Width - 4, 1);
+            leftSide = new Rectangle(positionRectangle.X, positionRectangle.Y + 6, 1, positionRectangle.Height - 12);
+            rightSide = new Rectangle(positionRectangle.Right, positionRectangle.Y + 6, 1, positionRectangle.Height - 12);
+            upSide = new Rectangle(positionRectangle.X + 6, positionRectangle.Y, positionRectangle.Width - 12, 1);
+            downSide = new Rectangle(positionRectangle.X + 6, positionRectangle.Bottom, positionRectangle.Width - 12, 1);
             Console.WriteLine("X: {0}, Y: {1}", velocity.X, velocity.Y);
 
             interactRect.X = positionRectangle.X - (positionRectangle.Width / 2);
@@ -554,6 +580,12 @@ namespace GameBuild
             healthPos.Y = positionRectangle.Y - 10;
             healthPos.Width = (int)healthBarWidth;
             healthPos.Height = healthTexture.Height;
+        }
+
+        private void ResetPosition()
+        {
+            position.X = 640;
+            position.Y = 640;
         }
     }
 }

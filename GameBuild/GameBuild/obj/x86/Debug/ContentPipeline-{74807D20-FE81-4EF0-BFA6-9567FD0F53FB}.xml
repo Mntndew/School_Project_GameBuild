@@ -289,6 +289,15 @@
       <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map1_A.xnb</Output>
       <Time>2013-04-17T08:44:53.812262+02:00</Time>
     </Item>
+    <Item>
+      <Source>grid.png</Source>
+      <Name>grid</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\grid.xnb</Output>
+      <Time>2013-04-18T16:57:12.7930286+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}</ContentProjectGUID>

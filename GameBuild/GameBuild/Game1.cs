@@ -92,6 +92,9 @@ namespace GameBuild
         string[] names; // array of all npc names
         string gender = "male";
 
+        //DEBUG
+        Texture2D grid;
+
         public enum GameState
         {
             PLAY,
@@ -160,6 +163,7 @@ namespace GameBuild
             {
                 Mobs.Add(new Npc.Npc(new Rectangle(256 + (i * 48), 256, 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), this, "Map1_A", i + 1));
             }
+            grid = Content.Load<Texture2D>("grid");
         }
 
         public void LoadKeys()
@@ -349,6 +353,7 @@ namespace GameBuild
                 spriteBatch.Draw(Content.Load<Texture2D>(@"Particle\particle"), orbs[i].position, orbs[i].color);
             }
             particleSystem.Draw(spriteBatch);
+            DrawGrid(spriteBatch);
             character.Draw(spriteBatch);
             for (int i = 0; i < activeNpcs.Count; i++)
             {
@@ -402,6 +407,17 @@ namespace GameBuild
                 spriteBatch.End();
             }
             base.Draw(gameTime);
+        }
+
+        public void DrawGrid(SpriteBatch spriteBatch)
+        {
+            for (int x = 0; x < map.mapWidth; x++)
+            {
+                for (int y = 0; y < map.mapHeight; y++)
+                {
+                    spriteBatch.Draw(grid, new Vector2(x * map.tileWidth, y * map.tileWidth), Color.DarkGoldenrod);
+                }
+            }
         }
     }
 }
