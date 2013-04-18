@@ -353,7 +353,6 @@ namespace GameBuild
                 spriteBatch.Draw(Content.Load<Texture2D>(@"Particle\particle"), orbs[i].position, orbs[i].color);
             }
             particleSystem.Draw(spriteBatch);
-            DrawGrid(spriteBatch);
             character.Draw(spriteBatch);
             for (int i = 0; i < activeNpcs.Count; i++)
             {

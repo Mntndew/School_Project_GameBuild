@@ -354,6 +354,10 @@ namespace GameBuild.Npc
                     damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.positionRectangle.X, Game1.character.positionRectangle.Y), new Color(255, 0, 0, 255), "npc"));
                     Game1.character.health -= damage;
                     Game1.character.Hit();
+                    Vector2 pos = new Vector2(location.X, location.Y);
+                    Vector2 direction = Game1.character.position - pos;
+                    direction.Normalize();
+                    Game1.character.Push(direction, 12);
                     attackTimer = ATTACKTIMER;
                 }
                 followPath = false;
@@ -812,14 +816,6 @@ namespace GameBuild.Npc
                 if (healthTexture != null && health > 0)
                 {
                     spriteBatch.Draw(healthTexture, healthPos, Color.White);
-                }
-                if (path != null)
-                {
-                    for (int i = 0; i < path.Length; i++)
-                    {
-                        spriteBatch.Draw(debugTile, new Vector2(path[i].X - 32, path[i].Y - 32), new Color(200, 200, 200, 200));
-                        spriteBatch.DrawString(Game1.debugFont, i.ToString(), new Vector2(path[i].X - 32, path[i].Y - 32), Color.Black);
-                    }
                 }
             }
         }

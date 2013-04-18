@@ -400,6 +400,7 @@ namespace GameBuild
                             damageEffectList.Add(new DamageEffect(damage, game, new Vector2(npc.position.X, npc.position.Y - 16), new Color(255, 255, 255, 255), "player"));
                             npc.health -= damage;
                             npc.attackPlayer = true;
+                            npc.attackTimer += 300;
                         }
                     }
                 }
@@ -502,10 +503,6 @@ namespace GameBuild
             Rectangle shadowPos = new Rectangle(positionRectangle.X + 8, positionRectangle.Bottom - shadowBlob.Height / 2, shadowBlob.Width, shadowBlob.Height);
             spriteBatch.Draw(shadowBlob, shadowPos, Color.White);
             spriteBatch.Draw(spriteWalkSheet, positionRectangle, animation.GetFrame(), Color.White);
-            spriteBatch.Draw(debugTexture, leftSide, Color.Cyan);
-            spriteBatch.Draw(debugTexture, rightSide, Color.Cyan);
-            spriteBatch.Draw(debugTexture, upSide, Color.Cyan);
-            spriteBatch.Draw(debugTexture, downSide, Color.Cyan);
         }
 
         public void DrawDeath(SpriteBatch spriteBatch, Game1 game)
@@ -525,9 +522,10 @@ namespace GameBuild
             }
         }
 
-        public void Push(Vector2 direction)
+        public void Push(Vector2 direction, float force)
         {
-
+            direction *= force;
+            ApplyForce(direction);
         }
 
         private void ApplyForce(Vector2 force)
@@ -543,7 +541,7 @@ namespace GameBuild
             }
             Vector2 friction = velocity;
             friction.Normalize();
-            float c = 0.01f; //coefficient of the friction (how slippery a material is)
+            float c = 0.2f; //coefficient of the friction (how slippery a material is)
             float normal = 1; //power of the normal force pushing on the object making it not slip through the floor(not important here)
             float magnitude = c * normal;
             friction *= magnitude-1;
