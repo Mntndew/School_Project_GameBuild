@@ -339,12 +339,12 @@ namespace GameBuild
                 }
                 if (upSide.Intersects(tile.GetTileRectangleFromPosition(upSide.X, upSide.Y)) && !tile.CheckCellPositionPassable(new Vector2(upSide.X, upSide.Y)))
                 {
-                    position.X = tile.GetTileRectangleFromPosition(upSide.X, upSide.Y).Bottom;
+                    position.Y = tile.GetTileRectangleFromPosition(upSide.X, upSide.Y).Bottom;
                     velocity.Y = 0;
                 }
                 if (downSide.Intersects(tile.GetTileRectangleFromPosition(downSide.X, downSide.Y)) && !tile.CheckCellPositionPassable(new Vector2(downSide.X, downSide.Y)))
                 {
-                    position.X = tile.GetTileRectangleFromPosition(downSide.X, downSide.Y).Top;
+                    position.Y = tile.GetTileRectangleFromPosition(downSide.X, downSide.Y).Top;
                     velocity.Y = 0;
                 }
             }
@@ -476,6 +476,10 @@ namespace GameBuild
             Rectangle shadowPos = new Rectangle(positionRectangle.X + 8, positionRectangle.Bottom - shadowBlob.Height / 2, shadowBlob.Width, shadowBlob.Height);
             spriteBatch.Draw(shadowBlob, shadowPos, Color.White);
             spriteBatch.Draw(spriteWalkSheet, positionRectangle, animation.GetFrame(), Color.White);
+            spriteBatch.Draw(debugTexture, leftSide, Color.Cyan);
+            spriteBatch.Draw(debugTexture, rightSide, Color.Cyan);
+            spriteBatch.Draw(debugTexture, upSide, Color.Cyan);
+            spriteBatch.Draw(debugTexture, downSide, Color.Cyan);
         }
 
         public void DrawDeath(SpriteBatch spriteBatch, Game1 game)
