@@ -337,7 +337,7 @@ namespace GameBuild
             GraphicsDevice.Clear(Color.Black);
             if (gender != null)
             {
-                spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, camera.GetTransformation());
+                spriteBatch.Begin(SpriteSortMode.Immediate, null, SamplerState.PointClamp, null, null, null, camera.GetTransformation());
             map.DrawBackgroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
             map.DrawInteractiveLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
 

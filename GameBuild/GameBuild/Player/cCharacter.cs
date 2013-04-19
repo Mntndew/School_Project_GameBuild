@@ -20,6 +20,9 @@ namespace GameBuild
         public bool showInventory;
         public bool dead;
         bool isHit = false;
+        bool disabled = false;
+        const float DISABLEDTIMER = 600f;
+        float disabledTimer = 600f;
 
         public string gender;
 
@@ -58,10 +61,10 @@ namespace GameBuild
         float healthBarWidth;
         float healthPct;
         public float maxHealth;
-        float regenTimer = 1;
-        const float REGENTIMER = 1;
-        float bleedTimer = 3;
-        const float BLEEDTIMER = 3;
+        float regenTimer = 1000;
+        const float REGENTIMER = 1000;
+        float bleedTimer = 3000;
+        const float BLEEDTIMER = 3000;
         const float ATTACKTIMER = 500f; //in total milliseconds
         float attackTimer = 500f;
 
@@ -119,7 +122,7 @@ namespace GameBuild
             #region Things to update every frame, positions and stuff
             healthPct = (health / maxHealth);
             healthBarWidth = (float)healthTexture.Width * healthPct;
-            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            float elapsed = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             if (showInventory)
             {
                 animation.PauseAnimation();
@@ -217,6 +220,15 @@ namespace GameBuild
             }
 
             animation.UpdateAnimation(gameTime);
+            if (disabled)
+            {
+                disabledTimer -= elapsed;
+                if (disabledTimer <= 0)
+                {
+                    disabled = false;
+                    disabledTimer = DISABLEDTIMER;
+                }
+            }
             #endregion
 
             #region walk
@@ -224,106 +236,109 @@ namespace GameBuild
             if (!attacking && !showInventory && !dead)// && cWarp.canWalk
             {
                 walking = false;
-                if (game.keyState.IsKeyDown(Keys.Up))
+                if (!disabled)
                 {
-                    //effects
-                    if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
-                        || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+                    if (game.keyState.IsKeyDown(Keys.Up))
                     {
-                        Splash();
+                        //effects
+                        if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
+                            || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+                        {
+                            Splash();
+                        }
+                        else
+                            Walk();
+
+                        up = true;
+                        down = false;
+                        left = false;
+                        right = false;
+
+                        ApplyForce(new Vector2(0, -2));
+
+                        if (!animation.IsAnimationPlaying(WALK_UP))
+                        {
+                            animation.LoopAnimation(WALK_UP);
+                        }
+                        walking = true;
                     }
-                    else
-                        Walk();
-                    
-                    up = true;
-                    down = false;
-                    left = false;
-                    right = false;
-
-                    ApplyForce(new Vector2(0, -2));
-
-                    if (!animation.IsAnimationPlaying(WALK_UP))
+                    else if (game.keyState.IsKeyDown(Keys.Down))
                     {
-                        animation.LoopAnimation(WALK_UP);
+                        //effects
+                        if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
+                            || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+                        {
+                            Splash();
+                        }
+                        else
+                            Walk();
+
+                        down = true;
+                        up = false;
+                        right = false;
+                        left = false;
+
+                        ApplyForce(new Vector2(0, 2));
+
+                        if (!animation.IsAnimationPlaying(WALK_DOWN))
+                        {
+                            animation.LoopAnimation(WALK_DOWN);
+                        }
+                        walking = true;
                     }
-                    walking = true;
-                }
-                else if (game.keyState.IsKeyDown(Keys.Down))
-                {
-                    //effects
-                    if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
-                        || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+
+                    if (game.keyState.IsKeyDown(Keys.Right))
                     {
-                        Splash();
+                        //effects
+                        if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
+                            || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+                        {
+                            Splash();
+                        }
+                        else
+                            Walk();
+
+                        right = true;
+                        left = false;
+                        up = false;
+                        down = false;
+
+                        ApplyForce(new Vector2(2, 0));
+
+                        if (!animation.IsAnimationPlaying(WALK_RIGHT))
+                        {
+                            animation.LoopAnimation(WALK_RIGHT);
+                        }
+                        walking = true;
                     }
-                    else
-                        Walk();
-
-                    down = true;
-                    up = false;
-                    right = false;
-                    left = false;
-
-                    ApplyForce(new Vector2(0, 2));
-                    
-                    if (!animation.IsAnimationPlaying(WALK_DOWN))
+                    else if (game.keyState.IsKeyDown(Keys.Left))
                     {
-                        animation.LoopAnimation(WALK_DOWN);
-                    }
-                    walking = true;
-                }
+                        //effects
+                        if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
+                            || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+                        {
+                            Splash();
+                        }
+                        else
+                            Walk();
 
-                if (game.keyState.IsKeyDown(Keys.Right))
-                {
-                    //effects
-                    if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4 
-                        || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+                        left = true;
+                        right = false;
+                        up = false;
+                        down = false;
+
+                        ApplyForce(new Vector2(-2, 0));
+
+                        if (!animation.IsAnimationPlaying(WALK_LEFT))
+                        {
+                            animation.LoopAnimation(WALK_LEFT);
+                        }
+                        walking = true;
+                    }
+                    if (!walking)
                     {
-                        Splash();
+                        animation.PauseAnimation();
                     }
-                    else
-                        Walk();
-
-                    right = true;
-                    left = false;
-                    up = false;
-                    down = false;
-
-                    ApplyForce(new Vector2(2, 0));
-
-                    if (!animation.IsAnimationPlaying(WALK_RIGHT))
-                    {
-                        animation.LoopAnimation(WALK_RIGHT);
-                    }
-                    walking = true;
-                }
-                else if (game.keyState.IsKeyDown(Keys.Left))
-                {
-                    //effects
-                    if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
-                        || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
-                    {
-                        Splash();
-                    }
-                    else
-                        Walk();
-
-                    left = true;
-                    right = false;
-                    up = false;
-                    down = false;
-
-                    ApplyForce(new Vector2(-2, 0));
-
-                    if (!animation.IsAnimationPlaying(WALK_LEFT))
-                    {
-                        animation.LoopAnimation(WALK_LEFT); 
-                    }
-                    walking = true;
-                }
-                if (!walking)
-                {
-                    animation.PauseAnimation();
                 }
 
                 CalculateFriction();
@@ -584,6 +599,12 @@ namespace GameBuild
         {
             position.X = 640;
             position.Y = 640;
+        }
+
+        public void Disable()
+        {
+            disabled = true;
+            disabledTimer = DISABLEDTIMER;
         }
     }
 }

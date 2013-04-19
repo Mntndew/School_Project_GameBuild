@@ -40,7 +40,7 @@ namespace GameBuild.Npc
         public float speed;
         public float attackTimer = 1000f;
         float pathTimer = 200f;
-        const float ATTACKTIMER = 1000f;//milliseconds
+        const float ATTACKTIMER = 2000f;//milliseconds
         const float PATHTIMER = 1000f;//milliseconds
         float MOBPATHTIMER = PATHTIMER;
         float pathTimerMod;
@@ -357,8 +357,9 @@ namespace GameBuild.Npc
                     Vector2 pos = new Vector2(location.X, location.Y);
                     Vector2 direction = Game1.character.position - pos;
                     direction.Normalize();
-                    Game1.character.Push(direction, 12);
+                    Game1.character.Push(direction, 30);
                     attackTimer = ATTACKTIMER;
+                    Game1.character.Disable();
                 }
                 followPath = false;
             }
