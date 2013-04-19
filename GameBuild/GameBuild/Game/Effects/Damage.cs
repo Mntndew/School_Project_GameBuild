@@ -47,8 +47,8 @@ namespace GameBuild
             {
                 if (type == "npc")
                 {
-                    color.A -= 5;
-                    color.R -= 5;
+                    color.A -= 1;
+                    color.R -= 1;
                 }
                 if (type == "player")
                 {

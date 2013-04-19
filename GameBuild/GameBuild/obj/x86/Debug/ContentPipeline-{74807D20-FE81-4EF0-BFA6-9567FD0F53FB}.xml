@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\blackness.xnb</Output>
-      <Time>2013-03-21T13:05:09+01:00</Time>
+      <Time>2013-04-18T21:46:45.2595507+02:00</Time>
     </Item>
     <Item>
       <Source>Game\lightTexture.png</Source>
@@ -98,7 +98,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\particle.xnb</Output>
-      <Time>2013-04-12T00:52:44.8764154+02:00</Time>
+      <Time>2013-04-19T09:32:39.4661003+02:00</Time>
     </Item>
     <Item>
       <Source>Particle\particle.png</Source>
@@ -297,6 +297,15 @@
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Hp bar.xnb</Output>
       <Time>2013-04-18T16:06:49.9817915+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Game\target.png</Source>
+      <Name>Game\target</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\target.xnb</Output>
+      <Time>2013-04-18T23:08:38.1515931+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

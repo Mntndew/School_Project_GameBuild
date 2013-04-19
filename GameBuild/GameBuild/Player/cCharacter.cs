@@ -17,7 +17,7 @@ namespace GameBuild
         public bool up = false, right = false, down = true, left = false;
         public bool faceUp = false, faceDown = false, faceLeft = false, faceRight = false;
         public bool attacking = false;
-        bool inCombat;
+        public bool inCombat;
         public bool showInventory;
         public bool dead;
         bool isHit = false;
@@ -125,21 +125,21 @@ namespace GameBuild
                 animation.PauseAnimation();
             }
 
-            if (position.X > bossTarget.X)
+            if (position.X + (position.Width / 2) - 16 > bossTarget.X)
             {
-                bossTarget.X += 2;
+                bossTarget.X += speed / 1.5f;
             }
-            if (position.X < bossTarget.X)
+            if (position.X + (position.Width / 2) - 16 < bossTarget.X)
             {
-                bossTarget.X -= 2;
+                bossTarget.X -= speed / 1.5f;
             }
-            if (position.Y > bossTarget.Y)
+            if (position.Y + (position.Width / 2) - 16 > bossTarget.Y)
             {
-                bossTarget.Y += 2;
+                bossTarget.Y += speed / 1.5f;
             }
-            if (position.Y < bossTarget.Y)
+            if (position.Y + (position.Width / 2) - 16 < bossTarget.Y)
             {
-                bossTarget.Y -= 2f;
+                bossTarget.Y -= speed / 1.5f;
             }
 
             if (isHit)
@@ -441,6 +441,17 @@ namespace GameBuild
                         Game1.testBoss.health -= damage;
                     }
                 }
+                for (int i = 0; i < Game1.testBoss.mobs.Count; i++)
+                {
+                    if (position.Intersects(Game1.testBoss.mobs[i].position))
+                    {
+                        if (Game1.testBoss.mobs[i].health > 0 && Game1.testBoss.mobs[i].IsOnMap())
+                        {
+                            damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.testBoss.mobs[i].position.X, Game1.testBoss.mobs[i].position.Y - 16), new Color(255, 255, 255, 255), "player"));
+                            Game1.testBoss.mobs[i].health -= damage;
+                        }
+                    }
+                }
                 for (int i = 0; i < game.Mobs.Count; i++)
                 {
                     if (game.Mobs[i].position.Intersects(attackRectangle))
@@ -462,7 +473,7 @@ namespace GameBuild
 
             for (int i = 0; i < game.Npcs.Count; i++)
             {
-                if (game.Npcs[i].health > 0)
+                if (game.Npcs[i].health > 0 && game.Npcs[i].IsOnMap())
                 {
                     if (game.Npcs[i].position.Intersects(position))
                     {
@@ -484,12 +495,14 @@ namespace GameBuild
             }
             for (int i = 0; i < game.Mobs.Count; i++)
             {
-                if (game.Mobs[i].health > 0)
+                if (game.Mobs[i].health > 0 && game.Mobs[i].IsOnMap())
                 {
                     if (game.Mobs[i].position.Intersects(position))
                     {
                         speed = 2;
                     }
+                    else
+                        speed = 4;
                     if (game.Mobs[i].combatRectangle.Intersects(position))
                     {
                         inCombat = true;
@@ -504,12 +517,14 @@ namespace GameBuild
             }
             for (int i = 0; i < Game1.testBoss.mobs.Count; i++)
             {
-                if (Game1.testBoss.mobs[i].health > 0)
+                if (Game1.testBoss.mobs[i].health > 0 && Game1.testBoss.mobs[i].IsOnMap())
                 {
                     if (Game1.testBoss.mobs[i].position.Intersects(position))
                     {
                         speed = 2;
                     }
+                    else
+                        speed = 4;
                     if (Game1.testBoss.mobs[i].combatRectangle.Intersects(position))
                     {
                         inCombat = true;

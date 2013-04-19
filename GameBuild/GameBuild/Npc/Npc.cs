@@ -54,6 +54,7 @@ namespace GameBuild.Npc
         public bool isInteracting = false;
         public bool attackPlayer = false;
         public bool mob;
+        public bool bossMob;
         bool up, down, left, right;
         bool addA = false;
         bool hasPath = false;
@@ -354,7 +355,25 @@ namespace GameBuild.Npc
             Rectangle location = position;
             float elapsed = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             walking = false;
-
+            if (bossMob)
+            {
+                if (Game1.character.position.X > position.X)
+                {
+                    position.X += (int)speed * 2;
+                }
+                if (Game1.character.position.X < position.X)
+                {
+                    position.X += (int)-speed * 2;
+                }
+                if (Game1.character.position.Y > position.Y)
+                {
+                    position.Y += (int)speed * 2;
+                }
+                if (Game1.character.position.Y < position.Y)
+                {
+                    position.Y += (int)-speed * 2;
+                }
+            }
             if (Game1.character.position.Intersects(position) && Game1.map.mapName.Remove(Game1.map.mapName.Length - 1) == mapName && !Game1.character.dead)
             {
                 if (attackTimer <= 0)
@@ -386,7 +405,7 @@ namespace GameBuild.Npc
 
             attackTimer -= elapsed;
 
-            if (IsOnMap())
+            if (IsOnMap() && !bossMob)
             {
                 GoTo(new Vector2((Game1.character.position.X + (Game1.character.position.Width / 2)), (Game1.character.position.Y + (Game1.character.position.Height / 2))), false, gameTime);
             }
