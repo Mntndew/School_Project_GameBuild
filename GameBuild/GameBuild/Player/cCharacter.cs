@@ -555,7 +555,7 @@ namespace GameBuild
             {
                 velocity = Vector2.Zero;
             }
-            else if (velocity.Length() > 6f)
+            else if (velocity.Length() > 6f && walking)
             {
                 velocity = Vector2.Normalize(velocity) * 6;
             }
