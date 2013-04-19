@@ -16,18 +16,29 @@ namespace GameBuild.Npc
         public List<Projectile> projectiles = new List<Projectile>();
         public List<Npc> mobs = new List<Npc>();
         float timer = 0.1f;
+        float sleepTimer = 2;
+        const float SLEEPTIMER = 2;
         const float TIMER = 0.1f;
         double angle;
         float beamAttackTimer = 1;
         const float BEAMATTACKTIMER = 1;
         string map;
-        public int health = 500;
-        public int maxHealth = 500;
+        public int health = 300;
+        public int maxHealth = 300;
         float healthBarWidth;
         float healthPct;
         int beamDamage;
         List<DamageEffect> damageEffectList = new List<DamageEffect>();
         Texture2D healthTexture;
+
+        public enum phase
+        {
+            beam,
+            mobs,
+            sleep,
+            berserk
+        }
+        public phase currentPhase = phase.beam;
 
         public Boss(Rectangle position, Game1 game, string map)
         {
@@ -37,12 +48,16 @@ namespace GameBuild.Npc
             healthPos = new Rectangle();
             texture = game.Content.Load<Texture2D>(@"Game\blackness");
             targetTexture = game.Content.Load<Texture2D>(@"Game\target");
-            angle = Math.Atan2(Game1.character.bossTarget.Y - position.Y, Game1.character.bossTarget.X - 32 - position.X);
+            angle = Math.Atan2(Game1.character.bossTarget.Y - position.Y, Game1.character.bossTarget.X + 16 - position.X);
         }
 
         public void Update(Game1 game, GameTime gameTime)//Manages the phases
         {
-            angle = Math.Atan2(Game1.character.bossTarget.Y - position.Y, Game1.character.bossTarget.X - 32 - position.X);
+            if (currentPhase != phase.sleep)
+            {
+                angle = Math.Atan2(Game1.character.bossTarget.Y - position.Y, Game1.character.bossTarget.X + 16 - position.X);
+            }
+            
             Console.WriteLine(angle);
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             beamAttackTimer -= elapsed;
@@ -73,7 +88,7 @@ namespace GameBuild.Npc
                         {
                             beamDamage = game.damageObject.dealDamage(15, 30);
                             damageEffectList.Add(new DamageEffect(beamDamage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(255, 0, 0, 255), "npc"));
-                            Game1.character.health -= beamDamage;
+                            //Game1.character.health -= beamDamage;
                             Game1.character.Hit();
                             beamAttackTimer = BEAMATTACKTIMER;
                         }
@@ -130,16 +145,23 @@ namespace GameBuild.Npc
             }
             #endregion
 
-            timer -= elapsed;
-            if (timer <= 0)
+            switch (currentPhase)
             {
-                Shoot(game);
-
-                if (mobs.Count < 10)
-                {
-                    //SpawnMobs(game);
-                }
-                timer = TIMER;
+                case phase.beam:
+                    Shoot(game);
+                    break;
+                case phase.mobs:
+                    SpawnMobs(game);
+                    break;
+                case phase.sleep:
+                    Sleep(gameTime);
+                    break;
+                case phase.berserk:
+                    Berserk();
+                    break;
+                default:
+                    Sleep(gameTime);
+                    break;
             }
         }
 
@@ -151,6 +173,23 @@ namespace GameBuild.Npc
             }
             else
                 return false;
+        }
+
+        private void SwitchPhase()
+        {
+            if (currentPhase == phase.beam)
+            {
+                currentPhase = phase.mobs;
+            }
+            if (currentPhase == phase.mobs)
+            {
+                currentPhase = phase.berserk;
+            }
+            if (currentPhase == phase.sleep)
+            {
+                sleepTimer = SLEEPTIMER;
+                currentPhase = phase.beam;
+            }
         }
 
         private void Shoot(Game1 game)
@@ -168,9 +207,25 @@ namespace GameBuild.Npc
             }
         }
 
+        private void Sleep(GameTime gameTime)
+        {
+            
+            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            sleepTimer -= elapsed;
+            if (sleepTimer <= 0)
+            {
+                SwitchPhase();
+            }
+        }
+
+        private void Berserk()
+        {
+
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, position, position, Color.White, (float)angle, new Vector2(position.Width / 2, position.Height / 2), SpriteEffects.None, 0);
+            spriteBatch.Draw(texture, new Rectangle(position.X + 32, position.Y + 32, position.Width, position.Height), null, Color.White, (float)angle, new Vector2(texture.Width / 2, texture.Height / 2), SpriteEffects.None, 0);
             //spriteBatch.Draw(texture, position, Color.White);
             spriteBatch.Draw(targetTexture, Game1.character.bossTarget, new Color(255, 100, 100, 100));
         }

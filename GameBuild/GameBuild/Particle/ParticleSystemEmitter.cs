@@ -17,7 +17,7 @@ namespace GameBuild
 
         public ParticleSystemEmitter(Game1 game)
         {
-            texture = game.Content.Load<Texture2D>("particle");
+            texture = game.Content.Load<Texture2D>(@"particle");
             rand = new Random();
         }
 

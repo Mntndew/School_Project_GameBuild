@@ -15,20 +15,20 @@ namespace GameBuild.Npc
         Vector2 velocity;
         public bool dead;
         double angle;
-        float speed = 2.5f;
-        float timer = 2.5f;
+        float speed = 4;
+        float timer = 1;
         public Color color;
         ParticleSystemEmitter emitter;
         Random rand = new Random();
         float particleTimer;
-        const float PARTICLETIMER = 0.03f;
+        const float PARTICLETIMER = 0.05f;
 
         public Projectile(Vector2 position, Game1 game)
         {
             this.position = position;
             rectangle = new Rectangle((int)position.X, (int)position.Y, 24, 24);
             texture = game.Content.Load<Texture2D>(@"Game\blackness");
-            angle = Math.Atan2(Game1.character.bossTarget.Y - position.Y, Game1.character.bossTarget.X - 32 - position.X);
+            angle = Math.Atan2(Game1.character.bossTarget.Y - position.Y, Game1.character.bossTarget.X + 16 - position.X);
             velocity.X = speed * (float)Math.Cos(angle);
             velocity.Y = speed * (float)Math.Sin(angle);
             color = new Color(255, 255, 255);
@@ -53,13 +53,16 @@ namespace GameBuild.Npc
 
         public void Particle()
         {
-            if (color.A > 150)
+            //if (!dead)
             {
-                emitter.Add((int)position.X, (int)position.Y, 16, 16, 1, (int)velocity.X - 2, (int)velocity.X + 2, -4, -2, new Color(20, 10, 10, 100), 0.15f, 1, 1, false, false, false);//smoke
-                emitter.Add((int)position.X, (int)position.Y, 10, 14, 1, (int)velocity.X - rand.Next(1, 4), (int)velocity.X + rand.Next(1, 4), (int)velocity.Y - 2, (int)velocity.Y + 2, new Color(30, 60, 30, 25), 0.15f, 1, 1, false, false, false);//fore
-                emitter.Add((int)position.X, (int)position.Y, 8, 12, 1, (int)velocity.X - 2, (int)velocity.X + 2, (int)velocity.Y - 2, (int)velocity.Y + 2, new Color(30, 80, 50, 50), 0.15f, 1, 1, false, false, false);//middle
-                emitter.Add((int)position.X, (int)position.Y, 12, 10, 1, (int)velocity.X - rand.Next(1, 4), (int)velocity.X + rand.Next(1, 4), (int)velocity.Y - 2, (int)velocity.Y + 2, new Color(20, 20, 60, 200), 0.15f, 1, 1, false, false, false);//base smoke
-                emitter.Add((int)position.X, (int)position.Y, 8, 8, 1, (int)velocity.X - rand.Next(1, 4), (int)velocity.X + rand.Next(1, 4), (int)velocity.Y - 10, (int)velocity.Y, new Color(10, 10, 10, 50), 0.15f, 1, 1, false, false, false);//smoke
+                //blue/purple
+                emitter.Add((int)position.X, (int)position.Y, 16, 16, 1, (int)velocity.X - 2, (int)velocity.X + 2, -3, 3, new Color(50, 50, 100, 255), 0.015f, 1, 1, false, false, false);
+
+                //smoke
+                emitter.Add((int)position.X, (int)position.Y, 20, 20, 1, -2, 2, -10, -4, new Color(20, 10, 10, 255), 0.015f, 1, 1, false, false, false);
+
+                //green
+                emitter.Add((int)position.X, (int)position.Y, 16, 16, 1, (int)velocity.X - 2, (int)velocity.X + 2, -3, 3, new Color(75, 200, 75, 100), 0.015f, 1, 1, false, false, false);
             }
         }
 
@@ -71,7 +74,7 @@ namespace GameBuild.Npc
             {
                 color *= 0.80f;
             }
-            if (color.A == 0)
+            if (color.A <= 0)
             {
                 dead = true;
             }

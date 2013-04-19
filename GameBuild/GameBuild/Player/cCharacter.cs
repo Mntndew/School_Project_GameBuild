@@ -125,21 +125,24 @@ namespace GameBuild
                 animation.PauseAnimation();
             }
 
-            if (position.X + (position.Width / 2) - 16 > bossTarget.X)
+            if (Game1.testBoss.currentPhase != Npc.Boss.phase.sleep)
             {
-                bossTarget.X += speed / 1.5f;
-            }
-            if (position.X + (position.Width / 2) - 16 < bossTarget.X)
-            {
-                bossTarget.X -= speed / 1.5f;
-            }
-            if (position.Y + (position.Width / 2) - 16 > bossTarget.Y)
-            {
-                bossTarget.Y += speed / 1.5f;
-            }
-            if (position.Y + (position.Width / 2) - 16 < bossTarget.Y)
-            {
-                bossTarget.Y -= speed / 1.5f;
+                if (position.X + (position.Width / 2) - 16 > bossTarget.X)
+                {
+                    bossTarget.X += speed / 1.5f;
+                }
+                if (position.X + (position.Width / 2) - 16 < bossTarget.X)
+                {
+                    bossTarget.X -= speed / 1.5f;
+                }
+                if (position.Y + (position.Width / 2) - 16 > bossTarget.Y)
+                {
+                    bossTarget.Y += speed / 1.5f;
+                }
+                if (position.Y + (position.Width / 2) - 16 < bossTarget.Y)
+                {
+                    bossTarget.Y -= speed / 1.5f;
+                }
             }
 
             if (isHit)
@@ -198,8 +201,8 @@ namespace GameBuild
             vectorPos.Y = position.Y;
             if (left)
             {
-                attackRectangle.Width = position.Width + (position.Width / 2);
-                attackRectangle.Height = 48;
+                attackRectangle.Width = position.Width * 2;
+                attackRectangle.Height = 54;
                 attackRectangle.X = position.X - (attackRectangle.Width / 2) + 12;
                 attackRectangle.Y = position.Y + 5;
 
@@ -210,8 +213,8 @@ namespace GameBuild
             }
             if (right)
             {
-                attackRectangle.Width = position.Width + (position.Width / 2);
-                attackRectangle.Height = 48;
+                attackRectangle.Width = position.Width * 2;
+                attackRectangle.Height = 54;
                 attackRectangle.X = position.X;
                 attackRectangle.Y = position.Y + 5;
 
@@ -222,8 +225,8 @@ namespace GameBuild
             }
             if (up)
             {
-                attackRectangle.Width = position.Width;
-                attackRectangle.Height = position.Height + (position.Height / 2);
+                attackRectangle.Width = 54;
+                attackRectangle.Height = position.Height * 2;
                 attackRectangle.X = position.X;
                 attackRectangle.Y = position.Y - (position.Height / 2);
 
@@ -234,8 +237,8 @@ namespace GameBuild
             }
             if (down)
             {
-                attackRectangle.Width = position.Width;
-                attackRectangle.Height = position.Height + (position.Height / 2);
+                attackRectangle.Width = 54;
+                attackRectangle.Height = position.Height * 2;
                 attackRectangle.X = position.X;
                 attackRectangle.Y = position.Y;
 
@@ -439,6 +442,7 @@ namespace GameBuild
                     {
                         damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.testBoss.position.X, Game1.testBoss.position.Y - 16), new Color(255, 255, 255, 255), "player"));
                         Game1.testBoss.health -= damage;
+                        Game1.testBoss.currentPhase = Npc.Boss.phase.sleep;
                     }
                 }
                 for (int i = 0; i < Game1.testBoss.mobs.Count; i++)
@@ -587,7 +591,7 @@ namespace GameBuild
         {
             Rectangle shadowPos = new Rectangle(position.X + 8, position.Bottom - shadowBlob.Height / 2, shadowBlob.Width, shadowBlob.Height);
             spriteBatch.Draw(shadowBlob, shadowPos, Color.White);
-            //spriteBatch.Draw(debugTexture, warpRectangle, new Color(100, 100, 100, 100));
+            spriteBatch.Draw(debugTexture, attackRectangle, new Color(100, 100, 100, 100));
             //spriteBatch.Draw(debugTexture, interactRect, new Color(100, 100, 100, 100));
             spriteBatch.Draw(spriteWalkSheet, position, animation.GetFrame(), Color.White);
         }
