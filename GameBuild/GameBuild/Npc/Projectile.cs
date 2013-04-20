@@ -53,17 +53,14 @@ namespace GameBuild.Npc
 
         public void Particle()
         {
-            //if (!dead)
-            {
-                //blue/purple
-                emitter.Add((int)position.X, (int)position.Y, 16, 16, 1, (int)velocity.X - 2, (int)velocity.X + 2, -3, 3, new Color(50, 50, 100, 255), 0.015f, 1, 1, false, false, false);
+            //blue/purple
+            emitter.Add((int)position.X, (int)position.Y, 16, 16, 1, (int)velocity.X - 2, (int)velocity.X + 2, -3, 3, new Color(50, 50, 100, 255), 0.015f, 1, 1, false, false, false);
 
-                //smoke
-                emitter.Add((int)position.X, (int)position.Y, 20, 20, 1, -2, 2, -10, -4, new Color(20, 10, 10, 255), 0.015f, 1, 1, false, false, false);
+            //smoke
+            emitter.Add((int)position.X, (int)position.Y, 20, 20, 1, -2, 2, -10, -4, new Color(20, 10, 10, 255), 0.015f, 1, 1, false, false, false);
 
-                //green
-                emitter.Add((int)position.X, (int)position.Y, 16, 16, 1, (int)velocity.X - 2, (int)velocity.X + 2, -3, 3, new Color(75, 200, 75, 100), 0.015f, 1, 1, false, false, false);
-            }
+            //green
+            emitter.Add((int)position.X, (int)position.Y, 16, 16, 1, (int)velocity.X - 2, (int)velocity.X + 2, -3, 3, new Color(75, 200, 75, 100), 0.015f, 1, 1, false, false, false);
         }
 
         public void CheckDead(GameTime gameTime)

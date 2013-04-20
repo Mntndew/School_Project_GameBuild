@@ -63,6 +63,7 @@ namespace GameBuild
         const float BLEEDTIMER = 3;
         const float ATTACKTIMER = 500f; //in total milliseconds
         float attackTimer = 500f;
+        public float targetSpeed = 4;//for boss target
 
         public Inventory inventory;
         public List<DamageEffect> damageEffectList = new List<DamageEffect>();
@@ -129,19 +130,19 @@ namespace GameBuild
             {
                 if (position.X + (position.Width / 2) - 16 > bossTarget.X)
                 {
-                    bossTarget.X += speed / 1.5f;
+                    bossTarget.X += targetSpeed / 1.5f;
                 }
                 if (position.X + (position.Width / 2) - 16 < bossTarget.X)
                 {
-                    bossTarget.X -= speed / 1.5f;
+                    bossTarget.X -= targetSpeed / 1.5f;
                 }
                 if (position.Y + (position.Width / 2) - 16 > bossTarget.Y)
                 {
-                    bossTarget.Y += speed / 1.5f;
+                    bossTarget.Y += targetSpeed / 1.5f;
                 }
                 if (position.Y + (position.Width / 2) - 16 < bossTarget.Y)
                 {
-                    bossTarget.Y -= speed / 1.5f;
+                    bossTarget.Y -= targetSpeed / 1.5f;
                 }
             }
 
@@ -479,12 +480,6 @@ namespace GameBuild
             {
                 if (game.Npcs[i].health > 0 && game.Npcs[i].IsOnMap())
                 {
-                    if (game.Npcs[i].position.Intersects(position))
-                    {
-                        speed = 2;
-                    }
-                    else
-                        speed = 4;
                     if (game.Npcs[i].combatRectangle.Intersects(position))
                     {
                         inCombat = true;
@@ -501,12 +496,6 @@ namespace GameBuild
             {
                 if (game.Mobs[i].health > 0 && game.Mobs[i].IsOnMap())
                 {
-                    if (game.Mobs[i].position.Intersects(position))
-                    {
-                        speed = 2;
-                    }
-                    else
-                        speed = 4;
                     if (game.Mobs[i].combatRectangle.Intersects(position))
                     {
                         inCombat = true;
@@ -523,12 +512,6 @@ namespace GameBuild
             {
                 if (Game1.testBoss.mobs[i].health > 0 && Game1.testBoss.mobs[i].IsOnMap())
                 {
-                    if (Game1.testBoss.mobs[i].position.Intersects(position))
-                    {
-                        speed = 2;
-                    }
-                    else
-                        speed = 4;
                     if (Game1.testBoss.mobs[i].combatRectangle.Intersects(position))
                     {
                         inCombat = true;

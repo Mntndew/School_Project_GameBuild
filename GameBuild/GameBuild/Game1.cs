@@ -132,7 +132,7 @@ namespace GameBuild
             {
                 character = new cCharacter(this, gender);
             }
-            testBoss = new Npc.Boss(new Rectangle(7*64, 6*64, 64, 64), this, "Testing Ground");
+            testBoss = new Npc.Boss(new Rectangle(7*64, 6*64, 64, 64), this, "Map4_C");
             base.Initialize();
         }
 
@@ -145,7 +145,7 @@ namespace GameBuild
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             collisionTex = Content.Load<Texture2D>(@"Game\blackness");
-            map = Content.Load<H_Map.TileMap>(@"Map\testing maps\Testing Ground");
+            map = Content.Load<H_Map.TileMap>(@"Map\Map4_C");
             map.tileset = Content.Load<Texture2D>(@"Game\tileset");
             textBox = Content.Load<Texture2D>(@"Game\textBox");
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);

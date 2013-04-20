@@ -11,23 +11,31 @@ namespace GameBuild.Npc
     {
         public Rectangle position;
         Rectangle healthPos;
+        Vector2[] path;
         Texture2D texture;
         Texture2D targetTexture;
         public List<Projectile> projectiles = new List<Projectile>();
         public List<Npc> mobs = new List<Npc>();
-        float timer = 0.1f;
+        float phaseTimer;
         float sleepTimer = 2;
         const float SLEEPTIMER = 2;
         const float TIMER = 0.1f;
+        float pathTimer = 200f;
+        const float PATHTIMER = 200f;//milliseconds
         double angle;
         float beamAttackTimer = 1;
         const float BEAMATTACKTIMER = 1;
         string map;
-        public int health = 300;
-        public int maxHealth = 300;
+        public int health = 200;
+        public int maxHealth = 200;
         float healthBarWidth;
         float healthPct;
         int beamDamage;
+        int speed = 4;
+        int damage;
+        int pathIndex;
+        bool followPath;
+        bool hasPath;
         List<DamageEffect> damageEffectList = new List<DamageEffect>();
         Texture2D healthTexture;
 
@@ -58,9 +66,18 @@ namespace GameBuild.Npc
                 angle = Math.Atan2(Game1.character.bossTarget.Y - position.Y, Game1.character.bossTarget.X + 16 - position.X);
             }
             
-            Console.WriteLine(angle);
+            Console.WriteLine(currentPhase);
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             beamAttackTimer -= elapsed;
+
+            if (currentPhase != phase.sleep)
+            {
+                phaseTimer += elapsed;
+                if (phaseTimer >= 3)
+                {
+                    SwitchPhase();
+                }
+            }
 
             healthPct = ((float)health / (float)maxHealth);
             healthBarWidth = (healthTexture.Width * 25) * healthPct;
@@ -83,18 +100,15 @@ namespace GameBuild.Npc
                     if (Game1.character.position.Intersects(projectiles[i].rectangle))
                     {
                         Game1.character.inCombat = true;
-                        Game1.character.speed = 2;
                         if (beamAttackTimer <= 0)
                         {
-                            beamDamage = game.damageObject.dealDamage(15, 30);
+                            beamDamage = game.damageObject.dealDamage(20, 45);
                             damageEffectList.Add(new DamageEffect(beamDamage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(255, 0, 0, 255), "npc"));
-                            //Game1.character.health -= beamDamage;
+                            Game1.character.health -= beamDamage;
                             Game1.character.Hit();
                             beamAttackTimer = BEAMATTACKTIMER;
                         }
                     }
-                    else
-                        Game1.character.speed = 4;
                 }
                 else
                     projectiles.RemoveAt(i);
@@ -113,6 +127,12 @@ namespace GameBuild.Npc
             #region mob-mob collision
             for (int i = 0; i < mobs.Count; i++)
             {
+                if (mobs[i].position.Intersects(Game1.character.position) && mobs[i].health > 0)
+                {
+                    Game1.character.speed = 2;
+                }
+                else
+                    Game1.character.speed = 4;
                 for (int j = 0; j < mobs.Count; j++)
                 {
                     if (mobs[i] != mobs[j])
@@ -143,6 +163,14 @@ namespace GameBuild.Npc
                     }
                 }
             }
+            if (mobs.Count == 0)
+            {
+                Game1.character.speed = 4;
+                if (currentPhase == phase.mobs)
+                {
+                    SwitchPhase();
+                }
+            }
             #endregion
 
             switch (currentPhase)
@@ -151,13 +179,16 @@ namespace GameBuild.Npc
                     Shoot(game);
                     break;
                 case phase.mobs:
-                    SpawnMobs(game);
+                    if (phaseTimer < 3)
+                    {
+                        SpawnMobs(game);
+                    }
                     break;
                 case phase.sleep:
                     Sleep(gameTime);
                     break;
                 case phase.berserk:
-                    Berserk();
+                    Berserk(game, gameTime);
                     break;
                 default:
                     Sleep(gameTime);
@@ -177,18 +208,21 @@ namespace GameBuild.Npc
 
         private void SwitchPhase()
         {
-            if (currentPhase == phase.beam)
+            if (currentPhase == phase.beam && phaseTimer != 0)
             {
                 currentPhase = phase.mobs;
+                phaseTimer = 0;
             }
-            if (currentPhase == phase.mobs)
+            if (currentPhase == phase.mobs && phaseTimer != 0 && mobs.Count == 0)
             {
                 currentPhase = phase.berserk;
+                phaseTimer = 0;
             }
             if (currentPhase == phase.sleep)
             {
                 sleepTimer = SLEEPTIMER;
                 currentPhase = phase.beam;
+                phaseTimer = 0;
             }
         }
 
@@ -199,7 +233,10 @@ namespace GameBuild.Npc
 
         private void SpawnMobs(Game1 game)
         {
-            mobs.Add(new Npc(new Rectangle((position.X - 48) + 80, (position.Y - 48), 48, 48), game.Content.Load<Texture2D>(@"Game\blackness"), game, map, 1, true, 25, 1, 1, 25));
+            if (mobs.Count < 10)
+            {
+                mobs.Add(new Npc(new Rectangle(position.X, position.Y - 48, 48, 48), game.Content.Load<Texture2D>(@"Game\blackness"), game, map, 1, true, 25, 1, 1, 25));
+            }
             for (int i = 0; i < mobs.Count; i++)
             {
                 mobs[i].mob = true;
@@ -218,9 +255,117 @@ namespace GameBuild.Npc
             }
         }
 
-        private void Berserk()
+        private void Berserk(Game1 game, GameTime gameTime)
         {
+            Game1.character.targetSpeed = 5.5f;
+            GoTo(new Vector2(Game1.character.position.X / Game1.map.tileWidth, Game1.character.position.Y / Game1.map.tileHeight), false, gameTime);
+            if (position.Intersects(Game1.character.attackRectangle))
+            {
+                damage = game.damageObject.dealDamage(10, 27);
+                damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(235, 10, 10, 255), "npc"));
+                Game1.character.health -= damage;
+                Game1.character.Hit();
+                phaseTimer = 0;
+                currentPhase = phase.beam;
+            }
 
+            if (phaseTimer >= 5)
+            {
+                phaseTimer = 0;
+                currentPhase = phase.beam;
+            }
+        }
+
+        public void GoTo(Vector2 targetPoint, bool isWaypoint, GameTime gameTime)//manages findpath and followpath
+        {
+            float elapsed = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+            pathTimer -= elapsed;
+            if (pathTimer <= 0)
+            {
+                FindPath(targetPoint);
+                pathTimer = PATHTIMER;
+            }
+            if (path != null)
+            {
+                FollowPath(gameTime, isWaypoint);
+            }
+        }
+
+        private void FindPath(Vector2 targetPoint)
+        {
+            if ((!Game1.character.dead) || (!hasPath && !Game1.character.dead))
+            {
+                int[,] map = new int[Game1.map.mapWidth, Game1.map.mapHeight];
+                for (int x = 0; x < Game1.map.mapWidth; x++)
+                {
+                    for (int y = 0; y < Game1.map.mapHeight; y++)
+                    {
+                        if (Game1.map.interactiveLayer[x, y].isPassable == true)
+                        {
+                            map[x, y] = 0;
+                        }
+                        else
+                        {
+                            map[x, y] = 1;
+                        }
+                    }
+                }
+                Pathfinding.Point start = new Pathfinding.Point((position.X + position.Width / 2) / Game1.map.tileWidth, (position.Y + position.Height / 2) / Game1.map.tileHeight);
+                Pathfinding.Point end;
+                    end = new Pathfinding.Point((int)targetPoint.X, (int)targetPoint.Y);
+
+                    path = Pathfinding.PathFinder.GetVectorPath(Pathfinding.PathFinder.FindPath(map, start, end), Game1.map.tileWidth, Game1.map.tileHeight);
+                //path.Reverse<Vector2>();
+                hasPath = true;
+                followPath = true;
+                pathIndex = path.Length - 1;
+            }
+        }
+
+        private void FollowPath(GameTime gameTime, bool isWaypoint)
+        {
+            if ((path.Length == 1 && path[0].X == -32 && path[0].Y == -32) || position.Intersects(Game1.character.position))
+            {
+                followPath = false;
+                hasPath = false;
+            }
+            else
+            {
+                followPath = true;
+            }
+            if (hasPath && pathIndex < path.Length && followPath)
+            {
+                Rectangle prevLocation = position;
+                if (Math.Abs((position.X + position.Width / 2) - path[pathIndex].X) < 10 && Math.Abs((position.Y + position.Height / 2) - path[pathIndex].Y) < 10)
+                {
+                    pathIndex--;
+                    if (pathIndex < 0)
+                    {
+                        hasPath = false;
+                        pathIndex = 0;
+                        followPath = false;
+                    }
+                }
+                if (followPath)
+                {
+                    if (path[pathIndex].X < position.X + position.Width / 2)
+                    {
+                        position.X -= speed;
+                    }
+                    else if (path[pathIndex].X > position.X + position.Width / 2)
+                    {
+                        position.X += speed;
+                    }
+                    if (path[pathIndex].Y < position.Y + position.Height / 2)
+                    {
+                        position.Y -= speed;
+                    }
+                    else if (path[pathIndex].Y > position.Y + position.Height / 2)
+                    {
+                        position.Y += speed;
+                    }
+                }
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
