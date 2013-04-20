@@ -1,38 +1,47 @@
-Content\blackness.xnb
-Content\CharacterIdleFront.xnb
-Content\CharaWalkSheet.xnb
-Content\enemy\Down.xnb
-Content\enemy\Left.xnb
-Content\enemy\Right.xnb
-Content\enemy\Up.xnb
-Content\lightTexture.xnb
-Content\shadowTex.xnb
-Content\tilesets.xnb
-Content\point.xnb
-Content\A.xnb
-Content\questReceive.xnb
-Content\npc_test_portrait.xnb
-Content\npc_test_portrait2.xnb
-Content\player\CharaAttackSheet V2.xnb
-Content\player\CharacterIdleFront.xnb
-Content\player\CharaWalkSheet.xnb
-Content\player\CharaWalkSheetBKU.xnb
-Content\player\shadowTex.xnb
-Content\tileset.xnb
-Content\npc\portrait\Test.xnb
-Content\npc\sprite\Test.xnb
-Content\npc\portrait\Testing.xnb
-Content\npc\sprite\Testing.xnb
-Content\textBox.xnb
-Content\npc\sprite\npc2.xnb
-Content\npc\portrait\npc2.xnb
-Content\lighting.xnb
-Content\SpriteFont1.xnb
-Content\source.xnb
-Content\target.xnb
-Content\npc\npc\Test.txt
-Content\warp\source.txt
-Content\warp\target.txt
-Content\npc\dialogue\dialogue2.txt
-Content\npc\dialogue\dialogueTest.txt
-Content\npc\npc\npc2.txt
+Content\Game\blackness.xnb
+Content\Game\lightTexture.xnb
+Content\Npc\A.xnb
+Content\Player\CharaAttackSheet V2.xnb
+Content\Player\CharaWalkSheet.xnb
+Content\Player\CharaWalkSheetBKU.xnb
+Content\Player\shadowTex.xnb
+Content\Game\health100.xnb
+Content\Player\emptySlot.xnb
+Content\Game\textBox.xnb
+Content\particle.xnb
+Content\Particle\particle.xnb
+Content\Player\Male.xnb
+Content\Game\key.xnb
+Content\Game\tileset.xnb
+Content\Npc\portrait\Headmaster.xnb
+Content\Npc\portrait\Nurse.xnb
+Content\Npc\sprite\Headmaster.xnb
+Content\Npc\sprite\Nurse.xnb
+Content\Game\Hp bar.xnb
+Content\Game\target.xnb
+Content\Game\lighting.xnb
+Content\Game\SpriteFont1.xnb
+Content\Map\testing maps\source.xnb
+Content\Map\testing maps\target.xnb
+Content\Map\testing maps\new map.xnb
+Content\Map\testing maps\Testing Ground.xnb
+Content\Map\testing maps\Testing Ground 2.xnb
+Content\Map\Map4_C.xnb
+Content\Map\Map4_B.xnb
+Content\Map\Map3_B.xnb
+Content\Map\Map3_A.xnb
+Content\Map\Map2_A.xnb
+Content\Map\Map1_A.xnb
+Content\Npc\dialogue\test.txt
+Content\Npc\dialogue\doorLocked.txt
+Content\Warp\Map1_A_0.txt
+Content\Warp\Map2_A_0.txt
+Content\Warp\Map2_A_1.txt
+Content\Warp\Map3_A_0.txt
+Content\Warp\Map3_A_1.txt
+Content\Warp\Map3_B_0.txt
+Content\Warp\Map4_B_0.txt
+Content\Npc\dialogue\dialogue2.txt
+Content\Warp\Map4_C_0.txt
+Content\Warp\Map4_B_1.txt
+Content\Npc\npc\Headmaster.txt

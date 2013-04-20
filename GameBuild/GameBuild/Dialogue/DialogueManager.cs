@@ -6,6 +6,8 @@ using System.IO;
 
 namespace GameBuild
 {
+
+    public delegate void ExitEventHandler(object sender, DialogueEventArgs e);
     /// <summary>
     /// Manages all lines of a dialogue
     /// Contains methods to load and send strings to the game
@@ -14,8 +16,18 @@ namespace GameBuild
     {
         List<List<DialogueItem>> items = new List<List<DialogueItem>>(); //2d list of all the dialogue items associated with this system
 
+        public event ExitEventHandler ReachedExit;
+
+        protected virtual void OnReachedExit(DialogueEventArgs e)
+        {
+            if (ReachedExit != null)
+            {
+                ReachedExit(this, e);
+            }
+        }
+
         /// <summary>
-        /// 
+        /// Class which manages several dialogue lines and provides methods to fetch different lines of dialogue. 
         /// </summary>
         /// <param name= filepath"The filepath of the text file that contains the dialogue for this object"></param>
         public DialogueManager(string filepath)
@@ -27,66 +39,47 @@ namespace GameBuild
                     string line;
                     while ((line = s.ReadLine()) != null)
                     {
-                        if (line[0] != '/' && line[1] != '/')
+                        string[] args = line.Split(':');
+
+                        //check for comments (length of 1 means no dots which mean no args)
+                        if (args.Length == 1)
                         {
-                            string tempS = String.Empty + line[0];
-                            
-                            int i = int.Parse(tempS);
-                            if (i > items.Count-1)
-                            {
-                                items.Add(new List<DialogueItem>());
-                            }
-
-                            tempS = String.Empty + line[2];
-
-                            int j = 0;
-                            bool isExit;
-                            if (tempS == "e")
-                            {
-                                j = 0;
-                                isExit = true;
-                            }
-                            else
-                            {
-                                j = int.Parse(tempS);
-                                isExit = false;
-                            }
-
-                            string l = line;
-                            l = l.Remove(0, 4); 
-                            items[i].Add(new DialogueItem(l, j, isExit));
+                            continue;
                         }
+
+                        //get the index of the whole statement
+                        int index = int.Parse(args[0]);
+                        //add it if it doesn't exist
+                        if (index > items.Count - 1)
+                        {
+                            items.Add(new List<DialogueItem>());
+                        }
+                        //get the index of the next line this one leads to
+                        int nextIndex = int.Parse(args[1]);
+                        //get the potential exit number
+                        int exitNumber = int.Parse(args[3]);
+
+                        //get the line
+                        string l = args[2];
+                        l.Replace('|', '\n');
+                        items[index].Add(new DialogueItem(l, nextIndex, exitNumber));
                     }
                 }
                 catch
                 {
-                    Console.WriteLine("Derp broke retard l2code");
-                }
-            }
-        }
-
-        public void DisplayAllStrings()
-        {
-            for (int i = 0; i < items.Count; i++)
-            {
-                for (int j = 0; j < items[i].Count; j++)
-                {
-                    Console.WriteLine(items[i][j].Line);
-                    Console.WriteLine(items[i][j].NextStatement);
+                    throw new Exception("Failed to load dialogue.");
                 }
             }
         }
 
         public int GetNextStatementIndex(int statement, int choice)
         {
-            if (statement < items.Count-1  && !items[statement][0].IsExit)
+            if (statement < items.Count - 1 && !IndexIsExit(statement, 0))
             {
                 return items[statement][choice].NextStatement;
             }
-            else
-            {
-                return -1;
-            }
+            OnReachedExit(new DialogueEventArgs(items[statement][0].ExitNumber));
+            return -1;
         }
 
         public string[] GetDialogueLinesFromIndex(int index)
@@ -99,12 +92,21 @@ namespace GameBuild
             return s;
         }
 
-        public bool CheckIfIndexIsExit(int statement, int index)
+        public bool IndexIsExit(int statement, int index)
         {
-            if (items[statement][index].IsExit)
+            if (items[statement][index].ExitNumber > 0)
                 return true;
             else
                 return false;
+        }
+    }
+
+    public class DialogueEventArgs : EventArgs
+    {
+        public int exitNumber;
+        public DialogueEventArgs(int exitNumber)
+        {
+            this.exitNumber = exitNumber;
         }
     }
 }

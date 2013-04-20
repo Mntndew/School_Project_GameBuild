@@ -1,27 +1,27 @@
 /*
     ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
    / /                                                                                                                                                                                                                                                                                                                                                                                                                                                  \
-  / /        ooOOOOOOOOOOOOOOOOOOOO            ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS            ccCCCCCCCCCCCCCCCCCCCCCCCCCC    iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLL                            llLLLLLLLLLL                                      aaAAAAAAAAAAAAAAAA            ttTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT  iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII          ooOOOOOOOOOOOOOOOOOOOO          nnNNNNNNNNNN          nnNNNNNNNNNN   \
- / /     ooOOOOOOOOOOOOOOOOOOOOOOOOOOOO      ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS      ccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC   iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLL                            llLLLLLLLLLL                                      aaAAAAAAAAAAAAAAAA            ttTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT  iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII      ooOOOOOOOOOOOOOOOOOOOOOOOOOOOO      nnNNNNNNNNNNNN        nnNNNNNNNNNN    \ 
-| |  ooOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS  ccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC   iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLL                            llLLLLLLLLLL                                     aaAAAAAAAAAAAAAAAAAA           ttTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT  iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  ooOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  nnNNNNNNNNNNNN        nnNNNNNNNNNN     |
-| |  ooOOOOOOOOOOOO           ooOOOOOOOOOOOO  ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS   ccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC    iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLL                            llLLLLLLLLLL                                     aaAAAAAAAAAAAAAAAAAA           ttTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT  iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  ooOOOOOOOOOOOO          ooOOOOOOOOOOOO  nnNNNNNNNNNNNNNN      nnNNNNNNNNNN     |
-| |  ooOOOOOOOO                   ooOOOOOOOO  ssSSSSSSSSS                            ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                    aaAAAAAAAAAAAAAAAAAAAA                       ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNNNNNN      nnNNNNNNNNNN     |
-| |  ooOOOOOOOO                   ooOOOOOOOO  ssSSSSSSSSS                            ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                    aaAAAAAAAAAAAAAAAAAAAA                       ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNNNNNNNN    nnNNNNNNNNNN     |
-| |  ooOOOOOOOO                   ooOOOOOOOO  ssSSSSSSSSS                            ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                   aaAAAAAAAAAAaaAAAAAAAAAA                      ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNNNNNNNN    nnNNNNNNNNNN     |
-| |  ooOOOOOOOO                   ooOOOOOOOO  ssSSSSSSSSS                            ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                   aaAAAAAAAAAAaaAAAAAAAAAA                      ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNNNNNNNNNN  nnNNNNNNNNNN     |
-| |  ooOOOOOOOO                   ooOOOOOOOO  ssSSSSSSSSS                            ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                  aaAAAAAAAAAA  aaAAAAAAAAAA                     ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNNNNNNNNNN  nnNNNNNNNNNN     |
-| |  ooOOOOOOOO                   ooOOOOOOOO  ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS   ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                  aaAAAAAAAAAA  aaAAAAAAAAAA                     ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNNNNNNNNNNNNnnNNNNNNNNNN     |
-| |  ooOOOOOOOO                   ooOOOOOOOO  ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                 aaAAAAAAAAAA    aaAAAAAAAAAA                    ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNNnnNNNNNNNNNNNNNNNNNNNN     |
-| |  ooOOOOOOOO                   ooOOOOOOOO  ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                 aaAAAAAAAAAA    aaAAAAAAAAAA                    ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNNnnNNNNNNNNNNNNNNNNNNNN     |
-| |  ooOOOOOOOO                   ooOOOOOOOO    ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                aaAAAAAAAAAAAAAAAAAAAAAAAAAAAA                   ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNN  nnNNNNNNNNNNNNNNNNNN     |
-| |  ooOOOOOOOO                   ooOOOOOOOO                             ssSSSSSSSSS ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                aaAAAAAAAAAAAAAAAAAAAAAAAAAAAA                   ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNN  nnNNNNNNNNNNNNNNNNNN     |
-| |  ooOOOOOOOO                   ooOOOOOOOO                             ssSSSSSSSSS ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                               aaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                  ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNN    nnNNNNNNNNNNNNNNNN     |
-| |  ooOOOOOOOO                   ooOOOOOOOO                             ssSSSSSSSSS ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                               aaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                  ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNN    nnNNNNNNNNNNNNNNNN     |
-| |  ooOOOOOOOO                   ooOOOOOOOO                             ssSSSSSSSSS ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                              aaAAAAAAAAAA          aaAAAAAAAAAA                 ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNN      nnNNNNNNNNNNNNNN     |
-| |  ooOOOOOOOOOOOO           ooOOOOOOOOOOOO    ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS ccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC    iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL    aaAAAAAAAAAA          aaAAAAAAAAAA                 ttTTTTTTTTTT               iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  ooOOOOOOOOOOOO          ooOOOOOOOOOOOO  nnNNNNNNNNNN      nnNNNNNNNNNNNNNN     |
-| |  ooOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS  ccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC   iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL   aaAAAAAAAAAA            aaAAAAAAAAAA                ttTTTTTTTTTT               iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  ooOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  nnNNNNNNNNNN        nnNNNNNNNNNNNN     |
- \ \     ooOOOOOOOOOOOOOOOOOOOOOOOOOOOO      ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS      ccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC   iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL   aaAAAAAAAAAA            aaAAAAAAAAAA                ttTTTTTTTTTT               iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII      ooOOOOOOOOOOOOOOOOOOOOOOOOOOOO      nnNNNNNNNNNN        nnNNNNNNNNNNNN     /
-  \ \       ooOOOOOOOOOOOOOOOOOOOO             ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS            ccCCCCCCCCCCCCCCCCCCCCCCCCCC    iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL  aaAAAAAAAAAA              aaAAAAAAAAAA               ttTTTTTTTTTT               iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII          ooOOOOOOOOOOOOOOOOOOOO          nnNNNNNNNNNN          nnNNNNNNNNNN    /
+  / /        ooOOOOOOOOOOOOOOOOOOOO            ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS            ccCCCCCCCCCCCCCCCCCCCCCCCCCC    iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLL                            llLLLLLLLLLL                                      aaAAAAAAAAAAAAAAAA            ttTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT  iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII          ooOOOOOOOOOOOOOOOOOOOO          nnNNNNNNNNNN          nnNNNNNNNNNN  \
+ / /     ooOOOOOOOOOOOOOOOOOOOOOOOOOOOO      ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS      ccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC   iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLL                            llLLLLLLLLLL                                      aaAAAAAAAAAAAAAAAA            ttTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT  iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII      ooOOOOOOOOOOOOOOOOOOOOOOOOOOOO      nnNNNNNNNNNNNN        nnNNNNNNNNNN   \ 
+| |  ooOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS  ccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC   iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLL                            llLLLLLLLLLL                                     aaAAAAAAAAAAAAAAAAAA           ttTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT  iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  ooOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  nnNNNNNNNNNNNN        nnNNNNNNNNNN    |
+| |  ooOOOOOOOOOOOO           ooOOOOOOOOOOOO  ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS   ccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC    iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLL                            llLLLLLLLLLL                                     aaAAAAAAAAAAAAAAAAAA           ttTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT  iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  ooOOOOOOOOOOOO          ooOOOOOOOOOOOO  nnNNNNNNNNNNNNNN      nnNNNNNNNNNN    |
+| |  ooOOOOOOOO                   ooOOOOOOOO  ssSSSSSSSSS                            ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                    aaAAAAAAAAAAAAAAAAAAAA                       ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNNNNNN      nnNNNNNNNNNN    |
+| |  ooOOOOOOOO                   ooOOOOOOOO  ssSSSSSSSSS                            ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                    aaAAAAAAAAAAAAAAAAAAAA                       ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNNNNNNNN    nnNNNNNNNNNN    |
+| |  ooOOOOOOOO                   ooOOOOOOOO  ssSSSSSSSSS                            ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                   aaAAAAAAAAAAaaAAAAAAAAAA                      ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNNNNNNNN    nnNNNNNNNNNN    |
+| |  ooOOOOOOOO                   ooOOOOOOOO  ssSSSSSSSSS                            ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                   aaAAAAAAAAAAaaAAAAAAAAAA                      ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNNNNNNNNNN  nnNNNNNNNNNN    |
+| |  ooOOOOOOOO                   ooOOOOOOOO  ssSSSSSSSSS                            ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                  aaAAAAAAAAAA  aaAAAAAAAAAA                     ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNNNNNNNNNN  nnNNNNNNNNNN    |
+| |  ooOOOOOOOO                   ooOOOOOOOO  ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS   ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                  aaAAAAAAAAAA  aaAAAAAAAAAA                     ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNNNNNNNNNNNNnnNNNNNNNNNN    |
+| |  ooOOOOOOOO                   ooOOOOOOOO  ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                 aaAAAAAAAAAA    aaAAAAAAAAAA                    ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNNnnNNNNNNNNNNNNNNNNNNNN    |
+| |  ooOOOOOOOO                   ooOOOOOOOO  ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                 aaAAAAAAAAAA    aaAAAAAAAAAA                    ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNNnnNNNNNNNNNNNNNNNNNNNN    |
+| |  ooOOOOOOOO                   ooOOOOOOOO    ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                aaAAAAAAAAAAAAAAAAAAAAAAAAAAAA                   ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNN  nnNNNNNNNNNNNNNNNNNN    |
+| |  ooOOOOOOOO                   ooOOOOOOOO                             ssSSSSSSSSS ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                                aaAAAAAAAAAAAAAAAAAAAAAAAAAAAA                   ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNN  nnNNNNNNNNNNNNNNNNNN    |
+| |  ooOOOOOOOO                   ooOOOOOOOO                             ssSSSSSSSSS ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                               aaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                  ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNN    nnNNNNNNNNNNNNNNNN    |
+| |  ooOOOOOOOO                   ooOOOOOOOO                             ssSSSSSSSSS ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                               aaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                  ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNN    nnNNNNNNNNNNNNNNNN    |
+| |  ooOOOOOOOO                   ooOOOOOOOO                             ssSSSSSSSSS ccCCCCCCCC                                           iiIIIIIIIIII               llLLLLLLLLLL                            llLLLLLLLLLL                              aaAAAAAAAAAA          aaAAAAAAAAAA                 ttTTTTTTTTTT                            iiIIIIIIIIII               ooOOOOOOOO                  ooOOOOOOOO  nnNNNNNNNNNN      nnNNNNNNNNNNNNNN    |
+| |  ooOOOOOOOOOOOO           ooOOOOOOOOOOOO    ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS ccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC    iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL    aaAAAAAAAAAA          aaAAAAAAAAAA                 ttTTTTTTTTTT               iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  ooOOOOOOOOOOOO          ooOOOOOOOOOOOO  nnNNNNNNNNNN      nnNNNNNNNNNNNNNN    |
+| |  ooOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS  ccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC   iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL   aaAAAAAAAAAA            aaAAAAAAAAAA                ttTTTTTTTTTT               iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  ooOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  nnNNNNNNNNNN        nnNNNNNNNNNNNN    |
+ \ \     ooOOOOOOOOOOOOOOOOOOOOOOOOOOOO      ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS      ccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC   iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL   aaAAAAAAAAAA            aaAAAAAAAAAA                ttTTTTTTTTTT               iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII      ooOOOOOOOOOOOOOOOOOOOOOOOOOOOO      nnNNNNNNNNNN        nnNNNNNNNNNNNN    /
+  \ \       ooOOOOOOOOOOOOOOOOOOOO             ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS            ccCCCCCCCCCCCCCCCCCCCCCCCCCC    iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL  aaAAAAAAAAAA              aaAAAAAAAAAA               ttTTTTTTTTTT               iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII          ooOOOOOOOOOOOOOOOOOOOO          nnNNNNNNNNNN          nnNNNNNNNNNN   /
    \_\___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________/
 */
 using System;
@@ -45,43 +45,60 @@ namespace GameBuild
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-        //Variable declaration
         public GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
         public SpriteFont spriteFont;
-
-        public List<cNpc> Npcs = new List<cNpc>();
-        int files = Directory.GetFiles(@"Content\npc\npc\").Length; //number of npcs
-        string[] names; // array of all npc names
-
-        List<cWarp> warps = new List<cWarp>();
-        int warpFiles = Directory.GetFiles(@"Content\warp\").Length;
-        string[] warp;
-
-        cLighting testLight = new cLighting(new Rectangle(0, 0, 2000, 2000), 140, 20, new Color(245, 225, 170, 200)); //for ambient lighting 
-        RenderTarget2D lightMask; //what he said ^
+        public static SpriteFont debugFont;
 
         Random rand = new Random();
 
-        cCharacter character;
-
-        //Debugging stuffs
-        public Texture2D collisionTex;
         Color collisionColor = new Color(100, 0, 0, 100);
-
-        public TileMap map;
+        public Color screenColor;
 
         public KeyboardState oldState;
         public KeyboardState keyState;
+        MouseState mouse;
 
+        public Rectangle screen;
+
+        Rectangle malePos;
+        //these are for choosing a gender.
+        Rectangle femalePos;
+
+        public Texture2D textBox;
+        Texture2D debugTile;
+        public Texture2D screenTexture;
+        public Texture2D collisionTex;
+        Texture2D male;
+        Texture2D female;
+        Texture2D[] keyTextures;
+
+        public static ParticleSystem particleSystem;
+        public static TileMap map;
         Camera2d camera;
+        public List<Key> keys = new List<Key>();
+        public static cCharacter character;
+        public Damage damageObject;
+        public static Game.WarpManager warpManager = new Game.WarpManager();
+        public List<Npc.Npc> activeNpcs = new List<Npc.Npc>();
+        public List<Npc.Npc> Npcs = new List<Npc.Npc>();
+        public List<Npc.Npc> Mobs = new List<Npc.Npc>();
+        public List<Orb> orbs = new List<Orb>();
+        public static Npc.Boss testBoss;
+
+        int files = Directory.GetFiles(@"Content\npc\npc\").Length; //number of npcs
+        int warpFiles = Directory.GetFiles(@"Content\Warp\").Length;
+
+        string[] names; // array of all npc names
+        string gender = "male";
 
         public enum GameState
         {
             PLAY,
             INTERACT,
             PAUSE,
+            GENDER,
         }
 
         public GameState currentGameState = new GameState();
@@ -104,9 +121,18 @@ namespace GameBuild
         protected override void Initialize()
         {
             this.IsMouseVisible = true;
-            character = new cCharacter(this);
-            spriteFont = Content.Load<SpriteFont>("SpriteFont1");
-
+            particleSystem = new ParticleSystem();
+            spriteFont = Content.Load<SpriteFont>(@"Game\SpriteFont1");
+            damageObject = new Damage();
+            screenColor = new Color(0, 0, 0, 0);
+            screen = new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
+            malePos = new Rectangle(0, 0, graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight);
+            femalePos = new Rectangle(graphics.PreferredBackBufferWidth / 2, 0, graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight);
+            if (gender != null)
+            {
+                character = new cCharacter(this, gender);
+            }
+            testBoss = new Npc.Boss(new Rectangle(7*64, 6*64, 64, 64), this, "Testing Ground");
             base.Initialize();
         }
 
@@ -118,46 +144,70 @@ namespace GameBuild
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            collisionTex = Content.Load<Texture2D>("blackness");
-            testLight.LoadTexture(Content, "lightTexture");
-            lightMask = new RenderTarget2D(GraphicsDevice, GraphicsDevice.PresentationParameters.BackBufferWidth, GraphicsDevice.PresentationParameters.BackBufferHeight);
-            map = Content.Load<H_Map.TileMap>("source");
-            map.tileset = Content.Load<Texture2D>("tileset");
-            Console.WriteLine(map.mapName);
+            collisionTex = Content.Load<Texture2D>(@"Game\blackness");
+            map = Content.Load<H_Map.TileMap>(@"Map\testing maps\Testing Ground");
+            map.tileset = Content.Load<Texture2D>(@"Game\tileset");
+            textBox = Content.Load<Texture2D>(@"Game\textBox");
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
-            LoadWarps();
+            UpdateActiveNpcs();
+            debugTile = Content.Load<Texture2D>(@"Player\emptySlot");
+            screenTexture = Content.Load<Texture2D>(@"Game\blackness");
+            male = Content.Load<Texture2D>(@"Player\Male");
+            female = Content.Load<Texture2D>(@"Game\blackness");
+            warpManager.UpdateList(map.mapName);
+            LoadKeys();
             LoadNpcs();
+            debugFont = Content.Load<SpriteFont>(@"Game\SpriteFont1");
+            for (int i = 0; i < 2; i++)
+            {
+                Mobs.Add(new Npc.Npc(new Rectangle(256 + (i * 48), 256, 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), this, "Map1_A", i + 1, false, 50, 1, 5, 1));
+            }
+        }
+
+        public void LoadKeys()
+        {
+            keyTextures = new Texture2D[2];
+            for (int i = 0; i < keyTextures.Length; i++)
+            {
+                keyTextures[i] = Content.Load<Texture2D>(@"Game\key");
+            }
+            keys.Add(new Key(new Rectangle(320, 320, keyTextures[0].Width, keyTextures[0].Height), "key 0", keyTextures[0], "Testing Ground", this));
         }
 
         public void LoadNpcs()
         {
             names = new string[files];
+
             for (int i = 0; i < files; i++)
             {
                 names[i] = Directory.GetFiles(@"Content\npc\npc\")[i];
-                Console.WriteLine(names[i]);
                 StreamReader reader = new StreamReader(names[i]);
-                cNpc npc = new cNpc(reader.ReadLine(), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
-                    bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), reader.ReadLine(), reader.ReadLine(),
-                    bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
-                    int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), this, reader.ReadLine());
-                reader.Close();
+                Npc.Npc npc = new Npc.Npc(reader.ReadLine(), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
+                reader.ReadLine(), reader.ReadLine(), reader.ReadLine(), reader.ReadLine(), reader.ReadLine(), reader.ReadLine(),
+                bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
+                int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), this, reader.ReadLine());
                 Npcs.Add(npc);
             }
         }
-
-        public void LoadWarps()
+                
+        public void UpdateActiveNpcs()
         {
-            warp = new string[warpFiles];
-            for (int i = 0; i < warpFiles; i++)
+            activeNpcs.Clear();
+            for (int i = 0; i < Npcs.Count; i++)
             {
-                warp[i] = Directory.GetFiles(@"Content\warp\")[i];
-                StreamReader reader = new StreamReader(warp[i]);
-                cWarp Warp = new cWarp(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
-                    int.Parse(reader.ReadLine()), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), character, this);
-                reader.Close();
-                warps.Add(Warp);
+                if (Npcs[i].IsOnMap())
+                {
+                    activeNpcs.Add(Npcs[i]);
+                    Npcs[i].hasBeenAdded = true;
+                }
+            }
+            for (int i = 0; i < activeNpcs.Count; i++)
+            {
+                if (!activeNpcs[i].IsOnMap())
+                {
+                    activeNpcs[i].hasBeenAdded = false;
+                    activeNpcs.RemoveAt(i);
+                }
             }
         }
 
@@ -176,66 +226,106 @@ namespace GameBuild
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
-            oldState = keyState;
-            keyState = Keyboard.GetState();
-            testLight.Update(character.position.X, character.position.Y);
-
-            foreach (cWarp warp in warps)
+            mouse = Mouse.GetState();
+            if (gender == null)
             {
-                warp.CheckMap(this);
-                if (warp.isOnMap)
+                ChooseGender();
+            }
+            warpManager.Update(this);
+            if (keyState.IsKeyDown(Keys.Space))
+            {
+                orbs.Add(new Orb(new Rectangle(256, 256, 8, 8)));
+            }
+            if (testBoss.IsOnMap())
+            {
+                testBoss.Update(this, gameTime);
+            }
+            if (gender != null)
+            {
+                particleSystem.Update(gameTime);
+                UpdateActiveNpcs();
+                oldState = keyState;
+                keyState = Keyboard.GetState();
+                camera.Pos = character.vectorPos;
+
+                if (currentGameState == GameState.PLAY)
                 {
-                    warp.Update(character, this);
+                    character.Update(this, map, gameTime, oldState, GraphicsDevice);
                 }
-            }
 
-            if (currentGameState == GameState.PLAY) //TODO: gamestates for making the game update objects logicly *FIXED MUTHA FUCKAH UR WELCOME PAST SELF*
-            {
-                character.Update(this, map, gameTime, oldState, GraphicsDevice);
-            }
-
-            camera.Pos = character.vectorPos;
-
-            //Update NPCs 
-            foreach (cNpc npc in Npcs)
-            {
-                npc.CheckMap(this);
-                if (npc.isOnMap)
+                for (int i = 0; i < keys.Count; i++)
                 {
-                    npc.Update(character, map, this);
-                    if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && npc.canInteract)
+                    if (character.position.Intersects(keys[i].position) && map.mapName.Remove(map.mapName.Length - 1) == keys[i].mapName)
                     {
-                        if (npc.isInteracting)
+                        keys[i].PickUp(character);
+                        keys.RemoveAt(i);
+                    }
+                }
+
+                for (int i = 0; i < Npcs.Count; i++)
+                {
+                    if (Npcs[i].health > 0)
+                    {
+                        if (!Npcs[i].isInteracting && Npcs[i].IsOnMap() && !character.showInventory)
                         {
-                            npc.isInteracting = false;
-                            npc.dialogue.isTalking = false;
-                            npc.dialogue.ResetDialogue();
-                            currentGameState = GameState.PLAY;
+                            Npcs[i].Update(character, map, this, gameTime);
                         }
-                        else
+                        Npcs[i].UpdateDialogue(this);
+                        if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && Npcs[i].canInteract && !Npcs[i].mob)
                         {
-                            npc.isInteracting = true;
-                            npc.dialogue.isTalking = true;
-                            currentGameState = GameState.INTERACT;
-                            Console.WriteLine(npc.mapName);
+                            if (Npcs[i].isInteracting)
+                            {
+                                Npcs[i].isInteracting = false;
+                                Npcs[i].dialogue.isTalking = false;
+                                Npcs[i].dialogue.ResetDialogue();
+                                currentGameState = GameState.PLAY;
+                            }
+                            else
+                            {
+                                Npcs[i].isInteracting = true;
+                                Npcs[i].dialogue.isTalking = true;
+                                currentGameState = GameState.INTERACT;
+                            }
                         }
                     }
                 }
-            }
-
-            #region Debugging
-            if (keyState.IsKeyDown(Keys.Tab))
-            {
-                for (int i = 0; i < Npcs.Count; i++)
+                for (int i = 0; i < Mobs.Count; i++)
                 {
-                    Console.WriteLine(Npcs[i].name);
+                    Mobs[i].Update(character, map, this, gameTime);
+                    if (Mobs[i].health <= 0)
+                    {
+                        Mobs.RemoveAt(i);
+                    }
                 }
             }
-            #endregion
             base.Update(gameTime);
+        }
+
+        public void ChooseGender()
+        {
+            mouse = Mouse.GetState();
+            Rectangle mousePos = new Rectangle(mouse.X, mouse.Y, 1, 1);
+            if (mousePos.Intersects(femalePos))
+            {
+                if (mouse.LeftButton == ButtonState.Pressed)
+                {
+                    gender = "female";
+                }
+            }
+            if (mousePos.Intersects(malePos))
+            {
+                if (mouse.LeftButton == ButtonState.Pressed)
+                {
+                    gender = "male";
+                }
+            }
+            if (gender != null)
+            {
+                character = new cCharacter(this, gender);
+                currentGameState = GameState.PLAY;
+            }
         }
 
         /// <summary>
@@ -244,81 +334,95 @@ namespace GameBuild
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            //draws the lightmask to a separate render target
-            GraphicsDevice.SetRenderTarget(lightMask);
             GraphicsDevice.Clear(Color.Black);
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Additive);
-            testLight.Draw(spriteBatch);
-            spriteBatch.End();
-
-            //draws out the world on the default back buffer with all entities 
-            GraphicsDevice.SetRenderTarget(null);
-            GraphicsDevice.Clear(Color.Black);
-            spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, camera.GetTransformation());
-            map.DrawBackgroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
-            map.DrawInteractiveLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
-            character.Draw(spriteBatch);
-
-            for (int i = 0; i < Npcs.Count; i++)
+            if (gender != null)
             {
-                if (Npcs[i].isOnMap)
-                {
-                    Npcs[i].Draw(spriteBatch);
-                }
-            }
+                spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, camera.GetTransformation());
+                map.DrawBackgroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
+                map.DrawInteractiveLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
 
-            map.DrawForegroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
-            for (int i = 0; i < Npcs.Count; i++)
-            {
-                if (Npcs[i].isOnMap)
+                for (int i = 0; i < keys.Count; i++)
                 {
-                    Npcs[i].DrawA(spriteBatch);
-                }
-            }
-            spriteBatch.DrawString(spriteFont, "" + character.hp, new Vector2(character.position.X + (character.position.Width / 2), character.position.Y - 10), Color.Red);
-            //debugging
-            for (int i = 0; i < warps.Count; i++)
-            {
-                if (warps[i].isOnMap)
-                {
-                    warps[i].Draw(spriteBatch, this);
-                }
-            }
-            spriteBatch.End();
-            // TODO: Add your drawing code here
-
-            //draws out the light mask over the world, uses multiplication blending to create the effect
-            BlendState blendState = new BlendState();
-            blendState.ColorSourceBlend = Blend.Zero;
-            blendState.ColorDestinationBlend = Blend.SourceColor;
-            blendState.AlphaSourceBlend = Blend.Zero;
-            blendState.AlphaDestinationBlend = Blend.SourceAlpha;
-            spriteBatch.Begin(SpriteSortMode.Immediate, blendState);
-            spriteBatch.Draw(lightMask, new Vector2(0, 0), Color.White);
-            spriteBatch.End();
-
-            //Spritebatch for HUD stuff
-            spriteBatch.Begin();
-            for (int i = 0; i < Npcs.Count; i++)
-            {
-                if (Npcs[i].isOnMap)
-                {
-                    if (Npcs[i].isInteracting)
+                    if (keys[i].mapName == map.mapName.Remove(map.mapName.Length - 1))
                     {
-                        Npcs[i].dialogue.Draw(spriteBatch);
+                        keys[i].Draw(spriteBatch);
                     }
                 }
-            }
-            spriteBatch.End();
+                for (int i = 0; i < orbs.Count; i++)
+                {
+                    spriteBatch.Draw(Content.Load<Texture2D>(@"Particle\particle"), orbs[i].position, orbs[i].color);
+                }
+                particleSystem.Draw(spriteBatch);
+                character.Draw(spriteBatch);
+                for (int i = 0; i < activeNpcs.Count; i++)
+                {
+                    activeNpcs[i].Draw(spriteBatch);
+                }
+                for (int i = 0; i < Mobs.Count; i++)
+                {
+                    Mobs[i].Draw(spriteBatch);
+                }
+                if (testBoss.IsOnMap())
+                {
+                    testBoss.Draw(spriteBatch);
+                }
+                map.DrawForegroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
+                testBoss.DrawMobs(spriteBatch);
+                warpManager.Draw(spriteBatch, this);
+                for (int i = 0; i < activeNpcs.Count; i++)
+                {
+                    activeNpcs[i].DrawA(spriteBatch);
+                }
+                spriteBatch.DrawString(spriteFont, character.health + "/" + character.maxHealth, new Vector2(character.position.X - 10, character.position.Y - 35), new Color(200, 10, 10, 200));
+                character.DrawHealthBar(spriteBatch, this);
+                testBoss.DrawDamage(spriteBatch, this);
+                for (int i = 0; i < testBoss.projectiles.Count; i++)
+                {
+                    testBoss.projectiles[i].DrawParticles(spriteBatch);
+                }
+                spriteBatch.End();
 
-            float framerate = 1f / (float)gameTime.ElapsedGameTime.TotalSeconds;
-            //Console.WriteLine(framerate);
+                float framerate = 1f / (float)gameTime.ElapsedGameTime.TotalSeconds;
+                spriteBatch.Begin();
+                for (int i = 0; i < activeNpcs.Count; i++)
+                {
+                    if (activeNpcs[i].IsOnMap())
+                    {
+                        if (activeNpcs[i].isInteracting)
+                        {
+                            activeNpcs[i].dialogue.Draw(spriteBatch);
+                        }
+                        activeNpcs[i].DrawDamage(spriteBatch, this);
+                    }
+                }
+                character.inventory.Draw(spriteBatch, this);
+                testBoss.DrawHealth(spriteBatch);
+
+                spriteBatch.DrawString(spriteFont, framerate.ToString(), new Vector2(10, 10), Color.Red);
+                spriteBatch.End();
+            }
+
+            if (gender == null)
+            {
+                spriteBatch.Begin();
+                spriteBatch.Draw(male, new Rectangle(0, 0, male.Width / 2, male.Height / 2), Color.White);
+                spriteBatch.Draw(female, new Rectangle(graphics.PreferredBackBufferWidth / 2, 0, female.Width / 2, female.Height / 2), Color.White);
+                spriteBatch.DrawString(spriteFont, "Choose a gender, please.", new Vector2((graphics.PreferredBackBufferWidth / 2) - 20 * 6.38f, 6), new Color(200, 200, 200));
+                spriteBatch.End();
+            }
+            if (character.health <= 0)
+            {
+                spriteBatch.Begin();
+                character.DrawDeath(spriteBatch, this);
+                spriteBatch.End();
+            }
             base.Draw(gameTime);
         }
     }
 }
+
 #region stuff
-/*    
+/*
 
      /MMMMMMMMM\\  \  /  //MMMMMMMMM\
     /NNNNNMMMMMN\\  ||  //NMMMMMNNNNN\
