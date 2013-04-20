@@ -27,7 +27,7 @@ namespace GameBuild.Npc
         Vector2 randomWalkTarget;
 
         Texture2D debugTile;
-        Texture2D walkSprite;
+        public Texture2D walkSprite;
         Texture2D aTexture;
         public Texture2D healthTexture;
 
@@ -60,6 +60,7 @@ namespace GameBuild.Npc
         bool hasPath = false;
         bool hasTarget;
         bool reached = true;//for waypoint
+        public bool vulnerable;
 
         public enum patrolType
         {
@@ -174,7 +175,7 @@ namespace GameBuild.Npc
         }
 
         public Npc(Rectangle position, Texture2D walkSprite, Game1 game, string mapName,
-            float timerMod, bool attackPlayer, int health, int minDamage, int maxDamage, int hitChance)
+            float timerMod, bool attackPlayer, int health, int minDamage, int maxDamage, int hitChance, bool vulnerable)
         {
             this.mapName = mapName;
             this.position = position;
@@ -184,6 +185,7 @@ namespace GameBuild.Npc
             this.minDamage = minDamage;
             this.maxDamage = maxDamage;
             this.hitChance = hitChance;
+            this.vulnerable = vulnerable;
             combatRectangle = new Rectangle(position.X - 128, position.Y - 128, 256, 256);
             pathTimerMod = timerMod;
             healthTexture = game.Content.Load<Texture2D>(@"Game\health100");
@@ -198,7 +200,7 @@ namespace GameBuild.Npc
 
         public bool IsOnMap()
         {
-            if (Game1.map.mapName.Remove(Game1.map.mapName.Length - 1) == mapName)
+            if (Game1.map.mapName == mapName)
             {
                 return true;
             }

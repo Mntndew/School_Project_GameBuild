@@ -16,6 +16,7 @@ namespace GameBuild.Npc
         Texture2D targetTexture;
         public List<Projectile> projectiles = new List<Projectile>();
         public List<Npc> mobs = new List<Npc>();
+        Npc robot;
         float phaseTimer;
         float sleepTimer = 2;
         const float SLEEPTIMER = 2;
@@ -23,11 +24,11 @@ namespace GameBuild.Npc
         float pathTimer = 200f;
         const float PATHTIMER = 200f;//milliseconds
         double angle;
-        float beamAttackTimer = 1;
-        const float BEAMATTACKTIMER = 1;
+        float beamAttackTimer = 0.08f;
+        const float BEAMATTACKTIMER = 0.08f;
         string map;
-        public int health = 200;
-        public int maxHealth = 200;
+        public int health = 250;
+        public int maxHealth = 250;
         float healthBarWidth;
         float healthPct;
         int beamDamage;
@@ -36,6 +37,7 @@ namespace GameBuild.Npc
         int pathIndex;
         bool followPath;
         bool hasPath;
+        public bool dead;
         List<DamageEffect> damageEffectList = new List<DamageEffect>();
         Texture2D healthTexture;
 
@@ -57,6 +59,7 @@ namespace GameBuild.Npc
             texture = game.Content.Load<Texture2D>(@"Game\blackness");
             targetTexture = game.Content.Load<Texture2D>(@"Game\target");
             angle = Math.Atan2(Game1.character.bossTarget.Y - position.Y, Game1.character.bossTarget.X + 16 - position.X);
+            robot = new Npc(new Rectangle(position.X - 64, position.Y, 32, 32), game.Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), game, this.map, 0, false, 10, 0, 0, 0, false);
         }
 
         public void Update(Game1 game, GameTime gameTime)//Manages the phases
@@ -66,14 +69,16 @@ namespace GameBuild.Npc
                 angle = Math.Atan2(Game1.character.bossTarget.Y - position.Y, Game1.character.bossTarget.X + 16 - position.X);
             }
             
-            Console.WriteLine(currentPhase);
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             beamAttackTimer -= elapsed;
+
+            robot.position.X = position.X - 64;
+            robot.position.Y = position.Y;
 
             if (currentPhase != phase.sleep)
             {
                 phaseTimer += elapsed;
-                if (phaseTimer >= 3)
+                if (phaseTimer >= 7)
                 {
                     SwitchPhase();
                 }
@@ -102,7 +107,7 @@ namespace GameBuild.Npc
                         Game1.character.inCombat = true;
                         if (beamAttackTimer <= 0)
                         {
-                            beamDamage = game.damageObject.dealDamage(20, 45);
+                            beamDamage = game.damageObject.dealDamage(1, 4);
                             damageEffectList.Add(new DamageEffect(beamDamage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(255, 0, 0, 255), "npc"));
                             Game1.character.health -= beamDamage;
                             Game1.character.Hit();
@@ -133,6 +138,7 @@ namespace GameBuild.Npc
                 }
                 else
                     Game1.character.speed = 4;
+
                 for (int j = 0; j < mobs.Count; j++)
                 {
                     if (mobs[i] != mobs[j])
@@ -179,7 +185,7 @@ namespace GameBuild.Npc
                     Shoot(game);
                     break;
                 case phase.mobs:
-                    if (phaseTimer < 3)
+                    if (phaseTimer <= 7)
                     {
                         SpawnMobs(game);
                     }
@@ -191,14 +197,19 @@ namespace GameBuild.Npc
                     Berserk(game, gameTime);
                     break;
                 default:
-                    Sleep(gameTime);
+                    Berserk(game, gameTime);
                     break;
+            }
+
+            if (healthPct <= 0)
+            {
+                Death();
             }
         }
 
         public bool IsOnMap()
         {
-            if (Game1.map.mapName.Remove(Game1.map.mapName.Length - 1) == map)
+            if (Game1.map.mapName == map)
             {
                 return true;
             }
@@ -213,7 +224,7 @@ namespace GameBuild.Npc
                 currentPhase = phase.mobs;
                 phaseTimer = 0;
             }
-            if (currentPhase == phase.mobs && phaseTimer != 0 && mobs.Count == 0)
+            if (currentPhase == phase.mobs && phaseTimer != 0)
             {
                 currentPhase = phase.berserk;
                 phaseTimer = 0;
@@ -228,25 +239,28 @@ namespace GameBuild.Npc
 
         private void Shoot(Game1 game)
         {
-            projectiles.Add(new Projectile(new Vector2(this.position.X, this.position.Y), game));
+            projectiles.Add(new Projectile(new Vector2(this.robot.position.X, this.robot.position.Y), game));
         }
 
         private void SpawnMobs(Game1 game)
         {
-            if (mobs.Count < 10)
+            for (int i = 0; i < 10; i++)
             {
-                mobs.Add(new Npc(new Rectangle(position.X, position.Y - 48, 48, 48), game.Content.Load<Texture2D>(@"Game\blackness"), game, map, 1, true, 25, 1, 1, 25));
+                if (mobs.Count < 50)
+                {
+                    mobs.Add(new Npc(new Rectangle(position.X + i, position.Y - 48 + i, 48, 48), game.Content.Load<Texture2D>(@"Game\blackness"), game, map, 1, true, 25, 1, 1, 25, true));
+                }
             }
             for (int i = 0; i < mobs.Count; i++)
             {
                 mobs[i].mob = true;
                 mobs[i].bossMob = true;
             }
+            currentPhase = phase.berserk;
         }
 
         private void Sleep(GameTime gameTime)
         {
-            
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             sleepTimer -= elapsed;
             if (sleepTimer <= 0)
@@ -269,7 +283,7 @@ namespace GameBuild.Npc
                 currentPhase = phase.beam;
             }
 
-            if (phaseTimer >= 5)
+            if (phaseTimer >= 7)
             {
                 phaseTimer = 0;
                 currentPhase = phase.beam;
@@ -312,10 +326,9 @@ namespace GameBuild.Npc
                 }
                 Pathfinding.Point start = new Pathfinding.Point((position.X + position.Width / 2) / Game1.map.tileWidth, (position.Y + position.Height / 2) / Game1.map.tileHeight);
                 Pathfinding.Point end;
-                    end = new Pathfinding.Point((int)targetPoint.X, (int)targetPoint.Y);
+                end = new Pathfinding.Point((int)targetPoint.X, (int)targetPoint.Y);
 
-                    path = Pathfinding.PathFinder.GetVectorPath(Pathfinding.PathFinder.FindPath(map, start, end), Game1.map.tileWidth, Game1.map.tileHeight);
-                //path.Reverse<Vector2>();
+                path = Pathfinding.PathFinder.GetVectorPath(Pathfinding.PathFinder.FindPath(map, start, end), Game1.map.tileWidth, Game1.map.tileHeight);
                 hasPath = true;
                 followPath = true;
                 pathIndex = path.Length - 1;
@@ -368,24 +381,38 @@ namespace GameBuild.Npc
             }
         }
 
+        private void Death()
+        {
+            for (int i = 0; i < mobs.Count; i++)
+            {
+                mobs[i].health = 0;
+            }
+            dead = true;
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, new Rectangle(position.X + 32, position.Y + 32, position.Width, position.Height), null, Color.White, (float)angle, new Vector2(texture.Width / 2, texture.Height / 2), SpriteEffects.None, 0);
-            //spriteBatch.Draw(texture, position, Color.White);
-            spriteBatch.Draw(targetTexture, Game1.character.bossTarget, new Color(255, 100, 100, 100));
+            spriteBatch.Draw(texture, new Rectangle(robot.position.X + 8, robot.position.Y + 8, robot.position.Width, robot.position.Height),
+                null, new Color(100, 100, 255, 255), (float)angle, new Vector2(robot.position.Width / 5, robot.position.Width / 5), SpriteEffects.None, 0);
+            spriteBatch.Draw(texture, position, Color.White);
+            spriteBatch.Draw(targetTexture, Game1.character.bossTarget, new Color(255, 50, 50, 100));
         }
 
         public void DrawMobs(SpriteBatch spriteBatch)
         {
             for (int i = 0; i < mobs.Count; i++)
             {
-                mobs[i].Draw(spriteBatch);
+                if (mobs[i].health > 0)
+                {
+                    mobs[i].Draw(spriteBatch);
+                }
             }
         }
 
         public void DrawHealth(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(healthTexture, new Rectangle(healthPos.X, healthPos.Y, healthPos.Width, healthPos.Height), Color.White);
+            spriteBatch.DrawString(Game1.debugFont, "" + (healthPct * 100) + "%", new Vector2(640, 2), Color.Black);
         }
 
         public void DrawDamage(SpriteBatch spriteBatch, Game1 game)

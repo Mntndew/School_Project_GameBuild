@@ -20,6 +20,7 @@ namespace GameBuild
         public bool inCombat;
         public bool showInventory;
         public bool dead;
+        public bool cutscene;
         bool isHit = false;
 
         public string gender;
@@ -252,6 +253,7 @@ namespace GameBuild
             animation.UpdateAnimation(gameTime);
             #endregion
 
+            CutScene();
 
             #region walk
             if (up)
@@ -478,7 +480,7 @@ namespace GameBuild
 
             for (int i = 0; i < game.Npcs.Count; i++)
             {
-                if (game.Npcs[i].health > 0 && game.Npcs[i].IsOnMap())
+                if (game.Npcs[i].health > 0 && game.Npcs[i].IsOnMap() && game.Npcs[i].vulnerable)
                 {
                     if (game.Npcs[i].combatRectangle.Intersects(position))
                     {
@@ -494,7 +496,7 @@ namespace GameBuild
             }
             for (int i = 0; i < game.Mobs.Count; i++)
             {
-                if (game.Mobs[i].health > 0 && game.Mobs[i].IsOnMap())
+                if (game.Mobs[i].health > 0 && game.Mobs[i].IsOnMap() && game.Mobs[i].vulnerable)
                 {
                     if (game.Mobs[i].combatRectangle.Intersects(position))
                     {
@@ -510,7 +512,7 @@ namespace GameBuild
             }
             for (int i = 0; i < Game1.testBoss.mobs.Count; i++)
             {
-                if (Game1.testBoss.mobs[i].health > 0 && Game1.testBoss.mobs[i].IsOnMap())
+                if (Game1.testBoss.mobs[i].health > 0 && Game1.testBoss.mobs[i].IsOnMap() && Game1.testBoss.mobs[i].vulnerable)
                 {
                     if (Game1.testBoss.mobs[i].combatRectangle.Intersects(position))
                     {
@@ -525,6 +527,15 @@ namespace GameBuild
                 }
             }
             #endregion
+        }
+
+        public void CutScene()
+        {
+            cutscene = true;
+            if (Game1.map.mapName.Remove(Game1.map.mapName.Length - 2) == "Map4_C")
+            {
+                Console.WriteLine("cutscene");
+            }
         }
 
         public void DeathEffect(Game1 game)
