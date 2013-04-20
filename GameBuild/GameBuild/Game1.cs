@@ -145,7 +145,7 @@ namespace GameBuild
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             collisionTex = Content.Load<Texture2D>(@"Game\blackness");
-            map = Content.Load<H_Map.TileMap>(@"Map\Map4_C");
+            map = Content.Load<H_Map.TileMap>(@"Map\Map1_A");
             map.tileset = Content.Load<Texture2D>(@"Game\tileset");
             textBox = Content.Load<Texture2D>(@"Game\textBox");
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
@@ -160,7 +160,7 @@ namespace GameBuild
             debugFont = Content.Load<SpriteFont>(@"Game\SpriteFont1");
             for (int i = 0; i < 2; i++)
             {
-                Mobs.Add(new Npc.Npc(new Rectangle(256 + (i * 48), 256, 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), this, "Map1_A", i + 1, false, 50, 1, 5, 1));
+                Mobs.Add(new Npc.Npc(new Rectangle(256 + (i * 100), 256, 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), this, "Map1_A", i + 1, false, 50, 1, 5, 1));
             }
         }
 
