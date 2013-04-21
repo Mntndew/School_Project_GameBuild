@@ -39,9 +39,9 @@ namespace GameBuild.Npc
         public float health;
         public float healthPct;
         public float speed;
-        public float attackTimer = 1000f;
+        public float attackTimer = 500f;
         float pathTimer = 200f;
-        const float ATTACKTIMER = 1000f;//milliseconds
+        const float ATTACKTIMER = 500f;//milliseconds
         const float PATHTIMER = 1000f;//milliseconds
         float MOBPATHTIMER = PATHTIMER;
         float pathTimerMod;
@@ -376,11 +376,11 @@ namespace GameBuild.Npc
                     position.Y += (int)-speed * 2;
                 }
             }
-            if (Game1.character.position.Intersects(position) && Game1.map.mapName.Remove(Game1.map.mapName.Length - 1) == mapName && !Game1.character.dead)
+            if (Game1.character.position.Intersects(position) && IsOnMap() && !Game1.character.dead)
             {
                 if (attackTimer <= 0)
                 {
-                    if (mob)
+                    if (mob || bossMob)
                     {
                         chance = rand.Next(1, 100);
                         if (chance <= hitChance)
@@ -389,8 +389,8 @@ namespace GameBuild.Npc
                             damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(255, 0, 0, 255), "npc"));
                             Game1.character.health -= damage;
                             Game1.character.Hit();
-                            chance = 101;
                             attackTimer = ATTACKTIMER;
+                            chance = 101;
                         }
                     }
                     else
@@ -854,7 +854,7 @@ namespace GameBuild.Npc
             {
                 if (health > 0)
                 {
-                    spriteBatch.Draw(walkSprite, position, animation.GetFrame(), Color.White);
+                    spriteBatch.Draw(walkSprite, position, animation.GetFrame(), new Color(200, 100, 100, 100));
                 }
                 if (healthTexture != null && health > 0)
                 {

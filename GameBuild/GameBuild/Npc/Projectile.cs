@@ -59,6 +59,9 @@ namespace GameBuild.Npc
             //smoke
             emitter.Add((int)position.X, (int)position.Y, 20, 20, 1, -2, 2, -10, -4, new Color(20, 10, 10, 255), 0.015f, 1, 1, false, false, false);
 
+            //blue
+            emitter.Add((int)position.X, (int)position.Y, 12, 12, 1, (int)velocity.X - 2, (int)velocity.X + 2, -3, 3, new Color(125, 125, 250, 10), 0.015f, 1, 1, false, false, false);
+
             //green
             emitter.Add((int)position.X, (int)position.Y, 16, 16, 1, (int)velocity.X - 2, (int)velocity.X + 2, -3, 3, new Color(75, 200, 75, 100), 0.015f, 1, 1, false, false, false);
         }

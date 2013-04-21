@@ -32,6 +32,7 @@ Content\Map\Map3_B.xnb
 Content\Map\Map3_A.xnb
 Content\Map\Map2_A.xnb
 Content\Map\Map1_A.xnb
+Content\robot.xnb
 Content\Npc\dialogue\test.txt
 Content\Npc\dialogue\doorLocked.txt
 Content\Warp\Map1_A_0.txt

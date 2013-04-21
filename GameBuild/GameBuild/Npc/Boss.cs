@@ -59,7 +59,7 @@ namespace GameBuild.Npc
             texture = game.Content.Load<Texture2D>(@"Game\blackness");
             targetTexture = game.Content.Load<Texture2D>(@"Game\target");
             angle = Math.Atan2(Game1.character.bossTarget.Y - position.Y, Game1.character.bossTarget.X + 16 - position.X);
-            robot = new Npc(new Rectangle(position.X - 64, position.Y, 32, 32), game.Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), game, this.map, 0, false, 10, 0, 0, 0, false);
+            robot = new Npc(new Rectangle(position.X - 64, position.Y, 64, 64), game.Content.Load<Texture2D>(@"robot"), game, this.map, 0, false, 10, 0, 0, 0, false);
         }
 
         public void Update(Game1 game, GameTime gameTime)//Manages the phases
@@ -248,7 +248,7 @@ namespace GameBuild.Npc
             {
                 if (mobs.Count < 50)
                 {
-                    mobs.Add(new Npc(new Rectangle(position.X + i, position.Y - 48 + i, 48, 48), game.Content.Load<Texture2D>(@"Game\blackness"), game, map, 1, true, 25, 1, 1, 25, true));
+                    mobs.Add(new Npc(new Rectangle(position.X + i, position.Y - 48 + i, 48, 48), game.Content.Load<Texture2D>(@"Game\blackness"), game, map, 1, true, 5, 1, 3, 5, true));
                 }
             }
             for (int i = 0; i < mobs.Count; i++)
@@ -272,7 +272,7 @@ namespace GameBuild.Npc
         private void Berserk(Game1 game, GameTime gameTime)
         {
             Game1.character.targetSpeed = 5.5f;
-            GoTo(new Vector2(Game1.character.position.X / Game1.map.tileWidth, Game1.character.position.Y / Game1.map.tileHeight), false, gameTime);
+            GoTo(new Vector2((Game1.character.position.X + (Game1.character.position.Width / 2)) / Game1.map.tileWidth, (Game1.character.position.Y + (Game1.character.position.Height / 2)) / Game1.map.tileHeight), false, gameTime);
             if (position.Intersects(Game1.character.attackRectangle))
             {
                 damage = game.damageObject.dealDamage(10, 27);
@@ -392,8 +392,8 @@ namespace GameBuild.Npc
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, new Rectangle(robot.position.X + 8, robot.position.Y + 8, robot.position.Width, robot.position.Height),
-                null, new Color(100, 100, 255, 255), (float)angle, new Vector2(robot.position.Width / 5, robot.position.Width / 5), SpriteEffects.None, 0);
+            spriteBatch.Draw(robot.walkSprite, new Rectangle(robot.position.X + 16, robot.position.Y + 16, robot.position.Width, robot.position.Height),
+                null, new Color(100, 100, 255, 255), (float)angle, new Vector2(robot.position.Width / 2, robot.position.Height / 3), SpriteEffects.None, 0);
             spriteBatch.Draw(texture, position, Color.White);
             spriteBatch.Draw(targetTexture, Game1.character.bossTarget, new Color(255, 50, 50, 100));
         }
