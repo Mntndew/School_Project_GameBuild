@@ -70,6 +70,8 @@ namespace GameBuild.Npc
             none
         }
 
+        Key key;
+
         patrolType currentPatrolType = new patrolType();
 
         public cDialogue dialogue;
@@ -96,7 +98,7 @@ namespace GameBuild.Npc
 
         public Npc(string mapName, string name, int x, int y, int width, int height, string up, string down, string left, string right,
             string spritePath, string portraitPath, bool patrolNone, bool patrolUpDown, bool patrolLeftRight,
-            bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game, string dialoguePath)
+            bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game, string dialoguePath, string keyName)
         {
             position = new Rectangle(x, y, width - 16, height - 16);
             this.name = name;
@@ -174,6 +176,12 @@ namespace GameBuild.Npc
             aColor = Color.White;
             animation = new AnimationComponent(2, 4, 50, 71, 175, Microsoft.Xna.Framework.Point.Zero);
             mob = false;
+
+            dialogue.dialogueManager.ReachedExit += ExitedDialogue;
+            if (keyName != "nokey")
+            {
+                key = new Key(Rectangle.Empty, keyName, game.keyTexture, this.mapName, game);
+            }
         }
 
         public Npc(Rectangle position, Texture2D walkSprite, Game1 game, string mapName,
@@ -198,6 +206,7 @@ namespace GameBuild.Npc
             mob = true;
             currentPatrolType = patrolType.none;
             animation = new AnimationComponent(2, 4, 50, 71, 175, Microsoft.Xna.Framework.Point.Zero);
+            key = null;
         }
 
         public bool IsOnMap()
@@ -267,7 +276,7 @@ namespace GameBuild.Npc
                     end = new Pathfinding.Point((int)targetPoint.X, (int)targetPoint.Y);
 
                 path = PathFinder.GetVectorPath(PathFinder.FindPath(map, start, end), Game1.map.tileWidth, Game1.map.tileHeight);
-                //path.Reverse<Vector2>();
+
                 hasPath = true;
                 followPath = true;
                 pathIndex = path.Length - 1;
@@ -390,7 +399,7 @@ namespace GameBuild.Npc
                         Vector2 pos = new Vector2(location.X, location.Y);
                     Vector2 direction = Game1.character.position - pos;
                     direction.Normalize();
-                    Game1.character.Push(direction, 30);
+                    Game1.character.Push(direction, 12);
                     attackTimer = ATTACKTIMER;
                     Game1.character.Disable();
                     }
@@ -874,14 +883,6 @@ namespace GameBuild.Npc
                     {
                         spriteBatch.Draw(healthTexture, healthPos, Color.White);
                     }
-                    if (path != null)
-                    {
-                        for (int i = 0; i < path.Length; i++)
-                        {
-                            spriteBatch.Draw(debugTile, new Vector2(path[i].X - 32, path[i].Y - 32), new Color(200, 200, 200, 200));
-                            spriteBatch.DrawString(Game1.debugFont, i.ToString(), new Vector2(path[i].X - 32, path[i].Y - 32), Color.Black);
-                        }
-                    }
                 }
             }
             else
@@ -919,6 +920,31 @@ namespace GameBuild.Npc
                 {
                     damageEffectList[i].Draw(spriteBatch, game);
                 }
+            }
+        }
+
+        private void ExitedDialogue(object sender, DialogueEventArgs e)
+        {
+            switch (e.exitNumber)
+            {
+                case 0:
+                    isInteracting = false;
+                    break;
+
+                case 1:
+                    attackPlayer = true;
+                    break;
+
+                case 2:
+                    Console.WriteLine("I JUST GAVE YOU A FUCKING KEY");
+                    if (key != null)
+                    {
+                        key.position = Game1.character.positionRectangle;
+                        Game1.keys.Add(key);
+                    }
+                    break;
+                default:
+                    break;
             }
         }
     }

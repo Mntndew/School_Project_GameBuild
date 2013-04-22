@@ -87,7 +87,6 @@ namespace GameBuild
         const int WALK_LEFT = 3;
         bool walking = false;
 
-
         public cCharacter(Game1 game, string gender)
         {
             health = 100;
@@ -429,11 +428,11 @@ namespace GameBuild
                 else
                     showInventory = true;
             }
-
             #region Attack
-            attackTimer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+            attackTimer -= elapsed;
             if (game.keyState.IsKeyDown(Keys.Z) && game.oldState.IsKeyUp(Keys.Z) && !dead && attackTimer <= 0)
             {
+                Console.WriteLine("here");
                 damage = game.damageObject.dealDamage(5, 30);
                 attackTimer = ATTACKTIMER;
                 foreach (Npc.Npc npc in game.activeNpcs)
@@ -504,6 +503,7 @@ namespace GameBuild
                     inCombat = false;
                 }
             }
+
             for (int i = 0; i < game.Mobs.Count; i++)
             {
                 if (game.Mobs[i].health > 0 && game.Mobs[i].IsOnMap() && game.Mobs[i].vulnerable)
@@ -537,7 +537,6 @@ namespace GameBuild
                 }
             }
             #endregion
-
         }
 
         public void DeathEffect(Game1 game)
@@ -581,8 +580,6 @@ namespace GameBuild
         {
             Rectangle shadowPos = new Rectangle(positionRectangle.X + 8, positionRectangle.Bottom - shadowBlob.Height / 2, shadowBlob.Width, shadowBlob.Height);
             spriteBatch.Draw(shadowBlob, shadowPos, Color.White);
-            spriteBatch.Draw(debugTexture, attackRectangle, new Color(100, 100, 100, 100));
-            //spriteBatch.Draw(debugTexture, interactRect, new Color(100, 100, 100, 100));
             spriteBatch.Draw(spriteWalkSheet, positionRectangle, animation.GetFrame(), Color.White);
         }
 
@@ -651,7 +648,6 @@ namespace GameBuild
             rightSide = new Rectangle(positionRectangle.Right, positionRectangle.Y + 6, 1, positionRectangle.Height - 12);
             upSide = new Rectangle(positionRectangle.X + 6, positionRectangle.Y, positionRectangle.Width - 12, 1);
             downSide = new Rectangle(positionRectangle.X + 6, positionRectangle.Bottom, positionRectangle.Width - 12, 1);
-            Console.WriteLine("X: {0}, Y: {1}", velocity.X, velocity.Y);
 
             interactRect.X = positionRectangle.X - (positionRectangle.Width / 2);
             interactRect.Y = positionRectangle.Y - (positionRectangle.Height / 2);

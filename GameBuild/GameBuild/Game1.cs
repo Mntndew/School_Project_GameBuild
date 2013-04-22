@@ -66,6 +66,7 @@ namespace GameBuild
         //these are for choosing a gender.
         Rectangle femalePos;
 
+        public Texture2D keyTexture;
         public Texture2D textBox;
         Texture2D debugTile;
         public Texture2D screenTexture;
@@ -77,7 +78,7 @@ namespace GameBuild
         public static ParticleSystem particleSystem;
         public static TileMap map;
         public static Camera2d camera;
-        public List<Key> keys = new List<Key>();
+        public static List<Key> keys = new List<Key>();
         public static cCharacter character;
         public Damage damageObject;
         public static Game.WarpManager warpManager = new Game.WarpManager();
@@ -142,7 +143,7 @@ namespace GameBuild
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             collisionTex = Content.Load<Texture2D>(@"Game\blackness");
-            map = Content.Load<H_Map.TileMap>(@"Map\Map1_A");
+            map = Content.Load<H_Map.TileMap>(@"Map\Map4_C");
             map.tileset = Content.Load<Texture2D>(@"Game\tileset");
             textBox = Content.Load<Texture2D>(@"Game\textBox");
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
@@ -152,6 +153,7 @@ namespace GameBuild
             male = Content.Load<Texture2D>(@"Player\Male");
             female = Content.Load<Texture2D>(@"Game\blackness");
             warpManager.UpdateList(map.mapName);
+            keyTexture = Content.Load<Texture2D>(@"Game\key");
             LoadKeys();
             LoadNpcs();
             debugFont = Content.Load<SpriteFont>(@"Game\SpriteFont1");
@@ -195,7 +197,7 @@ namespace GameBuild
                 Npc.Npc npc = new Npc.Npc(reader.ReadLine(), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
                 reader.ReadLine(), reader.ReadLine(), reader.ReadLine(), reader.ReadLine(), reader.ReadLine(), reader.ReadLine(),
                 bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
-                int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), this, reader.ReadLine());
+                int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), this, reader.ReadLine(), reader.ReadLine());
                 Npcs.Add(npc);
             }
         }
@@ -243,6 +245,7 @@ namespace GameBuild
             {
                 ChooseGender();
             }
+
             oldState = keyState;
             keyState = Keyboard.GetState();
             if (keyState.IsKeyDown(Keys.Escape) && oldState.IsKeyUp(Keys.Escape))
@@ -293,7 +296,7 @@ namespace GameBuild
                             Npcs[i].Update(character, map, this, gameTime);
                         }
                         Npcs[i].UpdateDialogue(this);
-                        if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && Npcs[i].canInteract && !Npcs[i].mob)
+                        if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && Npcs[i].canInteract && !Npcs[i].mob && character.inCombat == false)
                         {
                             if (Npcs[i].isInteracting)
                             {
@@ -311,6 +314,7 @@ namespace GameBuild
                         }
                     }
                 }
+
                 for (int i = 0; i < Mobs.Count; i++)
                 {
                     Mobs[i].Update(character, map, this, gameTime);

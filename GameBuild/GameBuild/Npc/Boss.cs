@@ -29,8 +29,8 @@ namespace GameBuild.Npc
         float beamAttackTimer = 0.08f;
         const float BEAMATTACKTIMER = 0.08f;
         string map;
-        public int health = 250;
-        public int maxHealth = 250;
+        public int health = 400;
+        public int maxHealth = 400;
         float healthBarWidth;
         float healthPct;
         int beamDamage;
@@ -73,15 +73,11 @@ namespace GameBuild.Npc
 
             robot.position.X = position.X - 64;
             robot.position.Y = position.Y;
-
-            if (currentPhase != phase.sleep)
-            {
                 phaseTimer += elapsed;
-                if (phaseTimer >= 7)
+                if (phaseTimer >= 5)
                 {
                     SwitchPhase();
                 }
-            }
 
             healthPct = ((float)health / (float)maxHealth);
             healthBarWidth = (healthTexture.Width * 25) * healthPct;
@@ -109,8 +105,8 @@ namespace GameBuild.Npc
                             beamDamage = game.damageObject.dealDamage(1, 5);
                             damageEffectList.Add(new DamageEffect(beamDamage, game, new Vector2(Game1.character.positionRectangle.X, Game1.character.positionRectangle.Y), new Color(255, 0, 0, 255), "npc"));
                             Game1.character.health -= beamDamage;
-                            
                             Game1.character.Hit();
+                            Game1.character.Push(projectiles[i].velocity, 1f);
                             beamAttackTimer = BEAMATTACKTIMER;
                         }
                     }
@@ -230,7 +226,6 @@ namespace GameBuild.Npc
             {
                 sleepTimer = SLEEPTIMER;
                 currentPhase = phase.beam;
-                phaseTimer = 0;
             }
         }
 
@@ -243,7 +238,7 @@ namespace GameBuild.Npc
         {
             for (int i = 0; i < 10; i++)
             {
-                    mobs.Add(new Npc(new Rectangle(position.X + i, position.Y - 48 + i, 30, 25), game.Content.Load<Texture2D>(@"Npc\bot"), game, map, 1, true, 5, 1, 3, 5, true));
+                mobs.Add(new Npc(new Rectangle(position.X + i, position.Y - 48 + i, 30, 25), game.Content.Load<Texture2D>(@"Npc\bot"), game, map, 1, true, 5, 1, 3, 5, true));
             }
             for (int i = 0; i < mobs.Count; i++)
             {
@@ -277,7 +272,7 @@ namespace GameBuild.Npc
                 currentPhase = phase.beam;
             }
 
-            if (phaseTimer >= 7)
+            if (phaseTimer >= 5)
             {
                 phaseTimer = 0;
                 currentPhase = phase.beam;

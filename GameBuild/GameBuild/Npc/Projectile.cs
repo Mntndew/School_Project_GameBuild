@@ -12,7 +12,7 @@ namespace GameBuild.Npc
         public Vector2 position;
         public Rectangle rectangle;
         public Texture2D texture;
-        Vector2 velocity;
+        public Vector2 velocity;
         public bool dead;
         double angle;
         float speed = 7;
