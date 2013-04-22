@@ -76,7 +76,7 @@ namespace GameBuild
 
         public static ParticleSystem particleSystem;
         public static TileMap map;
-        Camera2d camera;
+        public static Camera2d camera;
         public List<Key> keys = new List<Key>();
         public static cCharacter character;
         public Damage damageObject;
@@ -142,7 +142,7 @@ namespace GameBuild
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             collisionTex = Content.Load<Texture2D>(@"Game\blackness");
-            map = Content.Load<H_Map.TileMap>(@"Map\Map4_C");
+            map = Content.Load<H_Map.TileMap>(@"Map\Map1_A");
             map.tileset = Content.Load<Texture2D>(@"Game\tileset");
             textBox = Content.Load<Texture2D>(@"Game\textBox");
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
@@ -205,7 +205,7 @@ namespace GameBuild
             activeNpcs.Clear();
             for (int i = 0; i < Npcs.Count; i++)
             {
-                if (Npcs[i].IsOnMap())
+                if (Npcs[i].IsOnMap() && !Npcs[i].bossMob && !Npcs[i].mob)
                 {
                     activeNpcs.Add(Npcs[i]);
                     Npcs[i].hasBeenAdded = true;
@@ -269,10 +269,6 @@ namespace GameBuild
                 UpdateActiveNpcs();
 
                 camera.Pos = character.position;
-
-                oldState = keyState;
-                keyState = Keyboard.GetState();
-
 
                 if (currentGameState == GameState.PLAY)
                 {

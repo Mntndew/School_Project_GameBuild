@@ -7,14 +7,14 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace GameBuild
 {
-    class Camera2d
+    public class Camera2d
     {
         private const float zoomUpperLimit = 1.5f;
         private const float zoomLowerLimit = .1f;
 
         private float zoom;
         private Matrix transform;
-        private Vector2 pos;
+        public Vector2 pos;
         private float rotation;
         private int viewportWidth;
         private int viewportHeight;
