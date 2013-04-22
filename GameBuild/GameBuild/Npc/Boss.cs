@@ -243,7 +243,7 @@ namespace GameBuild.Npc
         {
             for (int i = 0; i < 10; i++)
             {
-                    mobs.Add(new Npc(new Rectangle(position.X + i, position.Y - 48 + i, 48, 48), game.Content.Load<Texture2D>(@"Game\blackness"), game, map, 1, true, 5, 1, 3, 5, true));
+                    mobs.Add(new Npc(new Rectangle(position.X + i, position.Y - 48 + i, 30, 25), game.Content.Load<Texture2D>(@"Npc\bot"), game, map, 1, true, 5, 1, 3, 5, true));
             }
             for (int i = 0; i < mobs.Count; i++)
             {
@@ -397,7 +397,8 @@ namespace GameBuild.Npc
             {
                 //if (mobs[i].health > 0)
                 {
-                    mobs[i].Draw(spriteBatch);
+                    //mobs[i].Draw(spriteBatch);
+                    spriteBatch.Draw(mobs[i].walkSprite, mobs[i].position, null, Color.White, (float)angle, new Vector2(15, 12), SpriteEffects.None, 0);
                 }
             }
         }

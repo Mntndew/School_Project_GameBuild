@@ -271,6 +271,15 @@
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\robot.xnb</Output>
       <Time>2013-04-21T02:18:31.8514884+02:00</Time>
     </Item>
+    <Item>
+      <Source>Npc\bot.png</Source>
+      <Name>Npc\bot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\bot.xnb</Output>
+      <Time>2013-04-22T12:48:01.9125118+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}</ContentProjectGUID>

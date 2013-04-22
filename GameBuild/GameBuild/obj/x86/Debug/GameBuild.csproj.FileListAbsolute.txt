@@ -411,3 +411,4 @@ C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild
 C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Headmaster.txt
 C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\robot.xnb
 C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Nurse.txt
+C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\bot.xnb
