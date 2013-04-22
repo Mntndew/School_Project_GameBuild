@@ -503,6 +503,7 @@ namespace GameBuild
                     inCombat = false;
                 }
             }
+
             for (int i = 0; i < game.Mobs.Count; i++)
             {
                 if (game.Mobs[i].health > 0 && game.Mobs[i].IsOnMap() && game.Mobs[i].vulnerable)

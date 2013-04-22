@@ -8,6 +8,7 @@ namespace GameBuild
 {
 
     public delegate void ExitEventHandler(object sender, DialogueEventArgs e);
+
     /// <summary>
     /// Manages all lines of a dialogue
     /// Contains methods to load and send strings to the game
@@ -61,7 +62,7 @@ namespace GameBuild
 
                         //get the line
                         string l = args[2];
-                        l.Replace('|', '\n');
+                        l = l.Replace('|', '\n');
                         items[index].Add(new DialogueItem(l, nextIndex, exitNumber));
                     }
                 }

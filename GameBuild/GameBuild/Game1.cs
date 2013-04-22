@@ -66,6 +66,7 @@ namespace GameBuild
         //these are for choosing a gender.
         Rectangle femalePos;
 
+        public Texture2D keyTexture;
         public Texture2D textBox;
         Texture2D debugTile;
         public Texture2D screenTexture;
@@ -77,7 +78,7 @@ namespace GameBuild
         public static ParticleSystem particleSystem;
         public static TileMap map;
         Camera2d camera;
-        public List<Key> keys = new List<Key>();
+        public static List<Key> keys = new List<Key>();
         public static cCharacter character;
         public Damage damageObject;
         public static Game.WarpManager warpManager = new Game.WarpManager();
@@ -152,6 +153,7 @@ namespace GameBuild
             male = Content.Load<Texture2D>(@"Player\Male");
             female = Content.Load<Texture2D>(@"Game\blackness");
             warpManager.UpdateList(map.mapName);
+            keyTexture = Content.Load<Texture2D>(@"Game\key");
             LoadKeys();
             LoadNpcs();
             debugFont = Content.Load<SpriteFont>(@"Game\SpriteFont1");
@@ -195,7 +197,7 @@ namespace GameBuild
                 Npc.Npc npc = new Npc.Npc(reader.ReadLine(), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
                 reader.ReadLine(), reader.ReadLine(), reader.ReadLine(), reader.ReadLine(), reader.ReadLine(), reader.ReadLine(),
                 bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
-                int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), this, reader.ReadLine());
+                int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), this, reader.ReadLine(), reader.ReadLine());
                 Npcs.Add(npc);
             }
         }
@@ -294,7 +296,7 @@ namespace GameBuild
                             Npcs[i].Update(character, map, this, gameTime);
                         }
                         Npcs[i].UpdateDialogue(this);
-                        if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && Npcs[i].canInteract && !Npcs[i].mob)
+                        if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && Npcs[i].canInteract && !Npcs[i].mob && character.inCombat == false)
                         {
                             if (Npcs[i].isInteracting)
                             {
