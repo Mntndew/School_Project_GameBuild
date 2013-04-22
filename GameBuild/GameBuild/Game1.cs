@@ -142,7 +142,7 @@ namespace GameBuild
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             collisionTex = Content.Load<Texture2D>(@"Game\blackness");
-            map = Content.Load<H_Map.TileMap>(@"Map\Map4_C");
+            map = Content.Load<H_Map.TileMap>(@"Map\Map1_A");
             map.tileset = Content.Load<Texture2D>(@"Game\tileset");
             textBox = Content.Load<Texture2D>(@"Game\textBox");
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
@@ -243,6 +243,7 @@ namespace GameBuild
             {
                 ChooseGender();
             }
+
             oldState = keyState;
             keyState = Keyboard.GetState();
             if (keyState.IsKeyDown(Keys.Escape) && oldState.IsKeyUp(Keys.Escape))
@@ -269,10 +270,6 @@ namespace GameBuild
                 UpdateActiveNpcs();
 
                 camera.Pos = character.position;
-
-                oldState = keyState;
-                keyState = Keyboard.GetState();
-
 
                 if (currentGameState == GameState.PLAY)
                 {
@@ -315,6 +312,7 @@ namespace GameBuild
                         }
                     }
                 }
+
                 for (int i = 0; i < Mobs.Count; i++)
                 {
                     Mobs[i].Update(character, map, this, gameTime);

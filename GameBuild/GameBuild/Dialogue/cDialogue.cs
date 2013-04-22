@@ -30,6 +30,8 @@ namespace GameBuild
 
         DialogueManager dialogueManager;
 
+         
+
         public cDialogue(Texture2D portrait, Texture2D textBox, Game1 game, SpriteFont font, string dialogueFileName, string name)
         {
             this.portrait = portrait;

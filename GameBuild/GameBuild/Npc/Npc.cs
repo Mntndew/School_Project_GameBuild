@@ -198,6 +198,7 @@ namespace GameBuild.Npc
             mob = true;
             currentPatrolType = patrolType.none;
             animation = new AnimationComponent(2, 4, 50, 71, 175, Microsoft.Xna.Framework.Point.Zero);
+            Console.WriteLine(mapName);
         }
 
         public bool IsOnMap()
@@ -267,7 +268,7 @@ namespace GameBuild.Npc
                     end = new Pathfinding.Point((int)targetPoint.X, (int)targetPoint.Y);
 
                 path = PathFinder.GetVectorPath(PathFinder.FindPath(map, start, end), Game1.map.tileWidth, Game1.map.tileHeight);
-                //path.Reverse<Vector2>();
+
                 hasPath = true;
                 followPath = true;
                 pathIndex = path.Length - 1;
@@ -873,14 +874,6 @@ namespace GameBuild.Npc
                     if (healthTexture != null && health > 0)
                     {
                         spriteBatch.Draw(healthTexture, healthPos, Color.White);
-                    }
-                    if (path != null)
-                    {
-                        for (int i = 0; i < path.Length; i++)
-                        {
-                            spriteBatch.Draw(debugTile, new Vector2(path[i].X - 32, path[i].Y - 32), new Color(200, 200, 200, 200));
-                            spriteBatch.DrawString(Game1.debugFont, i.ToString(), new Vector2(path[i].X - 32, path[i].Y - 32), Color.Black);
-                        }
                     }
                 }
             }
