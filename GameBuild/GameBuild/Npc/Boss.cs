@@ -101,13 +101,13 @@ namespace GameBuild.Npc
                 if (!projectiles[i].dead)
                 {
                     projectiles[i].Update(gameTime);
-                    if (Game1.character.position.Intersects(projectiles[i].rectangle))
+                    if (Game1.character.positionRectangle.Intersects(projectiles[i].rectangle))
                     {
                         Game1.character.inCombat = true;
                         if (beamAttackTimer <= 0 && projectiles[i].color.A == 255)
                         {
                             beamDamage = game.damageObject.dealDamage(1, 5);
-                            damageEffectList.Add(new DamageEffect(beamDamage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(255, 0, 0, 255), "npc"));
+                            damageEffectList.Add(new DamageEffect(beamDamage, game, new Vector2(Game1.character.positionRectangle.X, Game1.character.positionRectangle.Y), new Color(255, 0, 0, 255), "npc"));
                             Game1.character.health -= beamDamage;
                             
                             Game1.character.Hit();
@@ -123,7 +123,7 @@ namespace GameBuild.Npc
 
             for (int i = 0; i < mobs.Count; i++)
             {
-                if (mobs[i].position.Intersects(Game1.character.position))
+                if (mobs[i].position.Intersects(Game1.character.positionRectangle))
                 {
                     Game1.character.speed = 2;
                 }
@@ -206,7 +206,7 @@ namespace GameBuild.Npc
 
         public bool IsOnMap()
         {
-            if (Game1.map.mapName == map)
+            if (Game1.map.mapName.Remove(Game1.map.mapName.Length  - 1) == map)
             {
                 return true;
             }
@@ -266,11 +266,11 @@ namespace GameBuild.Npc
         private void Charge(Game1 game, GameTime gameTime)
         {
             Game1.character.targetSpeed = 5.5f;
-            GoTo(new Vector2((Game1.character.position.X + (Game1.character.position.Width / 2)) / Game1.map.tileWidth, (Game1.character.position.Y + (Game1.character.position.Height / 2)) / Game1.map.tileHeight), false, gameTime);
+            GoTo(new Vector2((Game1.character.positionRectangle.X + (Game1.character.positionRectangle.Width / 2)) / Game1.map.tileWidth, (Game1.character.positionRectangle.Y + (Game1.character.positionRectangle.Height / 2)) / Game1.map.tileHeight), false, gameTime);
             if (position.Intersects(Game1.character.attackRectangle))
             {
                 damage = game.damageObject.dealDamage(10, 27);
-                damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(235, 10, 10, 255), "npc"));
+                damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.positionRectangle.X, Game1.character.positionRectangle.Y), new Color(235, 10, 10, 255), "npc"));
                 Game1.character.health -= damage;
                 Game1.character.Hit();
                 phaseTimer = 0;
@@ -331,7 +331,7 @@ namespace GameBuild.Npc
 
         private void FollowPath(GameTime gameTime, bool isWaypoint)
         {
-            if ((path.Length == 1 && path[0].X == -32 && path[0].Y == -32) || position.Intersects(Game1.character.position))
+            if ((path.Length == 1 && path[0].X == -32 && path[0].Y == -32) || position.Intersects(Game1.character.positionRectangle))
             {
                 followPath = false;
                 hasPath = false;

@@ -15,13 +15,15 @@ namespace GameBuild
     public class cCharacter
     {
         public bool up = false, right = false, down = true, left = false;
-        public bool faceUp = false, faceDown = false, faceLeft = false, faceRight = false;
         public bool attacking = false;
         public bool inCombat;
         public bool showInventory;
         public bool dead;
         public bool cutscene;
         bool isHit = false;
+        bool disabled = false;
+        const float DISABLEDTIMER = 600f;
+        float disabledTimer = 600f;
 
         public string gender;
 
@@ -32,12 +34,17 @@ namespace GameBuild
 
         public float regenAmount;
 
-        public Rectangle position;
+        //Movement/collision vectors and rectangles
+        public Rectangle positionRectangle;
         public Rectangle interactRect; //for npcs and stuff
-        Rectangle colRect;
-        public Vector2 vectorPos; //for camera
+        Rectangle leftSide, rightSide, upSide, downSide;
+        public Vector2 position = Vector2.Zero;
+        Vector2 acceleration = Vector2.Zero;
+        Vector2 velocity = Vector2.Zero;
+
         public Rectangle attackRectangle;
         public Rectangle warpRectangle;
+
         Rectangle healthPos;
         public Vector2 bossTarget;//when the boss shoots.. follows the player with less speed...
 
@@ -58,10 +65,10 @@ namespace GameBuild
         float healthBarWidth;
         float healthPct;
         public float maxHealth;
-        float regenTimer = 1;
-        const float REGENTIMER = 1;
-        float bleedTimer = 3;
-        const float BLEEDTIMER = 3;
+        float regenTimer = 1000;
+        const float REGENTIMER = 1000;
+        float bleedTimer = 3000;
+        const float BLEEDTIMER = 3000;
         const float ATTACKTIMER = 500f; //in total milliseconds
         float attackTimer = 500f;
         public float targetSpeed = 4;//for boss target
@@ -80,6 +87,7 @@ namespace GameBuild
         const int WALK_LEFT = 3;
         bool walking = false;
 
+
         public cCharacter(Game1 game, string gender)
         {
             health = 100;
@@ -97,10 +105,11 @@ namespace GameBuild
             #endregion
 
             #region Rectangles and Vectors
-            position = new Rectangle(640, 640, playerWidth, playerWidth);
-            interactRect = new Rectangle(position.X - (position.Width / 2), position.Y - (position.Height / 2), position.Width * 2, position.Height * 2);
-            vectorPos = new Vector2(position.X, position.Y);
-            colRect = new Rectangle();
+            positionRectangle = new Rectangle(640, 640, playerWidth, playerHeight);
+            position.X = positionRectangle.X;
+            position.Y = positionRectangle.Y;
+            interactRect = new Rectangle(positionRectangle.X - (positionRectangle.Width / 2), positionRectangle.Y - (positionRectangle.Height / 2), positionRectangle.Width * 2, positionRectangle.Height * 2);
+            
             attackRectangle = new Rectangle();
             warpRectangle = new Rectangle();
             healthPos = new Rectangle();
@@ -112,7 +121,7 @@ namespace GameBuild
             animation = new AnimationComponent(3, 4, 72, 96, 100, Point.Zero);
             emitter = new ParticleSystemEmitter(game);
             Game1.particleSystem.emitters.Add(emitter);
-            bossTarget = new Vector2(position.X, position.Y);
+            bossTarget = new Vector2(positionRectangle.X, positionRectangle.Y);
         }
 
         public void Update(Game1 game, H_Map.TileMap tiles, GameTime gameTime, KeyboardState oldState, GraphicsDevice graphicsDevice)
@@ -120,8 +129,7 @@ namespace GameBuild
             #region Things to update every frame, positions and stuff
             healthPct = (health / maxHealth);
             healthBarWidth = (float)healthTexture.Width * healthPct;
-            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
-
+            float elapsed = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             if (showInventory)
             {
                 animation.PauseAnimation();
@@ -129,19 +137,19 @@ namespace GameBuild
 
             //if (Game1.testBoss.currentPhase != Npc.Boss.phase.sleep)
             {
-                if (position.X + (position.Width / 2) - 16 > bossTarget.X)
+                if (positionRectangle.X + (positionRectangle.Width / 2) - 16 > bossTarget.X)
                 {
                     bossTarget.X += targetSpeed / 1.5f;
                 }
-                if (position.X + (position.Width / 2) - 16 < bossTarget.X)
+                if (positionRectangle.X + (positionRectangle.Width / 2) - 16 < bossTarget.X)
                 {
                     bossTarget.X -= targetSpeed / 1.5f;
                 }
-                if (position.Y + (position.Width / 2) - 16 > bossTarget.Y)
+                if (positionRectangle.Y + (positionRectangle.Width / 2) - 16 > bossTarget.Y)
                 {
                     bossTarget.Y += targetSpeed / 1.5f;
                 }
-                if (position.Y + (position.Width / 2) - 16 < bossTarget.Y)
+                if (positionRectangle.Y + (positionRectangle.Width / 2) - 16 < bossTarget.Y)
                 {
                     bossTarget.Y -= targetSpeed / 1.5f;
                 }
@@ -181,231 +189,234 @@ namespace GameBuild
                         regenAmount = maxHealth - health;
 
                     health += regenAmount;
-                    damageEffectList.Add(new DamageEffect((int)regenAmount, game, new Vector2(position.X, position.Y - 16), new Color(0, 255, 0, 255), "regen"));
+                    damageEffectList.Add(new DamageEffect((int)regenAmount, game, new Vector2(positionRectangle.X, positionRectangle.Y - 16), new Color(0, 255, 0, 255), "regen"));
                     Regen((int)regenAmount);
                 }
 
                 regenTimer = REGENTIMER;
             }
             tile = tiles;
-            interactRect.X = position.X - (position.Width / 2);
-            interactRect.Y = position.Y - (position.Height / 2);
-            Rectangle location = new Rectangle(position.X, position.Y, position.Width, position.Height);
-            Rectangle corner1 = new Rectangle(colRect.X, colRect.Y, colRect.Width, colRect.Height);
-            Rectangle corner2 = new Rectangle(colRect.X, colRect.Y, colRect.Width, colRect.Height);
-            Rectangle halfcorner1 = new Rectangle(colRect.X, colRect.Y, colRect.Width, colRect.Height);
-            Rectangle halfcorner2 = new Rectangle(colRect.X, colRect.Y + halfcorner1.Height, colRect.Width, colRect.Height);
-            healthPos.X = position.X;
-            healthPos.Y = position.Y - 10;
-            healthPos.Width = (int)healthBarWidth;
-            healthPos.Height = healthTexture.Height;
-            vectorPos.X = position.X;
-            vectorPos.Y = position.Y;
+
             if (left)
             {
-                attackRectangle.Width = position.Width * 2;
+                attackRectangle.Width = positionRectangle.Width * 2;
                 attackRectangle.Height = 54;
-                attackRectangle.X = position.X - (attackRectangle.Width / 2) + 12;
-                attackRectangle.Y = position.Y + 5;
+                attackRectangle.X = positionRectangle.X - (attackRectangle.Width / 2) + 12;
+                attackRectangle.Y = positionRectangle.Y + 5;
 
-                warpRectangle.Width = position.Width / 2;
+                warpRectangle.Width = positionRectangle.Width / 2;
                 warpRectangle.Height = 5;
-                warpRectangle.X = position.X - warpRectangle.Width;
-                warpRectangle.Y = position.Y + (position.Height / 2) + 2;
+                warpRectangle.X = positionRectangle.X - warpRectangle.Width;
+                warpRectangle.Y = positionRectangle.Y + (positionRectangle.Height / 2) + 2;
             }
             if (right)
             {
-                attackRectangle.Width = position.Width * 2;
+                attackRectangle.Width = positionRectangle.Width * 2;
                 attackRectangle.Height = 54;
-                attackRectangle.X = position.X;
-                attackRectangle.Y = position.Y + 5;
+                attackRectangle.X = positionRectangle.X;
+                attackRectangle.Y = positionRectangle.Y + 5;
 
-                warpRectangle.Width = position.Width / 2;
+                warpRectangle.Width = positionRectangle.Width / 2;
                 warpRectangle.Height = 5;
-                warpRectangle.X = position.X + position.Width;
-                warpRectangle.Y = position.Y + (position.Height / 2) + 2;
+                warpRectangle.X = positionRectangle.X + positionRectangle.Width;
+                warpRectangle.Y = positionRectangle.Y + (positionRectangle.Height / 2) + 2;
             }
             if (up)
             {
                 attackRectangle.Width = 54;
-                attackRectangle.Height = position.Height * 2;
-                attackRectangle.X = position.X;
-                attackRectangle.Y = position.Y - (position.Height / 2);
+                attackRectangle.Height = positionRectangle.Height * 2;
+                attackRectangle.X = positionRectangle.X;
+                attackRectangle.Y = positionRectangle.Y - (positionRectangle.Height / 2);
 
                 warpRectangle.Width = 5;
-                warpRectangle.Height = position.Height / 2;
-                warpRectangle.X = position.X + (position.Width / 2) + 2;
-                warpRectangle.Y = position.Y - warpRectangle.Height;
+                warpRectangle.Height = positionRectangle.Height / 2;
+                warpRectangle.X = positionRectangle.X + (positionRectangle.Width / 2) + 2;
+                warpRectangle.Y = positionRectangle.Y - warpRectangle.Height;
             }
             if (down)
             {
                 attackRectangle.Width = 54;
-                attackRectangle.Height = position.Height * 2;
-                attackRectangle.X = position.X;
-                attackRectangle.Y = position.Y;
+                attackRectangle.Height = positionRectangle.Height * 2;
+                attackRectangle.X = positionRectangle.X;
+                attackRectangle.Y = positionRectangle.Y;
 
                 warpRectangle.Width = 5;
-                warpRectangle.Height = position.Height / 2;
-                warpRectangle.X = position.X + (position.Width / 2);
-                warpRectangle.Y = position.Y + position.Height;
+                warpRectangle.Height = positionRectangle.Height / 2;
+                warpRectangle.X = positionRectangle.X + (positionRectangle.Width / 2);
+                warpRectangle.Y = positionRectangle.Y + positionRectangle.Height;
             }
 
             animation.UpdateAnimation(gameTime);
             #endregion
 
-            #region walk
-            if (up)
+            if (disabled)
             {
-                faceUp = true;
-                faceRight = false;
-                faceLeft = false;
-                faceDown = false;
-            }
-            if (down)
-            {
-                faceDown = true;
-                faceRight = false;
-                faceLeft = false;
-                faceUp = false;
-            }
-            if (left)
-            {
-                faceLeft = true;
-                faceRight = false;
-                faceUp = false;
-                faceDown = false;
-            }
-            if (right)
-            {
-                faceRight = true;
-                faceUp = false;
-                faceLeft = false;
-                faceDown = false;
+                disabledTimer -= elapsed;
+                if (disabledTimer <= 0)
+                {
+                    disabled = false;
+                    disabledTimer = DISABLEDTIMER;
+                }
             }
 
+            #region walk
+            
             if (!attacking && !showInventory && !dead)// && cWarp.canWalk
             {
                 walking = false;
-                if (game.keyState.IsKeyDown(Keys.Up))
+                if (!disabled)
                 {
-                    //effects
-                    if (Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 4
-                        || Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 8)
+                    if (game.keyState.IsKeyDown(Keys.Up))
                     {
-                        Splash();
-                    }
-                    else
-                        Walk();
+                        //effects
+                        if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
+                            || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+                        {
+                            Splash();
+                        }
+                        else
+                            Walk();
 
-                    up = true;
-                    down = false;
-                    left = false;
-                    right = false;
-                    location.Y -= speed;
-                    corner1 = tile.GetTileRectangleFromPosition(location.X, location.Y + (position.Height / 2));
-                    corner2 = tile.GetTileRectangleFromPosition(location.X + playerWidth, location.Y + (position.Height / 2));
-                    halfcorner1 = tile.GetTileRectangleFromPosition(location.X, location.Y);
-                    halfcorner2 = tile.GetTileRectangleFromPosition(location.X, location.Y);
-                    if (!animation.IsAnimationPlaying(WALK_UP))
-                    {
-                        animation.LoopAnimation(WALK_UP);
-                    }
-                    walking = true;
-                }
-                else if (game.keyState.IsKeyDown(Keys.Down))
-                {
-                    //effects
-                    if (Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 4
-                        || Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 8)
-                    {
-                        Splash();
-                    }
-                    else
-                        Walk();
+                        up = true;
+                        down = false;
+                        left = false;
+                        right = false;
 
-                    down = true;
-                    up = false;
-                    right = false;
-                    left = false;
-                    location.Y += speed;
-                    corner1 = tile.GetTileRectangleFromPosition(location.X, location.Y + playerHeight);
-                    corner2 = tile.GetTileRectangleFromPosition(location.X + playerWidth, location.Y + playerHeight);
-                    if (!animation.IsAnimationPlaying(WALK_DOWN))
-                    {
-                        animation.LoopAnimation(WALK_DOWN);
-                    }
-                    walking = true;
-                }
+                        ApplyForce(new Vector2(0, -2));
 
-                if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
-                {
-                    position.Y = location.Y;
-                    colRect = position;
-                }
-
-                if (game.keyState.IsKeyDown(Keys.Right))
-                {
-                    //effects
-                    if (Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 4
-                        || Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 8)
-                    {
-                        Splash();
+                        if (!animation.IsAnimationPlaying(WALK_UP))
+                        {
+                            animation.LoopAnimation(WALK_UP);
+                        }
+                        walking = true;
                     }
-                    else
-                        Walk();
 
-                    right = true;
-                    left = false;
-                    up = false;
-                    down = false;
-                    location.Y = position.Y;
-                    location.X += speed;
-                    corner1 = tile.GetTileRectangleFromPosition(location.X + playerWidth, location.Y + (position.Height / 2));
-                    corner2 = tile.GetTileRectangleFromPosition(location.X + playerWidth, location.Y + playerHeight);
-                    if (!animation.IsAnimationPlaying(WALK_RIGHT))
+                    else if (game.keyState.IsKeyDown(Keys.Down))
                     {
-                        animation.LoopAnimation(WALK_RIGHT);
-                    }
-                    walking = true;
-                }
-                else if (game.keyState.IsKeyDown(Keys.Left))
-                {
-                    //effects
-                    if (Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 4
-                        || Game1.map.backgroundLayer[position.X / Game1.map.tileWidth, position.Y / Game1.map.tileHeight].tileID == 8)
-                    {
-                        Splash();
-                    }
-                    else
-                        Walk();
+                        //effects
+                        if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
+                            || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+                        {
+                            Splash();
+                        }
+                        else
+                            Walk();
 
-                    left = true;
-                    right = false;
-                    up = false;
-                    down = false;
-                    location.X -= speed;
-                    location.Y = position.Y;
-                    corner1 = tile.GetTileRectangleFromPosition(location.X, location.Y + (position.Height / 2));
-                    corner2 = tile.GetTileRectangleFromPosition(location.X, location.Y + playerHeight);
-                    if (!animation.IsAnimationPlaying(WALK_LEFT))
-                    {
-                        animation.LoopAnimation(WALK_LEFT);
-                    }
-                    walking = true;
-                }
+                        down = true;
+                        up = false;
+                        right = false;
+                        left = false;
 
-                if (!walking)
-                {
-                    animation.PauseAnimation();
+                        ApplyForce(new Vector2(0, 2));
+
+                        if (!animation.IsAnimationPlaying(WALK_DOWN))
+                        {
+                            animation.LoopAnimation(WALK_DOWN);
+                        }
+                        walking = true;
+                    }
+
+                    if (game.keyState.IsKeyDown(Keys.Right))
+                    {
+                        //effects
+                        if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
+                            || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+                        {
+                            Splash();
+                        }
+                        else
+                            Walk();
+
+                        right = true;
+                        left = false;
+                        up = false;
+                        down = false;
+
+                        ApplyForce(new Vector2(2, 0));
+
+                        if (!animation.IsAnimationPlaying(WALK_RIGHT))
+                        {
+                            animation.LoopAnimation(WALK_RIGHT);
+                        }
+                        walking = true;
+                    }
+
+                    else if (game.keyState.IsKeyDown(Keys.Left))
+                    {
+                        //effects
+                        if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
+                            || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+                        {
+                            Splash();
+                        }
+                        else
+                            Walk();
+
+                        left = true;
+                        right = false;
+                        up = false;
+                        down = false;
+
+                        ApplyForce(new Vector2(-2, 0));
+
+                        if (!animation.IsAnimationPlaying(WALK_LEFT))
+                        {
+                            animation.LoopAnimation(WALK_LEFT);
+                        }
+                        walking = true;
+                    }
+                    if (!walking)
+                    {
+                        animation.PauseAnimation();
+                    }
                 }
 
-                if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
+                CalculateFriction();
+                SetPosition();
+
+                if (leftSide.Intersects(tile.GetTileRectangleFromPosition(leftSide.X, leftSide.Y)) && !tile.CheckCellPositionPassable(new Vector2(leftSide.X, leftSide.Y)))
                 {
-                    position.X = location.X;
-                    colRect = position;
+                    position.X = tile.GetTileRectangleFromPosition(leftSide.X, leftSide.Y).Right;
+                    velocity.X = 0;
+                }
+                if (rightSide.Intersects(tile.GetTileRectangleFromPosition(rightSide.X, rightSide.Y)) && !tile.CheckCellPositionPassable(new Vector2(rightSide.X, rightSide.Y)))
+                {
+                    position.X = tile.GetTileRectangleFromPosition(rightSide.X, rightSide.Y).Left - positionRectangle.Width;
+                    velocity.X = 0;
+                }
+                if (upSide.Intersects(tile.GetTileRectangleFromPosition(upSide.X, upSide.Y)) && !tile.CheckCellPositionPassable(new Vector2(upSide.X, upSide.Y)))
+                {
+                    position.Y = tile.GetTileRectangleFromPosition(upSide.X, upSide.Y).Bottom;
+                    velocity.Y = 0;
+                }
+                if (downSide.Intersects(tile.GetTileRectangleFromPosition(downSide.X, downSide.Y)) && !tile.CheckCellPositionPassable(new Vector2(downSide.X, downSide.Y)))
+                {
+                    position.Y = tile.GetTileRectangleFromPosition(downSide.X, downSide.Y).Top - positionRectangle.Height;
+                    velocity.Y = 0;
+                }
+
+                //Second side so yo say...
+                if (leftSide.Intersects(tile.GetTileRectangleFromPosition(leftSide.X, leftSide.Bottom)) && !tile.CheckCellPositionPassable(new Vector2(leftSide.X, leftSide.Bottom)))
+                {
+                    position.X = tile.GetTileRectangleFromPosition(leftSide.X, leftSide.Bottom).Right;
+                    velocity.X = 0;
+                }
+                if (rightSide.Intersects(tile.GetTileRectangleFromPosition(rightSide.X, rightSide.Bottom)) && !tile.CheckCellPositionPassable(new Vector2(rightSide.X, rightSide.Bottom)))
+                {
+                    position.X = tile.GetTileRectangleFromPosition(rightSide.X, rightSide.Bottom).Left - positionRectangle.Width;
+                    velocity.X = 0;
+                }
+                if (upSide.Intersects(tile.GetTileRectangleFromPosition(upSide.Right, upSide.Y)) && !tile.CheckCellPositionPassable(new Vector2(upSide.Right, upSide.Y)))
+                {
+                    position.Y = tile.GetTileRectangleFromPosition(upSide.Right, upSide.Y).Bottom;
+                    velocity.Y = 0;
+                }
+                if (downSide.Intersects(tile.GetTileRectangleFromPosition(downSide.Right, downSide.Y)) && !tile.CheckCellPositionPassable(new Vector2(downSide.Right, downSide.Y)))
+                {
+                    position.Y = tile.GetTileRectangleFromPosition(downSide.Right, downSide.Y).Top - positionRectangle.Height;
+                    velocity.Y = 0;
                 }
             }
-
 
             #endregion
 
@@ -434,10 +445,11 @@ namespace GameBuild
                             damageEffectList.Add(new DamageEffect(damage, game, new Vector2(npc.position.X, npc.position.Y - 16), new Color(255, 255, 255, 255), "player"));
                             npc.health -= damage;
                             npc.attackPlayer = true;
+                            npc.attackTimer += 300;
                         }
                     }
                 }
-                if (position.Intersects(Game1.testBoss.position))
+                if (positionRectangle.Intersects(Game1.testBoss.position))
                 {
                     if (Game1.testBoss.health > 0 && Game1.testBoss.IsOnMap())
                     {
@@ -448,7 +460,7 @@ namespace GameBuild
                 }
                 for (int i = 0; i < Game1.testBoss.mobs.Count; i++)
                 {
-                    if (position.Intersects(Game1.testBoss.mobs[i].position))
+                    if (positionRectangle.Intersects(Game1.testBoss.mobs[i].position))
                     {
                         if (Game1.testBoss.mobs[i].health > 0)
                         {
@@ -480,7 +492,7 @@ namespace GameBuild
             {
                 if (game.Npcs[i].health > 0 && game.Npcs[i].IsOnMap() && game.Npcs[i].vulnerable)
                 {
-                    if (game.Npcs[i].combatRectangle.Intersects(position))
+                    if (game.Npcs[i].combatRectangle.Intersects(positionRectangle))
                     {
                         inCombat = true;
                     }
@@ -496,7 +508,7 @@ namespace GameBuild
             {
                 if (game.Mobs[i].health > 0 && game.Mobs[i].IsOnMap() && game.Mobs[i].vulnerable)
                 {
-                    if (game.Mobs[i].combatRectangle.Intersects(position))
+                    if (game.Mobs[i].combatRectangle.Intersects(positionRectangle))
                     {
                         inCombat = true;
                     }
@@ -512,7 +524,7 @@ namespace GameBuild
             {
                 if (Game1.testBoss.mobs[i].health > 0 && Game1.testBoss.mobs[i].IsOnMap() && Game1.testBoss.mobs[i].vulnerable)
                 {
-                    if (Game1.testBoss.mobs[i].combatRectangle.Intersects(position))
+                    if (Game1.testBoss.mobs[i].combatRectangle.Intersects(positionRectangle))
                     {
                         inCombat = true;
                     }
@@ -525,6 +537,7 @@ namespace GameBuild
                 }
             }
             #endregion
+
         }
 
         public void DeathEffect(Game1 game)
@@ -538,45 +551,39 @@ namespace GameBuild
         #region Particle Effects
         public void Hit()
         {
-            emitter.Add(position.X + 24, position.Y + 24, 6, 6, 10, -4, 4, -4, 4, new Color(255, 10, 10), 0.35f, 1, 1, false, false, true);
+            emitter.Add(positionRectangle.X + 24, positionRectangle.Y + 24, 6, 6, 10, -4, 4, -4, 4, new Color(255, 10, 10), 0.35f, 1, 1, false, false, true);
             isHit = true;
         }
 
         public void Bleed()
         {
-            emitter.Add(position.X + 24, position.Y + 24, 6, 6, 1, 0, 0, -1, 3, new Color(255, 10, 10), 0.07f, 1, 1, false, false, true);
+            emitter.Add(positionRectangle.X + 24, positionRectangle.Y + 24, 6, 6, 1, 0, 0, -1, 3, new Color(255, 10, 10), 0.07f, 1, 1, false, false, true);
         }
 
         public void Regen(int amount)
         {
-            emitter.Add(position.X + 24, position.Y + 24, 6, 6, amount * 2, -4, 4, -4, 4, new Color(10, 240, 10), 0.7f, 1, 1, false, false, false);
+            emitter.Add(positionRectangle.X + 24, positionRectangle.Y + 24, 6, 6, amount * 2, -4, 4, -4, 4, new Color(10, 240, 10), 0.7f, 1, 1, false, false, false);
         }
 
         public void Walk()
         {
-            emitter.Add(position.X + 22, position.Y + position.Height - 5, 6, 6, 1, -2, 2, -3, -1, new Color(rand.Next(50, 65), rand.Next(35, 50), rand.Next(35, 50), rand.Next(100, 250)), 0.0f, 1, 1, false, false, true);
+            emitter.Add(positionRectangle.X + 22, positionRectangle.Y + positionRectangle.Height - 5, 6, 6, 1, -2, 2, -3, -1, new Color(rand.Next(50, 65), rand.Next(35, 50), rand.Next(35, 50), rand.Next(100, 250)), 0.0f, 1, 1, false, false, true);
         }
 
         public void Splash()
         {
-            emitter.Add(position.X + 22, position.Y + position.Height - 5, rand.Next(5, 8), rand.Next(5, 8), 6, -2, 2, -3, -1, new Color(50, 50, 255), 0.05f, 1, 1, false, false, true);
-            emitter.Add(position.X + 22, position.Y + position.Height - 5, rand.Next(5, 8), rand.Next(5, 8), 6, -2, 2, -3, -1, new Color(200, 200, 200), 0.05f, 1, 1, false, false, true);
+            emitter.Add(positionRectangle.X + 22, positionRectangle.Y + positionRectangle.Height - 5, rand.Next(5, 8), rand.Next(5, 8), 6, -2, 2, -3, -1, new Color(50, 50, 255), 0.05f, 1, 1, false, false, true);
+            emitter.Add(positionRectangle.X + 22, positionRectangle.Y + positionRectangle.Height - 5, rand.Next(5, 8), rand.Next(5, 8), 6, -2, 2, -3, -1, new Color(200, 200, 200), 0.05f, 1, 1, false, false, true);
         }
         #endregion
 
-        public bool IsCollision(H_Map.TileMap tiles, Rectangle location)
-        {
-            Point tileIndex = tiles.GetTileIndexFromVector(new Vector2(location.X, location.Y));
-            return (tiles.interactiveLayer[tileIndex.X, tileIndex.Y].isPassable == false);
-        }
-
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle shadowPos = new Rectangle(position.X + 8, position.Bottom - shadowBlob.Height / 2, shadowBlob.Width, shadowBlob.Height);
+            Rectangle shadowPos = new Rectangle(positionRectangle.X + 8, positionRectangle.Bottom - shadowBlob.Height / 2, shadowBlob.Width, shadowBlob.Height);
             spriteBatch.Draw(shadowBlob, shadowPos, Color.White);
             spriteBatch.Draw(debugTexture, attackRectangle, new Color(100, 100, 100, 100));
             //spriteBatch.Draw(debugTexture, interactRect, new Color(100, 100, 100, 100));
-            spriteBatch.Draw(spriteWalkSheet, position, animation.GetFrame(), Color.White);
+            spriteBatch.Draw(spriteWalkSheet, positionRectangle, animation.GetFrame(), Color.White);
         }
 
         public void DrawDeath(SpriteBatch spriteBatch, Game1 game)
@@ -597,9 +604,74 @@ namespace GameBuild
             }
         }
 
-        public void Push(Vector2 direction)
+        public void Push(Vector2 direction, float force)
         {
+            direction *= force;
+            ApplyForce(direction);
+        }
 
+        private void ApplyForce(Vector2 force)
+        {
+            acceleration += force;
+        }
+
+        private void CalculateFriction()
+        {
+            if (velocity == Vector2.Zero)
+            {
+                return;
+            }
+            Vector2 friction = velocity;
+            friction.Normalize();
+            float c = 0.2f; //coefficient of the friction (how slippery a material is)
+            float normal = 1; //power of the normal force pushing on the object making it not slip through the floor(not important here)
+            float magnitude = c * normal;
+            friction *= magnitude-1;
+            ApplyForce(friction);
+        }
+
+        private void SetPosition()
+        {
+            velocity += acceleration;
+            if ((velocity.X < 0.5 && velocity.X > -0.5) && (velocity.Y < 0.5 && velocity.Y > -0.5))
+            {
+                velocity = Vector2.Zero;
+            }
+            else if (velocity.Length() > 6f && walking)
+            {
+                velocity = Vector2.Normalize(velocity) * 6;
+            }
+
+            position += velocity;
+            positionRectangle.X = (int)position.X;
+            positionRectangle.Y = (int)position.Y;
+            acceleration = Vector2.Zero;
+
+            leftSide = new Rectangle(positionRectangle.X, positionRectangle.Y + 6, 1, positionRectangle.Height - 12);
+            rightSide = new Rectangle(positionRectangle.Right, positionRectangle.Y + 6, 1, positionRectangle.Height - 12);
+            upSide = new Rectangle(positionRectangle.X + 6, positionRectangle.Y, positionRectangle.Width - 12, 1);
+            downSide = new Rectangle(positionRectangle.X + 6, positionRectangle.Bottom, positionRectangle.Width - 12, 1);
+            Console.WriteLine("X: {0}, Y: {1}", velocity.X, velocity.Y);
+
+            interactRect.X = positionRectangle.X - (positionRectangle.Width / 2);
+            interactRect.Y = positionRectangle.Y - (positionRectangle.Height / 2);
+
+            healthPos.X = positionRectangle.X;
+            healthPos.Y = positionRectangle.Y - 10;
+            healthPos.Width = (int)healthBarWidth;
+            healthPos.Height = healthTexture.Height;
+        }
+
+        private void ResetPosition()
+        {
+            positionRectangle.X = 640;
+            positionRectangle.Y = 640;
+        }
+
+        public void Disable()
+        {
+            disabled = true;
+            disabledTimer = DISABLEDTIMER;
         }
     }
 }

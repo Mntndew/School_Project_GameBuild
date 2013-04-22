@@ -92,7 +92,7 @@ namespace GameBuild
         int warpFiles = Directory.GetFiles(@"Content\Warp\").Length;
 
         string[] names; // array of all npc names
-        string gender;
+        string gender = null;
 
         public enum GameState
         {
@@ -199,7 +199,7 @@ namespace GameBuild
                 Npcs.Add(npc);
             }
         }
-                
+
         public void UpdateActiveNpcs()
         {
             activeNpcs.Clear();
@@ -267,7 +267,12 @@ namespace GameBuild
                 }
                 particleSystem.Update(gameTime);
                 UpdateActiveNpcs();
-                camera.Pos = character.vectorPos;
+
+                camera.Pos = character.position;
+
+                oldState = keyState;
+                keyState = Keyboard.GetState();
+
 
                 if (currentGameState == GameState.PLAY)
                 {
@@ -276,7 +281,7 @@ namespace GameBuild
 
                 for (int i = 0; i < keys.Count; i++)
                 {
-                    if (character.position.Intersects(keys[i].position) && map.mapName.Remove(map.mapName.Length - 1) == keys[i].mapName)
+                    if (character.positionRectangle.Intersects(keys[i].position) && map.mapName.Remove(map.mapName.Length - 1) == keys[i].mapName)
                     {
                         keys[i].PickUp(character);
                         keys.RemoveAt(i);
@@ -357,14 +362,18 @@ namespace GameBuild
             GraphicsDevice.Clear(Color.Black);
             if (gender != null)
             {
-                spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, camera.GetTransformation());
-                map.DrawBackgroundLayer(spriteBatch, new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight));
-                map.DrawInteractiveLayer(spriteBatch, new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight));
+                spriteBatch.Begin(SpriteSortMode.Immediate, null, SamplerState.PointClamp, null, null, null, camera.GetTransformation());
+                map.DrawBackgroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
+                map.DrawInteractiveLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
+
                 for (int i = 0; i < keys.Count; i++)
                 {
                     if (keys[i].mapName == map.mapName.Remove(map.mapName.Length - 1))
                     {
-                        keys[i].Draw(spriteBatch);
+                        if (keys[i].mapName == map.mapName.Remove(map.mapName.Length - 1))
+                        {
+                            keys[i].Draw(spriteBatch);
+                        }
                     }
                 }
                 for (int i = 0; i < orbs.Count; i++)
@@ -398,7 +407,6 @@ namespace GameBuild
                 {
                     activeNpcs[i].DrawA(spriteBatch);
                 }
-
                 if (testBoss.IsOnMap())
                 {
                     testBoss.DrawDamage(spriteBatch, this);
@@ -407,18 +415,15 @@ namespace GameBuild
                         testBoss.projectiles[i].DrawParticles(spriteBatch);
                     }
                 }
-
                 spriteBatch.DrawString(spriteFont, character.health + "/" + character.maxHealth, new Vector2(character.position.X - 10, character.position.Y - 35), new Color(200, 10, 10, 200));
                 character.DrawHealthBar(spriteBatch, this);
 
-                
                 for (int i = 0; i < activeNpcs.Count; i++)
                 {
                     activeNpcs[i].DrawDamage(spriteBatch, this);
                 }
                 spriteBatch.End();
 
-                float framerate = 1f / (float)gameTime.ElapsedGameTime.TotalSeconds;
                 spriteBatch.Begin();
                 for (int i = 0; i < activeNpcs.Count; i++)
                 {
@@ -437,10 +442,9 @@ namespace GameBuild
                     testBoss.DrawHealth(spriteBatch);
                 }
 
-                spriteBatch.DrawString(spriteFont, framerate.ToString(), new Vector2(10, 10), Color.Red);
                 spriteBatch.End();
             }
-
+            
             if (gender == null)
             {
                 spriteBatch.Begin();
@@ -463,8 +467,10 @@ namespace GameBuild
             menu.Draw(spriteBatch);
             base.Draw(gameTime);
         }
+
     }
 }
+
 
 #region stuff
 /*

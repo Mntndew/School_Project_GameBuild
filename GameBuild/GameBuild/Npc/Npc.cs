@@ -41,7 +41,7 @@ namespace GameBuild.Npc
         public float speed;
         public float attackTimer = 500f;
         float pathTimer = 200f;
-        const float ATTACKTIMER = 500f;//milliseconds
+        const float ATTACKTIMER = 2000f;//milliseconds
         const float PATHTIMER = 1000f;//milliseconds
         float MOBPATHTIMER = PATHTIMER;
         float pathTimerMod;
@@ -276,7 +276,7 @@ namespace GameBuild.Npc
 
         private void FollowPath(GameTime gameTime, bool isWaypoint)
         {
-            if ((path.Length == 1 && path[0].X == -32 && path[0].Y == -32) || position.Intersects(Game1.character.position))
+            if ((path.Length == 1 && path[0].X == -32 && path[0].Y == -32) || position.Intersects(Game1.character.positionRectangle))
             {
                 followPath = false;
                 hasPath = false;
@@ -361,40 +361,45 @@ namespace GameBuild.Npc
             walking = false;
             if (bossMob)
             {
-                if (Game1.character.position.X > position.X)
+                if (Game1.character.positionRectangle.X > position.X)
                 {
                     position.X += (int)speed * 2;
                 }
-                if (Game1.character.position.X < position.X)
+                if (Game1.character.positionRectangle.X < position.X)
                 {
                     position.X += (int)-speed * 2;
                 }
-                if (Game1.character.position.Y > position.Y)
+                if (Game1.character.positionRectangle.Y > position.Y)
                 {
                     position.Y += (int)speed * 2;
                 }
-                if (Game1.character.position.Y < position.Y)
+                if (Game1.character.positionRectangle.Y < position.Y)
                 {
                     position.Y += (int)-speed * 2;
                 }
             }
-            if (Game1.character.position.Intersects(position) && IsOnMap() && !Game1.character.dead && !bossMob)
+            if (Game1.character.positionRectangle.Intersects(position) && IsOnMap() && !Game1.character.dead && !bossMob)
             {
                 if (attackTimer <= 0)
                 {
                     {
                         damage = game.damageObject.dealDamage(minDamage, maxDamage);
-                        damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(255, 0, 0, 255), "npc"));
+                        damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.positionRectangle.X, Game1.character.positionRectangle.Y), new Color(255, 0, 0, 255), "npc"));
                         Game1.character.health -= damage;
                         Game1.character.Hit();
-                        attackTimer = ATTACKTIMER;
+                        Vector2 pos = new Vector2(location.X, location.Y);
+                    Vector2 direction = Game1.character.position - pos;
+                    direction.Normalize();
+                    Game1.character.Push(direction, 30);
+                    attackTimer = ATTACKTIMER;
+                    Game1.character.Disable();
                     }
                 }
                 followPath = false;
             }
             else
             {
-                if (Game1.character.position.Intersects(position) && !Game1.character.dead)
+                if (Game1.character.positionRectangle.Intersects(position) && !Game1.character.dead)
                 {
                     if (attackTimer <= 0)
                     {
@@ -402,7 +407,7 @@ namespace GameBuild.Npc
                         if (chance <= hitChance)
                         {
                             damage = game.damageObject.dealDamage(minDamage, maxDamage);
-                            damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(255, 0, 0, 255), "npc"));
+                            damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.positionRectangle.X, Game1.character.positionRectangle.Y), new Color(255, 0, 0, 255), "npc"));
                             Game1.character.health -= damage;
                             Game1.character.Hit();
                             chance = 101;
@@ -416,7 +421,7 @@ namespace GameBuild.Npc
 
             if (IsOnMap() && !bossMob)
             {
-                GoTo(new Vector2((Game1.character.position.X + (Game1.character.position.Width / 2)), (Game1.character.position.Y + (Game1.character.position.Height / 2))), false, gameTime);
+                GoTo(new Vector2((Game1.character.positionRectangle.X + (Game1.character.positionRectangle.Width / 2)), (Game1.character.positionRectangle.Y + (Game1.character.positionRectangle.Height / 2))), false, gameTime);
             }
         }
 
@@ -888,14 +893,6 @@ namespace GameBuild.Npc
                 if (healthTexture != null && health > 0)
                 {
                     spriteBatch.Draw(healthTexture, healthPos, Color.White);
-                }
-                if (path != null)
-                {
-                    for (int i = 0; i < path.Length; i++)
-                    {
-                        spriteBatch.Draw(debugTile, new Vector2(path[i].X - 32, path[i].Y - 32), new Color(200, 200, 200, 200));
-                        spriteBatch.DrawString(Game1.debugFont, i.ToString(), new Vector2(path[i].X - 32, path[i].Y - 32), Color.Black);
-                    }
                 }
             }
         }

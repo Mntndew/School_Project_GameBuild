@@ -27,8 +27,8 @@ namespace GameBuild
             position.X += (int)velocity.X;
             position.Y += (int)velocity.Y;
 
-            distance.X = position.X - Game1.character.position.X;
-            distance.Y = position.Y - Game1.character.position.Y;
+            distance.X = position.X - Game1.character.positionRectangle.X;
+            distance.Y = position.Y - Game1.character.positionRectangle.Y;
 
             if (!picked)
             {
