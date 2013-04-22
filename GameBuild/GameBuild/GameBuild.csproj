@@ -109,6 +109,7 @@
     <Compile Include="Game\Warp\WarpItem.cs" />
     <Compile Include="Game\Warp\WarpManager.cs" />
     <Compile Include="Npc\Boss.cs" />
+    <Compile Include="Game\Menu\Menu.cs" />
     <Compile Include="Npc\Projectile.cs" />
     <Compile Include="Particle\Orb.cs" />
     <Compile Include="Particle\Particle.cs" />

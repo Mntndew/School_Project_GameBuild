@@ -152,7 +152,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Nurse.xnb</Output>
-      <Time>2013-04-20T03:11:16+02:00</Time>
+      <Time>2013-04-21T13:38:56.4404695+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\sprite\Headmaster.png</Source>
@@ -206,51 +206,6 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\SpriteFont1.xnb</Output>
-      <Time>2013-04-20T03:11:16+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Map\testing maps\source.tm</Source>
-      <Name>Map\testing maps\source</Name>
-      <Importer>TileMapImporter</Importer>
-      <Processor>TileMapProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\testing maps\source.xnb</Output>
-      <Time>2013-04-20T03:11:16+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Map\testing maps\target.tm</Source>
-      <Name>Map\testing maps\target</Name>
-      <Importer>TileMapImporter</Importer>
-      <Processor>TileMapProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\testing maps\target.xnb</Output>
-      <Time>2013-04-20T03:11:16+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Map\testing maps\new map.tm</Source>
-      <Name>Map\testing maps\new map</Name>
-      <Importer>TileMapImporter</Importer>
-      <Processor>TileMapProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\testing maps\new map.xnb</Output>
-      <Time>2013-04-20T03:11:16+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Map\testing maps\Testing Ground.tm</Source>
-      <Name>Map\testing maps\Testing Ground</Name>
-      <Importer>TileMapImporter</Importer>
-      <Processor>TileMapProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\testing maps\Testing Ground.xnb</Output>
-      <Time>2013-04-20T03:11:16+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Map\testing maps\Testing Ground 2.tm</Source>
-      <Name>Map\testing maps\Testing Ground 2</Name>
-      <Importer>TileMapImporter</Importer>
-      <Processor>TileMapProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\testing maps\Testing Ground 2.xnb</Output>
       <Time>2013-04-20T03:11:16+02:00</Time>
     </Item>
     <Item>

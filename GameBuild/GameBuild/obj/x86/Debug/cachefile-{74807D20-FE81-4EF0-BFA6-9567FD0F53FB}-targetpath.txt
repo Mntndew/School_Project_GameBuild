@@ -21,11 +21,6 @@ Content\Game\Hp bar.xnb
 Content\Game\target.xnb
 Content\Game\lighting.xnb
 Content\Game\SpriteFont1.xnb
-Content\Map\testing maps\source.xnb
-Content\Map\testing maps\target.xnb
-Content\Map\testing maps\new map.xnb
-Content\Map\testing maps\Testing Ground.xnb
-Content\Map\testing maps\Testing Ground 2.xnb
 Content\Map\Map4_C.xnb
 Content\Map\Map4_B.xnb
 Content\Map\Map3_B.xnb
@@ -46,3 +41,4 @@ Content\Npc\dialogue\dialogue2.txt
 Content\Warp\Map4_C_0.txt
 Content\Warp\Map4_B_1.txt
 Content\Npc\npc\Headmaster.txt
+Content\Npc\npc\Nurse.txt

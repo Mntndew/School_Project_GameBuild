@@ -102,6 +102,8 @@ namespace GameBuild.Npc
             this.name = name;
             this.mapName = mapName;
             this.speed = speed;
+            minDamage = 2;
+            maxDamage = 15;
 
             combatRectangle = new Rectangle(position.X - 128, position.Y - 128, 256, 256);
 
@@ -200,7 +202,7 @@ namespace GameBuild.Npc
 
         public bool IsOnMap()
         {
-            if (Game1.map.mapName == mapName)
+            if (Game1.map.mapName.Remove(Game1.map.mapName.Length - 1) == mapName)
             {
                 return true;
             }
@@ -376,24 +378,10 @@ namespace GameBuild.Npc
                     position.Y += (int)-speed * 2;
                 }
             }
-            if (Game1.character.position.Intersects(position) && IsOnMap() && !Game1.character.dead)
+            if (Game1.character.position.Intersects(position) && IsOnMap() && !Game1.character.dead && !bossMob)
             {
                 if (attackTimer <= 0)
                 {
-                    if (mob || bossMob)
-                    {
-                        chance = rand.Next(1, 100);
-                        if (chance <= hitChance)
-                        {
-                            damage = game.damageObject.dealDamage(minDamage, maxDamage);
-                            damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(255, 0, 0, 255), "npc"));
-                            Game1.character.health -= damage;
-                            Game1.character.Hit();
-                            attackTimer = ATTACKTIMER;
-                            chance = 101;
-                        }
-                    }
-                    else
                     {
                         damage = game.damageObject.dealDamage(minDamage, maxDamage);
                         damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(255, 0, 0, 255), "npc"));
@@ -403,6 +391,25 @@ namespace GameBuild.Npc
                     }
                 }
                 followPath = false;
+            }
+            else
+            {
+                if (Game1.character.position.Intersects(position) && !Game1.character.dead)
+                {
+                    if (attackTimer <= 0)
+                    {
+                        chance = rand.Next(1, 100);
+                        if (chance <= hitChance)
+                        {
+                            damage = game.damageObject.dealDamage(minDamage, maxDamage);
+                            damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(255, 0, 0, 255), "npc"));
+                            Game1.character.health -= damage;
+                            Game1.character.Hit();
+                            chance = 101;
+                            attackTimer = ATTACKTIMER;
+                        }
+                    }
+                }
             }
 
             attackTimer -= elapsed;
@@ -500,7 +507,7 @@ namespace GameBuild.Npc
                 GoTo(new Vector2(20*64, 19*64), true, gameTime);
             }
 
-            if (mob)
+            if (mob && !bossMob)
             {
                 if (!attackPlayer && IsOnMap())
                 {
@@ -850,11 +857,33 @@ namespace GameBuild.Npc
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (IsOnMap())
+            if (!bossMob)
+            {
+                if (IsOnMap())
+                {
+                    if (health > 0)
+                    {
+                        spriteBatch.Draw(walkSprite, position, animation.GetFrame(), Color.White);
+                    }
+                    if (healthTexture != null && health > 0)
+                    {
+                        spriteBatch.Draw(healthTexture, healthPos, Color.White);
+                    }
+                    if (path != null)
+                    {
+                        for (int i = 0; i < path.Length; i++)
+                        {
+                            spriteBatch.Draw(debugTile, new Vector2(path[i].X - 32, path[i].Y - 32), new Color(200, 200, 200, 200));
+                            spriteBatch.DrawString(Game1.debugFont, i.ToString(), new Vector2(path[i].X - 32, path[i].Y - 32), Color.Black);
+                        }
+                    }
+                }
+            }
+            else
             {
                 if (health > 0)
                 {
-                    spriteBatch.Draw(walkSprite, position, animation.GetFrame(), new Color(200, 100, 100, 100));
+                    spriteBatch.Draw(walkSprite, position, animation.GetFrame(), Color.White);
                 }
                 if (healthTexture != null && health > 0)
                 {

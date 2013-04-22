@@ -47,7 +47,6 @@ namespace GameBuild.Game
                 {
                     Game1.map = game.Content.Load<H_Map.TileMap>(@"Map\" + map);
                     Game1.map.tileset = game.Content.Load<Texture2D>(@"Game\tileset");
-
                     if (warp.targetX != -1)//warp the X value if it isnt -1(the player's X value)
                     {
                         Game1.character.position.X = warp.targetX;

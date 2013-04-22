@@ -86,12 +86,13 @@ namespace GameBuild
         public List<Npc.Npc> Mobs = new List<Npc.Npc>();
         public List<Orb> orbs = new List<Orb>();
         public static Npc.Boss testBoss;
+        public static Menu.Menu menu;
 
         int files = Directory.GetFiles(@"Content\npc\npc\").Length; //number of npcs
         int warpFiles = Directory.GetFiles(@"Content\Warp\").Length;
 
         string[] names; // array of all npc names
-        string gender = "male";
+        string gender;
 
         public enum GameState
         {
@@ -128,11 +129,7 @@ namespace GameBuild
             screen = new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
             malePos = new Rectangle(0, 0, graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight);
             femalePos = new Rectangle(graphics.PreferredBackBufferWidth / 2, 0, graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight);
-            if (gender != null)
-            {
-                character = new cCharacter(this, gender);
-            }
-            testBoss = new Npc.Boss(new Rectangle(7*64, 6*64, 64, 64), this, "Map4_C");
+            menu = new Menu.Menu(this);
             base.Initialize();
         }
 
@@ -158,9 +155,22 @@ namespace GameBuild
             LoadKeys();
             LoadNpcs();
             debugFont = Content.Load<SpriteFont>(@"Game\SpriteFont1");
-            for (int i = 0; i < 2; i++)
+            AddMobs();
+        }
+
+        public void AddMobs()
+        {
+            for (int i = 0; i < 5; i++)
             {
-                Mobs.Add(new Npc.Npc(new Rectangle(256 + (i * 100), 256, 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), this, "Map1_A", i + 1, false, 50, 1, 5, 1, true));
+                Mobs.Add(new Npc.Npc(new Rectangle(256 + (i * 100), 1800, 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), this, "Map1_A", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                Mobs.Add(new Npc.Npc(new Rectangle(256 + (i * 100), 1800, 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), this, "Map3_A", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                Mobs.Add(new Npc.Npc(new Rectangle(256 + (i * 100), 1800, 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), this, "Map3_B", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
             }
         }
 
@@ -233,21 +243,30 @@ namespace GameBuild
             {
                 ChooseGender();
             }
-            warpManager.Update(this);
-            if (keyState.IsKeyDown(Keys.Space))
+            oldState = keyState;
+            keyState = Keyboard.GetState();
+            if (keyState.IsKeyDown(Keys.Escape) && oldState.IsKeyUp(Keys.Escape))
             {
-                orbs.Add(new Orb(new Rectangle(256, 256, 8, 8)));
+                if (!menu.paused)
+                {
+                    menu.paused = true;
+                }
+                else
+                    menu.paused = false;
             }
-            if (testBoss.IsOnMap())
+            if (gender != null && !menu.paused)
             {
-                testBoss.Update(this, gameTime);
-            }
-            if (gender != null)
-            {
+                warpManager.Update(this);
+                if (keyState.IsKeyDown(Keys.Space))
+                {
+                    orbs.Add(new Orb(new Rectangle(256, 256, 8, 8)));
+                }
+                if (testBoss.IsOnMap())
+                {
+                    testBoss.Update(this, gameTime);
+                }
                 particleSystem.Update(gameTime);
                 UpdateActiveNpcs();
-                oldState = keyState;
-                keyState = Keyboard.GetState();
                 camera.Pos = character.vectorPos;
 
                 if (currentGameState == GameState.PLAY)
@@ -324,6 +343,7 @@ namespace GameBuild
             if (gender != null)
             {
                 character = new cCharacter(this, gender);
+                testBoss = new Npc.Boss(new Rectangle(7 * 64, 6 * 64, 64, 64), this, "Map4_C");
                 currentGameState = GameState.PLAY;
             }
         }
@@ -338,9 +358,8 @@ namespace GameBuild
             if (gender != null)
             {
                 spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, camera.GetTransformation());
-                map.DrawBackgroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
-                map.DrawInteractiveLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
-
+                map.DrawBackgroundLayer(spriteBatch, new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight));
+                map.DrawInteractiveLayer(spriteBatch, new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight));
                 for (int i = 0; i < keys.Count; i++)
                 {
                     if (keys[i].mapName == map.mapName.Remove(map.mapName.Length - 1))
@@ -360,25 +379,42 @@ namespace GameBuild
                 }
                 for (int i = 0; i < Mobs.Count; i++)
                 {
-                    Mobs[i].Draw(spriteBatch);
+                    if (Mobs[i].IsOnMap())
+                    {
+                        Mobs[i].Draw(spriteBatch);
+                    }
                 }
                 if (testBoss.IsOnMap())
                 {
                     testBoss.Draw(spriteBatch);
-                    testBoss.DrawMobs(spriteBatch);
                 }
                 map.DrawForegroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
+                if (testBoss.IsOnMap())
+                {
+                    testBoss.DrawMobs(spriteBatch);
+                }
                 warpManager.Draw(spriteBatch, this);
                 for (int i = 0; i < activeNpcs.Count; i++)
                 {
                     activeNpcs[i].DrawA(spriteBatch);
                 }
+
+                if (testBoss.IsOnMap())
+                {
+                    testBoss.DrawDamage(spriteBatch, this);
+                    for (int i = 0; i < testBoss.projectiles.Count; i++)
+                    {
+                        testBoss.projectiles[i].DrawParticles(spriteBatch);
+                    }
+                }
+
                 spriteBatch.DrawString(spriteFont, character.health + "/" + character.maxHealth, new Vector2(character.position.X - 10, character.position.Y - 35), new Color(200, 10, 10, 200));
                 character.DrawHealthBar(spriteBatch, this);
-                testBoss.DrawDamage(spriteBatch, this);
-                for (int i = 0; i < testBoss.projectiles.Count; i++)
+
+                
+                for (int i = 0; i < activeNpcs.Count; i++)
                 {
-                    testBoss.projectiles[i].DrawParticles(spriteBatch);
+                    activeNpcs[i].DrawDamage(spriteBatch, this);
                 }
                 spriteBatch.End();
 
@@ -392,11 +428,14 @@ namespace GameBuild
                         {
                             activeNpcs[i].dialogue.Draw(spriteBatch);
                         }
-                        activeNpcs[i].DrawDamage(spriteBatch, this);
                     }
                 }
                 character.inventory.Draw(spriteBatch, this);
-                testBoss.DrawHealth(spriteBatch);
+
+                if (testBoss.IsOnMap())
+                {
+                    testBoss.DrawHealth(spriteBatch);
+                }
 
                 spriteBatch.DrawString(spriteFont, framerate.ToString(), new Vector2(10, 10), Color.Red);
                 spriteBatch.End();
@@ -410,12 +449,18 @@ namespace GameBuild
                 spriteBatch.DrawString(spriteFont, "Choose a gender, please.", new Vector2((graphics.PreferredBackBufferWidth / 2) - 20 * 6.38f, 6), new Color(200, 200, 200));
                 spriteBatch.End();
             }
-            if (character.health <= 0)
+            else
             {
-                spriteBatch.Begin();
-                character.DrawDeath(spriteBatch, this);
-                spriteBatch.End();
+                if (character.health <= 0)
+                {
+                    spriteBatch.Begin();
+                    character.DrawDeath(spriteBatch, this);
+                    spriteBatch.End();
+                }
             }
+
+            //menu
+            menu.Draw(spriteBatch);
             base.Draw(gameTime);
         }
     }

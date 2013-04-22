@@ -91,33 +91,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Map\testing maps\source.tm">
-      <Name>source</Name>
-      <Importer>TileMapImporter</Importer>
-      <Processor>TileMapProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Map\testing maps\target.tm">
-      <Name>target</Name>
-      <Importer>TileMapImporter</Importer>
-      <Processor>TileMapProcessor</Processor>
-    </Compile>
-    <Compile Include="Map\testing maps\new map.tm">
-      <Name>new map</Name>
-      <Importer>TileMapImporter</Importer>
-      <Processor>TileMapProcessor</Processor>
-    </Compile>
-    <Compile Include="Map\testing maps\Testing Ground.tm">
-      <Name>Testing Ground</Name>
-      <Importer>TileMapImporter</Importer>
-      <Processor>TileMapProcessor</Processor>
-    </Compile>
-    <Compile Include="Map\testing maps\Testing Ground 2.tm">
-      <Name>Testing Ground 2</Name>
-      <Importer>TileMapImporter</Importer>
-      <Processor>TileMapProcessor</Processor>
-    </Compile>
     <Compile Include="Map\Map4_C.tm">
       <Name>Map4_C</Name>
       <Importer>TileMapImporter</Importer>
@@ -323,6 +296,12 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\npc\Nurse.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>Nurse</Name>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

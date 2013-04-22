@@ -16,11 +16,13 @@ namespace GameBuild.Npc
         Texture2D targetTexture;
         public List<Projectile> projectiles = new List<Projectile>();
         public List<Npc> mobs = new List<Npc>();
+        Random rand = new Random();
         Npc robot;
+        float shootTimer = 0;
+        const float SHOOTTIMER = 0.01f;
         float phaseTimer;
         float sleepTimer = 2;
         const float SLEEPTIMER = 2;
-        const float TIMER = 0.1f;
         float pathTimer = 200f;
         const float PATHTIMER = 200f;//milliseconds
         double angle;
@@ -46,7 +48,7 @@ namespace GameBuild.Npc
             beam,
             mobs,
             sleep,
-            berserk
+            charge
         }
         public phase currentPhase = phase.beam;
 
@@ -64,10 +66,7 @@ namespace GameBuild.Npc
 
         public void Update(Game1 game, GameTime gameTime)//Manages the phases
         {
-            if (currentPhase != phase.sleep)
-            {
-                angle = Math.Atan2(Game1.character.bossTarget.Y - position.Y, Game1.character.bossTarget.X + 16 - position.X);
-            }
+            angle = Math.Atan2(Game1.character.bossTarget.Y - position.Y, Game1.character.bossTarget.X + 16 - position.X);
             
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             beamAttackTimer -= elapsed;
@@ -105,11 +104,12 @@ namespace GameBuild.Npc
                     if (Game1.character.position.Intersects(projectiles[i].rectangle))
                     {
                         Game1.character.inCombat = true;
-                        if (beamAttackTimer <= 0)
+                        if (beamAttackTimer <= 0 && projectiles[i].color.A == 255)
                         {
-                            beamDamage = game.damageObject.dealDamage(1, 4);
+                            beamDamage = game.damageObject.dealDamage(1, 5);
                             damageEffectList.Add(new DamageEffect(beamDamage, game, new Vector2(Game1.character.position.X, Game1.character.position.Y), new Color(255, 0, 0, 255), "npc"));
                             Game1.character.health -= beamDamage;
+                            
                             Game1.character.Hit();
                             beamAttackTimer = BEAMATTACKTIMER;
                         }
@@ -119,26 +119,26 @@ namespace GameBuild.Npc
                     projectiles.RemoveAt(i);
             }
 
-            for (int i = 0; i < mobs.Count; i++)
-            {
-                if (mobs[i].health > 0)
-                {
-                    mobs[i].Update(Game1.character, Game1.map, game, gameTime);
-                }
-                else
-                    mobs.RemoveAt(i);
-            }
+            #region mob stuff
 
-            #region mob-mob collision
             for (int i = 0; i < mobs.Count; i++)
             {
-                if (mobs[i].position.Intersects(Game1.character.position) && mobs[i].health > 0)
+                if (mobs[i].position.Intersects(Game1.character.position))
                 {
                     Game1.character.speed = 2;
                 }
                 else
                     Game1.character.speed = 4;
 
+                mobs[i].Update(Game1.character, Game1.map, game, gameTime);
+                if (mobs[i].health <= 0)
+                {
+                    mobs.RemoveAt(i);
+                }
+            }
+
+            for (int i = 0; i < mobs.Count; i++)
+            {
                 for (int j = 0; j < mobs.Count; j++)
                 {
                     if (mobs[i] != mobs[j])
@@ -182,28 +182,25 @@ namespace GameBuild.Npc
             switch (currentPhase)
             {
                 case phase.beam:
-                    Shoot(game);
+                    shootTimer -= elapsed;
+                    if (shootTimer <= 0)
+                    {
+                        Shoot(game);
+                        shootTimer = SHOOTTIMER;
+                    }
                     break;
                 case phase.mobs:
-                    if (phaseTimer <= 7)
-                    {
                         SpawnMobs(game);
-                    }
                     break;
                 case phase.sleep:
                     Sleep(gameTime);
                     break;
-                case phase.berserk:
-                    Berserk(game, gameTime);
+                case phase.charge:
+                    Charge(game, gameTime);
                     break;
                 default:
-                    Berserk(game, gameTime);
+                    Charge(game, gameTime);
                     break;
-            }
-
-            if (healthPct <= 0)
-            {
-                Death();
             }
         }
 
@@ -226,7 +223,7 @@ namespace GameBuild.Npc
             }
             if (currentPhase == phase.mobs && phaseTimer != 0)
             {
-                currentPhase = phase.berserk;
+                currentPhase = phase.charge;
                 phaseTimer = 0;
             }
             if (currentPhase == phase.sleep)
@@ -239,24 +236,21 @@ namespace GameBuild.Npc
 
         private void Shoot(Game1 game)
         {
-            projectiles.Add(new Projectile(new Vector2(this.robot.position.X, this.robot.position.Y), game));
+            projectiles.Add(new Projectile(new Vector2(this.robot.position.Center.X - 8, this.robot.position.Y), game));
         }
 
         private void SpawnMobs(Game1 game)
         {
             for (int i = 0; i < 10; i++)
             {
-                if (mobs.Count < 50)
-                {
                     mobs.Add(new Npc(new Rectangle(position.X + i, position.Y - 48 + i, 48, 48), game.Content.Load<Texture2D>(@"Game\blackness"), game, map, 1, true, 5, 1, 3, 5, true));
-                }
             }
             for (int i = 0; i < mobs.Count; i++)
             {
                 mobs[i].mob = true;
                 mobs[i].bossMob = true;
+                currentPhase = phase.charge;
             }
-            currentPhase = phase.berserk;
         }
 
         private void Sleep(GameTime gameTime)
@@ -269,7 +263,7 @@ namespace GameBuild.Npc
             }
         }
 
-        private void Berserk(Game1 game, GameTime gameTime)
+        private void Charge(Game1 game, GameTime gameTime)
         {
             Game1.character.targetSpeed = 5.5f;
             GoTo(new Vector2((Game1.character.position.X + (Game1.character.position.Width / 2)) / Game1.map.tileWidth, (Game1.character.position.Y + (Game1.character.position.Height / 2)) / Game1.map.tileHeight), false, gameTime);
@@ -392,8 +386,7 @@ namespace GameBuild.Npc
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(robot.walkSprite, new Rectangle(robot.position.X + 16, robot.position.Y + 16, robot.position.Width, robot.position.Height),
-                null, new Color(100, 100, 255, 255), (float)angle, new Vector2(robot.position.Width / 2, robot.position.Height / 3), SpriteEffects.None, 0);
+            spriteBatch.Draw(robot.walkSprite, robot.position, Color.White);
             spriteBatch.Draw(texture, position, Color.White);
             spriteBatch.Draw(targetTexture, Game1.character.bossTarget, new Color(255, 50, 50, 100));
         }
@@ -402,7 +395,7 @@ namespace GameBuild.Npc
         {
             for (int i = 0; i < mobs.Count; i++)
             {
-                if (mobs[i].health > 0)
+                //if (mobs[i].health > 0)
                 {
                     mobs[i].Draw(spriteBatch);
                 }

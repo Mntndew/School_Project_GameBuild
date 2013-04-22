@@ -127,7 +127,7 @@ namespace GameBuild
                 animation.PauseAnimation();
             }
 
-            if (Game1.testBoss.currentPhase != Npc.Boss.phase.sleep)
+            //if (Game1.testBoss.currentPhase != Npc.Boss.phase.sleep)
             {
                 if (position.X + (position.Width / 2) - 16 > bossTarget.X)
                 {
@@ -252,8 +252,6 @@ namespace GameBuild
 
             animation.UpdateAnimation(gameTime);
             #endregion
-
-            CutScene();
 
             #region walk
             if (up)
@@ -452,7 +450,7 @@ namespace GameBuild
                 {
                     if (position.Intersects(Game1.testBoss.mobs[i].position))
                     {
-                        if (Game1.testBoss.mobs[i].health > 0 && Game1.testBoss.mobs[i].IsOnMap())
+                        if (Game1.testBoss.mobs[i].health > 0)
                         {
                             damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.testBoss.mobs[i].position.X, Game1.testBoss.mobs[i].position.Y - 16), new Color(255, 255, 255, 255), "player"));
                             Game1.testBoss.mobs[i].health -= damage;
@@ -527,15 +525,6 @@ namespace GameBuild
                 }
             }
             #endregion
-        }
-
-        public void CutScene()
-        {
-            cutscene = true;
-            if (Game1.map.mapName.Remove(Game1.map.mapName.Length - 2) == "Map4_C")
-            {
-                Console.WriteLine("cutscene");
-            }
         }
 
         public void DeathEffect(Game1 game)
