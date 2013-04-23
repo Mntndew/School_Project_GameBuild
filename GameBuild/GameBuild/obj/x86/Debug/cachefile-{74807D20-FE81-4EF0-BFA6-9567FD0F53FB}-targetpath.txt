@@ -32,6 +32,9 @@ Content\Map\Map1_A.xnb
 Content\Player\female.xnb
 Content\Npc\portrait\Cybot.xnb
 Content\Npc\sprite\Cybot.xnb
+Content\Npc\portrait\Lamia.xnb
+Content\Npc\portrait\Succubus.xnb
+Content\Npc\portrait\Sylian.xnb
 Content\Npc\dialogue\test.txt
 Content\Npc\dialogue\doorLocked.txt
 Content\Warp\Map1_A_0.txt
@@ -47,3 +50,4 @@ Content\Warp\Map4_B_1.txt
 Content\Npc\npc\Headmaster.txt
 Content\Npc\npc\Nurse.txt
 Content\Npc\npc\Cybot.txt
+Content\Npc\dialogue\Cybot dead.txt

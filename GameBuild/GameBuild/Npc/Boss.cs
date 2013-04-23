@@ -29,8 +29,8 @@ namespace GameBuild.Npc
         float beamAttackTimer = 0.08f;
         const float BEAMATTACKTIMER = 0.08f;
         string map;
-        public int health = 400;
-        public int maxHealth = 400;
+        public int health = 250;
+        public int maxHealth = 250;
         float healthBarWidth;
         float healthPct;
         int beamDamage;
@@ -68,9 +68,27 @@ namespace GameBuild.Npc
         public void Update(Game1 game, GameTime gameTime)//Manages the phases
         {
             angle = Math.Atan2(Game1.character.bossTarget.Y - position.Y, Game1.character.bossTarget.X + 16 - position.X);
-            
+            for (int i = 0; i < mobs.Count; i++)
+            {
+                if (mobs[i].health > 0)
+                {
+                    mobs[i].robotAngle = Math.Atan2(Game1.character.position.Y - mobs[i].position.Y, Game1.character.position.X - mobs[i].position.X);
+                }
+            }
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             beamAttackTimer -= elapsed;
+
+            for (int i = 0; i < game.activeNpcs.Count; i++)
+            {
+                if (game.activeNpcs[i].name == "Cybot")
+                {
+                    if (game.activeNpcs[i].health <= 0)
+                    {
+                        attackPlayer = true;
+                    }
+                }
+            }
+
             if (robot.position.X > (position.X - 64))
             {
                 robot.position.X -= 2;
@@ -99,6 +117,10 @@ namespace GameBuild.Npc
             healthPos.X = 40;
             healthPos.Y = 10;
             healthPos.Height = healthTexture.Height;
+            if (healthPct <= 0)
+            {
+                Death(game);
+            }
 
             for (int i = 0; i < damageEffectList.Count; i++)
             {
@@ -111,7 +133,7 @@ namespace GameBuild.Npc
                 if (!projectiles[i].dead)
                 {
                     projectiles[i].Update(gameTime);
-                    if (Game1.character.positionRectangle.Intersects(projectiles[i].rectangle))
+                    if (Game1.character.positionRectangle.Intersects(projectiles[i].rectangle) && healthPct > 0)
                     {
                         Game1.character.inCombat = true;
                         if (beamAttackTimer <= 0 && projectiles[i].color.A == 255)
@@ -189,7 +211,7 @@ namespace GameBuild.Npc
             }
             #endregion
 
-            if (attackPlayer)
+            if (attackPlayer && healthPct > 0)
             {
                 switch (currentPhase)
                 {
@@ -248,20 +270,26 @@ namespace GameBuild.Npc
 
         private void Shoot(Game1 game)
         {
-            projectiles.Add(new Projectile(new Vector2(this.robot.position.Center.X - 8, this.robot.position.Y), game));
+            if (healthPct > 0)
+            {
+                projectiles.Add(new Projectile(new Vector2(this.robot.position.Center.X - 8, this.robot.position.Y), game));
+            }
         }
 
         private void SpawnMobs(Game1 game)
         {
-            for (int i = 0; i < 10; i++)
+            if (healthPct > 0)
             {
-                mobs.Add(new Npc(new Rectangle(position.X + i, position.Y - 48 + i, 30, 25), game.Content.Load<Texture2D>(@"Npc\bot"), game, map, 1, true, 5, 1, 3, 5, true));
-            }
-            for (int i = 0; i < mobs.Count; i++)
-            {
-                mobs[i].mob = true;
-                mobs[i].bossMob = true;
-                currentPhase = phase.charge;
+                for (int i = 0; i < 10; i++)
+                {
+                    mobs.Add(new Npc(new Rectangle(position.X + i, position.Y - 48 + i, 30, 25), game.Content.Load<Texture2D>(@"Npc\bot"), game, map, 1, true, 5, 1, 3, 5, true));
+                }
+                for (int i = 0; i < mobs.Count; i++)
+                {
+                    mobs[i].mob = true;
+                    mobs[i].bossMob = true;
+                    currentPhase = phase.charge;
+                }
             }
         }
 
@@ -279,7 +307,7 @@ namespace GameBuild.Npc
         {
             Game1.character.targetSpeed = 5.5f;
             GoTo(new Vector2((Game1.character.positionRectangle.X + (Game1.character.positionRectangle.Width / 2)) / Game1.map.tileWidth, (Game1.character.positionRectangle.Y + (Game1.character.positionRectangle.Height / 2)) / Game1.map.tileHeight), false, gameTime);
-            if (position.Intersects(Game1.character.attackRectangle))
+            if (position.Intersects(Game1.character.attackRectangle) && healthPct > 0)
             {
                 damage = game.damageObject.dealDamage(10, 27);
                 damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.positionRectangle.X, Game1.character.positionRectangle.Y), new Color(235, 10, 10, 255), "npc"));
@@ -387,13 +415,24 @@ namespace GameBuild.Npc
             }
         }
 
-        private void Death()
+        private void Death(Game1 game)
         {
             for (int i = 0; i < mobs.Count; i++)
             {
                 mobs[i].health = 0;
             }
+            game.activeNpcs.Add(new Npc(map, "Cybot", -256, -256, 0, 0, false, false, false, false, "Cybot", "Cybot", true, false, false, false,0, 0, 0, 0, 0, game, "Cybot dead", "nokey"));
             dead = true;
+            attackPlayer = false;
+            for (int i = 0; i < game.activeNpcs.Count; i++)
+            {
+                if (game.activeNpcs[i].name == "Cybot")
+                {
+                    game.activeNpcs[i].isInteracting = true;
+                    game.activeNpcs[i].dialogue.isTalking = true;
+                    game.currentGameState = Game1.GameState.INTERACT;
+                }
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -407,11 +446,7 @@ namespace GameBuild.Npc
         {
             for (int i = 0; i < mobs.Count; i++)
             {
-                //if (mobs[i].health > 0)
-                {
-                    //mobs[i].Draw(spriteBatch);
-                    spriteBatch.Draw(mobs[i].walkSprite, mobs[i].position, null, Color.White, (float)angle, new Vector2(15, 12), SpriteEffects.None, 0);
-                }
+                spriteBatch.Draw(mobs[i].walkSprite, mobs[i].position, null, Color.White, (float)mobs[i].robotAngle, new Vector2(15, 12), SpriteEffects.None, 0);
             }
         }
 

@@ -191,11 +191,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Npc\portrait\Headmaster.png">
-      <Name>Headmaster</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Npc\portrait\Nurse.png">
       <Name>Nurse</Name>
       <Importer>TextureImporter</Importer>
@@ -336,6 +331,34 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\portrait\Headmaster.png">
+      <Name>Headmaster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Npc\portrait\Lamia.png">
+      <Name>Lamia</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Npc\portrait\Succubus.png">
+      <Name>Succubus</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Npc\portrait\Sylian.png">
+      <Name>Sylian</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\dialogue\Cybot dead.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>Cybot dead</Name>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

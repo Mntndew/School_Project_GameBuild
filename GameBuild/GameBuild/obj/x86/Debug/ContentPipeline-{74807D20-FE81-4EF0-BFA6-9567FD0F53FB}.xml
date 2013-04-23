@@ -143,7 +143,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Headmaster.xnb</Output>
-      <Time>2013-04-18T18:36:35+02:00</Time>
+      <Time>2013-04-23T16:06:34.5058009+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\portrait\Nurse.png</Source>
@@ -152,7 +152,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Nurse.xnb</Output>
-      <Time>2013-04-22T17:07:33+02:00</Time>
+      <Time>2013-04-23T16:06:35.0674019+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\sprite\Headmaster.png</Source>
@@ -296,7 +296,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Cybot.xnb</Output>
-      <Time>2013-04-23T07:26:52.6118315+02:00</Time>
+      <Time>2013-04-23T16:06:34.5058009+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\sprite\Cybot.png</Source>
@@ -306,6 +306,33 @@
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Cybot.xnb</Output>
       <Time>2013-04-23T07:26:57.0422393+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\portrait\Lamia.png</Source>
+      <Name>Npc\portrait\Lamia</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Lamia.xnb</Output>
+      <Time>2013-04-23T16:06:34.5058009+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\portrait\Succubus.png</Source>
+      <Name>Npc\portrait\Succubus</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Succubus.xnb</Output>
+      <Time>2013-04-23T16:06:33.0393984+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\portrait\Sylian.png</Source>
+      <Name>Npc\portrait\Sylian</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Sylian.xnb</Output>
+      <Time>2013-04-23T16:06:34.5058009+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

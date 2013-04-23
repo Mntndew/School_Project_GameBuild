@@ -41,9 +41,9 @@ namespace GameBuild.Game
         public void Warp(WarpItem warp, string key, int targetX, int targetY, string map, Game1 game)//the key to unlock the door, targeted x coordinate, targeted y coordinate, targeted map
         {
             UpdateList(Game1.map.mapName);
-            for (int x = 0; x < Game1.character.inventory.width; x++)//player inventory slots
+            for (int y = 0; y < Game1.character.inventory.height; y++)
             {
-                if ((Game1.character.inventory.inventorySlot[x, 0].item == key || key == "."))//checks if the player has the key or if the key is ".", aka no key required
+                if ((Game1.character.inventory.inventorySlot[0, y].item == key || key == "."))//checks if the player has the key or if the key is ".", aka no key required
                 {
                     Game1.map = game.Content.Load<H_Map.TileMap>(@"Map\" + map);
                     Game1.map.tileset = game.Content.Load<Texture2D>(@"Game\tileset");
@@ -68,12 +68,10 @@ namespace GameBuild.Game
                             }
                         }
                     }
-                    break;
                 }
                 else
                 {
                     Console.WriteLine("locked");
-                    break;
                 }
             }
         }

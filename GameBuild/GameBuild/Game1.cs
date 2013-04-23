@@ -143,7 +143,7 @@ namespace GameBuild
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             collisionTex = Content.Load<Texture2D>(@"Game\blackness");
-            map = Content.Load<H_Map.TileMap>(@"Map\Map4_C");
+            map = Content.Load<H_Map.TileMap>(@"Map\Map4_B");
             map.tileset = Content.Load<Texture2D>(@"Game\tileset");
             textBox = Content.Load<Texture2D>(@"Game\textBox");
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
@@ -195,7 +195,7 @@ namespace GameBuild
                 names[i] = Directory.GetFiles(@"Content\npc\npc\")[i];
                 StreamReader reader = new StreamReader(names[i]);
                 Npc.Npc npc = new Npc.Npc(reader.ReadLine(), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
-                reader.ReadLine(), reader.ReadLine(), reader.ReadLine(), reader.ReadLine(), reader.ReadLine(), reader.ReadLine(),
+                bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), reader.ReadLine(), reader.ReadLine(),
                 bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
                 int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), this, reader.ReadLine(), reader.ReadLine());
                 Npcs.Add(npc);
@@ -207,7 +207,7 @@ namespace GameBuild
             activeNpcs.Clear();
             for (int i = 0; i < Npcs.Count; i++)
             {
-                if (Npcs[i].IsOnMap() && !Npcs[i].bossMob && !Npcs[i].mob)
+                if (Npcs[i].IsOnMap() && !Npcs[i].bossMob && !Npcs[i].mob && Npcs[i].health > 0)
                 {
                     activeNpcs.Add(Npcs[i]);
                     Npcs[i].hasBeenAdded = true;
@@ -215,7 +215,7 @@ namespace GameBuild
             }
             for (int i = 0; i < activeNpcs.Count; i++)
             {
-                if (!activeNpcs[i].IsOnMap())
+                if (!activeNpcs[i].IsOnMap() || activeNpcs[i].health <= 0)
                 {
                     activeNpcs[i].hasBeenAdded = false;
                     activeNpcs.RemoveAt(i);
@@ -260,6 +260,7 @@ namespace GameBuild
             if (gender != null && !menu.paused)
             {
                 warpManager.Update(this);
+                UpdateActiveNpcs();
                 if (keyState.IsKeyDown(Keys.Space))
                 {
                     orbs.Add(new Orb(new Rectangle(256, 256, 8, 8)));
@@ -269,15 +270,11 @@ namespace GameBuild
                     testBoss.Update(this, gameTime);
                 }
                 particleSystem.Update(gameTime);
-                UpdateActiveNpcs();
-
                 camera.Pos = character.position;
-
                 if (currentGameState == GameState.PLAY)
                 {
                     character.Update(this, map, gameTime, oldState, GraphicsDevice);
                 }
-
                 for (int i = 0; i < keys.Count; i++)
                 {
                     if (character.positionRectangle.Intersects(keys[i].position) && map.mapName.Remove(map.mapName.Length - 1) == keys[i].mapName)
@@ -286,7 +283,6 @@ namespace GameBuild
                         keys.RemoveAt(i);
                     }
                 }
-
                 for (int i = 0; i < Npcs.Count; i++)
                 {
                     if (Npcs[i].health > 0)
@@ -314,7 +310,6 @@ namespace GameBuild
                         }
                     }
                 }
-
                 for (int i = 0; i < Mobs.Count; i++)
                 {
                     Mobs[i].Update(character, map, this, gameTime);

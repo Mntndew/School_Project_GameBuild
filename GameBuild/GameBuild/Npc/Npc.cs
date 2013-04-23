@@ -47,6 +47,7 @@ namespace GameBuild.Npc
         float pathTimerMod;
         int pathIndex;
         bool followPath;
+        public double robotAngle;
 
         public bool point1Tagged = false, point2Tagged = false, point3Tagged = false, point4Tagged = false;
         public bool canInteract;
@@ -96,7 +97,7 @@ namespace GameBuild.Npc
         int chance;
         #endregion
 
-        public Npc(string mapName, string name, int x, int y, int width, int height, string up, string down, string left, string right,
+        public Npc(string mapName, string name, int x, int y, int width, int height, bool up, bool down, bool left, bool right,
             string spritePath, string portraitPath, bool patrolNone, bool patrolUpDown, bool patrolLeftRight,
             bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game, string dialoguePath, string keyName)
         {
@@ -104,48 +105,19 @@ namespace GameBuild.Npc
             this.name = name;
             this.mapName = mapName;
             this.speed = speed;
+            this.up = up;
+            this.down = down;
+            this.left = left;
+            this.right = right;
             minDamage = 2;
             maxDamage = 15;
-
             combatRectangle = new Rectangle(position.X - 128, position.Y - 128, 256, 256);
-
-            if (up == "False")
-            {
-                this.up = false;
-            }
-            else
-                this.up = true;
-
-            if (down == "False")
-            {
-                this.down = false;
-            }
-            else
-                this.down = true;
-
-            if (left == "False")
-            {
-                this.left = false;
-            }
-            else
-                this.left = true;
-
-            if (right == "False")
-            {
-                this.right = false;
-            }
-            else
-                this.right = true;
-
             patrolRect = new Rectangle(patrolX, patrolY, patrolWidth, patrolHeight);
-
             aTexture = game.Content.Load<Texture2D>(@"Npc\A");
             aPosition = new Rectangle(0, 0, aTexture.Width, aTexture.Height);
-
             health = 200;
             maxHealth = health;
             this.speed = speed;
-
             dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + portraitPath), game.textBox, game, game.spriteFont, dialoguePath, name);
             walkSprite = game.Content.Load<Texture2D>(@"npc\sprite\" + spritePath);
             debugTile = game.Content.Load<Texture2D>(@"Player\emptySlot");
@@ -590,7 +562,6 @@ namespace GameBuild.Npc
                     canInteract = false;
                 }
             }
-
             #endregion
         }
 
@@ -936,16 +907,21 @@ namespace GameBuild.Npc
                     break;
 
                 case 2:
-                    Console.WriteLine("I JUST GAVE YOU A FUCKING KEY");
                     if (key != null)
                     {
                         key.position = Game1.character.positionRectangle;
                         Game1.keys.Add(key);
                     }
                     break;
+
                 case 3:
+                    if (name == "Cybot" && Game1.testBoss.health > 0)
+                    {
+                        Game1.testBoss.attackPlayer = true;
+                    }
                     health = 0;
                     break;
+
                 default:
                     break;
             }

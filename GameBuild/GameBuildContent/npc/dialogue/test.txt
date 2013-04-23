@@ -17,13 +17,12 @@
 5:7: Green. :0
 5:7: Blue. :0
 5:7: Red. :0
-5:7: Purple. :0
+5:8: Purple. :0
 5:7: Orange. :0
 5:7: Pink. :0
 5:7: Green. :0
 5:7: Blue. :0
 5:7: Red. :0
-5:8: Purple. :0
 6:0: I KILL U:1
 7:0: Here's a key :2
 8:0: I died x( :3
