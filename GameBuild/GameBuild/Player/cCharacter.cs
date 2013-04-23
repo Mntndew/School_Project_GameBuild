@@ -120,7 +120,7 @@ namespace GameBuild
             animation = new AnimationComponent(3, 4, 72, 96, 100, Point.Zero);
             emitter = new ParticleSystemEmitter(game);
             Game1.particleSystem.emitters.Add(emitter);
-            bossTarget = new Vector2(positionRectangle.X, positionRectangle.Y);
+            bossTarget = new Vector2(-128, -128);
         }
 
         public void Update(Game1 game, H_Map.TileMap tiles, GameTime gameTime, KeyboardState oldState, GraphicsDevice graphicsDevice)
@@ -134,7 +134,7 @@ namespace GameBuild
                 animation.PauseAnimation();
             }
 
-            //if (Game1.testBoss.currentPhase != Npc.Boss.phase.sleep)
+            if (Game1.testBoss.attackPlayer)
             {
                 if (positionRectangle.X + (positionRectangle.Width / 2) - 16 > bossTarget.X)
                 {

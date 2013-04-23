@@ -280,6 +280,33 @@
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map1_A.xnb</Output>
       <Time>2013-04-18T18:36:35+02:00</Time>
     </Item>
+    <Item>
+      <Source>Player\female.png</Source>
+      <Name>Player\female</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\female.xnb</Output>
+      <Time>2013-04-22T22:31:08.7898261+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\portrait\Cybot.png</Source>
+      <Name>Npc\portrait\Cybot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Cybot.xnb</Output>
+      <Time>2013-04-23T07:26:52.6118315+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\sprite\Cybot.png</Source>
+      <Name>Npc\sprite\Cybot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Cybot.xnb</Output>
+      <Time>2013-04-23T07:26:57.0422393+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}</ContentProjectGUID>

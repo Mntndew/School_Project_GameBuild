@@ -31,7 +31,7 @@ namespace GameBuild.Npc
         Texture2D aTexture;
         public Texture2D healthTexture;
 
-        string name;
+        public string name;
         string mapName;
 
         float healthBarWidth;
@@ -942,6 +942,9 @@ namespace GameBuild.Npc
                         key.position = Game1.character.positionRectangle;
                         Game1.keys.Add(key);
                     }
+                    break;
+                case 3:
+                    health = 0;
                     break;
                 default:
                     break;

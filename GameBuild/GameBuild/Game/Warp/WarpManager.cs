@@ -55,6 +55,19 @@ namespace GameBuild.Game
                     {
                         Game1.character.position.Y = warp.targetY;
                     }
+                    if (map == "Map4_C")
+                    {
+                        for (int i = 0; i < game.Npcs.Count; i++)
+                        {
+                            if (game.Npcs[i].name == "Cybot")
+                            {
+                                Console.WriteLine("interact");
+                                game.Npcs[i].isInteracting = true;
+                                game.Npcs[i].dialogue.isTalking = true;
+                                game.currentGameState = Game1.GameState.INTERACT;
+                            }
+                        }
+                    }
                     break;
                 }
                 else

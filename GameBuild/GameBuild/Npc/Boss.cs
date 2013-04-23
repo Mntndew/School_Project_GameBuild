@@ -40,6 +40,7 @@ namespace GameBuild.Npc
         bool followPath;
         bool hasPath;
         public bool dead;
+        public bool attackPlayer;
         List<DamageEffect> damageEffectList = new List<DamageEffect>();
         Texture2D healthTexture;
 
@@ -70,14 +71,27 @@ namespace GameBuild.Npc
             
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             beamAttackTimer -= elapsed;
-
-            robot.position.X = position.X - 64;
-            robot.position.Y = position.Y;
-                phaseTimer += elapsed;
-                if (phaseTimer >= 5)
-                {
-                    SwitchPhase();
-                }
+            if (robot.position.X > (position.X - 64))
+            {
+                robot.position.X -= 2;
+            }
+            if (robot.position.X < (position.X - 64))
+            {
+                robot.position.X += 2;
+            }
+            if (robot.position.Y > position.Y)
+            {
+                robot.position.Y -= 2;
+            }
+            if (robot.position.Y < position.Y)
+            {
+                robot.position.Y += 2;
+            }
+            phaseTimer += elapsed;
+            if (phaseTimer >= 5)
+            {
+                SwitchPhase();
+            }
 
             healthPct = ((float)health / (float)maxHealth);
             healthBarWidth = (healthTexture.Width * 25) * healthPct;
@@ -175,28 +189,31 @@ namespace GameBuild.Npc
             }
             #endregion
 
-            switch (currentPhase)
+            if (attackPlayer)
             {
-                case phase.beam:
-                    shootTimer -= elapsed;
-                    if (shootTimer <= 0)
-                    {
-                        Shoot(game);
-                        shootTimer = SHOOTTIMER;
-                    }
-                    break;
-                case phase.mobs:
+                switch (currentPhase)
+                {
+                    case phase.beam:
+                        shootTimer -= elapsed;
+                        if (shootTimer <= 0)
+                        {
+                            Shoot(game);
+                            shootTimer = SHOOTTIMER;
+                        }
+                        break;
+                    case phase.mobs:
                         SpawnMobs(game);
-                    break;
-                case phase.sleep:
-                    Sleep(gameTime);
-                    break;
-                case phase.charge:
-                    Charge(game, gameTime);
-                    break;
-                default:
-                    Charge(game, gameTime);
-                    break;
+                        break;
+                    case phase.sleep:
+                        Sleep(gameTime);
+                        break;
+                    case phase.charge:
+                        Charge(game, gameTime);
+                        break;
+                    default:
+                        Charge(game, gameTime);
+                        break;
+                }
             }
         }
 
