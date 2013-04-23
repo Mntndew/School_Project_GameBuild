@@ -137,22 +137,13 @@
       <Time>2013-04-17T08:44:53.7834041+02:00</Time>
     </Item>
     <Item>
-      <Source>Npc\portrait\Headmaster.png</Source>
-      <Name>Npc\portrait\Headmaster</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Headmaster.xnb</Output>
-      <Time>2013-04-17T08:44:54.0023261+02:00</Time>
-    </Item>
-    <Item>
       <Source>Npc\portrait\Nurse.png</Source>
       <Name>Npc\portrait\Nurse</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Nurse.xnb</Output>
-      <Time>2013-04-22T14:01:14.1177488+02:00</Time>
+      <Time>2013-04-23T23:02:39.5191653+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\sprite\Headmaster.png</Source>
@@ -209,6 +200,87 @@
       <Time>2013-04-22T14:01:14.0997506+02:00</Time>
     </Item>
     <Item>
+      <Source>Player\female.png</Source>
+      <Name>Player\female</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\female.xnb</Output>
+      <Time>2013-04-23T23:02:39.6091654+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\portrait\Cybot.png</Source>
+      <Name>Npc\portrait\Cybot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Cybot.xnb</Output>
+      <Time>2013-04-23T23:02:39.4491652+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\sprite\Cybot.png</Source>
+      <Name>Npc\sprite\Cybot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Cybot.xnb</Output>
+      <Time>2013-04-23T23:02:39.5791654+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\portrait\Headmaster.png</Source>
+      <Name>Npc\portrait\Headmaster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Headmaster.xnb</Output>
+      <Time>2013-04-23T23:02:39.4791652+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\portrait\Lamia.png</Source>
+      <Name>Npc\portrait\Lamia</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Lamia.xnb</Output>
+      <Time>2013-04-23T23:02:39.4991653+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\portrait\Succubus.png</Source>
+      <Name>Npc\portrait\Succubus</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Succubus.xnb</Output>
+      <Time>2013-04-23T23:02:39.5491653+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\portrait\Sylian.png</Source>
+      <Name>Npc\portrait\Sylian</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Sylian.xnb</Output>
+      <Time>2013-04-23T23:02:39.5791654+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\sprite\Sylian.png</Source>
+      <Name>Npc\sprite\Sylian</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Sylian.xnb</Output>
+      <Time>2013-04-23T23:02:39.5891654+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\sprite\Succubus.png</Source>
+      <Name>Npc\sprite\Succubus</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Succubus.xnb</Output>
+      <Time>2013-04-23T23:02:39.5791654+02:00</Time>
+    </Item>
+    <Item>
       <Source>Game\lighting.fx</Source>
       <Name>Game\lighting</Name>
       <Importer>EffectImporter</Importer>
@@ -251,7 +323,7 @@
       <Processor>TileMapProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map3_B.xnb</Output>
-      <Time>2013-04-17T08:44:53.8540562+02:00</Time>
+      <Time>2013-04-23T23:02:39.4091652+02:00</Time>
     </Item>
     <Item>
       <Source>Map\Map3_A.tm</Source>
@@ -269,7 +341,7 @@
       <Processor>TileMapProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map2_A.xnb</Output>
-      <Time>2013-04-17T08:44:53.822213+02:00</Time>
+      <Time>2013-04-23T23:02:39.3991651+02:00</Time>
     </Item>
     <Item>
       <Source>Map\Map1_A.tm</Source>

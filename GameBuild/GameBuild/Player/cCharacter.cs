@@ -31,6 +31,7 @@ namespace GameBuild
         public int playerWidth = 48;
         public int damage;
         public int speed;
+        public int npcsInRectangle = 0;
 
         public float regenAmount;
 
@@ -120,7 +121,7 @@ namespace GameBuild
             animation = new AnimationComponent(3, 4, 72, 96, 100, Point.Zero);
             emitter = new ParticleSystemEmitter(game);
             Game1.particleSystem.emitters.Add(emitter);
-            bossTarget = new Vector2(positionRectangle.X, positionRectangle.Y);
+            bossTarget = new Vector2(-128, -128);
         }
 
         public void Update(Game1 game, H_Map.TileMap tiles, GameTime gameTime, KeyboardState oldState, GraphicsDevice graphicsDevice)
@@ -129,12 +130,14 @@ namespace GameBuild
             healthPct = (health / maxHealth);
             healthBarWidth = (float)healthTexture.Width * healthPct;
             float elapsed = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+            positionRectangle.X = (int)position.X;
+            positionRectangle.Y = (int)position.Y;
             if (showInventory)
             {
                 animation.PauseAnimation();
             }
 
-            //if (Game1.testBoss.currentPhase != Npc.Boss.phase.sleep)
+            if (Game1.testBoss.attackPlayer)
             {
                 if (positionRectangle.X + (positionRectangle.Width / 2) - 16 > bossTarget.X)
                 {
@@ -190,9 +193,8 @@ namespace GameBuild
                     health += regenAmount;
                     damageEffectList.Add(new DamageEffect((int)regenAmount, game, new Vector2(positionRectangle.X, positionRectangle.Y - 16), new Color(0, 255, 0, 255), "regen"));
                     Regen((int)regenAmount);
+                    regenTimer = REGENTIMER;
                 }
-
-                regenTimer = REGENTIMER;
             }
             tile = tiles;
 
@@ -259,7 +261,6 @@ namespace GameBuild
             }
 
             #region walk
-            
             if (!attacking && !showInventory && !dead)// && cWarp.canWalk
             {
                 walking = false;
@@ -432,7 +433,6 @@ namespace GameBuild
             attackTimer -= elapsed;
             if (game.keyState.IsKeyDown(Keys.Z) && game.oldState.IsKeyUp(Keys.Z) && !dead && attackTimer <= 0)
             {
-                damage = game.damageObject.dealDamage(5, 30);
                 attackTimer = ATTACKTIMER;
                 foreach (Npc.Npc npc in game.activeNpcs)
                 {
@@ -440,6 +440,7 @@ namespace GameBuild
                     {
                         if (npc.health > 0 && npc.IsOnMap())
                         {
+                            damage = game.damageObject.dealDamage(1, 20);
                             damageEffectList.Add(new DamageEffect(damage, game, new Vector2(npc.position.X, npc.position.Y - 16), new Color(255, 255, 255, 255), "player"));
                             npc.health -= damage;
                             npc.attackPlayer = true;
@@ -451,6 +452,7 @@ namespace GameBuild
                 {
                     if (Game1.testBoss.health > 0 && Game1.testBoss.IsOnMap())
                     {
+                        damage = game.damageObject.dealDamage(1, 20);
                         damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.testBoss.position.X, Game1.testBoss.position.Y - 16), new Color(255, 255, 255, 255), "player"));
                         Game1.testBoss.health -= damage;
                         Game1.testBoss.currentPhase = Npc.Boss.phase.sleep;
@@ -462,6 +464,7 @@ namespace GameBuild
                     {
                         if (Game1.testBoss.mobs[i].health > 0)
                         {
+                            damage = game.damageObject.dealDamage(1, 20);
                             damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.testBoss.mobs[i].position.X, Game1.testBoss.mobs[i].position.Y - 16), new Color(255, 255, 255, 255), "player"));
                             Game1.testBoss.mobs[i].health -= damage;
                         }
@@ -473,6 +476,7 @@ namespace GameBuild
                     {
                         if (game.Mobs[i].health > 0 && game.Mobs[i].IsOnMap())
                         {
+                            damage = game.damageObject.dealDamage(1, 20);
                             damageEffectList.Add(new DamageEffect(damage, game, new Vector2(game.Mobs[i].position.X, game.Mobs[i].position.Y - 16), new Color(255, 255, 255, 255), "player"));
                             game.Mobs[i].health -= damage;
                             game.Mobs[i].attackPlayer = true;
@@ -488,53 +492,74 @@ namespace GameBuild
 
             for (int i = 0; i < game.Npcs.Count; i++)
             {
-                if (game.Npcs[i].health > 0 && game.Npcs[i].IsOnMap() && game.Npcs[i].vulnerable)
+                Console.WriteLine(game.Npcs[i].attackPlayer);
+                for (int j = 0; j < game.Npcs.Count; j++)
                 {
-                    if (game.Npcs[i].combatRectangle.Intersects(positionRectangle))
+                    if (game.Npcs[i] != game.Npcs[j])
                     {
-                        inCombat = true;
+                        if (game.Npcs[i].health > 0 && game.Npcs[j].health > 0)
+                        {
+                            if (game.Npcs[i].attackPlayer || game.Npcs[j].attackPlayer)
+                            {
+                                inCombat = true;
+                            }
+                            else
+                            {
+                                inCombat = false;
+                            }
+                        }
                     }
-                    else
-                        inCombat = false;
-                }
-                else
-                {
-                    inCombat = false;
                 }
             }
 
-            for (int i = 0; i < game.Mobs.Count; i++)
-            {
-                if (game.Mobs[i].health > 0 && game.Mobs[i].IsOnMap() && game.Mobs[i].vulnerable)
-                {
-                    if (game.Mobs[i].combatRectangle.Intersects(positionRectangle))
-                    {
-                        inCombat = true;
-                    }
-                    else
-                        inCombat = false;
-                }
-                else
-                {
-                    inCombat = false;
-                }
-            }
             for (int i = 0; i < Game1.testBoss.mobs.Count; i++)
             {
-                if (Game1.testBoss.mobs[i].health > 0 && Game1.testBoss.mobs[i].IsOnMap() && Game1.testBoss.mobs[i].vulnerable)
+                Console.WriteLine(Game1.testBoss.mobs[i].attackPlayer);
+                for (int j = 0; j < Game1.testBoss.mobs.Count; j++)
                 {
-                    if (Game1.testBoss.mobs[i].combatRectangle.Intersects(positionRectangle))
+                    if (Game1.testBoss.mobs[i] != Game1.testBoss.mobs[j])
                     {
-                        inCombat = true;
+                        if (Game1.testBoss.mobs[i].health > 0 && Game1.testBoss.mobs[j].health > 0)
+                        {
+                            if (Game1.testBoss.mobs[i].attackPlayer || Game1.testBoss.mobs[j].attackPlayer)
+                            {
+                                inCombat = true;
+                            }
+                            else
+                            {
+                                inCombat = false;
+                            }
+                        }
                     }
-                    else
-                        inCombat = false;
-                }
-                else
-                {
-                    inCombat = false;
                 }
             }
+
+            //for (int i = 0; i < game.Mobs.Count; i++)
+            //{
+            //    if (game.Mobs[i].IsOnMap())
+            //    {
+            //        if (game.Mobs[i].health > 0 && game.Mobs[i].attackPlayer)
+            //        {
+            //            inCombat = true;
+            //        }
+            //        else
+            //            inCombat = false;
+            //    }
+            //}
+
+            //for (int i = 0; i < Game1.testBoss.mobs.Count; i++)
+            //{
+            //    if (Game1.testBoss.mobs[i].IsOnMap())
+            //    {
+            //        if (Game1.testBoss.mobs[i].health > 0 && Game1.testBoss.mobs[i].attackPlayer)
+            //        {
+            //            inCombat = true;
+            //        }
+            //        else
+            //            inCombat = false;
+            //    }
+            //}
+            
             #endregion
         }
 

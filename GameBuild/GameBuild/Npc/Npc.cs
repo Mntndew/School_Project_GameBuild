@@ -25,20 +25,22 @@ namespace GameBuild.Npc
         Vector2 point4;
         Vector2[] path;
         Vector2 randomWalkTarget;
+        public Rectangle bumpRectangle;//for mini bots :) they bump into eachother
 
         Texture2D debugTile;
         public Texture2D walkSprite;
         Texture2D aTexture;
         public Texture2D healthTexture;
 
-        string name;
-        string mapName;
+        public string name;
+        public string mapName;
 
         float healthBarWidth;
         float maxHealth;
         public float health;
         public float healthPct;
         public float speed;
+        public float SPEED;
         public float attackTimer = 500f;
         float pathTimer = 200f;
         const float ATTACKTIMER = 2000f;//milliseconds
@@ -47,19 +49,21 @@ namespace GameBuild.Npc
         float pathTimerMod;
         int pathIndex;
         bool followPath;
+        public double robotAngle;
 
         public bool point1Tagged = false, point2Tagged = false, point3Tagged = false, point4Tagged = false;
         public bool canInteract;
+        public bool countedInteractRect;//so that you cant interact with two npcs at once
         public bool hasBeenAdded = false;
         public bool isInteracting = false;
         public bool attackPlayer = false;
         public bool mob;
         public bool bossMob;
-        bool up, down, left, right;
+        public bool up, down, left, right;
         bool addA = false;
         bool hasPath = false;
         bool hasTarget;
-        bool reached = true;//for waypoint
+        public bool reached = true;//for waypoint
         public bool vulnerable;
 
         public enum patrolType
@@ -96,7 +100,7 @@ namespace GameBuild.Npc
         int chance;
         #endregion
 
-        public Npc(string mapName, string name, int x, int y, int width, int height, string up, string down, string left, string right,
+        public Npc(string mapName, string name, int x, int y, int width, int height, bool up, bool down, bool left, bool right,
             string spritePath, string portraitPath, bool patrolNone, bool patrolUpDown, bool patrolLeftRight,
             bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game, string dialoguePath, string keyName)
         {
@@ -104,53 +108,25 @@ namespace GameBuild.Npc
             this.name = name;
             this.mapName = mapName;
             this.speed = speed;
+            this.up = up;
+            this.down = down;
+            this.left = left;
+            this.right = right;
             minDamage = 2;
             maxDamage = 15;
-
             combatRectangle = new Rectangle(position.X - 128, position.Y - 128, 256, 256);
-
-            if (up == "False")
-            {
-                this.up = false;
-            }
-            else
-                this.up = true;
-
-            if (down == "False")
-            {
-                this.down = false;
-            }
-            else
-                this.down = true;
-
-            if (left == "False")
-            {
-                this.left = false;
-            }
-            else
-                this.left = true;
-
-            if (right == "False")
-            {
-                this.right = false;
-            }
-            else
-                this.right = true;
-
             patrolRect = new Rectangle(patrolX, patrolY, patrolWidth, patrolHeight);
-
             aTexture = game.Content.Load<Texture2D>(@"Npc\A");
             aPosition = new Rectangle(0, 0, aTexture.Width, aTexture.Height);
-
             health = 200;
             maxHealth = health;
             this.speed = speed;
-
+            this.SPEED = speed;
             dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + portraitPath), game.textBox, game, game.spriteFont, dialoguePath, name);
             walkSprite = game.Content.Load<Texture2D>(@"npc\sprite\" + spritePath);
             debugTile = game.Content.Load<Texture2D>(@"Player\emptySlot");
             healthTexture = game.Content.Load<Texture2D>(@"Game\health100");
-
+            
             if (patrolLeftRight)
             {
                 currentPatrolType = patrolType.leftRight;
@@ -206,6 +182,7 @@ namespace GameBuild.Npc
             mob = true;
             currentPatrolType = patrolType.none;
             animation = new AnimationComponent(2, 4, 50, 71, 175, Microsoft.Xna.Framework.Point.Zero);
+            this.SPEED = speed;
             key = null;
         }
 
@@ -516,9 +493,49 @@ namespace GameBuild.Npc
             healthBarWidth = (float)healthTexture.Width * healthPct;
             #endregion
 
-            if (!mob && !reached)
+            bumpRectangle = new Rectangle(position.X + position.Width / 2, position.Y + position.Height / 2, position.Width / 2, position.Height / 2);
+
+            if (name == "Headmaster")
             {
-                GoTo(new Vector2(20*64, 19*64), true, gameTime);
+                if (mapName == "Map3_B")
+                {
+                    if (IsOnMap())
+                    {
+                        if (!reached)
+                        {
+                            up = false;
+                            down = false;
+                            right = false;
+                            left = false;
+                            GoTo(new Vector2(576, 1152), true, gameTime);
+                        }
+                        else
+                        {
+                            down = true;
+                        }
+                    }
+                }
+            }
+            if (name == "Nurse")
+            {
+                if (mapName == "Map3_B")
+                {
+                    if (IsOnMap())
+                    {
+                        if (!reached)
+                        {
+                            up = false;
+                            down = false;
+                            right = false;
+                            left = false;
+                            GoTo(new Vector2(620, 1248), true, gameTime);
+                        }
+                        else
+                        {
+                            up = true;
+                        }
+                    }
+                }
             }
 
             if (mob && !bossMob)
@@ -590,8 +607,12 @@ namespace GameBuild.Npc
                     canInteract = false;
                 }
             }
-
             #endregion
+
+            if (health <= 0)
+            {
+                attackPlayer = false;
+            }
         }
 
         public void Patrol(H_Map.TileMap tiles)
@@ -871,13 +892,23 @@ namespace GameBuild.Npc
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (health > 0)
+            if (IsOnMap())
             {
-                spriteBatch.Draw(walkSprite, position, animation.GetFrame(), Color.White);
+                if (health > 0)
+                {
+                    spriteBatch.Draw(walkSprite, position, animation.GetFrame(), Color.White);
+                }
             }
-            if (healthTexture != null && health > 0)
+        }
+
+        public void DrawHealth(SpriteBatch spriteBatch)
+        {
+            if (IsOnMap())
             {
-                spriteBatch.Draw(healthTexture, healthPos, Color.White);
+                if (healthTexture != null && health > 0)
+                {
+                    spriteBatch.Draw(healthTexture, healthPos, Color.White);
+                }
             }
         }
         
@@ -920,7 +951,6 @@ namespace GameBuild.Npc
                     break;
 
                 case 2:
-                    Console.WriteLine("I JUST GAVE YOU A FUCKING KEY");
                     if (key != null)
                     {
                         key.position = Game1.character.positionRectangle;
@@ -928,6 +958,15 @@ namespace GameBuild.Npc
                         key = null;
                     }
                     break;
+
+                case 3:
+                    if (name == "Cybot" && Game1.testBoss.health > 0)
+                    {
+                        Game1.testBoss.attackPlayer = true;
+                    }
+                    health = 0;
+                    break;
+
                 default:
                     break;
             }

@@ -143,7 +143,7 @@ namespace GameBuild
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             collisionTex = Content.Load<Texture2D>(@"Game\blackness");
-            map = Content.Load<H_Map.TileMap>(@"Map\Map1_A");
+            map = Content.Load<H_Map.TileMap>(@"Map\Map3_A");
             map.tileset = Content.Load<Texture2D>(@"Game\tileset");
             textBox = Content.Load<Texture2D>(@"Game\textBox");
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
@@ -151,7 +151,7 @@ namespace GameBuild
             debugTile = Content.Load<Texture2D>(@"Player\emptySlot");
             screenTexture = Content.Load<Texture2D>(@"Game\blackness");
             male = Content.Load<Texture2D>(@"Player\Male");
-            female = Content.Load<Texture2D>(@"Game\blackness");
+            female = Content.Load<Texture2D>(@"Player\female");
             warpManager.UpdateList(map.mapName);
             keyTexture = Content.Load<Texture2D>(@"Game\key");
             LoadKeys();
@@ -195,7 +195,7 @@ namespace GameBuild
                 names[i] = Directory.GetFiles(@"Content\npc\npc\")[i];
                 StreamReader reader = new StreamReader(names[i]);
                 Npc.Npc npc = new Npc.Npc(reader.ReadLine(), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
-                reader.ReadLine(), reader.ReadLine(), reader.ReadLine(), reader.ReadLine(), reader.ReadLine(), reader.ReadLine(),
+                bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), reader.ReadLine(), reader.ReadLine(),
                 bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
                 int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), this, reader.ReadLine(), reader.ReadLine());
                 Npcs.Add(npc);
@@ -207,7 +207,7 @@ namespace GameBuild
             activeNpcs.Clear();
             for (int i = 0; i < Npcs.Count; i++)
             {
-                if (Npcs[i].IsOnMap() && !Npcs[i].bossMob && !Npcs[i].mob)
+                if (Npcs[i].IsOnMap() && !Npcs[i].bossMob && !Npcs[i].mob && Npcs[i].health > 0)
                 {
                     activeNpcs.Add(Npcs[i]);
                     Npcs[i].hasBeenAdded = true;
@@ -215,7 +215,7 @@ namespace GameBuild
             }
             for (int i = 0; i < activeNpcs.Count; i++)
             {
-                if (!activeNpcs[i].IsOnMap())
+                if (!activeNpcs[i].IsOnMap() || activeNpcs[i].health <= 0)
                 {
                     activeNpcs[i].hasBeenAdded = false;
                     activeNpcs.RemoveAt(i);
@@ -245,7 +245,7 @@ namespace GameBuild
             {
                 ChooseGender();
             }
-
+            
             oldState = keyState;
             keyState = Keyboard.GetState();
             if (keyState.IsKeyDown(Keys.Escape) && oldState.IsKeyUp(Keys.Escape))
@@ -259,7 +259,8 @@ namespace GameBuild
             }
             if (gender != null && !menu.paused)
             {
-                warpManager.Update(this);
+                warpManager.Update(this, gameTime);
+                UpdateActiveNpcs();
                 if (keyState.IsKeyDown(Keys.Space))
                 {
                     orbs.Add(new Orb(new Rectangle(256, 256, 8, 8)));
@@ -269,15 +270,11 @@ namespace GameBuild
                     testBoss.Update(this, gameTime);
                 }
                 particleSystem.Update(gameTime);
-                UpdateActiveNpcs();
-
                 camera.Pos = character.position;
-
                 if (currentGameState == GameState.PLAY)
                 {
                     character.Update(this, map, gameTime, oldState, GraphicsDevice);
                 }
-
                 for (int i = 0; i < keys.Count; i++)
                 {
                     if (character.positionRectangle.Intersects(keys[i].position) && map.mapName.Remove(map.mapName.Length - 1) == keys[i].mapName)
@@ -286,18 +283,34 @@ namespace GameBuild
                         keys.RemoveAt(i);
                     }
                 }
-
                 for (int i = 0; i < activeNpcs.Count; i++)
                 {
-                    Console.WriteLine("HP: " + activeNpcs[i].health + ", " + i);
                     if (activeNpcs[i].health > 0)
                     {
                         if (!activeNpcs[i].isInteracting && activeNpcs[i].IsOnMap() && !character.showInventory)
                         {
                             activeNpcs[i].Update(character, map, this, gameTime);
                         }
-                        activeNpcs[i].UpdateDialogue(this);
-                        if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && activeNpcs[i].canInteract && !activeNpcs[i].mob && character.inCombat == false)
+
+                        Npcs[i].UpdateDialogue(this);
+                        if (activeNpcs[i].position.Intersects(character.interactRect))
+                        {
+                            if (!activeNpcs[i].countedInteractRect)
+                            {
+                                character.npcsInRectangle++;
+                                activeNpcs[i].countedInteractRect = true;
+                            }
+                        }
+                        else
+                        {
+                            if (activeNpcs[i].countedInteractRect)
+                            {
+                                character.npcsInRectangle--;
+                                activeNpcs[i].countedInteractRect = false;
+                            }
+                        }
+
+                        if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && activeNpcs[i].canInteract && !activeNpcs[i].mob && !character.inCombat && character.npcsInRectangle < 2)
                         {
                             if (activeNpcs[i].isInteracting)
                             {
@@ -327,7 +340,6 @@ namespace GameBuild
                         activeNpcs.RemoveAt(i);
                     }
                 }
-
                 for (int i = 0; i < Mobs.Count; i++)
                 {
                     Mobs[i].Update(character, map, this, gameTime);
@@ -361,7 +373,7 @@ namespace GameBuild
             if (gender != null)
             {
                 character = new cCharacter(this, gender);
-                testBoss = new Npc.Boss(new Rectangle(7 * 64, 6 * 64, 64, 64), this, "Map4_C");
+                testBoss = new Npc.Boss(new Rectangle(16 * 64, 7 * 64, 64, 64), this, "Map4_C");
                 currentGameState = GameState.PLAY;
             }
         }
@@ -393,8 +405,7 @@ namespace GameBuild
                 {
                     spriteBatch.Draw(Content.Load<Texture2D>(@"Particle\particle"), orbs[i].position, orbs[i].color);
                 }
-                particleSystem.Draw(spriteBatch);
-                character.Draw(spriteBatch);
+                //particleSystem.Draw(spriteBatch);
                 for (int i = 0; i < activeNpcs.Count; i++)
                 {
                     activeNpcs[i].Draw(spriteBatch);
@@ -406,16 +417,21 @@ namespace GameBuild
                         Mobs[i].Draw(spriteBatch);
                     }
                 }
+                character.Draw(spriteBatch);
                 if (testBoss.IsOnMap())
                 {
                     testBoss.Draw(spriteBatch);
                 }
                 map.DrawForegroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
+                for (int i = 0; i < activeNpcs.Count; i++)
+                {
+                    activeNpcs[i].DrawHealth(spriteBatch);
+                }
+                warpManager.Draw(spriteBatch, this);
                 if (testBoss.IsOnMap())
                 {
                     testBoss.DrawMobs(spriteBatch);
                 }
-                warpManager.Draw(spriteBatch, this);
                 for (int i = 0; i < activeNpcs.Count; i++)
                 {
                     activeNpcs[i].DrawA(spriteBatch);
@@ -461,8 +477,8 @@ namespace GameBuild
             if (gender == null)
             {
                 spriteBatch.Begin();
-                spriteBatch.Draw(male, new Rectangle(0, 0, male.Width / 2, male.Height / 2), Color.White);
-                spriteBatch.Draw(female, new Rectangle(graphics.PreferredBackBufferWidth / 2, 0, female.Width / 2, female.Height / 2), Color.White);
+                spriteBatch.Draw(male, new Rectangle(-40, 0, male.Width / 2, male.Height / 2), Color.White);
+                spriteBatch.Draw(female, new Rectangle(graphics.PreferredBackBufferWidth - female.Width / 2, 0, female.Width / 2, female.Height / 2), Color.White);
                 spriteBatch.DrawString(spriteFont, "Choose a gender, please.", new Vector2((graphics.PreferredBackBufferWidth / 2) - 20 * 6.38f, 6), new Color(200, 200, 200));
                 spriteBatch.End();
             }
@@ -483,32 +499,3 @@ namespace GameBuild
 
     }
 }
-
-
-#region stuff
-/*
-
-     /MMMMMMMMM\\  \  /  //MMMMMMMMM\
-    /NNNNNMMMMMN\\  ||  //NMMMMMNNNNN\
-   /NNNNMMMMMMMMN\\ || //NMMMMMMMMNNNN\
-  |NNMMMMMMMMMMMMMN\/\/NMMMMMMMMMMMMMNN|
-  \NNNNNMMMMMMMMMNNN\/NNNMMMMMMMMNNNNNN/
-    \NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN/
-      \HHHHHHHHHHHHHHHHHHHHHHHHHHHH/
-        \JJJJJJJJJJJJJJJJJJJJJJJJ/
-          \LLLLLLLLLLLLLLLLLLLLL/
-          |LLLLLLLLLLLLLLLLLLLLL|
-         /LLLLLLLLLLLLLLLLLLLLLLL\
-       /JJJJJJJJJJJJJJJJJJJJJJJJJJJ\
-     /LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL\
-    /LLLLLLLLLLLLLJJJJJJJJJLLLLLLLLLLL\
-   |LLLLLLLLLLLLLJJJJJJJJJJJLLLLLLLLLLL|
-  |:::::::::::::::::::::::::::::::::::::|
-  |||||||||||||||||||||||||||||||||||||||
-  \ :        |        /\     |        : /
-   \:________/       |  |    \________:/
-    \                |  |             /
-    /|||||||||||||||||\/||||||||||||||\
-
-  */
-#endregion

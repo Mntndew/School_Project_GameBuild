@@ -13,7 +13,6 @@ Content\Particle\particle.xnb
 Content\Player\Male.xnb
 Content\Game\key.xnb
 Content\Game\tileset.xnb
-Content\Npc\portrait\Headmaster.xnb
 Content\Npc\portrait\Nurse.xnb
 Content\Npc\sprite\Headmaster.xnb
 Content\Npc\sprite\Nurse.xnb
@@ -21,6 +20,15 @@ Content\Game\Hp bar.xnb
 Content\Game\target.xnb
 Content\robot.xnb
 Content\Npc\bot.xnb
+Content\Player\female.xnb
+Content\Npc\portrait\Cybot.xnb
+Content\Npc\sprite\Cybot.xnb
+Content\Npc\portrait\Headmaster.xnb
+Content\Npc\portrait\Lamia.xnb
+Content\Npc\portrait\Succubus.xnb
+Content\Npc\portrait\Sylian.xnb
+Content\Npc\sprite\Sylian.xnb
+Content\Npc\sprite\Succubus.xnb
 Content\Game\lighting.xnb
 Content\Game\SpriteFont1.xnb
 Content\Map\Map4_C.xnb
@@ -43,3 +51,7 @@ Content\Warp\Map4_C_0.txt
 Content\Warp\Map4_B_1.txt
 Content\Npc\npc\Headmaster.txt
 Content\Npc\npc\Nurse.txt
+Content\Npc\npc\Cybot.txt
+Content\Npc\dialogue\Cybot dead.txt
+Content\Npc\npc\Sylian.txt
+Content\Npc\npc\Succubus.txt

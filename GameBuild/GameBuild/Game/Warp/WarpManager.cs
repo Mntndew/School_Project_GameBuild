@@ -38,12 +38,12 @@ namespace GameBuild.Game
             }
         }
 
-        public void Warp(WarpItem warp, string key, int targetX, int targetY, string map, Game1 game)//the key to unlock the door, targeted x coordinate, targeted y coordinate, targeted map
+        public void Warp(WarpItem warp, string key, int targetX, int targetY, string map, Game1 game, GameTime gameTime)//the key to unlock the door, targeted x coordinate, targeted y coordinate, targeted map
         {
             UpdateList(Game1.map.mapName);
-            for (int x = 0; x < Game1.character.inventory.width; x++)//player inventory slots
+            for (int y = 0; y < Game1.character.inventory.height; y++)
             {
-                if ((Game1.character.inventory.inventorySlot[x, 0].item == key || key == "."))//checks if the player has the key or if the key is ".", aka no key required
+                if ((Game1.character.inventory.inventorySlot[0, y].item == key || key == "."))//checks if the player has the key or if the key is ".", aka no key required
                 {
                     Game1.map = game.Content.Load<H_Map.TileMap>(@"Map\" + map);
                     Game1.map.tileset = game.Content.Load<Texture2D>(@"Game\tileset");
@@ -55,24 +55,54 @@ namespace GameBuild.Game
                     {
                         Game1.character.position.Y = warp.targetY;
                     }
-                    break;
+                    if (map == "Map4_C")
+                    {
+                        for (int i = 0; i < game.Npcs.Count; i++)
+                        {
+                            if (game.Npcs[i].name == "Cybot")
+                            {
+                                game.Npcs[i].isInteracting = true;
+                                game.Npcs[i].dialogue.isTalking = true;
+                                game.currentGameState = Game1.GameState.INTERACT;
+                            }
+                        }
+                    }
+                    if (map == "Map3_B")
+                    {
+                        for (int i = 0; i < game.Npcs.Count; i++)
+                        {
+                            if (game.Npcs[i].name == "Headmaster")
+                            {
+                                game.Npcs[i].mapName = map;
+                                game.Npcs[i].position.X = 1800;
+                                game.Npcs[i].position.Y = 192;
+                                game.Npcs[i].reached = false;
+                            }
+                            if (game.Npcs[i].name == "Nurse")
+                            {
+                                game.Npcs[i].mapName = map;
+                                game.Npcs[i].position.X = 1800;
+                                game.Npcs[i].position.Y = 1248;
+                                game.Npcs[i].reached = false;
+                            }
+                        }
+                    }
                 }
                 else
                 {
                     Console.WriteLine("locked");
-                    break;
                 }
             }
         }
 
-        public void Update(Game1 game)
+        public void Update(Game1 game, GameTime gameTime)
         {
             UpdateList(Game1.map.mapName);
             for (int i = 0; i < warps.Count; i++)
             {
                 if (Game1.character.warpRectangle.Intersects(warps[i].warpField))
                 {
-                    Warp(warps[i], warps[i].key, warps[i].targetX, warps[i].targetY, warps[i].targetMap, game);
+                    Warp(warps[i], warps[i].key, warps[i].targetX, warps[i].targetY, warps[i].targetMap, game, gameTime);
                 }
             }
         }
