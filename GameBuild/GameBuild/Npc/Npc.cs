@@ -25,6 +25,7 @@ namespace GameBuild.Npc
         Vector2 point4;
         Vector2[] path;
         Vector2 randomWalkTarget;
+        public Rectangle bumpRectangle;//for mini bots :) they bump into eachother
 
         Texture2D debugTile;
         public Texture2D walkSprite;
@@ -32,13 +33,14 @@ namespace GameBuild.Npc
         public Texture2D healthTexture;
 
         public string name;
-        string mapName;
+        public string mapName;
 
         float healthBarWidth;
         float maxHealth;
         public float health;
         public float healthPct;
         public float speed;
+        public float SPEED;
         public float attackTimer = 500f;
         float pathTimer = 200f;
         const float ATTACKTIMER = 2000f;//milliseconds
@@ -51,16 +53,17 @@ namespace GameBuild.Npc
 
         public bool point1Tagged = false, point2Tagged = false, point3Tagged = false, point4Tagged = false;
         public bool canInteract;
+        public bool countedInteractRect;//so that you cant interact with two npcs at once
         public bool hasBeenAdded = false;
         public bool isInteracting = false;
         public bool attackPlayer = false;
         public bool mob;
         public bool bossMob;
-        bool up, down, left, right;
+        public bool up, down, left, right;
         bool addA = false;
         bool hasPath = false;
         bool hasTarget;
-        bool reached = true;//for waypoint
+        public bool reached = true;//for waypoint
         public bool vulnerable;
 
         public enum patrolType
@@ -118,11 +121,12 @@ namespace GameBuild.Npc
             health = 200;
             maxHealth = health;
             this.speed = speed;
+            this.SPEED = speed;
             dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + portraitPath), game.textBox, game, game.spriteFont, dialoguePath, name);
             walkSprite = game.Content.Load<Texture2D>(@"npc\sprite\" + spritePath);
             debugTile = game.Content.Load<Texture2D>(@"Player\emptySlot");
             healthTexture = game.Content.Load<Texture2D>(@"Game\health100");
-
+            
             if (patrolLeftRight)
             {
                 currentPatrolType = patrolType.leftRight;
@@ -178,6 +182,7 @@ namespace GameBuild.Npc
             mob = true;
             currentPatrolType = patrolType.none;
             animation = new AnimationComponent(2, 4, 50, 71, 175, Microsoft.Xna.Framework.Point.Zero);
+            this.SPEED = speed;
             key = null;
         }
 
@@ -488,9 +493,49 @@ namespace GameBuild.Npc
             healthBarWidth = (float)healthTexture.Width * healthPct;
             #endregion
 
-            if (!mob && !reached)
+            bumpRectangle = new Rectangle(position.X + position.Width / 2, position.Y + position.Height / 2, position.Width / 2, position.Height / 2);
+
+            if (name == "Headmaster")
             {
-                GoTo(new Vector2(20*64, 19*64), true, gameTime);
+                if (mapName == "Map3_B")
+                {
+                    if (IsOnMap())
+                    {
+                        if (!reached)
+                        {
+                            up = false;
+                            down = false;
+                            right = false;
+                            left = false;
+                            GoTo(new Vector2(576, 1152), true, gameTime);
+                        }
+                        else
+                        {
+                            down = true;
+                        }
+                    }
+                }
+            }
+            if (name == "Nurse")
+            {
+                if (mapName == "Map3_B")
+                {
+                    if (IsOnMap())
+                    {
+                        if (!reached)
+                        {
+                            up = false;
+                            down = false;
+                            right = false;
+                            left = false;
+                            GoTo(new Vector2(620, 1248), true, gameTime);
+                        }
+                        else
+                        {
+                            up = true;
+                        }
+                    }
+                }
             }
 
             if (mob && !bossMob)
@@ -842,26 +887,19 @@ namespace GameBuild.Npc
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (!bossMob)
-            {
-                if (IsOnMap())
-                {
-                    if (health > 0)
-                    {
-                        spriteBatch.Draw(walkSprite, position, animation.GetFrame(), Color.White);
-                    }
-                    if (healthTexture != null && health > 0)
-                    {
-                        spriteBatch.Draw(healthTexture, healthPos, Color.White);
-                    }
-                }
-            }
-            else
+            if (IsOnMap())
             {
                 if (health > 0)
                 {
                     spriteBatch.Draw(walkSprite, position, animation.GetFrame(), Color.White);
                 }
+            }
+        }
+
+        public void DrawHealth(SpriteBatch spriteBatch)
+        {
+            if (IsOnMap())
+            {
                 if (healthTexture != null && health > 0)
                 {
                     spriteBatch.Draw(healthTexture, healthPos, Color.White);

@@ -360,6 +360,32 @@
       <Name>Cybot dead</Name>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\npc\Sylian.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>Sylian</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\sprite\Sylian.png">
+      <Name>Sylian</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\npc\Succubus.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>Succubus</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\sprite\Succubus.png">
+      <Name>Succubus</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

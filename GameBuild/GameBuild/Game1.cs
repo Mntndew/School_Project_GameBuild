@@ -143,7 +143,7 @@ namespace GameBuild
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             collisionTex = Content.Load<Texture2D>(@"Game\blackness");
-            map = Content.Load<H_Map.TileMap>(@"Map\Map4_B");
+            map = Content.Load<H_Map.TileMap>(@"Map\Map3_A");
             map.tileset = Content.Load<Texture2D>(@"Game\tileset");
             textBox = Content.Load<Texture2D>(@"Game\textBox");
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
@@ -245,7 +245,7 @@ namespace GameBuild
             {
                 ChooseGender();
             }
-
+            
             oldState = keyState;
             keyState = Keyboard.GetState();
             if (keyState.IsKeyDown(Keys.Escape) && oldState.IsKeyUp(Keys.Escape))
@@ -259,7 +259,8 @@ namespace GameBuild
             }
             if (gender != null && !menu.paused)
             {
-                warpManager.Update(this);
+                Console.WriteLine(character.npcsInRectangle);
+                warpManager.Update(this, gameTime);
                 UpdateActiveNpcs();
                 if (keyState.IsKeyDown(Keys.Space))
                 {
@@ -283,28 +284,45 @@ namespace GameBuild
                         keys.RemoveAt(i);
                     }
                 }
-                for (int i = 0; i < Npcs.Count; i++)
+                for (int i = 0; i < activeNpcs.Count; i++)
                 {
-                    if (Npcs[i].health > 0)
+                    if (activeNpcs[i].health > 0)
                     {
-                        if (!Npcs[i].isInteracting && Npcs[i].IsOnMap() && !character.showInventory)
+                        if (!activeNpcs[i].isInteracting && activeNpcs[i].IsOnMap() && !character.showInventory)
                         {
-                            Npcs[i].Update(character, map, this, gameTime);
+                            activeNpcs[i].Update(character, map, this, gameTime);
                         }
                         Npcs[i].UpdateDialogue(this);
-                        if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && Npcs[i].canInteract && !Npcs[i].mob && character.inCombat == false)
+                        if (activeNpcs[i].position.Intersects(character.interactRect))
                         {
-                            if (Npcs[i].isInteracting)
+                            if (!activeNpcs[i].countedInteractRect)
                             {
-                                Npcs[i].isInteracting = false;
-                                Npcs[i].dialogue.isTalking = false;
-                                Npcs[i].dialogue.ResetDialogue();
+                                character.npcsInRectangle++;
+                                activeNpcs[i].countedInteractRect = true;
+                            }
+                        }
+                        else
+                        {
+                            if (activeNpcs[i].countedInteractRect)
+                            {
+                                character.npcsInRectangle--;
+                                activeNpcs[i].countedInteractRect = false;
+                            }
+                        }
+
+                        if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && activeNpcs[i].canInteract && !activeNpcs[i].mob && character.inCombat == false && character.npcsInRectangle < 2)
+                        {
+                            if (activeNpcs[i].isInteracting)
+                            {
+                                activeNpcs[i].isInteracting = false;
+                                activeNpcs[i].dialogue.isTalking = false;
+                                activeNpcs[i].dialogue.ResetDialogue();
                                 currentGameState = GameState.PLAY;
                             }
                             else
                             {
-                                Npcs[i].isInteracting = true;
-                                Npcs[i].dialogue.isTalking = true;
+                                activeNpcs[i].isInteracting = true;
+                                activeNpcs[i].dialogue.isTalking = true;
                                 currentGameState = GameState.INTERACT;
                             }
                         }
@@ -375,8 +393,7 @@ namespace GameBuild
                 {
                     spriteBatch.Draw(Content.Load<Texture2D>(@"Particle\particle"), orbs[i].position, orbs[i].color);
                 }
-                particleSystem.Draw(spriteBatch);
-                character.Draw(spriteBatch);
+                //particleSystem.Draw(spriteBatch);
                 for (int i = 0; i < activeNpcs.Count; i++)
                 {
                     activeNpcs[i].Draw(spriteBatch);
@@ -388,16 +405,21 @@ namespace GameBuild
                         Mobs[i].Draw(spriteBatch);
                     }
                 }
+                character.Draw(spriteBatch);
                 if (testBoss.IsOnMap())
                 {
                     testBoss.Draw(spriteBatch);
                 }
                 map.DrawForegroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
+                for (int i = 0; i < activeNpcs.Count; i++)
+                {
+                    activeNpcs[i].DrawHealth(spriteBatch);
+                }
+                warpManager.Draw(spriteBatch, this);
                 if (testBoss.IsOnMap())
                 {
                     testBoss.DrawMobs(spriteBatch);
                 }
-                warpManager.Draw(spriteBatch, this);
                 for (int i = 0; i < activeNpcs.Count; i++)
                 {
                     activeNpcs[i].DrawA(spriteBatch);
@@ -465,32 +487,3 @@ namespace GameBuild
 
     }
 }
-
-
-#region stuff
-/*
-
-     /MMMMMMMMM\\  \  /  //MMMMMMMMM\
-    /NNNNNMMMMMN\\  ||  //NMMMMMNNNNN\
-   /NNNNMMMMMMMMN\\ || //NMMMMMMMMNNNN\
-  |NNMMMMMMMMMMMMMN\/\/NMMMMMMMMMMMMMNN|
-  \NNNNNMMMMMMMMMNNN\/NNNMMMMMMMMNNNNNN/
-    \NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN/
-      \HHHHHHHHHHHHHHHHHHHHHHHHHHHH/
-        \JJJJJJJJJJJJJJJJJJJJJJJJ/
-          \LLLLLLLLLLLLLLLLLLLLL/
-          |LLLLLLLLLLLLLLLLLLLLL|
-         /LLLLLLLLLLLLLLLLLLLLLLL\
-       /JJJJJJJJJJJJJJJJJJJJJJJJJJJ\
-     /LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL\
-    /LLLLLLLLLLLLLJJJJJJJJJLLLLLLLLLLL\
-   |LLLLLLLLLLLLLJJJJJJJJJJJLLLLLLLLLLL|
-  |:::::::::::::::::::::::::::::::::::::|
-  |||||||||||||||||||||||||||||||||||||||
-  \ :        |        /\     |        : /
-   \:________/       |  |    \________:/
-    \                |  |             /
-    /|||||||||||||||||\/||||||||||||||\
-
-  */
-#endregion

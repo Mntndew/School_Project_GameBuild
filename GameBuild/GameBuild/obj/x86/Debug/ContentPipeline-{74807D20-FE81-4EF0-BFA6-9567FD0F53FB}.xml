@@ -251,7 +251,7 @@
       <Processor>TileMapProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map3_B.xnb</Output>
-      <Time>2013-04-18T18:36:35+02:00</Time>
+      <Time>2013-04-23T21:46:59.764805+02:00</Time>
     </Item>
     <Item>
       <Source>Map\Map3_A.tm</Source>
@@ -269,7 +269,7 @@
       <Processor>TileMapProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map2_A.xnb</Output>
-      <Time>2013-04-18T18:36:35+02:00</Time>
+      <Time>2013-04-23T21:47:44.8956843+02:00</Time>
     </Item>
     <Item>
       <Source>Map\Map1_A.tm</Source>
@@ -333,6 +333,24 @@
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Sylian.xnb</Output>
       <Time>2013-04-23T16:06:34.5058009+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\sprite\Sylian.png</Source>
+      <Name>Npc\sprite\Sylian</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Sylian.xnb</Output>
+      <Time>2013-04-23T19:22:43.7445733+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\sprite\Succubus.png</Source>
+      <Name>Npc\sprite\Succubus</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Succubus.xnb</Output>
+      <Time>2013-04-23T20:46:09.6003647+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

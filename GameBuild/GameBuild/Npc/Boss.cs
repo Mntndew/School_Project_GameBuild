@@ -175,7 +175,7 @@ namespace GameBuild.Npc
                 {
                     if (mobs[i] != mobs[j])
                     {
-                        if (mobs[i].position.Intersects(mobs[j].position))
+                        if (mobs[i].bumpRectangle.Intersects(mobs[j].bumpRectangle))
                         {
                             if (mobs[i].position.X < mobs[j].position.X)
                             {
@@ -282,7 +282,7 @@ namespace GameBuild.Npc
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    mobs.Add(new Npc(new Rectangle(position.X + i, position.Y - 48 + i, 30, 25), game.Content.Load<Texture2D>(@"Npc\bot"), game, map, 1, true, 5, 1, 3, 5, true));
+                    mobs.Add(new Npc(new Rectangle(position.X + i, position.Y - 48 + i, 30, 25), game.Content.Load<Texture2D>(@"Npc\bot"), game, map, 1, true, 25, 1, 5, 1, true));
                 }
                 for (int i = 0; i < mobs.Count; i++)
                 {

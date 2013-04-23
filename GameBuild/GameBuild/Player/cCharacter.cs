@@ -31,6 +31,7 @@ namespace GameBuild
         public int playerWidth = 48;
         public int damage;
         public int speed;
+        public int npcsInRectangle = 0;
 
         public float regenAmount;
 
@@ -129,6 +130,8 @@ namespace GameBuild
             healthPct = (health / maxHealth);
             healthBarWidth = (float)healthTexture.Width * healthPct;
             float elapsed = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+            positionRectangle.X = (int)position.X;
+            positionRectangle.Y = (int)position.Y;
             if (showInventory)
             {
                 animation.PauseAnimation();
@@ -433,7 +436,7 @@ namespace GameBuild
             if (game.keyState.IsKeyDown(Keys.Z) && game.oldState.IsKeyUp(Keys.Z) && !dead && attackTimer <= 0)
             {
                 Console.WriteLine("here");
-                damage = game.damageObject.dealDamage(5, 30);
+                
                 attackTimer = ATTACKTIMER;
                 foreach (Npc.Npc npc in game.activeNpcs)
                 {
@@ -441,6 +444,7 @@ namespace GameBuild
                     {
                         if (npc.health > 0 && npc.IsOnMap())
                         {
+                            damage = game.damageObject.dealDamage(1, 20);
                             damageEffectList.Add(new DamageEffect(damage, game, new Vector2(npc.position.X, npc.position.Y - 16), new Color(255, 255, 255, 255), "player"));
                             npc.health -= damage;
                             npc.attackPlayer = true;
@@ -452,6 +456,7 @@ namespace GameBuild
                 {
                     if (Game1.testBoss.health > 0 && Game1.testBoss.IsOnMap())
                     {
+                        damage = game.damageObject.dealDamage(1, 20);
                         damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.testBoss.position.X, Game1.testBoss.position.Y - 16), new Color(255, 255, 255, 255), "player"));
                         Game1.testBoss.health -= damage;
                         Game1.testBoss.currentPhase = Npc.Boss.phase.sleep;
@@ -463,6 +468,7 @@ namespace GameBuild
                     {
                         if (Game1.testBoss.mobs[i].health > 0)
                         {
+                            damage = game.damageObject.dealDamage(1, 20);
                             damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.testBoss.mobs[i].position.X, Game1.testBoss.mobs[i].position.Y - 16), new Color(255, 255, 255, 255), "player"));
                             Game1.testBoss.mobs[i].health -= damage;
                         }
@@ -474,6 +480,7 @@ namespace GameBuild
                     {
                         if (game.Mobs[i].health > 0 && game.Mobs[i].IsOnMap())
                         {
+                            damage = game.damageObject.dealDamage(1, 20);
                             damageEffectList.Add(new DamageEffect(damage, game, new Vector2(game.Mobs[i].position.X, game.Mobs[i].position.Y - 16), new Color(255, 255, 255, 255), "player"));
                             game.Mobs[i].health -= damage;
                             game.Mobs[i].attackPlayer = true;

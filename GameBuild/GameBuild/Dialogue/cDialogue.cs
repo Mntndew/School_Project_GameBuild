@@ -41,7 +41,12 @@ namespace GameBuild
             int screenHeight = game.graphics.PreferredBackBufferHeight;
             if (portrait != null)
             {
-                portraitPos = new Rectangle(screenWidth - 450, screenHeight - 720, 450, 720);
+                if (name == "Sylian")
+                {
+                    portraitPos = new Rectangle(screenWidth - 600, screenHeight - 720, 600, 720);
+                }
+                else
+                    portraitPos = new Rectangle(screenWidth - 450, screenHeight - 720, 450, 720);
             }
 
             textBoxPos = new Rectangle(screenWidth / 2 - textBox.Width / 2, screenHeight - screenHeight / 4 - 150, textBox.Width, textBox.Height);
