@@ -259,7 +259,6 @@ namespace GameBuild
             }
             if (gender != null && !menu.paused)
             {
-                Console.WriteLine(character.npcsInRectangle);
                 warpManager.Update(this, gameTime);
                 UpdateActiveNpcs();
                 if (keyState.IsKeyDown(Keys.Space))
@@ -310,7 +309,7 @@ namespace GameBuild
                             }
                         }
 
-                        if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && activeNpcs[i].canInteract && !activeNpcs[i].mob && character.inCombat == false && character.npcsInRectangle < 2)
+                        if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && activeNpcs[i].canInteract && !activeNpcs[i].mob && !character.inCombat && character.npcsInRectangle < 2)
                         {
                             if (activeNpcs[i].isInteracting)
                             {

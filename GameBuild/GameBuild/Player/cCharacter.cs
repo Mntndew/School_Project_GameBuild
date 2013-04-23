@@ -193,9 +193,8 @@ namespace GameBuild
                     health += regenAmount;
                     damageEffectList.Add(new DamageEffect((int)regenAmount, game, new Vector2(positionRectangle.X, positionRectangle.Y - 16), new Color(0, 255, 0, 255), "regen"));
                     Regen((int)regenAmount);
+                    regenTimer = REGENTIMER;
                 }
-
-                regenTimer = REGENTIMER;
             }
             tile = tiles;
 
@@ -262,7 +261,6 @@ namespace GameBuild
             }
 
             #region walk
-            
             if (!attacking && !showInventory && !dead)// && cWarp.canWalk
             {
                 walking = false;
@@ -496,53 +494,74 @@ namespace GameBuild
 
             for (int i = 0; i < game.Npcs.Count; i++)
             {
-                if (game.Npcs[i].health > 0 && game.Npcs[i].IsOnMap() && game.Npcs[i].vulnerable)
+                Console.WriteLine(game.Npcs[i].attackPlayer);
+                for (int j = 0; j < game.Npcs.Count; j++)
                 {
-                    if (game.Npcs[i].combatRectangle.Intersects(positionRectangle))
+                    if (game.Npcs[i] != game.Npcs[j])
                     {
-                        inCombat = true;
+                        if (game.Npcs[i].health > 0 && game.Npcs[j].health > 0)
+                        {
+                            if (game.Npcs[i].attackPlayer || game.Npcs[j].attackPlayer)
+                            {
+                                inCombat = true;
+                            }
+                            else
+                            {
+                                inCombat = false;
+                            }
+                        }
                     }
-                    else
-                        inCombat = false;
-                }
-                else
-                {
-                    inCombat = false;
                 }
             }
 
-            for (int i = 0; i < game.Mobs.Count; i++)
-            {
-                if (game.Mobs[i].health > 0 && game.Mobs[i].IsOnMap() && game.Mobs[i].vulnerable)
-                {
-                    if (game.Mobs[i].combatRectangle.Intersects(positionRectangle))
-                    {
-                        inCombat = true;
-                    }
-                    else
-                        inCombat = false;
-                }
-                else
-                {
-                    inCombat = false;
-                }
-            }
             for (int i = 0; i < Game1.testBoss.mobs.Count; i++)
             {
-                if (Game1.testBoss.mobs[i].health > 0 && Game1.testBoss.mobs[i].IsOnMap() && Game1.testBoss.mobs[i].vulnerable)
+                Console.WriteLine(Game1.testBoss.mobs[i].attackPlayer);
+                for (int j = 0; j < Game1.testBoss.mobs.Count; j++)
                 {
-                    if (Game1.testBoss.mobs[i].combatRectangle.Intersects(positionRectangle))
+                    if (Game1.testBoss.mobs[i] != Game1.testBoss.mobs[j])
                     {
-                        inCombat = true;
+                        if (Game1.testBoss.mobs[i].health > 0 && Game1.testBoss.mobs[j].health > 0)
+                        {
+                            if (Game1.testBoss.mobs[i].attackPlayer || Game1.testBoss.mobs[j].attackPlayer)
+                            {
+                                inCombat = true;
+                            }
+                            else
+                            {
+                                inCombat = false;
+                            }
+                        }
                     }
-                    else
-                        inCombat = false;
-                }
-                else
-                {
-                    inCombat = false;
                 }
             }
+
+            //for (int i = 0; i < game.Mobs.Count; i++)
+            //{
+            //    if (game.Mobs[i].IsOnMap())
+            //    {
+            //        if (game.Mobs[i].health > 0 && game.Mobs[i].attackPlayer)
+            //        {
+            //            inCombat = true;
+            //        }
+            //        else
+            //            inCombat = false;
+            //    }
+            //}
+
+            //for (int i = 0; i < Game1.testBoss.mobs.Count; i++)
+            //{
+            //    if (Game1.testBoss.mobs[i].IsOnMap())
+            //    {
+            //        if (Game1.testBoss.mobs[i].health > 0 && Game1.testBoss.mobs[i].attackPlayer)
+            //        {
+            //            inCombat = true;
+            //        }
+            //        else
+            //            inCombat = false;
+            //    }
+            //}
+            
             #endregion
         }
 

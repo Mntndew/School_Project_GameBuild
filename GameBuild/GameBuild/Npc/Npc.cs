@@ -608,6 +608,11 @@ namespace GameBuild.Npc
                 }
             }
             #endregion
+
+            if (health <= 0)
+            {
+                attackPlayer = false;
+            }
         }
 
         public void Patrol(H_Map.TileMap tiles)
