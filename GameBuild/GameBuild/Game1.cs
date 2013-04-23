@@ -143,7 +143,7 @@ namespace GameBuild
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             collisionTex = Content.Load<Texture2D>(@"Game\blackness");
-            map = Content.Load<H_Map.TileMap>(@"Map\Map4_C");
+            map = Content.Load<H_Map.TileMap>(@"Map\Map1_A");
             map.tileset = Content.Load<Texture2D>(@"Game\tileset");
             textBox = Content.Load<Texture2D>(@"Game\textBox");
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
@@ -287,31 +287,44 @@ namespace GameBuild
                     }
                 }
 
-                for (int i = 0; i < Npcs.Count; i++)
+                for (int i = 0; i < activeNpcs.Count; i++)
                 {
-                    if (Npcs[i].health > 0)
+                    Console.WriteLine("HP: " + activeNpcs[i].health + ", " + i);
+                    if (activeNpcs[i].health > 0)
                     {
-                        if (!Npcs[i].isInteracting && Npcs[i].IsOnMap() && !character.showInventory)
+                        if (!activeNpcs[i].isInteracting && activeNpcs[i].IsOnMap() && !character.showInventory)
                         {
-                            Npcs[i].Update(character, map, this, gameTime);
+                            activeNpcs[i].Update(character, map, this, gameTime);
                         }
-                        Npcs[i].UpdateDialogue(this);
-                        if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && Npcs[i].canInteract && !Npcs[i].mob && character.inCombat == false)
+                        activeNpcs[i].UpdateDialogue(this);
+                        if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && activeNpcs[i].canInteract && !activeNpcs[i].mob && character.inCombat == false)
                         {
-                            if (Npcs[i].isInteracting)
+                            if (activeNpcs[i].isInteracting)
                             {
-                                Npcs[i].isInteracting = false;
-                                Npcs[i].dialogue.isTalking = false;
-                                Npcs[i].dialogue.ResetDialogue();
+                                activeNpcs[i].isInteracting = false;
+                                activeNpcs[i].dialogue.isTalking = false;
+                                activeNpcs[i].dialogue.ResetDialogue();
                                 currentGameState = GameState.PLAY;
                             }
                             else
                             {
-                                Npcs[i].isInteracting = true;
-                                Npcs[i].dialogue.isTalking = true;
+                                activeNpcs[i].isInteracting = true;
+                                activeNpcs[i].dialogue.isTalking = true;
                                 currentGameState = GameState.INTERACT;
                             }
                         }
+                    }
+                    else 
+                    {
+                        if (activeNpcs[i].key != null)
+                        {
+                            activeNpcs[i].key.position = activeNpcs[i].position;
+                            activeNpcs[i].key.position.Width = activeNpcs[i].key.texture.Width;
+                            activeNpcs[i].key.position.Height = activeNpcs[i].key.texture.Height;
+                            keys.Add(activeNpcs[i].key);
+                            activeNpcs[i].key = null;
+                        }
+                        activeNpcs.RemoveAt(i);
                     }
                 }
 

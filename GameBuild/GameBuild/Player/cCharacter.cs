@@ -432,7 +432,6 @@ namespace GameBuild
             attackTimer -= elapsed;
             if (game.keyState.IsKeyDown(Keys.Z) && game.oldState.IsKeyUp(Keys.Z) && !dead && attackTimer <= 0)
             {
-                Console.WriteLine("here");
                 damage = game.damageObject.dealDamage(5, 30);
                 attackTimer = ATTACKTIMER;
                 foreach (Npc.Npc npc in game.activeNpcs)
