@@ -144,19 +144,19 @@ namespace GameBuild
             {
                 if (positionRectangle.X + (positionRectangle.Width / 2) - 16 > bossTarget.X)
                 {
-                    bossTarget.X += targetSpeed / 1.5f;
+                    bossTarget.X += targetSpeed / 1.2f;
                 }
                 if (positionRectangle.X + (positionRectangle.Width / 2) - 16 < bossTarget.X)
                 {
-                    bossTarget.X -= targetSpeed / 1.5f;
+                    bossTarget.X -= targetSpeed / 1.2f;
                 }
                 if (positionRectangle.Y + (positionRectangle.Width / 2) - 16 > bossTarget.Y)
                 {
-                    bossTarget.Y += targetSpeed / 1.5f;
+                    bossTarget.Y += targetSpeed / 1.2f;
                 }
                 if (positionRectangle.Y + (positionRectangle.Width / 2) - 16 < bossTarget.Y)
                 {
-                    bossTarget.Y -= targetSpeed / 1.5f;
+                    bossTarget.Y -= targetSpeed / 1.2f;
                 }
             }
 
@@ -442,6 +442,10 @@ namespace GameBuild
             }
             #region Attack
             attackTimer -= elapsed;
+            if (game.keyState.IsKeyDown(Keys.Space) && game.oldState.IsKeyUp(Keys.Space))
+            {
+                Explosion();
+            }
             if (game.keyState.IsKeyDown(Keys.Z) && game.oldState.IsKeyUp(Keys.Z) && !dead && attackTimer <= 0)
             {
                 attackTimer = ATTACKTIMER;
@@ -463,7 +467,7 @@ namespace GameBuild
                 {
                     if (Game1.testBoss.health > 0 && Game1.testBoss.IsOnMap())
                     {
-                        damage = game.damageObject.dealDamage(minDamage, maxDamage);
+                        damage = game.damageObject.dealDamage(minDamage, maxDamage) * 2;
                         damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.testBoss.position.X, Game1.testBoss.position.Y - 16), new Color(255, 255, 255, 255), "player"));
                         Game1.testBoss.health -= damage;
                         Game1.testBoss.currentPhase = Npc.Boss.phase.sleep;
@@ -478,6 +482,10 @@ namespace GameBuild
                             damage = game.damageObject.dealDamage(minDamage, maxDamage);
                             damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.testBoss.mobs[i].position.X, Game1.testBoss.mobs[i].position.Y - 16), new Color(255, 255, 255, 255), "player"));
                             Game1.testBoss.mobs[i].health -= damage;
+                            if (Game1.testBoss.mobs[i].health <= 0)
+                            {
+                                Game1.testBoss.health -= 3;
+                            }
                         }
                     }
                 }
@@ -560,6 +568,11 @@ namespace GameBuild
         {
             emitter.Add(positionRectangle.X + 22, positionRectangle.Y + positionRectangle.Height - 5, rand.Next(5, 8), rand.Next(5, 8), 10, -2, 2, -5, 2, new Color(50, 50, 255), 0.2f, 1, 1, false, false, true);
             emitter.Add(positionRectangle.X + 22, positionRectangle.Y + positionRectangle.Height - 5, rand.Next(5, 8), rand.Next(5, 8), 10, -2, 2, -5, 2, new Color(200, 200, 200), 0.2f, 1, 1, false, false, true);
+        }
+
+        public void Explosion()
+        {
+            emitter.Add(positionRectangle.X + 22, positionRectangle.Y + positionRectangle.Height - 5, rand.Next(5, 8), rand.Next(5, 8), 10, -2, 2, -5, 2, new Color(200, 50, 50, 150), 0.2f, 1, 1, false, false, false);
         }
         #endregion
 

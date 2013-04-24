@@ -977,6 +977,9 @@ namespace GameBuild.Npc
                     Game1.character.GetSword(sword, 1, 20);
                     break;
                 default:
+                    isInteracting = false;
+                    dialogue.isTalking = false;
+                    Game1.currentGameState = Game1.GameState.PLAY;
                     break;
             }
         }

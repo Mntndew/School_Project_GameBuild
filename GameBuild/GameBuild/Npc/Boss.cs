@@ -278,9 +278,9 @@ namespace GameBuild.Npc
 
         private void SpawnMobs(Game1 game)
         {
-            if (healthPct > 0)
+            if (healthPct > 0 && mobs.Count < 50)
             {
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 5; i++)
                 {
                     mobs.Add(new Npc(new Rectangle(position.X + i, position.Y - 48 + i, 30, 25), game.Content.Load<Texture2D>(@"Npc\bot"), game, map, 1, true, 25, 1, 5, 1, true));
                 }

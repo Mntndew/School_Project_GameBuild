@@ -33,7 +33,7 @@
 11:10:Ok:0
 12:0:He's... A little complicated. | Kermit doesn't mean anything bad. | Really, he's really sweet. We're newly | married, actually. Whoops... Maybe I | shouldn't have said his real name... | He get's so embarrassed about it. | Anyway- Show him great respect, he's really | powerful and has tended for this | school for hundreds of years.:0
 12:10:Ok:0
-13:0:This realm is a little like earth, | just with a small amount of humans | and a humongous amount of different | races. On earth, you'd call them | mythological monsters. But here... | Humans are the monsters. They are | really rare and generally dissliked by most.:0
+13:0:This realm is a little like earth, | just with a small amount of humans | and a humongous amount of different | races. On earth, you'd call them | ''mythological monsters''. But here... | Humans are the monsters. They are | really rare and generally dissliked by most.:0
 13:10:Ok:0
 14:0:This school has been here for | thousands of years, we teach the people | in our world everything they need to | know. It's just a normal school, | really. Just that the students never | look the same.:0
 14:10:Ok:0
