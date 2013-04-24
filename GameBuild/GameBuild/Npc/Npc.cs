@@ -74,7 +74,7 @@ namespace GameBuild.Npc
             none
         }
 
-        Key key;
+        public Key key;
 
         patrolType currentPatrolType = new patrolType();
 
@@ -378,7 +378,7 @@ namespace GameBuild.Npc
                     direction.Normalize();
                     Game1.character.Push(direction, 12);
                     attackTimer = ATTACKTIMER;
-                    Game1.character.Disable();
+                    Game1.character.Disable();  
                     }
                 }
                 followPath = false;
@@ -911,6 +911,7 @@ namespace GameBuild.Npc
                 }
             }
         }
+        
 
         public void DrawA(SpriteBatch spriteBatch)
         {
@@ -954,6 +955,7 @@ namespace GameBuild.Npc
                     {
                         key.position = Game1.character.positionRectangle;
                         Game1.keys.Add(key);
+                        key = null;
                     }
                     break;
 
