@@ -34,6 +34,7 @@ namespace GameBuild.Npc
 
         public string name;
         public string mapName;
+        string sword;
 
         float healthBarWidth;
         float maxHealth;
@@ -112,6 +113,10 @@ namespace GameBuild.Npc
             this.down = down;
             this.left = left;
             this.right = right;
+            if (name == "Celine")
+            {
+                sword = "sword1";
+            }
             minDamage = 2;
             maxDamage = 15;
             combatRectangle = new Rectangle(position.X - 128, position.Y - 128, 256, 256);
@@ -967,6 +972,9 @@ namespace GameBuild.Npc
                         Game1.testBoss.attackPlayer = true;
                     }
                     health = 0;
+                    break;
+                case 4:
+                    Game1.character.GetSword(sword, 1, 20);
                     break;
                 default:
                     break;

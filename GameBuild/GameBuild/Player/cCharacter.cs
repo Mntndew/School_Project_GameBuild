@@ -32,6 +32,7 @@ namespace GameBuild
         public int damage;
         public int speed;
         public int npcsInRectangle = 0;
+        int minDamage = 1, maxDamage = 12;
 
         public float regenAmount;
 
@@ -450,7 +451,7 @@ namespace GameBuild
                     {
                         if (npc.health > 0 && npc.IsOnMap())
                         {
-                            damage = game.damageObject.dealDamage(1, 20);
+                            damage = game.damageObject.dealDamage(minDamage, maxDamage);
                             damageEffectList.Add(new DamageEffect(damage, game, new Vector2(npc.position.X, npc.position.Y - 16), new Color(255, 255, 255, 255), "player"));
                             npc.health -= damage;
                             npc.attackPlayer = true;
@@ -462,7 +463,7 @@ namespace GameBuild
                 {
                     if (Game1.testBoss.health > 0 && Game1.testBoss.IsOnMap())
                     {
-                        damage = game.damageObject.dealDamage(1, 20);
+                        damage = game.damageObject.dealDamage(minDamage, maxDamage);
                         damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.testBoss.position.X, Game1.testBoss.position.Y - 16), new Color(255, 255, 255, 255), "player"));
                         Game1.testBoss.health -= damage;
                         Game1.testBoss.currentPhase = Npc.Boss.phase.sleep;
@@ -474,7 +475,7 @@ namespace GameBuild
                     {
                         if (Game1.testBoss.mobs[i].health > 0)
                         {
-                            damage = game.damageObject.dealDamage(1, 20);
+                            damage = game.damageObject.dealDamage(minDamage, maxDamage);
                             damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.testBoss.mobs[i].position.X, Game1.testBoss.mobs[i].position.Y - 16), new Color(255, 255, 255, 255), "player"));
                             Game1.testBoss.mobs[i].health -= damage;
                         }
@@ -486,7 +487,7 @@ namespace GameBuild
                     {
                         if (game.Mobs[i].health > 0 && game.Mobs[i].IsOnMap())
                         {
-                            damage = game.damageObject.dealDamage(1, 20);
+                            damage = game.damageObject.dealDamage(minDamage, maxDamage);
                             damageEffectList.Add(new DamageEffect(damage, game, new Vector2(game.Mobs[i].position.X, game.Mobs[i].position.Y - 16), new Color(255, 255, 255, 255), "player"));
                             game.Mobs[i].health -= damage;
                             game.Mobs[i].attackPlayer = true;
@@ -500,44 +501,25 @@ namespace GameBuild
                 damageEffectList[i].Effect();
             }
 
-            for (int i = 0; i < game.Npcs.Count; i++)
+            inCombat = false;
+
+            for (int i = 0; i < game.activeNpcs.Count; i++)
             {
-                for (int j = 0; j < game.Npcs.Count; j++)
+                if (game.activeNpcs[i].health > 0)
                 {
-                    if (game.Npcs[i] != game.Npcs[j])
+                    if (game.activeNpcs[i].attackPlayer)
                     {
-                        if (game.Npcs[i].health > 0 && game.Npcs[j].health > 0)
-                        {
-                            if (game.Npcs[i].attackPlayer || game.Npcs[j].attackPlayer)
-                            {
-                                inCombat = true;
-                            }
-                            else
-                            {
-                                inCombat = false;
-                            }
-                        }
+                        inCombat = true;
                     }
                 }
             }
-
-            for (int i = 0; i < Game1.testBoss.mobs.Count; i++)
+            for (int i = 0; i < game.Mobs.Count; i++)
             {
-                for (int j = 0; j < Game1.testBoss.mobs.Count; j++)
+                if (game.Mobs[i].health > 0)
                 {
-                    if (Game1.testBoss.mobs[i] != Game1.testBoss.mobs[j])
+                    if (game.Mobs[i].attackPlayer)
                     {
-                        if (Game1.testBoss.mobs[i].health > 0 && Game1.testBoss.mobs[j].health > 0)
-                        {
-                            if (Game1.testBoss.mobs[i].attackPlayer || Game1.testBoss.mobs[j].attackPlayer)
-                            {
-                                inCombat = true;
-                            }
-                            else
-                            {
-                                inCombat = false;
-                            }
-                        }
+                        inCombat = true;
                     }
                 }
             }
@@ -581,11 +563,22 @@ namespace GameBuild
         }
         #endregion
 
+        public void GetSword(string sword, int minDamage, int maxDamage)
+        {
+            if (sword == "sword1")
+            {
+
+            }
+            this.minDamage = minDamage;
+            this.maxDamage = maxDamage;
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             Rectangle shadowPos = new Rectangle(positionRectangle.X + 8, positionRectangle.Bottom - shadowBlob.Height / 2, shadowBlob.Width, shadowBlob.Height);
             spriteBatch.Draw(shadowBlob, shadowPos, Color.White);
             spriteBatch.Draw(spriteWalkSheet, positionRectangle, animation.GetFrame(), Color.White);
+            spriteBatch.Draw(debugTexture, attackRectangle, new Color(100, 100, 100, 100));
         }
 
         public void DrawDeath(SpriteBatch spriteBatch, Game1 game)
