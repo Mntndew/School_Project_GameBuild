@@ -59,11 +59,11 @@ namespace GameBuild.Game
                     {
                         for (int i = 0; i < game.Npcs.Count; i++)
                         {
-                            if (game.Npcs[i].name == "Cybot")
+                            if (game.Npcs[i].name == "Ziva")
                             {
                                 game.Npcs[i].isInteracting = true;
                                 game.Npcs[i].dialogue.isTalking = true;
-                                game.currentGameState = Game1.GameState.INTERACT;
+                                Game1.currentGameState = Game1.GameState.INTERACT;
                             }
                         }
                     }
@@ -78,10 +78,10 @@ namespace GameBuild.Game
                                 game.Npcs[i].position.Y = 192;
                                 game.Npcs[i].reached = false;
                             }
-                            if (game.Npcs[i].name == "Nurse")
+                            if (game.Npcs[i].name == "Celine")
                             {
                                 game.Npcs[i].mapName = map;
-                                game.Npcs[i].position.X = 1800;
+                                game.Npcs[i].position.X = 1728;
                                 game.Npcs[i].position.Y = 1248;
                                 game.Npcs[i].reached = false;
                             }

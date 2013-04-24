@@ -1,5 +1,5 @@
 //This is a comment test
-0:0:Hi. How are you? | dfasdf :0
+0:0:Hi. How are you?:0
 0:1: I'm good. :0
 0:2: Not so good. :0
 1:0: Would you like an xbox? :0

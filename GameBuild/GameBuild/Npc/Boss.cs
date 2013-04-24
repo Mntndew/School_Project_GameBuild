@@ -430,7 +430,7 @@ namespace GameBuild.Npc
                 {
                     game.activeNpcs[i].isInteracting = true;
                     game.activeNpcs[i].dialogue.isTalking = true;
-                    game.currentGameState = Game1.GameState.INTERACT;
+                    Game1.currentGameState = Game1.GameState.INTERACT;
                 }
             }
         }

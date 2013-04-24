@@ -34,6 +34,7 @@ namespace GameBuild.Npc
 
         public string name;
         public string mapName;
+        string sword;
 
         float healthBarWidth;
         float maxHealth;
@@ -112,6 +113,10 @@ namespace GameBuild.Npc
             this.down = down;
             this.left = left;
             this.right = right;
+            if (name == "Celine")
+            {
+                sword = "sword1";
+            }
             minDamage = 2;
             maxDamage = 15;
             combatRectangle = new Rectangle(position.X - 128, position.Y - 128, 256, 256);
@@ -466,12 +471,12 @@ namespace GameBuild.Npc
 
         public void UpdateDialogue(Game1 game)
         {
-            if (game.currentGameState == Game1.GameState.INTERACT)
+            if (Game1.currentGameState == Game1.GameState.INTERACT)
             {
                 dialogue.Update();
                 if (!dialogue.isTalking && isInteracting == true)
                 {
-                    game.currentGameState = Game1.GameState.PLAY;
+                    Game1.currentGameState = Game1.GameState.PLAY;
                     isInteracting = false;
                 }
             }
@@ -516,7 +521,7 @@ namespace GameBuild.Npc
                     }
                 }
             }
-            if (name == "Nurse")
+            if (name == "Celine")
             {
                 if (mapName == "Map3_B")
                 {
@@ -944,6 +949,8 @@ namespace GameBuild.Npc
             {
                 case 0:
                     isInteracting = false;
+                    dialogue.isTalking = false;
+                    Game1.currentGameState = Game1.GameState.PLAY;
                     break;
 
                 case 1:
@@ -960,13 +967,15 @@ namespace GameBuild.Npc
                     break;
 
                 case 3:
-                    if (name == "Cybot" && Game1.testBoss.health > 0)
+                    if (name == "Ziva" && Game1.testBoss.health > 0)
                     {
                         Game1.testBoss.attackPlayer = true;
                     }
                     health = 0;
                     break;
-
+                case 4:
+                    Game1.character.GetSword(sword, 1, 20);
+                    break;
                 default:
                     break;
             }
