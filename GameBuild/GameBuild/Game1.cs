@@ -37,6 +37,7 @@ using Microsoft.Xna.Framework.Media;
 using H_Map;
 using MntnNpc;
 using System.IO;
+using GameBuild.Audio;
 
 namespace GameBuild
 {
@@ -48,7 +49,7 @@ namespace GameBuild
         public GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        public SpriteFont spriteFont;
+        public static SpriteFont spriteFont;
         public static SpriteFont debugFont;
 
         Random rand = new Random();
@@ -67,7 +68,7 @@ namespace GameBuild
         Rectangle femalePos;
 
         public Texture2D keyTexture;
-        public Texture2D textBox;
+        public static Texture2D textBox;
         Texture2D debugTile;
         public Texture2D screenTexture;
         public Texture2D collisionTex;
@@ -81,13 +82,15 @@ namespace GameBuild
         public static List<Key> keys = new List<Key>();
         public static cCharacter character;
         public Damage damageObject;
-        public static Game.WarpManager warpManager = new Game.WarpManager();
+        public static Game.WarpManager warpManager;
         public List<Npc.Npc> activeNpcs = new List<Npc.Npc>();
         public List<Npc.Npc> Npcs = new List<Npc.Npc>();
         public List<Npc.Npc> Mobs = new List<Npc.Npc>();
         public List<Orb> orbs = new List<Orb>();
         public static Npc.Boss testBoss;
         public static Menu.Menu menu;
+
+        MusicPlayer music;
 
         int files = Directory.GetFiles(@"Content\npc\npc\").Length; //number of npcs
         int warpFiles = Directory.GetFiles(@"Content\Warp\").Length;
@@ -143,7 +146,7 @@ namespace GameBuild
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             collisionTex = Content.Load<Texture2D>(@"Game\blackness");
-            map = Content.Load<H_Map.TileMap>(@"Map\Map4_B");
+            map = Content.Load<H_Map.TileMap>(@"Map\Map1_A");
             map.tileset = Content.Load<Texture2D>(@"Game\tileset");
             textBox = Content.Load<Texture2D>(@"Game\textBox");
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
@@ -152,12 +155,23 @@ namespace GameBuild
             screenTexture = Content.Load<Texture2D>(@"Game\blackness");
             male = Content.Load<Texture2D>(@"Player\Male");
             female = Content.Load<Texture2D>(@"Player\female");
+            warpManager = new Game.WarpManager(this);
             warpManager.UpdateList(map.mapName);
             keyTexture = Content.Load<Texture2D>(@"Game\key");
             LoadKeys();
             LoadNpcs();
             debugFont = Content.Load<SpriteFont>(@"Game\SpriteFont1");
             AddMobs();
+
+            music = new MusicPlayer();
+            music.Songs.Add(Content.Load<Song>(@"Audio\Songs\School basic song 1"));
+            music.Songs.Add(Content.Load<Song>(@"Audio\Songs\School basic song 2"));
+            music.Songs.Add(Content.Load<Song>(@"Audio\Songs\School basic song 3"));
+            music.Songs.Add(Content.Load<Song>(@"Audio\Songs\School basic song 4"));
+            music.Songs.Add(Content.Load<Song>(@"Audio\Songs\School basic song 5"));
+            music.Songs.Add(Content.Load<Song>(@"Audio\Songs\School basic song 6"));
+            music.Songs.Add(Content.Load<Song>(@"Audio\Songs\School basic song 7"));
+            //music.Play(0);
         }
 
         public void AddMobs()
@@ -341,6 +355,9 @@ namespace GameBuild
                     }
                 }
             }
+
+            music.Update(gameTime);
+
             base.Update(gameTime);
         }
 
@@ -419,7 +436,7 @@ namespace GameBuild
                 {
                     activeNpcs[i].DrawHealth(spriteBatch);
                 }
-                warpManager.Draw(spriteBatch, this);
+               
                 if (testBoss.IsOnMap())
                 {
                     testBoss.DrawMobs(spriteBatch);
@@ -462,7 +479,7 @@ namespace GameBuild
                 {
                     testBoss.DrawHealth(spriteBatch);
                 }
-
+                warpManager.Draw(spriteBatch, this);
                 spriteBatch.End();
             }
             

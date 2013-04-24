@@ -67,7 +67,6 @@ namespace GameBuild
         }
         #endregion
 
-
         private Rectangle PointToFrame(Point p)
         {
             return new Rectangle(p.X*frameWidth, p.Y*frameHeight, frameWidth, frameHeight);

@@ -14,10 +14,20 @@ namespace GameBuild.Game
         int warpFileCount;//number of files in folder
         string[] warpFiles;//file names
 
-        public WarpManager()
+        cDialogue dialogue;
+        bool showedLocked = false;
+
+        public WarpManager(Game1 game)
         {
             warpFileCount = Directory.GetFiles(@"Content\Warp\").Length;
             warps = new List<WarpItem>();
+            dialogue = new cDialogue(null, Game1.textBox, game, Game1.spriteFont, "doorLocked", "Door");
+            dialogue.dialogueManager.ReachedExit += new ExitEventHandler(ExitedDialogue);
+        }
+
+        void ExitedDialogue(object sender, DialogueEventArgs e)
+        {
+            Game1.currentGameState = Game1.GameState.PLAY;
         }
 
         public void UpdateList(string mapName)
@@ -90,7 +100,12 @@ namespace GameBuild.Game
                 }
                 else
                 {
-                    Console.WriteLine("locked");
+                    if (!showedLocked)
+                    {
+                        dialogue.isTalking = true;
+                        showedLocked = true;
+                        Game1.currentGameState = Game1.GameState.INTERACT;
+                    }
                 }
             }
         }
@@ -98,22 +113,31 @@ namespace GameBuild.Game
         public void Update(Game1 game, GameTime gameTime)
         {
             UpdateList(Game1.map.mapName);
+            bool intersect = false;
             for (int i = 0; i < warps.Count; i++)
             {
                 if (Game1.character.warpRectangle.Intersects(warps[i].warpField))
                 {
                     Warp(warps[i], warps[i].key, warps[i].targetX, warps[i].targetY, warps[i].targetMap, game, gameTime);
+                    intersect = true;
                 }
             }
+            if (!intersect)
+            {
+                showedLocked = false;
+            }
+            dialogue.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch, Game1 game)
         {
-            for (int i = 0; i < warps.Count; i++)
-            {
-                spriteBatch.Draw(game.screenTexture, warps[i].warpField, new Color(100, 100, 100, 100));
-                spriteBatch.DrawString(game.spriteFont, warps[i].targetMap, new Vector2(warps[i].warpField.X, warps[i].warpField.Y), Color.Red);
-            }
+            //for (int i = 0; i < warps.Count; i++)
+            //{
+            //    spriteBatch.Draw(game.screenTexture, warps[i].warpField, new Color(100, 100, 100, 100));
+            //    spriteBatch.DrawString(Game1.spriteFont, warps[i].targetMap, new Vector2(warps[i].warpField.X, warps[i].warpField.Y), Color.Red);
+            //}
+
+            dialogue.Draw(spriteBatch);
         }
     }
 }

@@ -203,11 +203,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Npc\sprite\Nurse.png">
-      <Name>Nurse</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game\Hp bar.png">
@@ -387,6 +382,76 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Audio\Songs\Boss battle song 1.mp3">
+      <Name>Boss battle song 1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\Boss battle song 2.mp3">
+      <Name>Boss battle song 2</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\School basic song 1.mp3">
+      <Name>School basic song 1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\School basic song 10.mp3">
+      <Name>School basic song 10</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\School basic song 11.mp3">
+      <Name>School basic song 11</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\School basic song 2.mp3">
+      <Name>School basic song 2</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\School basic song 3.mp3">
+      <Name>School basic song 3</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\School basic song 4.mp3">
+      <Name>School basic song 4</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\School basic song 5.mp3">
+      <Name>School basic song 5</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\School basic song 6.mp3">
+      <Name>School basic song 6</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\School basic song 7.mp3">
+      <Name>School basic song 7</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\School basic song 8.mp3">
+      <Name>School basic song 8</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\School basic song 9.mp3">
+      <Name>School basic song 9</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\School battle song.mp3">
+      <Name>School battle song</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
     <None Include="Npc\dialogue\nurse.txt">
       <Name>nurse</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -397,6 +462,13 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <Name>headmaster</Name>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\sprite\Nurse.png">
+      <Name>Nurse</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

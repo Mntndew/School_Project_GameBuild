@@ -69,10 +69,12 @@ namespace GameBuild
         {
             if (type != "regen")
             {
-                spriteBatch.DrawString(game.spriteFont, damageString, position, color);
+                spriteBatch.DrawString(Game1.spriteFont, damageString, position, color);
             }
             else
-                spriteBatch.DrawString(game.spriteFont, "+" + damageString, position, color);
+            {
+                spriteBatch.DrawString(Game1.spriteFont, "+" + damageString, position, color);
+            }
         }
     }
 }

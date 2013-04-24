@@ -127,7 +127,7 @@ namespace GameBuild.Npc
             maxHealth = health;
             this.speed = speed;
             this.SPEED = speed;
-            dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + portraitPath), game.textBox, game, game.spriteFont, dialoguePath, name);
+            dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + portraitPath), Game1.textBox, game, Game1.spriteFont, dialoguePath, name);
             walkSprite = game.Content.Load<Texture2D>(@"npc\sprite\" + spritePath);
             debugTile = game.Content.Load<Texture2D>(@"Player\emptySlot");
             healthTexture = game.Content.Load<Texture2D>(@"Game\health100");
@@ -155,7 +155,15 @@ namespace GameBuild.Npc
             }
 
             aColor = Color.White;
-            animation = new AnimationComponent(2, 4, 50, 71, 175, Microsoft.Xna.Framework.Point.Zero);
+            if (name == "Celine")
+            {
+                animation = new AnimationComponent(2, 4, 50, 71, 175, Microsoft.Xna.Framework.Point.Zero);
+            }
+            else
+            {
+                animation = new AnimationComponent(2, 4, 50, 71, 175, Microsoft.Xna.Framework.Point.Zero);
+            }
+            
             mob = false;
 
             dialogue.dialogueManager.ReachedExit += ExitedDialogue;
@@ -298,6 +306,7 @@ namespace GameBuild.Npc
                 }
                 if (followPath)
                 {
+                    walking = false;
                     if (path[pathIndex].X < position.X + position.Width / 2)
                     {
                         MoveLeft(ref position);
@@ -420,6 +429,7 @@ namespace GameBuild.Npc
         #region Swaggy movement functions
         private void MoveUp(ref Rectangle location)
         {
+            walking = false;
             location.Y += (int)-(speed * 2);
             combatRectangle.Y += (int)-(speed * 2);
             if (!animation.IsAnimationPlaying(WALK_UP))
@@ -431,6 +441,7 @@ namespace GameBuild.Npc
 
         private void MoveDown(ref Rectangle location)
         {
+            walking = false;
             location.Y += (int)(speed * 2);
             combatRectangle.Y += (int)(speed * 2);
             if (!animation.IsAnimationPlaying(WALK_DOWN))
@@ -442,6 +453,7 @@ namespace GameBuild.Npc
 
         private void MoveLeft(ref Rectangle location)
         {
+            walking = false;
             location.X += (int)-(speed * 2);
             combatRectangle.X += (int)-(speed * 2);
             if (!animation.IsAnimationPlaying(WALK_LEFT))
@@ -453,6 +465,7 @@ namespace GameBuild.Npc
 
         private void MoveRight(ref Rectangle location)
         {
+            walking = false;
             location.X += (int)(speed * 2);
             combatRectangle.X += (int)(speed * 2);
             if (!animation.IsAnimationPlaying(WALK_RIGHT))
@@ -543,6 +556,11 @@ namespace GameBuild.Npc
                 }
             }
 
+            if (!walking)
+            {
+                animation.PauseAnimation();
+            }
+
             if (mob && !bossMob)
             {
                 if (!attackPlayer && IsOnMap())
@@ -564,8 +582,11 @@ namespace GameBuild.Npc
                 Attack(game, gameTime);
             }
 
-            animation.UpdateAnimation(gameTime);
-
+            if (walking)
+            {
+                animation.UpdateAnimation(gameTime);
+            }
+            
             if (!attackPlayer)
             {
                 Patrol(tiles);
@@ -861,7 +882,6 @@ namespace GameBuild.Npc
                         {
                             animation.LoopAnimation(WALK_UP);
                         }
-                        walking = true;
                     }
                     if (down)
                     {
@@ -869,7 +889,6 @@ namespace GameBuild.Npc
                         {
                             animation.LoopAnimation(WALK_DOWN);
                         }
-                        walking = true;
                     }
                     if (left)
                     {
@@ -877,7 +896,6 @@ namespace GameBuild.Npc
                         {
                             animation.LoopAnimation(WALK_LEFT);
                         }
-                        walking = true;
                     }
                     if (right)
                     {
@@ -885,13 +903,8 @@ namespace GameBuild.Npc
                         {
                             animation.LoopAnimation(WALK_RIGHT);
                         }
-                        walking = true;
                     }
                     break;
-            }
-            if (!walking)
-            {
-                animation.PauseAnimation();
             }
         }
 

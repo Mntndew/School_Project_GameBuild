@@ -127,8 +127,6 @@ namespace GameBuild
 
         public void Update(Game1 game, H_Map.TileMap tiles, GameTime gameTime, KeyboardState oldState, GraphicsDevice graphicsDevice)
         {
-            Console.WriteLine(inCombat);
-
             #region Things to update every frame, positions and stuff
             healthPct = (health / maxHealth);
             healthBarWidth = (float)healthTexture.Width * healthPct;
@@ -382,7 +380,6 @@ namespace GameBuild
                 else
                     CalculateFriction(0.2f);
 
-
                 SetPosition();
 
                 if (leftSide.Intersects(tile.GetTileRectangleFromPosition(leftSide.X, leftSide.Y)) && !tile.CheckCellPositionPassable(new Vector2(leftSide.X, leftSide.Y)))
@@ -442,10 +439,6 @@ namespace GameBuild
             }
             #region Attack
             attackTimer -= elapsed;
-            if (game.keyState.IsKeyDown(Keys.Space) && game.oldState.IsKeyUp(Keys.Space))
-            {
-                Explosion();
-            }
             if (game.keyState.IsKeyDown(Keys.Z) && game.oldState.IsKeyUp(Keys.Z) && !dead && attackTimer <= 0)
             {
                 attackTimer = ATTACKTIMER;
@@ -569,18 +562,13 @@ namespace GameBuild
             emitter.Add(positionRectangle.X + 22, positionRectangle.Y + positionRectangle.Height - 5, rand.Next(5, 8), rand.Next(5, 8), 10, -2, 2, -5, 2, new Color(50, 50, 255), 0.2f, 1, 1, false, false, true);
             emitter.Add(positionRectangle.X + 22, positionRectangle.Y + positionRectangle.Height - 5, rand.Next(5, 8), rand.Next(5, 8), 10, -2, 2, -5, 2, new Color(200, 200, 200), 0.2f, 1, 1, false, false, true);
         }
-
-        public void Explosion()
-        {
-            emitter.Add(positionRectangle.X + 22, positionRectangle.Y + positionRectangle.Height - 5, rand.Next(5, 8), rand.Next(5, 8), 10, -2, 2, -5, 2, new Color(200, 50, 50, 150), 0.2f, 1, 1, false, false, false);
-        }
         #endregion
 
         public void GetSword(string sword, int minDamage, int maxDamage)
         {
             if (sword == "sword1")
             {
-
+                //texture
             }
             this.minDamage = minDamage;
             this.maxDamage = maxDamage;
