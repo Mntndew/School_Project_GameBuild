@@ -352,6 +352,146 @@
       <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map1_A.xnb</Output>
       <Time>2013-04-17T08:44:53.812262+02:00</Time>
     </Item>
+    <Item>
+      <Source>Audio\Songs\Boss battle song 1.mp3</Source>
+      <Name>Audio\Songs\Boss battle song 1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 1.xnb</Output>
+      <Extra>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 1.wma</Extra>
+      <Time>2013-04-24T15:08:18.8727498+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Songs\Boss battle song 2.mp3</Source>
+      <Name>Audio\Songs\Boss battle song 2</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 2.xnb</Output>
+      <Extra>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 2.wma</Extra>
+      <Time>2013-04-24T15:08:18.8777513+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Songs\School basic song 1.mp3</Source>
+      <Name>Audio\Songs\School basic song 1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 1.xnb</Output>
+      <Extra>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 1.wma</Extra>
+      <Time>2013-04-24T15:08:18.9057597+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Songs\School basic song 10.mp3</Source>
+      <Name>Audio\Songs\School basic song 10</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 10.xnb</Output>
+      <Extra>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 10.wma</Extra>
+      <Time>2013-04-24T15:08:18.7377093+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Songs\School basic song 11.mp3</Source>
+      <Name>Audio\Songs\School basic song 11</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 11.xnb</Output>
+      <Extra>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 11.wma</Extra>
+      <Time>2013-04-24T15:08:18.7817225+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Songs\School basic song 2.mp3</Source>
+      <Name>Audio\Songs\School basic song 2</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 2.xnb</Output>
+      <Extra>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 2.wma</Extra>
+      <Time>2013-04-24T15:08:18.9447714+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Songs\School basic song 3.mp3</Source>
+      <Name>Audio\Songs\School basic song 3</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 3.xnb</Output>
+      <Extra>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 3.wma</Extra>
+      <Time>2013-04-24T15:08:18.9687786+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Songs\School basic song 4.mp3</Source>
+      <Name>Audio\Songs\School basic song 4</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 4.xnb</Output>
+      <Extra>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 4.wma</Extra>
+      <Time>2013-04-24T15:08:18.4776313+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Songs\School basic song 5.mp3</Source>
+      <Name>Audio\Songs\School basic song 5</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 5.xnb</Output>
+      <Extra>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 5.wma</Extra>
+      <Time>2013-04-24T15:08:18.5086406+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Songs\School basic song 6.mp3</Source>
+      <Name>Audio\Songs\School basic song 6</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 6.xnb</Output>
+      <Extra>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 6.wma</Extra>
+      <Time>2013-04-24T15:08:18.6176733+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Songs\School basic song 7.mp3</Source>
+      <Name>Audio\Songs\School basic song 7</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 7.xnb</Output>
+      <Extra>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 7.wma</Extra>
+      <Time>2013-04-24T15:08:18.6476823+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Songs\School basic song 8.mp3</Source>
+      <Name>Audio\Songs\School basic song 8</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 8.xnb</Output>
+      <Extra>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 8.wma</Extra>
+      <Time>2013-04-24T15:08:18.6776913+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Songs\School basic song 9.mp3</Source>
+      <Name>Audio\Songs\School basic song 9</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 9.xnb</Output>
+      <Extra>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 9.wma</Extra>
+      <Time>2013-04-24T15:08:18.7127018+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Songs\School battle song.mp3</Source>
+      <Name>Audio\Songs\School battle song</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School battle song.xnb</Output>
+      <Extra>C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School battle song.wma</Extra>
+      <Time>2013-04-24T15:08:18.80673+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}</ContentProjectGUID>

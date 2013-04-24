@@ -37,6 +37,7 @@ using Microsoft.Xna.Framework.Media;
 using H_Map;
 using MntnNpc;
 using System.IO;
+using GameBuild.Audio;
 
 namespace GameBuild
 {
@@ -88,6 +89,8 @@ namespace GameBuild
         public List<Orb> orbs = new List<Orb>();
         public static Npc.Boss testBoss;
         public static Menu.Menu menu;
+
+        MusicPlayer music;
 
         int files = Directory.GetFiles(@"Content\npc\npc\").Length; //number of npcs
         int warpFiles = Directory.GetFiles(@"Content\Warp\").Length;
@@ -158,6 +161,16 @@ namespace GameBuild
             LoadNpcs();
             debugFont = Content.Load<SpriteFont>(@"Game\SpriteFont1");
             AddMobs();
+
+            music = new MusicPlayer();
+            music.Songs.Add(Content.Load<Song>(@"Audio\Songs\School basic song 1"));
+            music.Songs.Add(Content.Load<Song>(@"Audio\Songs\School basic song 2"));
+            music.Songs.Add(Content.Load<Song>(@"Audio\Songs\School basic song 3"));
+            music.Songs.Add(Content.Load<Song>(@"Audio\Songs\School basic song 4"));
+            music.Songs.Add(Content.Load<Song>(@"Audio\Songs\School basic song 5"));
+            music.Songs.Add(Content.Load<Song>(@"Audio\Songs\School basic song 6"));
+            music.Songs.Add(Content.Load<Song>(@"Audio\Songs\School basic song 7"));
+            music.Play(0);
         }
 
         public void AddMobs()
@@ -341,6 +354,9 @@ namespace GameBuild
                     }
                 }
             }
+
+            music.Update(gameTime);
+
             base.Update(gameTime);
         }
 

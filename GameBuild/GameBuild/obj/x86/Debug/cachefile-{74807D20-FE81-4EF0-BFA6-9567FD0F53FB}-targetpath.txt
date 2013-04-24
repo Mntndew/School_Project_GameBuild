@@ -37,6 +37,34 @@ Content\Map\Map3_B.xnb
 Content\Map\Map3_A.xnb
 Content\Map\Map2_A.xnb
 Content\Map\Map1_A.xnb
+Content\Audio\Songs\Boss battle song 1.xnb
+Content\Audio\Songs\Boss battle song 1.wma
+Content\Audio\Songs\Boss battle song 2.xnb
+Content\Audio\Songs\Boss battle song 2.wma
+Content\Audio\Songs\School basic song 1.xnb
+Content\Audio\Songs\School basic song 1.wma
+Content\Audio\Songs\School basic song 10.xnb
+Content\Audio\Songs\School basic song 10.wma
+Content\Audio\Songs\School basic song 11.xnb
+Content\Audio\Songs\School basic song 11.wma
+Content\Audio\Songs\School basic song 2.xnb
+Content\Audio\Songs\School basic song 2.wma
+Content\Audio\Songs\School basic song 3.xnb
+Content\Audio\Songs\School basic song 3.wma
+Content\Audio\Songs\School basic song 4.xnb
+Content\Audio\Songs\School basic song 4.wma
+Content\Audio\Songs\School basic song 5.xnb
+Content\Audio\Songs\School basic song 5.wma
+Content\Audio\Songs\School basic song 6.xnb
+Content\Audio\Songs\School basic song 6.wma
+Content\Audio\Songs\School basic song 7.xnb
+Content\Audio\Songs\School basic song 7.wma
+Content\Audio\Songs\School basic song 8.xnb
+Content\Audio\Songs\School basic song 8.wma
+Content\Audio\Songs\School basic song 9.xnb
+Content\Audio\Songs\School basic song 9.wma
+Content\Audio\Songs\School battle song.xnb
+Content\Audio\Songs\School battle song.wma
 Content\Npc\dialogue\test.txt
 Content\Npc\dialogue\doorLocked.txt
 Content\Warp\Map1_A_0.txt
