@@ -492,7 +492,6 @@ namespace GameBuild
 
             for (int i = 0; i < game.Npcs.Count; i++)
             {
-                Console.WriteLine(game.Npcs[i].attackPlayer);
                 for (int j = 0; j < game.Npcs.Count; j++)
                 {
                     if (game.Npcs[i] != game.Npcs[j])
@@ -533,33 +532,6 @@ namespace GameBuild
                     }
                 }
             }
-
-            //for (int i = 0; i < game.Mobs.Count; i++)
-            //{
-            //    if (game.Mobs[i].IsOnMap())
-            //    {
-            //        if (game.Mobs[i].health > 0 && game.Mobs[i].attackPlayer)
-            //        {
-            //            inCombat = true;
-            //        }
-            //        else
-            //            inCombat = false;
-            //    }
-            //}
-
-            //for (int i = 0; i < Game1.testBoss.mobs.Count; i++)
-            //{
-            //    if (Game1.testBoss.mobs[i].IsOnMap())
-            //    {
-            //        if (Game1.testBoss.mobs[i].health > 0 && Game1.testBoss.mobs[i].attackPlayer)
-            //        {
-            //            inCombat = true;
-            //        }
-            //        else
-            //            inCombat = false;
-            //    }
-            //}
-            
             #endregion
         }
 

@@ -283,6 +283,15 @@ namespace GameBuild
                         keys.RemoveAt(i);
                     }
                 }
+                character.npcsInRectangle = 0;
+                for (int i = 0; i < activeNpcs.Count; i++)
+                {
+                    if (activeNpcs[i].position.Intersects(character.interactRect))
+                    {
+                        character.npcsInRectangle++;
+                    }
+                }
+
                 for (int i = 0; i < activeNpcs.Count; i++)
                 {
                     if (activeNpcs[i].health > 0)
@@ -292,23 +301,7 @@ namespace GameBuild
                             activeNpcs[i].Update(character, map, this, gameTime);
                         }
 
-                        Npcs[i].UpdateDialogue(this);
-                        if (activeNpcs[i].position.Intersects(character.interactRect))
-                        {
-                            if (!activeNpcs[i].countedInteractRect)
-                            {
-                                character.npcsInRectangle++;
-                                activeNpcs[i].countedInteractRect = true;
-                            }
-                        }
-                        else
-                        {
-                            if (activeNpcs[i].countedInteractRect)
-                            {
-                                character.npcsInRectangle--;
-                                activeNpcs[i].countedInteractRect = false;
-                            }
-                        }
+                        activeNpcs[i].UpdateDialogue(this);
 
                         if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && activeNpcs[i].canInteract && !activeNpcs[i].mob && !character.inCombat && character.npcsInRectangle < 2)
                         {
@@ -337,7 +330,6 @@ namespace GameBuild
                             keys.Add(activeNpcs[i].key);
                             activeNpcs[i].key = null;
                         }
-                        activeNpcs.RemoveAt(i);
                     }
                 }
                 for (int i = 0; i < Mobs.Count; i++)
