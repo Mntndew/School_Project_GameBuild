@@ -127,8 +127,6 @@ namespace GameBuild
 
         public void Update(Game1 game, H_Map.TileMap tiles, GameTime gameTime, KeyboardState oldState, GraphicsDevice graphicsDevice)
         {
-            Console.WriteLine(inCombat);
-
             #region Things to update every frame, positions and stuff
             healthPct = (health / maxHealth);
             healthBarWidth = (float)healthTexture.Width * healthPct;
@@ -381,7 +379,6 @@ namespace GameBuild
                 }
                 else
                     CalculateFriction(0.2f);
-
 
                 SetPosition();
 
