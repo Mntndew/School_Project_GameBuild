@@ -103,7 +103,7 @@ namespace GameBuild
             GENDER,
         }
 
-        public GameState currentGameState = new GameState();
+        public static GameState currentGameState = new GameState();
 
         public Game1()
         {
@@ -143,7 +143,7 @@ namespace GameBuild
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             collisionTex = Content.Load<Texture2D>(@"Game\blackness");
-            map = Content.Load<H_Map.TileMap>(@"Map\Map3_A");
+            map = Content.Load<H_Map.TileMap>(@"Map\Map1_A");
             map.tileset = Content.Load<Texture2D>(@"Game\tileset");
             textBox = Content.Load<Texture2D>(@"Game\textBox");
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
@@ -397,7 +397,7 @@ namespace GameBuild
                 {
                     spriteBatch.Draw(Content.Load<Texture2D>(@"Particle\particle"), orbs[i].position, orbs[i].color);
                 }
-                //particleSystem.Draw(spriteBatch);
+                particleSystem.Draw(spriteBatch);
                 for (int i = 0; i < activeNpcs.Count; i++)
                 {
                     activeNpcs[i].Draw(spriteBatch);

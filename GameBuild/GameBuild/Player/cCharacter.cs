@@ -373,7 +373,15 @@ namespace GameBuild
                     }
                 }
 
-                CalculateFriction();
+                if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
+                            || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+                {
+                    CalculateFriction(0.7f);
+                }
+                else
+                    CalculateFriction(0.2f);
+
+
                 SetPosition();
 
                 if (leftSide.Intersects(tile.GetTileRectangleFromPosition(leftSide.X, leftSide.Y)) && !tile.CheckCellPositionPassable(new Vector2(leftSide.X, leftSide.Y)))
@@ -568,8 +576,8 @@ namespace GameBuild
 
         public void Splash()
         {
-            emitter.Add(positionRectangle.X + 22, positionRectangle.Y + positionRectangle.Height - 5, rand.Next(5, 8), rand.Next(5, 8), 6, -2, 2, -3, -1, new Color(50, 50, 255), 0.05f, 1, 1, false, false, true);
-            emitter.Add(positionRectangle.X + 22, positionRectangle.Y + positionRectangle.Height - 5, rand.Next(5, 8), rand.Next(5, 8), 6, -2, 2, -3, -1, new Color(200, 200, 200), 0.05f, 1, 1, false, false, true);
+            emitter.Add(positionRectangle.X + 22, positionRectangle.Y + positionRectangle.Height - 5, rand.Next(5, 8), rand.Next(5, 8), 10, -2, 2, -5, 2, new Color(50, 50, 255), 0.2f, 1, 1, false, false, true);
+            emitter.Add(positionRectangle.X + 22, positionRectangle.Y + positionRectangle.Height - 5, rand.Next(5, 8), rand.Next(5, 8), 10, -2, 2, -5, 2, new Color(200, 200, 200), 0.2f, 1, 1, false, false, true);
         }
         #endregion
 
@@ -609,7 +617,7 @@ namespace GameBuild
             acceleration += force;
         }
 
-        private void CalculateFriction()
+        private void CalculateFriction(float c)
         {
             if (velocity == Vector2.Zero)
             {
@@ -617,7 +625,6 @@ namespace GameBuild
             }
             Vector2 friction = velocity;
             friction.Normalize();
-            float c = 0.2f; //coefficient of the friction (how slippery a material is)
             float normal = 1; //power of the normal force pushing on the object making it not slip through the floor(not important here)
             float magnitude = c * normal;
             friction *= magnitude-1;

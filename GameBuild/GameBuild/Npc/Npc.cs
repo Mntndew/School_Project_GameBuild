@@ -466,12 +466,12 @@ namespace GameBuild.Npc
 
         public void UpdateDialogue(Game1 game)
         {
-            if (game.currentGameState == Game1.GameState.INTERACT)
+            if (Game1.currentGameState == Game1.GameState.INTERACT)
             {
                 dialogue.Update();
                 if (!dialogue.isTalking && isInteracting == true)
                 {
-                    game.currentGameState = Game1.GameState.PLAY;
+                    Game1.currentGameState = Game1.GameState.PLAY;
                     isInteracting = false;
                 }
             }
@@ -944,6 +944,8 @@ namespace GameBuild.Npc
             {
                 case 0:
                     isInteracting = false;
+                    dialogue.isTalking = false;
+                    Game1.currentGameState = Game1.GameState.PLAY;
                     break;
 
                 case 1:
@@ -965,10 +967,6 @@ namespace GameBuild.Npc
                         Game1.testBoss.attackPlayer = true;
                     }
                     health = 0;
-                    break;
-                case 4:
-                    isInteracting = false;
-                    dialogue.isTalking = false;
                     break;
                 default:
                     break;
