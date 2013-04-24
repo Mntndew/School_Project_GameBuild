@@ -516,7 +516,7 @@ namespace GameBuild.Npc
                     }
                 }
             }
-            if (name == "Nurse")
+            if (name == "Celine")
             {
                 if (mapName == "Map3_B")
                 {
@@ -958,13 +958,16 @@ namespace GameBuild.Npc
                     break;
 
                 case 3:
-                    if (name == "Cybot" && Game1.testBoss.health > 0)
+                    if (name == "Ziva" && Game1.testBoss.health > 0)
                     {
                         Game1.testBoss.attackPlayer = true;
                     }
                     health = 0;
                     break;
-
+                case 4:
+                    isInteracting = false;
+                    dialogue.isTalking = false;
+                    break;
                 default:
                     break;
             }

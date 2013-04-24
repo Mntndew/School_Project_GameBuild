@@ -29,7 +29,7 @@ namespace GameBuild.Npc
         float beamAttackTimer = 0.08f;
         const float BEAMATTACKTIMER = 0.08f;
         string map;
-        public int health = 250;
+        public int health = 1;
         public int maxHealth = 250;
         float healthBarWidth;
         float healthPct;

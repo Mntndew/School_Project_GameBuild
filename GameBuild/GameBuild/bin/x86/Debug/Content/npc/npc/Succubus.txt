@@ -1,5 +1,5 @@
 Map3_A
-Sylian
+Succubus
 816
 640
 64
@@ -8,8 +8,8 @@ False
 True
 False
 False
-Sylian
-Sylian
+Succubus
+Succubus
 True
 False
 False
@@ -19,5 +19,5 @@ False
 0
 0
 1
-test
+dialogue2
 nokey

@@ -126,6 +126,8 @@ namespace GameBuild
 
         public void Update(Game1 game, H_Map.TileMap tiles, GameTime gameTime, KeyboardState oldState, GraphicsDevice graphicsDevice)
         {
+            Console.WriteLine(inCombat);
+
             #region Things to update every frame, positions and stuff
             healthPct = (health / maxHealth);
             healthBarWidth = (float)healthTexture.Width * healthPct;
@@ -433,8 +435,6 @@ namespace GameBuild
             attackTimer -= elapsed;
             if (game.keyState.IsKeyDown(Keys.Z) && game.oldState.IsKeyUp(Keys.Z) && !dead && attackTimer <= 0)
             {
-                Console.WriteLine("here");
-                
                 attackTimer = ATTACKTIMER;
                 foreach (Npc.Npc npc in game.activeNpcs)
                 {
@@ -494,7 +494,6 @@ namespace GameBuild
 
             for (int i = 0; i < game.Npcs.Count; i++)
             {
-                Console.WriteLine(game.Npcs[i].attackPlayer);
                 for (int j = 0; j < game.Npcs.Count; j++)
                 {
                     if (game.Npcs[i] != game.Npcs[j])
@@ -516,7 +515,6 @@ namespace GameBuild
 
             for (int i = 0; i < Game1.testBoss.mobs.Count; i++)
             {
-                Console.WriteLine(Game1.testBoss.mobs[i].attackPlayer);
                 for (int j = 0; j < Game1.testBoss.mobs.Count; j++)
                 {
                     if (Game1.testBoss.mobs[i] != Game1.testBoss.mobs[j])
