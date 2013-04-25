@@ -371,15 +371,6 @@
       <Time>2013-04-25T14:28:03.9199782+02:00</Time>
     </Item>
     <Item>
-      <Source>Player\forestCharacter.png</Source>
-      <Name>Player\forestCharacter</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\forestCharacter.xnb</Output>
-      <Time>2013-04-25T14:28:11.2873996+02:00</Time>
-    </Item>
-    <Item>
       <Source>Audio\Songs\Boss battle song 1.mp3</Source>
       <Name>Audio\Songs\Boss battle song 1</Name>
       <Importer>Mp3Importer</Importer>
@@ -518,6 +509,51 @@
       <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School battle song.xnb</Output>
       <Extra>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School battle song.wma</Extra>
       <Time>2013-04-25T14:17:08.9615167+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Player\femalewalk.png</Source>
+      <Name>Player\femalewalk</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\femalewalk.xnb</Output>
+      <Time>2013-04-25T20:42:16.0291654+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Player\malewalk.png</Source>
+      <Name>Player\malewalk</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\malewalk.xnb</Output>
+      <Time>2013-04-25T20:42:16.0311655+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Player\forestFemale.png</Source>
+      <Name>Player\forestFemale</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\forestFemale.xnb</Output>
+      <Time>2013-04-25T20:42:16.0301654+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Player\forestMale.png</Source>
+      <Name>Player\forestMale</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\forestMale.xnb</Output>
+      <Time>2013-04-25T20:42:16.0301654+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Player\maleSheet.png</Source>
+      <Name>Player\maleSheet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\maleSheet.xnb</Output>
+      <Time>2013-04-25T22:03:50.3511046+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

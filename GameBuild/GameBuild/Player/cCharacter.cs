@@ -50,8 +50,7 @@ namespace GameBuild
         Rectangle healthPos;
         public Vector2 bossTarget;//when the boss shoots.. follows the player with less speed...
 
-        public Texture2D spriteWalkSheet;
-        public Texture2D spriteAttackSheet;
+        public Texture2D spriteSheet;
         public Texture2D shadowBlob;
         Texture2D debugTexture;
         Texture2D healthTexture;
@@ -87,6 +86,14 @@ namespace GameBuild
         const int WALK_RIGHT = 0;
         const int WALK_DOWN = 1;
         const int WALK_LEFT = 2;
+        const int IDLE_UP = 6;
+        const int IDLE_DOWN = 4;
+        const int IDLE_LEFT = 7;
+        const int IDLE_RIGHT = 5;
+        const int ATTACK_UP = 10;
+        const int ATTACK_DOWN = 8;
+        const int ATTACK_LEFT = 11;
+        const int ATTACK_RIGHT = 9;
         bool walking = false;
 
         public cCharacter(Game1 game, string gender)
@@ -101,21 +108,21 @@ namespace GameBuild
             debugTexture = game.Content.Load<Texture2D>(@"Game\blackness");
             if (gender == "male")
             {
-                spriteWalkSheet = game.Content.Load<Texture2D>("player/malewalk");
-                animation = new AnimationComponent(4, 4, 42, 69, 100, Point.Zero);
+                spriteSheet = game.Content.Load<Texture2D>("player/maleSheet");
+                animation = new AnimationComponent(4, 13, 50, 70, 150, Point.Zero);
             }
             if (gender == "female")
             {
-                spriteWalkSheet = game.Content.Load<Texture2D>("player/femalewalk");
-                animation = new AnimationComponent(4, 4, 41, 69, 100, Point.Zero);
+                spriteSheet = game.Content.Load<Texture2D>("player/femalewalk");
+                animation = new AnimationComponent(4, 4, 65, 70, 150, Point.Zero);
             }
-            spriteAttackSheet = game.Content.Load<Texture2D>("player/CharaAttackSheet V2");
+            
             shadowBlob = game.Content.Load<Texture2D>("player/shadowTex");
             healthTexture = game.Content.Load<Texture2D>(@"Game\health100");
             #endregion
 
             #region Rectangles and Vectors
-            positionRectangle = new Rectangle(640, 640, 42, 69);
+            positionRectangle = new Rectangle(640, 640, 65, 70);
             position.X = positionRectangle.X;
             position.Y = positionRectangle.Y;
             interactRect = new Rectangle(positionRectangle.X - (positionRectangle.Width / 2), positionRectangle.Y - (positionRectangle.Height / 2), positionRectangle.Width * 2, positionRectangle.Height * 2);
@@ -293,6 +300,7 @@ namespace GameBuild
             }
 
             #region walk
+            
             if (!attacking && !showInventory && !dead)// && cWarp.canWalk
             {
                 walking = false;
@@ -316,6 +324,7 @@ namespace GameBuild
 
                         ApplyForce(new Vector2(0, -2));
 
+                        animation.MaxFrameCount = 3;
                         if (!animation.IsAnimationPlaying(WALK_UP))
                         {
                             animation.LoopAnimation(WALK_UP);
@@ -340,7 +349,7 @@ namespace GameBuild
                         left = false;
 
                         ApplyForce(new Vector2(0, 2));
-
+                        animation.MaxFrameCount = 3;
                         if (!animation.IsAnimationPlaying(WALK_DOWN))
                         {
                             animation.LoopAnimation(WALK_DOWN);
@@ -365,7 +374,7 @@ namespace GameBuild
                         down = false;
 
                         ApplyForce(new Vector2(2, 0));
-
+                        animation.MaxFrameCount = 3;
                         if (!animation.IsAnimationPlaying(WALK_RIGHT))
                         {
                             animation.LoopAnimation(WALK_RIGHT);
@@ -390,16 +399,12 @@ namespace GameBuild
                         down = false;
 
                         ApplyForce(new Vector2(-2, 0));
-
+                        animation.MaxFrameCount = 3;
                         if (!animation.IsAnimationPlaying(WALK_LEFT))
                         {
                             animation.LoopAnimation(WALK_LEFT);
                         }
                         walking = true;
-                    }
-                    if (!walking)
-                    {
-                        animation.PauseAnimation();
                     }
                 }
 
@@ -468,11 +473,36 @@ namespace GameBuild
                 else
                     showInventory = true;
             }
+
+            if (!animation.IsAnimationPlaying(ATTACK_UP) && !animation.IsAnimationPlaying(ATTACK_DOWN) && !animation.IsAnimationPlaying(ATTACK_LEFT) && !animation.IsAnimationPlaying(ATTACK_RIGHT))
+            {
+                attacking = false;
+            }
+
             #region Attack
             attackTimer -= elapsed;
             if (game.keyState.IsKeyDown(Keys.Z) && game.oldState.IsKeyUp(Keys.Z) && !dead && attackTimer <= 0)
             {
                 attackTimer = ATTACKTIMER;
+                attacking = true;
+                animation.MaxFrameCount = 1;
+                if (up)
+                {
+                    animation.PlayAnimation(ATTACK_UP);
+                }
+                else if (down)
+                {
+                    animation.PlayAnimation(ATTACK_DOWN);
+                }
+                else if (left)
+                {
+                    animation.PlayAnimation(ATTACK_LEFT);
+                }
+                else if (right)
+                {
+                    animation.PlayAnimation(ATTACK_RIGHT);
+                }
+
                 foreach (Npc.Npc npc in game.activeNpcs)
                 {
                     if (npc.position.Intersects(attackRectangle))
@@ -556,6 +586,27 @@ namespace GameBuild
                 }
             }
             #endregion
+
+            if (!walking && !attacking)
+            {
+                animation.MaxFrameCount = 1;
+                if (up && !animation.IsAnimationPlaying(IDLE_UP))
+                {
+                    animation.LoopAnimation(IDLE_UP);
+                }
+                else if (down && !animation.IsAnimationPlaying(IDLE_DOWN))
+                {
+                    animation.LoopAnimation(IDLE_DOWN);
+                }
+                else if (left && !animation.IsAnimationPlaying(IDLE_LEFT))
+                {
+                    animation.LoopAnimation(IDLE_LEFT);
+                }
+                else if (right && !animation.IsAnimationPlaying(IDLE_RIGHT))
+                {
+                    animation.LoopAnimation(IDLE_RIGHT);
+                }
+            }
         }
 
         public void DeathEffect(Game1 game)
@@ -607,10 +658,9 @@ namespace GameBuild
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle shadowPos = new Rectangle(positionRectangle.X + 8, positionRectangle.Bottom - shadowBlob.Height / 2, shadowBlob.Width, shadowBlob.Height);
+            Rectangle shadowPos = new Rectangle(positionRectangle.X + (positionRectangle.Width/2 - shadowBlob.Width/2), positionRectangle.Bottom - shadowBlob.Height / 2, shadowBlob.Width, shadowBlob.Height);
             spriteBatch.Draw(shadowBlob, shadowPos, Color.White);
-            spriteBatch.Draw(spriteWalkSheet, positionRectangle, animation.GetFrame(), Color.White);
-            spriteBatch.Draw(debugTexture, attackRectangle, new Color(100, 100, 100, 100));
+            spriteBatch.Draw(spriteSheet, positionRectangle, animation.GetFrame(), Color.White);
         }
 
         public void DrawDeath(SpriteBatch spriteBatch, Game1 game)

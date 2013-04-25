@@ -39,7 +39,6 @@ Content\Npc\sprite\Sylian.xnb
 Content\Npc\sprite\Succubus.xnb
 Content\Game\forest.xnb
 Content\Npc\sprite\forestCybot.xnb
-Content\Player\forestCharacter.xnb
 Content\Audio\Songs\Boss battle song 1.xnb
 Content\Audio\Songs\Boss battle song 2.xnb
 Content\Audio\Songs\School basic song 1.xnb
@@ -54,15 +53,11 @@ Content\Audio\Songs\School basic song 7.xnb
 Content\Audio\Songs\School basic song 8.xnb
 Content\Audio\Songs\School basic song 9.xnb
 Content\Audio\Songs\School battle song.xnb
-<<<<<<< HEAD
-Content\Game\forest.xnb
-Content\Npc\sprite\forestCybot.xnb
 Content\Player\femalewalk.xnb
 Content\Player\malewalk.xnb
 Content\Player\forestFemale.xnb
 Content\Player\forestMale.xnb
-=======
->>>>>>> eb5e73607403451e2ee903e7a4cf7bd268ce6f10
+Content\Player\maleSheet.xnb
 Content\Audio\Songs\Boss battle song 1.wma
 Content\Audio\Songs\Boss battle song 2.wma
 Content\Audio\Songs\School basic song 1.wma

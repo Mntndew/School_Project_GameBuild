@@ -25,6 +25,12 @@ namespace GameBuild
         float timer;
 
         const float DEFAULT_DELAY = 50;
+
+        public int MaxFrameCount
+        {
+            get { return maxFrameCount; }
+            set { maxFrameCount = value; }
+        }
         #endregion
 
         #region Constructors
@@ -129,6 +135,7 @@ namespace GameBuild
             if (animation < spriteSheetHeight)
             {
                 currentFrame.Y = animation;
+                currentFrame.X = 0;
                 playing = true;
                 loop = true;
             }
