@@ -92,7 +92,6 @@ namespace GameBuild
         public List<Npc.Npc> activeNpcs = new List<Npc.Npc>();
         public List<Npc.Npc> Npcs = new List<Npc.Npc>();
         public List<Npc.Npc> Mobs = new List<Npc.Npc>();
-        public List<Orb> orbs = new List<Orb>();
         public static Npc.Boss testBoss;
         public static Menu.Menu menu;
 
@@ -323,10 +322,6 @@ namespace GameBuild
                 {
                     warpManager.Update(this, gameTime);
                     UpdateActiveNpcs();
-                    if (keyState.IsKeyDown(Keys.Space))
-                    {
-                        orbs.Add(new Orb(new Rectangle(256, 256, 8, 8)));
-                    }
                     if (testBoss.IsOnMap())
                     {
                         testBoss.Update(this, gameTime);
@@ -486,10 +481,6 @@ namespace GameBuild
                             keys[i].Draw(spriteBatch);
                         }
                     }
-                }
-                for (int i = 0; i < orbs.Count; i++)
-                {
-                    spriteBatch.Draw(Content.Load<Texture2D>(@"Particle\particle"), orbs[i].position, orbs[i].color);
                 }
                 particleSystem.Draw(spriteBatch);
                 for (int i = 0; i < activeNpcs.Count; i++)

@@ -26,7 +26,7 @@ namespace GameBuild
                 spriteBatch.Draw(texture, position, Color.White);
                 if (itemTexture != null)
                 {
-                    spriteBatch.Draw(itemTexture, new Rectangle(position.X + (itemTexture.Width / 2), position.Y + (itemTexture.Height / 2), itemTexture.Width, itemTexture.Height), Color.White);
+                    spriteBatch.Draw(itemTexture, new Rectangle(position.Center.X - itemTexture.Width / 2, position.Center.Y - itemTexture.Height / 2, itemTexture.Width, itemTexture.Height), Color.White);
                 }
             }
         }
