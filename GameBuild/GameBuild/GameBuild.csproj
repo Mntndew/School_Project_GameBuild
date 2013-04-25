@@ -107,6 +107,7 @@
     <Compile Include="Audio\MusicPlayer.cs" />
     <Compile Include="Game\AnimationComponent.cs" />
     <Compile Include="Game\Camera2d.cs" />
+    <Compile Include="Game\Menu\StartMenu.cs" />
     <Compile Include="Game\Warp\WarpItem.cs" />
     <Compile Include="Game\Warp\WarpManager.cs" />
     <Compile Include="Npc\Boss.cs" />

@@ -69,9 +69,11 @@ namespace GameBuild
 
         public Rectangle screen;
 
+        //choose gender
         Rectangle malePos;
-        //these are for choosing a gender.
         Rectangle femalePos;
+        bool maleSelected;
+        bool femaleSelected;
 
         public Texture2D keyTexture;
         public static Texture2D textBox;
@@ -94,7 +96,7 @@ namespace GameBuild
         public List<Npc.Npc> Mobs = new List<Npc.Npc>();
         public static Npc.Boss testBoss;
         public static Menu.Menu menu;
-        public Game.Menu.StartMenu startMenu;
+        public static Menu.StartMenu startMenu;
 
         MusicPlayer music;
 
@@ -171,8 +173,8 @@ namespace GameBuild
             UpdateActiveNpcs();
             debugTile = Content.Load<Texture2D>(@"Player\emptySlot");
             screenTexture = Content.Load<Texture2D>(@"Game\blackness");
-            male = Content.Load<Texture2D>(@"Player\Male");
-            female = Content.Load<Texture2D>(@"Player\female");
+            male = Content.Load<Texture2D>(@"Game\male");
+            female = Content.Load<Texture2D>(@"Game\female");
             warpManager = new Game.WarpManager(this);
             warpManager.UpdateList(map.mapName);
             keyTexture = Content.Load<Texture2D>(@"Game\key");
@@ -188,6 +190,11 @@ namespace GameBuild
             fadeOverlay = Content.Load<Texture2D>(@"Game\blackness");
             fadeColor = new Color(0, 0, 0, 0);
             increaseAlpha = true;
+
+            startMenu = new Menu.StartMenu(Content.Load<Texture2D>(@"Game\Startmenu\playSelect"),
+                Content.Load<Texture2D>(@"Game\Startmenu\playDeselect"),
+                Content.Load<Texture2D>(@"Game\Startmenu\exitSelect"),
+                    Content.Load<Texture2D>(@"Game\Startmenu\exitDeselect"));
 
             AddMobs();
 
@@ -318,6 +325,10 @@ namespace GameBuild
                     else
                         menu.paused = false;
                 }
+                if (menu.paused)
+                {
+                    menu.Update(this);
+                }
                 if (gender != null && !menu.paused)
                 {
                     warpManager.Update(this, gameTime);
@@ -412,19 +423,57 @@ namespace GameBuild
 
         public void ChooseGender()
         {
-            mouse = Mouse.GetState();
-            Rectangle mousePos = new Rectangle(mouse.X, mouse.Y, 1, 1);
-            if (mousePos.Intersects(femalePos))
+            if (keyState.IsKeyDown(Keys.Right) && oldState.IsKeyUp(Keys.Right))
             {
-                if (mouse.LeftButton == ButtonState.Pressed)
+                if (!maleSelected && !femaleSelected)
+                {
+                    femaleSelected = true;
+                    maleSelected = false;
+                }
+                else if (femaleSelected)
+                {
+                    maleSelected = true;
+                    femaleSelected = false;
+                }
+                else if (maleSelected)
+                {
+                    femaleSelected = true;
+                    maleSelected = false;
+                }
+            }
+            if (keyState.IsKeyDown(Keys.Left) && oldState.IsKeyUp(Keys.Left))
+            {
+                if (!maleSelected && !femaleSelected)
+                {
+                    maleSelected = true;
+                    femaleSelected = false;
+                }
+                else if (femaleSelected)
+                {
+                    maleSelected = true;
+                    femaleSelected = false;
+                }
+                else if (maleSelected)
+                {
+                    femaleSelected = true;
+                    maleSelected = false;
+                }
+            }
+            if (femaleSelected)
+            {
+                male = Content.Load<Texture2D>(@"Game\male");
+                female = Content.Load<Texture2D>(@"Game\femaleSelected");
+                if (keyState.IsKeyDown(Keys.Enter))
                 {
                     gender = "female";
                     forestCharacter = Content.Load<Texture2D>(@"Player\forestFemale");
                 }
             }
-            if (mousePos.Intersects(malePos))
+            if (maleSelected)
             {
-                if (mouse.LeftButton == ButtonState.Pressed)
+                male = Content.Load<Texture2D>(@"Game\maleSelected");
+                female = Content.Load<Texture2D>(@"Game\female");
+                if (keyState.IsKeyDown(Keys.Enter))
                 {
                     gender = "male";
                     forestCharacter = Content.Load<Texture2D>(@"Player\forestMale");

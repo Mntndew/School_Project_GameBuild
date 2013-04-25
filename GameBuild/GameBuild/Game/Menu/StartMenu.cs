@@ -6,12 +6,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace GameBuild.Game.Menu
+namespace GameBuild.Menu
 {
-    class StartMenu
+    public class StartMenu
     {
-        Texture2D background;
-
         Texture2D playButtonSelected;
         Texture2D playButtonDeselected;
 
@@ -23,14 +21,14 @@ namespace GameBuild.Game.Menu
         KeyboardState oldState;
         KeyboardState currentState;
 
-        public StartMenu(Texture2D background, Texture2D playButtonS, Texture2D playButtonD, Texture2D exitButtonS, Texture2D exitButtonD)
+        public StartMenu(Texture2D playButtonS, Texture2D playButtonD, Texture2D exitButtonS, Texture2D exitButtonD)
         {
-            this.background = background;
             playButtonSelected = playButtonS;
             playButtonDeselected = playButtonD;
 
             exitButtonSelected = exitButtonS;
             exitButtonDeselected = exitButtonD;
+            play = true;
         }
 
         public void Update(Game1 game)
@@ -57,17 +55,17 @@ namespace GameBuild.Game.Menu
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
-            spriteBatch.Draw(background, new Rectangle(0, 0, 1280, 720), Color.White);
             if (play)
             {
                 spriteBatch.Draw(playButtonSelected, new Rectangle(400, 300, playButtonSelected.Width, playButtonSelected.Height), Color.White);
-                spriteBatch.Draw(exitButtonDeselected, new Rectangle(400, 400, exitButtonDeselected.Width, exitButtonDeselected.Height), Color.White);
+                spriteBatch.Draw(exitButtonDeselected, new Rectangle(400, 500, exitButtonDeselected.Width, exitButtonDeselected.Height), Color.White);
             }
             else
             {
                 spriteBatch.Draw(playButtonDeselected, new Rectangle(400, 300, playButtonDeselected.Width, playButtonDeselected.Height), Color.White);
-                spriteBatch.Draw(exitButtonSelected, new Rectangle(400, 400, exitButtonSelected.Width, exitButtonSelected.Height), Color.White);
+                spriteBatch.Draw(exitButtonSelected, new Rectangle(400, 500, exitButtonSelected.Width, exitButtonSelected.Height), Color.White);
             }
+            spriteBatch.End();
         }
     }
 }
