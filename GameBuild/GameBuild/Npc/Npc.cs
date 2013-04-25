@@ -109,7 +109,7 @@ namespace GameBuild.Npc
             string spritePath, string portraitPath, bool patrolNone, bool patrolUpDown, bool patrolLeftRight,
             bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game, string dialoguePath, string keyName, string secondDialogue)
         {
-            position = new Rectangle(x, y, width - 16, height - 16);
+            position = new Rectangle(x, y, 50, 71);
             this.name = name;
             this.mapName = mapName;
             this.up = up;
@@ -186,6 +186,8 @@ namespace GameBuild.Npc
         {
             this.mapName = mapName;
             this.position = position;
+            this.position.Width = 50;
+            this.position.Height = 71;
             this.walkSprite = walkSprite;
             this.attackPlayer = attackPlayer;
             this.health = health;
