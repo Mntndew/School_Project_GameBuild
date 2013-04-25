@@ -15,7 +15,6 @@ Content\Game\key.xnb
 Content\Game\tileset.xnb
 Content\Npc\portrait\Nurse.xnb
 Content\Npc\sprite\Headmaster.xnb
-Content\Npc\sprite\Nurse.xnb
 Content\Game\Hp bar.xnb
 Content\Game\target.xnb
 Content\robot.xnb
@@ -29,6 +28,7 @@ Content\Npc\portrait\Succubus.xnb
 Content\Npc\portrait\Sylian.xnb
 Content\Npc\sprite\Sylian.xnb
 Content\Npc\sprite\Succubus.xnb
+Content\Npc\sprite\Nurse.xnb
 Content\Game\lighting.xnb
 Content\Game\SpriteFont1.xnb
 Content\Map\Map4_C.xnb

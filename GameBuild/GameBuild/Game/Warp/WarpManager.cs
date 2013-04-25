@@ -105,6 +105,10 @@ namespace GameBuild.Game
                         dialogue.isTalking = true;
                         showedLocked = true;
                         Game1.currentGameState = Game1.GameState.INTERACT;
+                        Vector2 dir = new Vector2(warp.warpField.X, warp.warpField.Y) - Game1.character.position;
+                        dir.Normalize();
+                        dir *= -1;
+                        Game1.character.Push(dir, 3);
                     }
                 }
             }

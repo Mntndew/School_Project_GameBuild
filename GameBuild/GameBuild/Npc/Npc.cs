@@ -710,6 +710,14 @@ namespace GameBuild.Npc
             {
                 attackPlayer = false;
             }
+
+            if (!attackPlayer && player.positionRectangle.Intersects(position))
+            {
+                Vector2 pos = new Vector2(location.X, location.Y);
+                Vector2 direction = Game1.character.position - pos;
+                direction.Normalize();
+                Game1.character.Push(direction, 3);
+            }
         }
 
         public void Patrol(H_Map.TileMap tiles)

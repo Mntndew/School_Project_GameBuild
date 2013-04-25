@@ -155,15 +155,6 @@
       <Time>2013-04-25T07:04:41.7288047+02:00</Time>
     </Item>
     <Item>
-      <Source>Npc\sprite\Nurse.png</Source>
-      <Name>Npc\sprite\Nurse</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Nurse.xnb</Output>
-      <Time>2013-04-25T07:49:16.5089257+02:00</Time>
-    </Item>
-    <Item>
       <Source>Game\Hp bar.png</Source>
       <Name>Game\Hp bar</Name>
       <Importer>TextureImporter</Importer>
@@ -279,6 +270,15 @@
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Succubus.xnb</Output>
       <Time>2013-04-25T07:04:57.9657334+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\sprite\Nurse.png</Source>
+      <Name>Npc\sprite\Nurse</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Nurse.xnb</Output>
+      <Time>2013-04-25T11:40:42.8215727+02:00</Time>
     </Item>
     <Item>
       <Source>Game\lighting.fx</Source>
