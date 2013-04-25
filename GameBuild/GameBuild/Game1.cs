@@ -94,6 +94,7 @@ namespace GameBuild
         public List<Npc.Npc> Mobs = new List<Npc.Npc>();
         public static Npc.Boss testBoss;
         public static Menu.Menu menu;
+        public Game.Menu.StartMenu startMenu;
 
         MusicPlayer music;
 
@@ -103,7 +104,7 @@ namespace GameBuild
         //Fade transition effect
         Texture2D fadeOverlay;
         Color fadeColor;
-        bool transition;
+        public bool transition;
         bool increaseAlpha;
         GameState nextState;
 
@@ -130,8 +131,8 @@ namespace GameBuild
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferHeight = 720;
             graphics.PreferredBackBufferWidth = 1280;
-            currentGameState = GameState.GENDER;
-            nextState = GameState.FOREST;
+            currentGameState = GameState.STARTMENU;
+            nextState = GameState.GENDER;
         }
 
         /// <summary>
@@ -301,7 +302,7 @@ namespace GameBuild
             {
                 if (currentGameState == GameState.STARTMENU)
                 {
-                    //update menu
+                    startMenu.Update(this);
                 }
                 else if (currentGameState == GameState.FOREST)
                 {
@@ -447,7 +448,7 @@ namespace GameBuild
             GraphicsDevice.Clear(Color.Black);
             if (currentGameState == GameState.STARTMENU)
             {
-                //DRaw start menu
+                startMenu.Draw(spriteBatch); //calls it's own .Begin()
             }
             else if (currentGameState == GameState.GENDER)
             {

@@ -404,21 +404,21 @@ namespace GameBuild.Npc
                             animation.LoopAnimation(WALK_UP);
                         }
                     }
-                    if (down)
+                    else if (down)
                     {
                         if (!animation.IsAnimationPlaying(WALK_UP))
                         {
                             animation.LoopAnimation(WALK_UP);
                         }
                     }
-                    if (left)
+                    else if (left)
                     {
                         if (!animation.IsAnimationPlaying(WALK_UP))
                         {
                             animation.LoopAnimation(WALK_UP);
                         }
                     }
-                    if (right)
+                    else if (right)
                     {
                         if (!animation.IsAnimationPlaying(WALK_UP))
                         {
