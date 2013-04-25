@@ -610,3 +610,5 @@ C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\Game
 C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\malewalk.xnb
 C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\forestFemale.xnb
 C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\forestMale.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\Nurse questions.txt
+C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\Nurse questions.txt
