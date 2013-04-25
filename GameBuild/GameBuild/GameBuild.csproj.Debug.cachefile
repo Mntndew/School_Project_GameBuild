@@ -13,22 +13,14 @@ Content\Particle\particle.xnb
 Content\Player\Male.xnb
 Content\Game\key.xnb
 Content\Game\tileset.xnb
+Content\Npc\portrait\Headmaster.xnb
 Content\Npc\portrait\Nurse.xnb
 Content\Npc\sprite\Headmaster.xnb
+Content\Npc\sprite\Nurse.xnb
 Content\Game\Hp bar.xnb
 Content\Game\target.xnb
 Content\robot.xnb
 Content\Npc\bot.xnb
-Content\Player\female.xnb
-Content\Npc\portrait\Cybot.xnb
-Content\Npc\sprite\Cybot.xnb
-Content\Npc\portrait\Headmaster.xnb
-Content\Npc\portrait\Lamia.xnb
-Content\Npc\portrait\Succubus.xnb
-Content\Npc\portrait\Sylian.xnb
-Content\Npc\sprite\Sylian.xnb
-Content\Npc\sprite\Succubus.xnb
-Content\Npc\sprite\Nurse.xnb
 Content\Game\lighting.xnb
 Content\Game\SpriteFont1.xnb
 Content\Map\Map4_C.xnb
@@ -37,6 +29,17 @@ Content\Map\Map3_B.xnb
 Content\Map\Map3_A.xnb
 Content\Map\Map2_A.xnb
 Content\Map\Map1_A.xnb
+Content\Player\female.xnb
+Content\Npc\portrait\Cybot.xnb
+Content\Npc\sprite\Cybot.xnb
+Content\Npc\portrait\Lamia.xnb
+Content\Npc\portrait\Succubus.xnb
+Content\Npc\portrait\Sylian.xnb
+Content\Npc\sprite\Sylian.xnb
+Content\Npc\sprite\Succubus.xnb
+Content\Game\forest.xnb
+Content\Npc\sprite\forestCybot.xnb
+Content\Player\forestCharacter.xnb
 Content\Audio\Songs\Boss battle song 1.xnb
 Content\Audio\Songs\Boss battle song 2.xnb
 Content\Audio\Songs\School basic song 1.xnb
@@ -86,3 +89,4 @@ Content\Npc\npc\Succubus.txt
 Content\Npc\dialogue\nurse.txt
 Content\Npc\dialogue\headmaster.txt
 Content\Npc\dialogue\recieve key.txt
+Content\Npc\dialogue\First cybot encounter.txt

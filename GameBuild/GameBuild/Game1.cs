@@ -101,6 +101,15 @@ namespace GameBuild
         int files = Directory.GetFiles(@"Content\npc\npc\").Length; //number of npcs
         int warpFiles = Directory.GetFiles(@"Content\Warp\").Length;
 
+        //Fade transition effect
+        Texture2D fadeOverlay;
+        Color fadeColor;
+        bool transition;
+        bool increaseAlpha;
+        GameState nextState;
+
+        Rectangle screenRectangle = new Rectangle(0, 0, 1280, 720);
+
         string[] names; // array of all npc names
         string gender = null;
 
@@ -123,6 +132,7 @@ namespace GameBuild
             graphics.PreferredBackBufferHeight = 720;
             graphics.PreferredBackBufferWidth = 1280;
             currentGameState = GameState.GENDER;
+            nextState = GameState.FOREST;
         }
 
         /// <summary>
@@ -170,10 +180,15 @@ namespace GameBuild
             LoadNpcs();
             debugFont = Content.Load<SpriteFont>(@"Game\SpriteFont1");
             //forest shit
-            //forest = Content.Load<Texture2D>(@"Game\forest");
-            //forestCharacter = Content.Load<Texture2D>(@"Player\forestChar");
-            //forestCybot = Content.Load<Texture2D>(@"Npc\sprite\forestCybot");
-            //forestDialogue = new cDialogue(Content.Load<Texture2D>(@"Npc\portrait\Cybot"), textBox, this, spriteFont, "First cybot encounter", "Ziva");
+            forest = Content.Load<Texture2D>(@"Game\forest");
+            forestCharacter = Content.Load<Texture2D>(@"Player\forestCharacter");
+            forestCybot = Content.Load<Texture2D>(@"Npc\sprite\forestCybot");
+            forestDialogue = new cDialogue(Content.Load<Texture2D>(@"Npc\portrait\Cybot"), textBox, this, spriteFont, "First cybot encounter", "Ziva");
+            forestDialogue.isTalking = true;
+            forestDialogue.dialogueManager.ReachedExit += new ExitEventHandler(ForestSceneExit);
+            fadeOverlay = Content.Load<Texture2D>(@"Game\blackness");
+            fadeColor = new Color(0, 0, 0, 0);
+            increaseAlpha = true;
 
             AddMobs();
 
@@ -185,7 +200,14 @@ namespace GameBuild
             music.Songs.Add(Content.Load<Song>(@"Audio\Songs\School basic song 5"));
             music.Songs.Add(Content.Load<Song>(@"Audio\Songs\School basic song 6"));
             music.Songs.Add(Content.Load<Song>(@"Audio\Songs\School basic song 7"));
-            //music.Play(0);
+            music.Play(0);
+        }
+
+        void ForestSceneExit(object sender, DialogueEventArgs e)
+        {
+            forestDialogue.isTalking = false;
+            nextState = GameState.PLAY;
+            transition = true;
         }
 
         public void AddMobs()
@@ -277,108 +299,115 @@ namespace GameBuild
             oldState = keyState;
             keyState = Keyboard.GetState();
 
-            if (currentGameState == GameState.STARTMENU)
+            if (!transition)
             {
-                //update menu
-            }
-            else if (currentGameState == GameState.FOREST)
-            {
-                forestDialogue.Update();
-            }
+                if (currentGameState == GameState.STARTMENU)
+                {
+                    //update menu
+                }
+                else if (currentGameState == GameState.FOREST)
+                {
+                    forestDialogue.Update();
+                }
 
-            if (keyState.IsKeyDown(Keys.Escape) && oldState.IsKeyUp(Keys.Escape) && (currentGameState == GameState.PLAY || currentGameState == GameState.PAUSE || currentGameState == GameState.INTERACT))
-            {
-                if (!menu.paused)
+                if (keyState.IsKeyDown(Keys.Escape) && oldState.IsKeyUp(Keys.Escape) && (currentGameState == GameState.PLAY || currentGameState == GameState.PAUSE || currentGameState == GameState.INTERACT))
                 {
-                    menu.paused = true;
-                }
-                else
-                    menu.paused = false;
-            }
-            if (gender != null && !menu.paused)
-            {
-                warpManager.Update(this, gameTime);
-                UpdateActiveNpcs();
-                if (keyState.IsKeyDown(Keys.Space))
-                {
-                    orbs.Add(new Orb(new Rectangle(256, 256, 8, 8)));
-                }
-                if (testBoss.IsOnMap())
-                {
-                    testBoss.Update(this, gameTime);
-                }
-                particleSystem.Update(gameTime);
-                camera.Pos = character.position;
-                if (currentGameState == GameState.PLAY)
-                {
-                    character.Update(this, map, gameTime, oldState, GraphicsDevice);
-                }
-                for (int i = 0; i < keys.Count; i++)
-                {
-                    if (character.positionRectangle.Intersects(keys[i].position) && map.mapName.Remove(map.mapName.Length - 1) == keys[i].mapName)
+                    if (!menu.paused)
                     {
-                        keys[i].PickUp(character);
-                        keys.RemoveAt(i);
-                    }
-                }
-                character.npcsInRectangle = 0;
-                for (int i = 0; i < activeNpcs.Count; i++)
-                {
-                    if (activeNpcs[i].position.Intersects(character.interactRect))
-                    {
-                        character.npcsInRectangle++;
-                    }
-                }
-
-                for (int i = 0; i < activeNpcs.Count; i++)
-                {
-                    if (activeNpcs[i].health > 0)
-                    {
-                        if (!activeNpcs[i].isInteracting && activeNpcs[i].IsOnMap() && !character.showInventory)
-                        {
-                            activeNpcs[i].Update(character, map, this, gameTime);
-                        }
-
-                        activeNpcs[i].UpdateDialogue(this);
-
-                        if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && activeNpcs[i].canInteract && !activeNpcs[i].mob && !character.inCombat && character.npcsInRectangle < 2)
-                        {
-                            if (activeNpcs[i].isInteracting)
-                            {
-                                activeNpcs[i].isInteracting = false;
-                                activeNpcs[i].dialogue.isTalking = false;
-                                activeNpcs[i].dialogue.ResetDialogue();
-                                currentGameState = GameState.PLAY;
-                            }
-                            else
-                            {
-                                Console.WriteLine(activeNpcs[i].speed);
-                                activeNpcs[i].isInteracting = true;
-                                activeNpcs[i].dialogue.isTalking = true;
-                                currentGameState = GameState.INTERACT;
-                            }
-                        }
+                        menu.paused = true;
                     }
                     else
+                        menu.paused = false;
+                }
+                if (gender != null && !menu.paused)
+                {
+                    warpManager.Update(this, gameTime);
+                    UpdateActiveNpcs();
+                    if (keyState.IsKeyDown(Keys.Space))
                     {
-                        if (activeNpcs[i].key != null)
+                        orbs.Add(new Orb(new Rectangle(256, 256, 8, 8)));
+                    }
+                    if (testBoss.IsOnMap())
+                    {
+                        testBoss.Update(this, gameTime);
+                    }
+                    particleSystem.Update(gameTime);
+                    camera.Pos = character.position;
+                    if (currentGameState == GameState.PLAY)
+                    {
+                        character.Update(this, map, gameTime, oldState, GraphicsDevice);
+                    }
+                    for (int i = 0; i < keys.Count; i++)
+                    {
+                        if (character.positionRectangle.Intersects(keys[i].position) && map.mapName.Remove(map.mapName.Length - 1) == keys[i].mapName)
                         {
-                            activeNpcs[i].key.position = activeNpcs[i].position;
-                            activeNpcs[i].key.position.Width = activeNpcs[i].key.texture.Width;
-                            activeNpcs[i].key.position.Height = activeNpcs[i].key.texture.Height;
-                            keys.Add(activeNpcs[i].key);
-                            activeNpcs[i].key = null;
+                            keys[i].PickUp(character);
+                            keys.RemoveAt(i);
+                        }
+                    }
+                    character.npcsInRectangle = 0;
+                    for (int i = 0; i < activeNpcs.Count; i++)
+                    {
+                        if (activeNpcs[i].position.Intersects(character.interactRect))
+                        {
+                            character.npcsInRectangle++;
+                        }
+                    }
+
+                    for (int i = 0; i < activeNpcs.Count; i++)
+                    {
+                        if (activeNpcs[i].health > 0)
+                        {
+                            if (!activeNpcs[i].isInteracting && activeNpcs[i].IsOnMap() && !character.showInventory)
+                            {
+                                activeNpcs[i].Update(character, map, this, gameTime);
+                            }
+
+                            activeNpcs[i].UpdateDialogue(this);
+
+                            if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && activeNpcs[i].canInteract && !activeNpcs[i].mob && !character.inCombat && character.npcsInRectangle < 2)
+                            {
+                                if (activeNpcs[i].isInteracting)
+                                {
+                                    activeNpcs[i].isInteracting = false;
+                                    activeNpcs[i].dialogue.isTalking = false;
+                                    activeNpcs[i].dialogue.ResetDialogue();
+                                    currentGameState = GameState.PLAY;
+                                }
+                                else
+                                {
+                                    Console.WriteLine(activeNpcs[i].speed);
+                                    activeNpcs[i].isInteracting = true;
+                                    activeNpcs[i].dialogue.isTalking = true;
+                                    currentGameState = GameState.INTERACT;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (activeNpcs[i].key != null)
+                            {
+                                activeNpcs[i].key.position = activeNpcs[i].position;
+                                activeNpcs[i].key.position.Width = activeNpcs[i].key.texture.Width;
+                                activeNpcs[i].key.position.Height = activeNpcs[i].key.texture.Height;
+                                keys.Add(activeNpcs[i].key);
+                                activeNpcs[i].key = null;
+                            }
+                        }
+                    }
+                    for (int i = 0; i < Mobs.Count; i++)
+                    {
+                        Mobs[i].Update(character, map, this, gameTime);
+                        if (Mobs[i].health <= 0)
+                        {
+                            Mobs.RemoveAt(i);
                         }
                     }
                 }
-                for (int i = 0; i < Mobs.Count; i++)
-                {
-                    Mobs[i].Update(character, map, this, gameTime);
-                    if (Mobs[i].health <= 0)
-                    {
-                        Mobs.RemoveAt(i);
-                    }
-                }
+            }
+            else
+            {
+                Transition(5);
             }
 
             music.Update(gameTime);
@@ -408,7 +437,8 @@ namespace GameBuild
             {
                 character = new cCharacter(this, gender);
                 testBoss = new Npc.Boss(new Rectangle(16 * 64, 7 * 64, 64, 64), this, "Map4_C");
-                currentGameState = GameState.PLAY;
+                nextState = GameState.FOREST;
+                transition = true;
             }
         }
 
@@ -435,9 +465,10 @@ namespace GameBuild
             {
                 spriteBatch.Begin();
                 spriteBatch.Draw(forest, new Rectangle(0, 0, 1280, 720), Color.White);
-                spriteBatch.Draw(forestCharacter, new Rectangle(400, 400, 48,48), Color.White);
+                spriteBatch.Draw(forestCharacter, new Rectangle(400, 400, 48, 48), Color.White);
                 spriteBatch.Draw(forestCybot, new Rectangle(500, 400, 48, 48), Color.White);
                 forestDialogue.Draw(spriteBatch);
+                spriteBatch.End();
             }
             else
             {
@@ -534,10 +565,34 @@ namespace GameBuild
                 }
             }
 
+            spriteBatch.Begin();
+            spriteBatch.Draw(fadeOverlay, screenRectangle, fadeColor);
+            spriteBatch.End();
             //menu
             menu.Draw(spriteBatch);
             base.Draw(gameTime);
         }
 
+        private void Transition(byte speed)
+        {
+            if (increaseAlpha)
+            {
+                fadeColor.A += speed;
+                if (fadeColor.A >= 255)
+                {
+                    increaseAlpha = false;
+                    currentGameState = nextState;
+                }
+            }
+            else
+            {
+                fadeColor.A -= speed;
+                if (fadeColor.A <= 0)
+                {
+                    transition = false;
+                    increaseAlpha = true;
+                }
+            }
+        }
     }
 }

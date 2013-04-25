@@ -556,3 +556,50 @@ C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\Game
 C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 8.wma
 C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 9.wma
 C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School battle song.wma
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\female.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Cybot.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Cybot.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Lamia.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Succubus.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Sylian.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Sylian.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Succubus.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\forest.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\forestCybot.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\forestCharacter.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 1.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 2.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 1.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 10.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 11.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 2.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 3.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 4.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 5.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 6.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 7.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 8.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 9.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School battle song.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 1.wma
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 2.wma
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 1.wma
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 10.wma
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 11.wma
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 2.wma
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 3.wma
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 4.wma
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 5.wma
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 6.wma
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 7.wma
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 8.wma
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 9.wma
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School battle song.wma
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Cybot.txt
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\Cybot dead.txt
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Sylian.txt
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Succubus.txt
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\nurse.txt
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\headmaster.txt
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\recieve key.txt
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\First cybot encounter.txt
