@@ -16,7 +16,7 @@
 5:0:No... Sadly not, But I'd suggest | you find Ziva? She put you in this mess...:0
 5:16:I see. Any idea where I could | find her?:0
 6:0:It's okay. I understand you must | be scared... So what do you want me to help you with?:0
-6:10:Thank you...:0
+6:10:Umm...:0
 7:0:How could I know? Now calm down or | I'll have to give you sedatives!:0
 7:10:Okay- Okay I'm sorry- I'm just so | confused...:0
 8:0:Not exactly. Almost though! I'm a | witch.:0
@@ -42,4 +42,4 @@
 16:17:Okay, I'll go talk to her then.:0
 17:0:Wait! Before you go... Let me give | you something... Our students are | mostly nice but plenty don't take | kindly to humans. It'd be good if you | could defend yourself.:0
 17:18:A sword? But I could kill someone | with that!:0
-18:0:Our students are durable, besides- | I'm here! No one dies on my watch.:4
+18:0:Our students are durable, besides- | I'm here! No one dies on my watch.:6

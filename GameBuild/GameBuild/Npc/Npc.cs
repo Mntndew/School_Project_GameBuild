@@ -66,6 +66,7 @@ namespace GameBuild.Npc
         bool hasTarget;
         public bool reached = true;//for waypoint
         public bool vulnerable;
+        string secondDialogue;
 
         public enum patrolType
         {
@@ -106,7 +107,7 @@ namespace GameBuild.Npc
 
         public Npc(string mapName, string name, int x, int y, int width, int height, bool up, bool down, bool left, bool right,
             string spritePath, string portraitPath, bool patrolNone, bool patrolUpDown, bool patrolLeftRight,
-            bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game, string dialoguePath, string keyName)
+            bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game, string dialoguePath, string keyName, string secondDialogue)
         {
             position = new Rectangle(x, y, width - 16, height - 16);
             this.name = name;
@@ -177,6 +178,7 @@ namespace GameBuild.Npc
             {
                 key = new Key(Rectangle.Empty, keyName, game.keyTexture, this.mapName, game);
             }
+            this.secondDialogue = secondDialogue;
         }
 
         public Npc(Rectangle position, Texture2D walkSprite, Game1 game, string mapName,
@@ -1054,6 +1056,19 @@ namespace GameBuild.Npc
                     break;
                 case 4:
                     Game1.character.GetSword(sword, 1, 20);
+                    break;
+                case 5:
+                    if (secondDialogue != "null")
+                    {
+                        dialogue.dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + secondDialogue + ".txt");
+                    }
+                    break;
+                case 6:
+                    Game1.character.GetSword(sword, 1, 20);
+                    if (secondDialogue != "null")
+                    {
+                        dialogue.dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + secondDialogue + ".txt");
+                    }
                     break;
                 default:
                     isInteracting = false;

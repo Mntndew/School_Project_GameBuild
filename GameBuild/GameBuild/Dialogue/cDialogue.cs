@@ -105,11 +105,11 @@ namespace GameBuild
                 {
                     if (i == selection && currentLines.Length > 1)
                     {
-                        spriteBatch.DrawString(font, currentLines[i], new Vector2(baseVector.X + offsetVector.X, baseVector.Y + offsetVector.Y), Color.Red);
+                        spriteBatch.DrawString(font, currentLines[i], new Vector2(baseVector.X + offsetVector.X, baseVector.Y + offsetVector.Y), Color.PeachPuff);
                     }
                     else
                     {
-                        spriteBatch.DrawString(font, currentLines[i], new Vector2(baseVector.X + offsetVector.X, baseVector.Y + offsetVector.Y), Color.DarkOrange);
+                        spriteBatch.DrawString(font, currentLines[i], new Vector2(baseVector.X + offsetVector.X, baseVector.Y + offsetVector.Y), Color.Red);
                     }
                     offsetVector.Y += font.MeasureString(currentLines[i]).Y;
                 }

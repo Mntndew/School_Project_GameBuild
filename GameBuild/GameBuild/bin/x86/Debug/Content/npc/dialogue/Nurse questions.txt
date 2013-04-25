@@ -1,0 +1,15 @@
+0:0:What do you want to know?:0
+0:1:Who are the classmates?:0
+0:2:So what's up with the headmaster?:0
+0:3:Tell me about this world?:0
+0:4:What is this school?:0
+0:5:Good Bye!:0
+1:0:There's Laune, Sylian and Melitta. | Laune's probably in one of the classrooms,| since it's a little late- Most doors are | locked, you'll have to talk to Laune and | then she might lend you her key. | Be nice or she might roughen you up.:0
+1:0:Ok:0
+2:0:He's... A little complicated. | Kermit doesn't mean anything bad. | Really, he's really sweet. We're newly | married, actually. Whoops... Maybe I | shouldn't have said his real name... | He get's so embarrassed about it.| Anyway- Show him great respect, he's really | powerful and has tended for this | school for hundreds of years.:0
+2:0:Ok:0
+3:0:This realm is a little like earth,|just with a small amount of humans | and a humongous amount of different | races. On earth, you'd call them |''mythological monsters''. But here... |Humans are the monsters. They are |really rare and generally dissliked by most.:0
+3:0:Ok:0
+4:0:This school has been here for | thousands of years, we teach the people | in our world everything they need to | know. It's just a normal school, | really. Just that the students never |look the same.:0
+4:0:Ok:0
+5:0:Bye:1

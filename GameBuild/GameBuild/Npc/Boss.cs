@@ -444,7 +444,7 @@ namespace GameBuild.Npc
             {
                 mobs[i].health = 0;
             }
-            game.activeNpcs.Add(new Npc(map, "Cybot", -256, -256, 0, 0, false, false, false, false, "Cybot", "Cybot", true, false, false, false,0, 0, 0, 0, 0, game, "Cybot dead", "nokey"));
+            game.activeNpcs.Add(new Npc(map, "Cybot", -256, -256, 0, 0, false, false, false, false, "Cybot", "Cybot", true, false, false, false,0, 0, 0, 0, 0, game, "Cybot dead", "nokey", null));
             dead = true;
             attackPlayer = false;
             for (int i = 0; i < game.activeNpcs.Count; i++)
