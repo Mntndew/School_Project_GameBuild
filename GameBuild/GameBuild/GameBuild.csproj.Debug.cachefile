@@ -53,7 +53,10 @@ Content\Audio\Songs\School basic song 9.xnb
 Content\Audio\Songs\School battle song.xnb
 Content\Game\forest.xnb
 Content\Npc\sprite\forestCybot.xnb
-Content\Player\forestCharacter.xnb
+Content\Player\femalewalk.xnb
+Content\Player\malewalk.xnb
+Content\Player\forestFemale.xnb
+Content\Player\forestMale.xnb
 Content\Audio\Songs\Boss battle song 1.wma
 Content\Audio\Songs\Boss battle song 2.wma
 Content\Audio\Songs\School basic song 1.wma

@@ -83,10 +83,10 @@ namespace GameBuild
         ParticleSystemEmitter emitter;
 
         //Animations
-        const int WALK_UP = 0;
-        const int WALK_RIGHT = 1;
-        const int WALK_DOWN = 2;
-        const int WALK_LEFT = 3;
+        const int WALK_UP = 3;
+        const int WALK_RIGHT = 0;
+        const int WALK_DOWN = 1;
+        const int WALK_LEFT = 2;
         bool walking = false;
 
         public cCharacter(Game1 game, string gender)
@@ -99,14 +99,23 @@ namespace GameBuild
 
             #region Textures
             debugTexture = game.Content.Load<Texture2D>(@"Game\blackness");
-            spriteWalkSheet = game.Content.Load<Texture2D>("player/CharaWalkSheet");
+            if (gender == "male")
+            {
+                spriteWalkSheet = game.Content.Load<Texture2D>("player/malewalk");
+                animation = new AnimationComponent(4, 4, 42, 69, 100, Point.Zero);
+            }
+            if (gender == "female")
+            {
+                spriteWalkSheet = game.Content.Load<Texture2D>("player/femalewalk");
+                animation = new AnimationComponent(4, 4, 41, 69, 100, Point.Zero);
+            }
             spriteAttackSheet = game.Content.Load<Texture2D>("player/CharaAttackSheet V2");
             shadowBlob = game.Content.Load<Texture2D>("player/shadowTex");
             healthTexture = game.Content.Load<Texture2D>(@"Game\health100");
             #endregion
 
             #region Rectangles and Vectors
-            positionRectangle = new Rectangle(640, 640, playerWidth, playerHeight);
+            positionRectangle = new Rectangle(640, 640, 42, 69);
             position.X = positionRectangle.X;
             position.Y = positionRectangle.Y;
             interactRect = new Rectangle(positionRectangle.X - (positionRectangle.Width / 2), positionRectangle.Y - (positionRectangle.Height / 2), positionRectangle.Width * 2, positionRectangle.Height * 2);
@@ -119,7 +128,7 @@ namespace GameBuild
             hpColor = new Color(200, 200, 200, 255);
 
             inventory = new Inventory(game);
-            animation = new AnimationComponent(3, 4, 72, 96, 100, Point.Zero);
+            
             emitter = new ParticleSystemEmitter(game);
             Game1.particleSystem.emitters.Add(emitter);
             bossTarget = new Vector2(-128, -128);

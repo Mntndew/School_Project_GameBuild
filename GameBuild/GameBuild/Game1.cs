@@ -180,7 +180,6 @@ namespace GameBuild
             debugFont = Content.Load<SpriteFont>(@"Game\SpriteFont1");
             //forest shit
             forest = Content.Load<Texture2D>(@"Game\forest");
-            forestCharacter = Content.Load<Texture2D>(@"Player\forestCharacter");
             forestCybot = Content.Load<Texture2D>(@"Npc\sprite\forestCybot");
             forestDialogue = new cDialogue(Content.Load<Texture2D>(@"Npc\portrait\Cybot"), textBox, this, spriteFont, "First cybot encounter", "Ziva");
             forestDialogue.isTalking = true;
@@ -419,6 +418,7 @@ namespace GameBuild
                 if (mouse.LeftButton == ButtonState.Pressed)
                 {
                     gender = "female";
+                    forestCharacter = Content.Load<Texture2D>(@"Player\forestFemale");
                 }
             }
             if (mousePos.Intersects(malePos))
@@ -426,6 +426,7 @@ namespace GameBuild
                 if (mouse.LeftButton == ButtonState.Pressed)
                 {
                     gender = "male";
+                    forestCharacter = Content.Load<Texture2D>(@"Player\forestMale");
                 }
             }
             if (gender != null)
@@ -460,7 +461,7 @@ namespace GameBuild
             {
                 spriteBatch.Begin();
                 spriteBatch.Draw(forest, new Rectangle(0, 0, 1280, 720), Color.White);
-                spriteBatch.Draw(forestCharacter, new Rectangle(400, 400, 48, 48), Color.White);
+                spriteBatch.Draw(forestCharacter, new Rectangle(400, 400, 42, 69), Color.White);
                 spriteBatch.Draw(forestCybot, new Rectangle(500, 400, 48, 48), Color.White);
                 forestDialogue.Draw(spriteBatch);
                 spriteBatch.End();

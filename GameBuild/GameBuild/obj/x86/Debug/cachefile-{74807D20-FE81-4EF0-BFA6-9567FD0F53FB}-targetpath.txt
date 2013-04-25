@@ -67,7 +67,10 @@ Content\Audio\Songs\School battle song.xnb
 Content\Audio\Songs\School battle song.wma
 Content\Game\forest.xnb
 Content\Npc\sprite\forestCybot.xnb
-Content\Player\forestCharacter.xnb
+Content\Player\femalewalk.xnb
+Content\Player\malewalk.xnb
+Content\Player\forestFemale.xnb
+Content\Player\forestMale.xnb
 Content\Npc\dialogue\test.txt
 Content\Npc\dialogue\doorLocked.txt
 Content\Warp\Map1_A_0.txt
