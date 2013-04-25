@@ -12,7 +12,7 @@ namespace GameBuild
         string key;
         public Rectangle position;
         public Texture2D texture;
-        bool added = false;
+        public bool added = false;
         public string mapName;
 
         public Key(Rectangle position, string key, Texture2D texture, string mapName, Game1 game)
@@ -21,6 +21,11 @@ namespace GameBuild
             this.position = position;
             this.mapName = mapName;
             this.texture = texture;
+        }
+
+        void ExitedDialogue(object sender, DialogueEventArgs e)
+        {
+            Game1.currentGameState = Game1.GameState.PLAY;
         }
 
         public void PickUp(cCharacter player)

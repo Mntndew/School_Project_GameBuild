@@ -12,4 +12,4 @@
 5:6: I- I suspected so... But what am I going | to do now? How do I get home?!:0
 6:0: Beats me.:0
 6:7: What!? Won't you help me!?:0
-7:0: Hm? Of course not. Don't be ridiculous. | I have important things to do. | Let's see how long you'll | last in here, hah.:4
+7:0: Hm? Of course not. Don't be ridiculous. | I have important things to do. | Let's see how long you'll | last in here, hah.:2

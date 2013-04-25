@@ -382,6 +382,31 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Npc\dialogue\nurse.txt">
+      <Name>nurse</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\dialogue\headmaster.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>headmaster</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\sprite\Nurse.png">
+      <Name>Nurse</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\dialogue\recieve key.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>recieve key</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Audio\Songs\Boss battle song 1.mp3">
       <Name>Boss battle song 1</Name>
       <Importer>Mp3Importer</Importer>
@@ -451,23 +476,6 @@
       <Name>School battle song</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
-    </Compile>
-    <None Include="Npc\dialogue\nurse.txt">
-      <Name>nurse</Name>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Npc\dialogue\headmaster.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>headmaster</Name>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Npc\sprite\Nurse.png">
-      <Name>Nurse</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

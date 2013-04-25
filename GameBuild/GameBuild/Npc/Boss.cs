@@ -41,6 +41,7 @@ namespace GameBuild.Npc
         bool hasPath;
         public bool dead;
         public bool attackPlayer;
+        public bool enraged;
         List<DamageEffect> damageEffectList = new List<DamageEffect>();
         Texture2D healthTexture;
 
@@ -67,6 +68,12 @@ namespace GameBuild.Npc
 
         public void Update(Game1 game, GameTime gameTime)//Manages the phases
         {
+            healthPct = ((float)health / (float)maxHealth);
+            healthBarWidth = (healthTexture.Width * 25) * healthPct;
+            healthPos.Width = (int)healthBarWidth;
+            healthPos.X = 40;
+            healthPos.Y = 10;
+            healthPos.Height = healthTexture.Height;
             angle = Math.Atan2(Game1.character.bossTarget.Y - position.Y, Game1.character.bossTarget.X + 16 - position.X);
             for (int i = 0; i < mobs.Count; i++)
             {
@@ -110,16 +117,15 @@ namespace GameBuild.Npc
             {
                 SwitchPhase();
             }
-
-            healthPct = ((float)health / (float)maxHealth);
-            healthBarWidth = (healthTexture.Width * 25) * healthPct;
-            healthPos.Width = (int)healthBarWidth;
-            healthPos.X = 40;
-            healthPos.Y = 10;
-            healthPos.Height = healthTexture.Height;
+            
             if (healthPct <= 0)
             {
                 Death(game);
+            }
+
+            if (health <= maxHealth / 3)
+            {
+                enraged = true;
             }
 
             for (int i = 0; i < damageEffectList.Count; i++)
@@ -138,11 +144,22 @@ namespace GameBuild.Npc
                         Game1.character.inCombat = true;
                         if (beamAttackTimer <= 0 && projectiles[i].color.A == 255)
                         {
-                            beamDamage = game.damageObject.dealDamage(1, 5);
+                            if (!enraged)
+                            {
+                                beamDamage = game.damageObject.dealDamage(1, 5);
+                                Game1.character.Push(projectiles[i].velocity, 1f);
+                            }
+                            else
+                            {
+                                beamDamage = game.damageObject.dealDamage(2, 6);
+                                if (i >= 40)
+                                {
+                                    Game1.character.Push(projectiles[i].velocity, 2f);
+                                }
+                            }
                             damageEffectList.Add(new DamageEffect(beamDamage, game, new Vector2(Game1.character.positionRectangle.X, Game1.character.positionRectangle.Y), new Color(255, 0, 0, 255), "npc"));
                             Game1.character.health -= beamDamage;
                             Game1.character.Hit();
-                            Game1.character.Push(projectiles[i].velocity, 1f);
                             beamAttackTimer = BEAMATTACKTIMER;
                         }
                     }
@@ -224,13 +241,19 @@ namespace GameBuild.Npc
                         }
                         break;
                     case phase.mobs:
-                        SpawnMobs(game);
+                        if (!enraged)
+                        {
+                            SpawnMobs(game);
+                        }
                         break;
                     case phase.sleep:
                         Sleep(gameTime);
                         break;
                     case phase.charge:
-                        Charge(game, gameTime);
+                        if (!enraged)
+                        {
+                            Charge(game, gameTime);
+                        }
                         break;
                     default:
                         Charge(game, gameTime);
@@ -251,17 +274,17 @@ namespace GameBuild.Npc
 
         private void SwitchPhase()
         {
-            if (currentPhase == phase.beam && phaseTimer != 0)
+            if (currentPhase == phase.beam && phaseTimer != 0 && !enraged)
             {
                 currentPhase = phase.mobs;
                 phaseTimer = 0;
             }
-            if (currentPhase == phase.mobs && phaseTimer != 0)
+            if (currentPhase == phase.mobs && phaseTimer != 0 && !enraged)
             {
                 currentPhase = phase.charge;
                 phaseTimer = 0;
             }
-            if (currentPhase == phase.sleep)
+            if ((currentPhase == phase.sleep) || enraged)
             {
                 sleepTimer = SLEEPTIMER;
                 currentPhase = phase.beam;

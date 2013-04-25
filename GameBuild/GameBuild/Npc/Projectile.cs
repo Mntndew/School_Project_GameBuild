@@ -53,17 +53,28 @@ namespace GameBuild.Npc
 
         public void Particle()
         {
-            //blue/purple
-            emitter.Add((int)position.X, (int)position.Y, 12, 12, 1, -2, 2, -4, -3, new Color(50, 50, 100, 255), 0.015f, 1, 1, false, false, false);
+            if (Game1.testBoss.enraged)
+            {
+                //blue/purple
+                emitter.Add((int)position.X, (int)position.Y, 12, 12, 1, -2, 2, -4, -3, new Color(100, 150, 255, 100), 0.005f, 1, 1, false, false, false);
 
-            //smoke
-            emitter.Add((int)position.X, (int)position.Y, 20, 20, 2, -2, 2, -6, -4, new Color(10, 5, 5, 255), 0.2f, 1, 1, false, false, false);
+                //smoke
+                emitter.Add((int)position.X, (int)position.Y, 20, 20, 2, -2, 2, -6, -4, new Color(10, 5, 5, 255), 0.19f, 1, 1, false, false, false);
 
-            //blue
-            emitter.Add((int)position.X, (int)position.Y, 12, 12, 1, -4, 4, -4, -3, new Color(125, 125, 250, 10), 0.15f, 1, 1, false, false, false);
+                //red
+                emitter.Add((int)position.X, (int)position.Y, 16, 16, 1, -2, 2, -4, -3, new Color(255, 0, 0, 255), 0.16f, 1, 1, false, false, false);
+            }
+            else
+            {
+                //smoke
+                emitter.Add((int)position.X, (int)position.Y, 20, 20, 2, -2, 2, -6, -4, new Color(10, 5, 5, 255), 0.19f, 1, 1, false, false, false);
 
-            //green
-            emitter.Add((int)position.X, (int)position.Y, 16, 16, 1, -2, 2, -4, -3, new Color(75, 200, 75, 100), 0.15f, 1, 1, false, false, true);
+                //blue
+                emitter.Add((int)position.X, (int)position.Y, 12, 12, 1, -4, 4, -4, -3, new Color(125, 125, 250, 10), 0.15f, 1, 1, false, false, false);
+
+                //green
+                emitter.Add((int)position.X, (int)position.Y, 16, 16, 1, -2, 2, -4, -3, new Color(75, 200, 75, 100), 0.15f, 1, 1, false, false, true);
+            }
         }
 
         public void CheckDead(GameTime gameTime)

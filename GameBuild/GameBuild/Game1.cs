@@ -178,15 +178,15 @@ namespace GameBuild
         {
             for (int i = 0; i < 5; i++)
             {
-                Mobs.Add(new Npc.Npc(new Rectangle(256 + (i * 100), 1800, 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), this, "Map1_A", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
+                Mobs.Add(new Npc.Npc(new Rectangle(256 + (i * 100), 1800, 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Nurse"), this, "Map1_A", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
             }
             for (int i = 0; i < 5; i++)
             {
-                Mobs.Add(new Npc.Npc(new Rectangle(256 + (i * 100), 1800, 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), this, "Map3_A", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
+                Mobs.Add(new Npc.Npc(new Rectangle(256 + (i * 100), 1800, 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Nurse"), this, "Map3_A", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
             }
             for (int i = 0; i < 5; i++)
             {
-                Mobs.Add(new Npc.Npc(new Rectangle(256 + (i * 100), 1800, 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), this, "Map3_B", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
+                Mobs.Add(new Npc.Npc(new Rectangle(256 + (i * 100), 1800, 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Nurse"), this, "Map3_B", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
             }
         }
 
@@ -328,6 +328,7 @@ namespace GameBuild
                             }
                             else
                             {
+                                Console.WriteLine(activeNpcs[i].speed);
                                 activeNpcs[i].isInteracting = true;
                                 activeNpcs[i].dialogue.isTalking = true;
                                 currentGameState = GameState.INTERACT;

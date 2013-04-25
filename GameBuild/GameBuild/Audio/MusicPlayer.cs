@@ -38,7 +38,7 @@ namespace GameBuild.Audio
         {
             MediaPlayer.Volume = 0; // for fading in and out
             MediaPlayer.Stop();
-            MediaPlayer.Play(songs[Index]);
+            //MediaPlayer.Play(songs[Index]);
             currentSongLength = (float)songs[Index].Duration.TotalMilliseconds;
             currentSongPlayTime = 0;
         }
@@ -60,7 +60,7 @@ namespace GameBuild.Audio
                 songInterval -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                 if (songInterval <= 0)
                 {
-                    //Play(r.Next(songs.Count));
+                    Play(r.Next(songs.Count));
                     songInterval = r.Next(0, 50);
                 }
             }

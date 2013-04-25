@@ -140,21 +140,43 @@ namespace GameBuild
 
             if (Game1.testBoss.attackPlayer)
             {
-                if (positionRectangle.X + (positionRectangle.Width / 2) - 16 > bossTarget.X)
+                if (!Game1.testBoss.enraged)
                 {
-                    bossTarget.X += targetSpeed / 1.2f;
+                    if (positionRectangle.X + (positionRectangle.Width / 2) - 16 > bossTarget.X)
+                    {
+                        bossTarget.X += targetSpeed / 1.2f;
+                    }
+                    if (positionRectangle.X + (positionRectangle.Width / 2) - 16 < bossTarget.X)
+                    {
+                        bossTarget.X -= targetSpeed / 1.2f;
+                    }
+                    if (positionRectangle.Y + (positionRectangle.Width / 2) - 16 > bossTarget.Y)
+                    {
+                        bossTarget.Y += targetSpeed / 1.2f;
+                    }
+                    if (positionRectangle.Y + (positionRectangle.Width / 2) - 16 < bossTarget.Y)
+                    {
+                        bossTarget.Y -= targetSpeed / 1.2f;
+                    }
                 }
-                if (positionRectangle.X + (positionRectangle.Width / 2) - 16 < bossTarget.X)
+                else
                 {
-                    bossTarget.X -= targetSpeed / 1.2f;
-                }
-                if (positionRectangle.Y + (positionRectangle.Width / 2) - 16 > bossTarget.Y)
-                {
-                    bossTarget.Y += targetSpeed / 1.2f;
-                }
-                if (positionRectangle.Y + (positionRectangle.Width / 2) - 16 < bossTarget.Y)
-                {
-                    bossTarget.Y -= targetSpeed / 1.2f;
+                    if (positionRectangle.X + (positionRectangle.Width / 2) - 16 > bossTarget.X)
+                    {
+                        bossTarget.X += targetSpeed / 1.15f;
+                    }
+                    if (positionRectangle.X + (positionRectangle.Width / 2) - 16 < bossTarget.X)
+                    {
+                        bossTarget.X -= targetSpeed / 1.15f;
+                    }
+                    if (positionRectangle.Y + (positionRectangle.Width / 2) - 16 > bossTarget.Y)
+                    {
+                        bossTarget.Y += targetSpeed / 1.15f;
+                    }
+                    if (positionRectangle.Y + (positionRectangle.Width / 2) - 16 < bossTarget.Y)
+                    {
+                        bossTarget.Y -= targetSpeed / 1.15f;
+                    }
                 }
             }
 
@@ -446,7 +468,7 @@ namespace GameBuild
                 {
                     if (npc.position.Intersects(attackRectangle))
                     {
-                        if (npc.health > 0 && npc.IsOnMap())
+                        if (npc.health > 0 && npc.IsOnMap() && npc.vulnerable)
                         {
                             damage = game.damageObject.dealDamage(minDamage, maxDamage);
                             damageEffectList.Add(new DamageEffect(damage, game, new Vector2(npc.position.X, npc.position.Y - 16), new Color(255, 255, 255, 255), "player"));

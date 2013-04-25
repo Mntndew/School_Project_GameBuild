@@ -119,7 +119,7 @@ namespace GameBuild
             }
             else
             {
-                ExceptionAnimationOutOfBounds();
+                //ExceptionAnimationOutOfBounds();
             }
         }
 
@@ -134,7 +134,7 @@ namespace GameBuild
             }
             else
             {
-                ExceptionAnimationOutOfBounds();
+                //ExceptionAnimationOutOfBounds();
             }
         }
 

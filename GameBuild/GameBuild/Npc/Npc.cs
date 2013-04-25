@@ -89,7 +89,10 @@ namespace GameBuild.Npc
         const int WALK_RIGHT = 1;
         const int WALK_DOWN = 2;
         const int WALK_LEFT = 3;
-        bool walking = false;
+        const int IDLE_UP = 4;
+        const int IDLE_RIGHT = 5;
+        const int IDLE_DOWN = 6;
+        const int IDLE_LEFT = 7;
 
         Color color = new Color(255, 255, 255, 255);
         Color aColor;
@@ -108,14 +111,18 @@ namespace GameBuild.Npc
             position = new Rectangle(x, y, width - 16, height - 16);
             this.name = name;
             this.mapName = mapName;
-            this.speed = speed;
             this.up = up;
             this.down = down;
             this.left = left;
             this.right = right;
+            vulnerable = true;
             if (name == "Celine")
             {
                 sword = "sword1";
+            }
+            if (name == "Headmaster")
+            {
+                vulnerable = false;
             }
             minDamage = 2;
             maxDamage = 15;
@@ -125,8 +132,7 @@ namespace GameBuild.Npc
             aPosition = new Rectangle(0, 0, aTexture.Width, aTexture.Height);
             health = 200;
             maxHealth = health;
-            this.speed = speed;
-            this.SPEED = speed;
+            this.SPEED = 1;
             dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + portraitPath), Game1.textBox, game, Game1.spriteFont, dialoguePath, name);
             walkSprite = game.Content.Load<Texture2D>(@"npc\sprite\" + spritePath);
             debugTile = game.Content.Load<Texture2D>(@"Player\emptySlot");
@@ -157,7 +163,7 @@ namespace GameBuild.Npc
             aColor = Color.White;
             if (name == "Celine")
             {
-                animation = new AnimationComponent(2, 4, 50, 71, 175, Microsoft.Xna.Framework.Point.Zero);
+                animation = new AnimationComponent(2, 8, 50, 72, 175, Microsoft.Xna.Framework.Point.Zero);
             }
             else
             {
@@ -189,13 +195,12 @@ namespace GameBuild.Npc
             pathTimerMod = timerMod;
             healthTexture = game.Content.Load<Texture2D>(@"Game\health100");
             debugTile = game.Content.Load<Texture2D>(@"Player\emptySlot");
-            speed = 1;
             maxHealth = health;
             MOBPATHTIMER = rand.Next(2000, 10000) * timerMod;
             mob = true;
             currentPatrolType = patrolType.none;
-            animation = new AnimationComponent(2, 4, 50, 71, 175, Microsoft.Xna.Framework.Point.Zero);
-            this.SPEED = speed;
+            animation = new AnimationComponent(2, 8, 50, 72, 175, Microsoft.Xna.Framework.Point.Zero);
+            this.SPEED = 1;
             key = null;
         }
 
@@ -306,7 +311,6 @@ namespace GameBuild.Npc
                 }
                 if (followPath)
                 {
-                    walking = false;
                     if (path[pathIndex].X < position.X + position.Width / 2)
                     {
                         MoveLeft(ref position);
@@ -358,7 +362,6 @@ namespace GameBuild.Npc
         {
             Rectangle location = position;
             float elapsed = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-            walking = false;
             if (bossMob)
             {
                 if (Game1.character.positionRectangle.X > position.X)
@@ -382,17 +385,43 @@ namespace GameBuild.Npc
             {
                 if (attackTimer <= 0)
                 {
-                    {
-                        damage = game.damageObject.dealDamage(minDamage, maxDamage);
-                        damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.positionRectangle.X, Game1.character.positionRectangle.Y), new Color(255, 0, 0, 255), "npc"));
-                        Game1.character.health -= damage;
-                        Game1.character.Hit();
-                        Vector2 pos = new Vector2(location.X, location.Y);
+                    damage = game.damageObject.dealDamage(minDamage, maxDamage);
+                    damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.positionRectangle.X, Game1.character.positionRectangle.Y), new Color(255, 0, 0, 255), "npc"));
+                    Game1.character.health -= damage;
+                    Game1.character.Hit();
+                    Vector2 pos = new Vector2(location.X, location.Y);
                     Vector2 direction = Game1.character.position - pos;
                     direction.Normalize();
                     Game1.character.Push(direction, 12);
                     attackTimer = ATTACKTIMER;
-                    Game1.character.Disable();  
+                    Game1.character.Disable();
+                    if (up)
+                    {
+                        if (!animation.IsAnimationPlaying(WALK_UP))
+                        {
+                            animation.LoopAnimation(WALK_UP);
+                        }
+                    }
+                    if (down)
+                    {
+                        if (!animation.IsAnimationPlaying(WALK_UP))
+                        {
+                            animation.LoopAnimation(WALK_UP);
+                        }
+                    }
+                    if (left)
+                    {
+                        if (!animation.IsAnimationPlaying(WALK_UP))
+                        {
+                            animation.LoopAnimation(WALK_UP);
+                        }
+                    }
+                    if (right)
+                    {
+                        if (!animation.IsAnimationPlaying(WALK_UP))
+                        {
+                            animation.LoopAnimation(WALK_UP);
+                        }
                     }
                 }
                 followPath = false;
@@ -429,50 +458,66 @@ namespace GameBuild.Npc
         #region Swaggy movement functions
         private void MoveUp(ref Rectangle location)
         {
-            walking = false;
+            speed = SPEED;
+            up = true;
+            down = false;
+            left = false;
+            right = false;
             location.Y += (int)-(speed * 2);
             combatRectangle.Y += (int)-(speed * 2);
             if (!animation.IsAnimationPlaying(WALK_UP))
             {
                 animation.LoopAnimation(WALK_UP);
             }
-            walking = true;
+            speed = 0;
         }
 
         private void MoveDown(ref Rectangle location)
         {
-            walking = false;
+            speed = SPEED;
+            up = false;
+            down = true;
+            left = false;
+            right = false;
             location.Y += (int)(speed * 2);
             combatRectangle.Y += (int)(speed * 2);
             if (!animation.IsAnimationPlaying(WALK_DOWN))
             {
                 animation.LoopAnimation(WALK_DOWN);
             }
-            walking = true;
+            speed = 0;
         }
 
         private void MoveLeft(ref Rectangle location)
         {
-            walking = false;
+            speed = SPEED;
+            up = false;
+            down = false;
+            left = true;
+            right = false;
             location.X += (int)-(speed * 2);
             combatRectangle.X += (int)-(speed * 2);
             if (!animation.IsAnimationPlaying(WALK_LEFT))
             {
                 animation.LoopAnimation(WALK_LEFT);
             }
-            walking = true;
+            speed = 0;
         }
 
         private void MoveRight(ref Rectangle location)
         {
-            walking = false;
+            speed = SPEED;
+            up = false;
+            down = false;
+            left = false;
+            right = true;
             location.X += (int)(speed * 2);
             combatRectangle.X += (int)(speed * 2);
             if (!animation.IsAnimationPlaying(WALK_RIGHT))
             {
                 animation.LoopAnimation(WALK_RIGHT);
             }
-            walking = true;
+            speed = 0;
         } 
         #endregion
 
@@ -556,10 +601,39 @@ namespace GameBuild.Npc
                 }
             }
 
-            if (!walking)
+            if (speed == 0)
             {
-                animation.PauseAnimation();
+                if (up)
+                {
+                    if (!animation.IsAnimationPlaying(IDLE_UP))
+                    {
+                        animation.LoopAnimation(IDLE_UP);
+                    }
+                }
+                if (down)
+                {
+                    if (!animation.IsAnimationPlaying(IDLE_DOWN))
+                    {
+                        animation.LoopAnimation(IDLE_DOWN);
+                    }
+                }
+                if (left)
+                {
+                    if (!animation.IsAnimationPlaying(IDLE_LEFT))
+                    {
+                        animation.LoopAnimation(IDLE_LEFT);
+                    }
+                }
+                if (right)
+                {
+                    if (!animation.IsAnimationPlaying(IDLE_RIGHT))
+                    {
+                        animation.LoopAnimation(IDLE_RIGHT);
+                    }
+                }
             }
+
+            animation.PauseAnimation();
 
             if (mob && !bossMob)
             {
@@ -582,11 +656,8 @@ namespace GameBuild.Npc
                 Attack(game, gameTime);
             }
 
-            if (walking)
-            {
-                animation.UpdateAnimation(gameTime);
-            }
-            
+            animation.UpdateAnimation(gameTime);
+
             if (!attackPlayer)
             {
                 Patrol(tiles);
@@ -649,11 +720,11 @@ namespace GameBuild.Npc
             {
                 case patrolType.upDown:
                     #region logic
-                    walking = false;
                     point1 = new Vector2(patrolRect.X + (patrolRect.Width / 2), patrolRect.Y);
                     point2 = new Vector2(patrolRect.X + (patrolRect.Width / 2), patrolRect.Y + patrolRect.Height);
                     if (point1.Y < position.Y && !point1Tagged)
                     {
+                        speed = SPEED;
                         location.Y += (int)-speed;
                         corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + (position.Height / 2));
                         corner2 = tiles.GetTileRectangleFromPosition(location.X + position.Width, location.Y + (position.Height / 2));
@@ -666,7 +737,6 @@ namespace GameBuild.Npc
                         {
                             animation.LoopAnimation(WALK_UP);
                         }
-                        walking = true;
                         if (position.Y == point1.Y)
                         {
                             point2Tagged = false;
@@ -676,6 +746,7 @@ namespace GameBuild.Npc
 
                     if (point2.Y > position.Y && !point2Tagged)
                     {
+                        speed = SPEED;
                         location.Y += (int)speed;
                         corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + (position.Height / 2));
                         corner2 = tiles.GetTileRectangleFromPosition(location.X + position.Width, location.Y + (position.Height / 2));
@@ -688,7 +759,6 @@ namespace GameBuild.Npc
                         {
                             animation.LoopAnimation(WALK_DOWN);
                         }
-                        walking = true;
                         if ((position.Y + position.Height) == point2.Y)
                         {
                             point2Tagged = true;
@@ -703,7 +773,6 @@ namespace GameBuild.Npc
                     point2 = new Vector2(patrolRect.X + patrolRect.Width, patrolRect.Y + (patrolRect.Height / 2));
                     if (point1.X < position.X && !point1Tagged)
                     {
-                        walking = false;
                         location.X += (int)-speed;
                         location.Y = position.Y;
                         corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + (position.Height / 2));
@@ -717,7 +786,6 @@ namespace GameBuild.Npc
                         {
                             animation.LoopAnimation(WALK_LEFT);
                         }
-                        walking = true;
                         if (position.X == point1.X)
                         {
                             point2Tagged = false;
@@ -727,7 +795,6 @@ namespace GameBuild.Npc
 
                     if (point2.X > position.X && !point2Tagged)
                     {
-                        walking = false;
                         location.X += (int)speed;
                         location.Y = position.Y;
                         corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + (position.Height / 2));
@@ -741,7 +808,6 @@ namespace GameBuild.Npc
                         {
                             animation.LoopAnimation(WALK_RIGHT);
                         }
-                        walking = true;
                         if ((position.X + position.Width) == point2.X)
                         {
                             point2Tagged = true;
@@ -756,7 +822,6 @@ namespace GameBuild.Npc
                     point2 = new Vector2(patrolRect.X + patrolRect.Width, patrolRect.Y);
                     point3 = new Vector2(patrolRect.X + patrolRect.Width, patrolRect.Y + patrolRect.Height);
                     point4 = new Vector2(patrolRect.X, patrolRect.Y + patrolRect.Height);
-                    walking = false;
                     if (!point1Tagged)
                     {
                         if (point1.X < position.X)
@@ -775,7 +840,6 @@ namespace GameBuild.Npc
                         {
                             animation.LoopAnimation(WALK_RIGHT);
                         }
-                        walking = true;
                         if (point1.X == position.X)
                         {
                             point1Tagged = true;
@@ -797,7 +861,6 @@ namespace GameBuild.Npc
                         {
                             animation.LoopAnimation(WALK_RIGHT);
                         }
-                        walking = true;
                         if (position.X + position.Width == point2.X)
                         {
                             point2Tagged = true;
@@ -818,7 +881,6 @@ namespace GameBuild.Npc
                         {
                             animation.LoopAnimation(WALK_DOWN);
                         }
-                        walking = true;
                         if (position.Y + position.Height == point3.Y)
                         {
                             point3Tagged = true;
@@ -840,8 +902,6 @@ namespace GameBuild.Npc
                         {
                             animation.LoopAnimation(WALK_LEFT);
                         }
-                        walking = true;
-
                         if (position.X == point1.X && point3Tagged)
                         {
                             point4Tagged = true;
@@ -863,7 +923,6 @@ namespace GameBuild.Npc
                         {
                             animation.LoopAnimation(WALK_UP);
                         }
-                        walking = true;
                         if (position.Y == point1.Y)
                         {
                             point1Tagged = false;
@@ -875,7 +934,6 @@ namespace GameBuild.Npc
                     #endregion
                     break;
                 case patrolType.none:
-                    walking = false;
                     if (up)
                     {
                         if (!animation.IsAnimationPlaying(WALK_UP))
