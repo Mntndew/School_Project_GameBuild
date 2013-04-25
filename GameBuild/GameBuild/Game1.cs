@@ -319,6 +319,10 @@ namespace GameBuild
                     else
                         menu.paused = false;
                 }
+                if (menu.paused)
+                {
+                    menu.Update(this);
+                }
                 if (gender != null && !menu.paused)
                 {
                     warpManager.Update(this, gameTime);

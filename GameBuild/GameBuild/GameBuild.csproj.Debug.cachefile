@@ -62,6 +62,10 @@ Content\Game\female.xnb
 Content\Game\femaleSelected.xnb
 Content\Game\male.xnb
 Content\Game\maleSelected.xnb
+Content\Game\Menu\exit.xnb
+Content\Game\Menu\exitSelected.xnb
+Content\Game\Menu\resume.xnb
+Content\Game\Menu\resumeSelected.xnb
 Content\Audio\Songs\Boss battle song 1.wma
 Content\Audio\Songs\Boss battle song 2.wma
 Content\Audio\Songs\School basic song 1.wma

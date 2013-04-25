@@ -591,6 +591,42 @@
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\maleSelected.xnb</Output>
       <Time>2013-04-25T22:39:22.4478899+02:00</Time>
     </Item>
+    <Item>
+      <Source>Game\Menu\exit.png</Source>
+      <Name>Game\Menu\exit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\exit.xnb</Output>
+      <Time>2013-04-25T23:41:44.9689498+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Game\Menu\exitSelected.png</Source>
+      <Name>Game\Menu\exitSelected</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\exitSelected.xnb</Output>
+      <Time>2013-04-25T23:42:00.0138104+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Game\Menu\resume.png</Source>
+      <Name>Game\Menu\resume</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\resume.xnb</Output>
+      <Time>2013-04-25T23:42:14.763654+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Game\Menu\resumeSelected.png</Source>
+      <Name>Game\Menu\resumeSelected</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\resumeSelected.xnb</Output>
+      <Time>2013-04-25T23:42:27.7823986+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}</ContentProjectGUID>

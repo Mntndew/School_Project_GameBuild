@@ -725,3 +725,7 @@ C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\Game
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\femaleSelected.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\male.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\maleSelected.xnb
+C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\exit.xnb
+C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\exitSelected.xnb
+C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\resume.xnb
+C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\resumeSelected.xnb
