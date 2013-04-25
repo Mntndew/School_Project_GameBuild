@@ -200,7 +200,7 @@ namespace GameBuild
             music.Songs.Add(Content.Load<Song>(@"Audio\Songs\School basic song 5"));
             music.Songs.Add(Content.Load<Song>(@"Audio\Songs\School basic song 6"));
             music.Songs.Add(Content.Load<Song>(@"Audio\Songs\School basic song 7"));
-            music.Play(0);
+            //music.Play(0);
         }
 
         void ForestSceneExit(object sender, DialogueEventArgs e)

@@ -492,6 +492,33 @@
       <Extra>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School battle song.wma</Extra>
       <Time>2013-04-25T11:15:01.1380558+02:00</Time>
     </Item>
+    <Item>
+      <Source>Game\forest.png</Source>
+      <Name>Game\forest</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\forest.xnb</Output>
+      <Time>2013-04-25T15:45:47.7128802+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\sprite\forestCybot.png</Source>
+      <Name>Npc\sprite\forestCybot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\forestCybot.xnb</Output>
+      <Time>2013-04-25T15:45:47.7440802+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Player\forestCharacter.png</Source>
+      <Name>Player\forestCharacter</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\forestCharacter.xnb</Output>
+      <Time>2013-04-25T15:45:47.8688804+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}</ContentProjectGUID>

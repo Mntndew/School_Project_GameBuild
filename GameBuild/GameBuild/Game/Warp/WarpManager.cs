@@ -16,6 +16,7 @@ namespace GameBuild.Game
 
         cDialogue dialogue;
         bool showedLocked = false;
+        bool hasKey;
 
         public WarpManager(Game1 game)
         {
@@ -55,6 +56,7 @@ namespace GameBuild.Game
             {
                 if ((Game1.character.inventory.inventorySlot[0, y].item == key || key == "."))//checks if the player has the key or if the key is ".", aka no key required
                 {
+                    hasKey = true;
                     Game1.map = game.Content.Load<H_Map.TileMap>(@"Map\" + map);
                     Game1.map.tileset = game.Content.Load<Texture2D>(@"Game\tileset");
                     if (warp.targetX != -1)//warp the X value if it isnt -1(the player's X value)
@@ -98,18 +100,19 @@ namespace GameBuild.Game
                         }
                     }
                 }
-                else
+                
+            }
+            if (!hasKey)
+            {
+                if (!showedLocked)
                 {
-                    if (!showedLocked)
-                    {
-                        dialogue.isTalking = true;
-                        showedLocked = true;
-                        Game1.currentGameState = Game1.GameState.INTERACT;
-                        Vector2 dir = new Vector2(warp.warpField.X, warp.warpField.Y) - Game1.character.position;
-                        dir.Normalize();
-                        dir *= -1;
-                        Game1.character.Push(dir, 3);
-                    }
+                    dialogue.isTalking = true;
+                    showedLocked = true;
+                    Game1.currentGameState = Game1.GameState.INTERACT;
+                    Vector2 dir = new Vector2(warp.warpField.X, warp.warpField.Y) - Game1.character.position;
+                    dir.Normalize();
+                    dir *= -1;
+                    Game1.character.Push(dir, 3);
                 }
             }
         }
