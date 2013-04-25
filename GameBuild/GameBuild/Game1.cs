@@ -54,6 +54,12 @@ namespace GameBuild
 
         Random rand = new Random();
 
+        //for the forest scene
+        Texture2D forest;
+        cDialogue forestDialogue;
+        Texture2D forestCharacter;
+        Texture2D forestCybot;
+
         Color collisionColor = new Color(100, 0, 0, 100);
         public Color screenColor;
 
@@ -104,6 +110,8 @@ namespace GameBuild
             INTERACT,
             PAUSE,
             GENDER,
+            FOREST,
+            STARTMENU,
         }
 
         public static GameState currentGameState = new GameState();
@@ -161,6 +169,12 @@ namespace GameBuild
             LoadKeys();
             LoadNpcs();
             debugFont = Content.Load<SpriteFont>(@"Game\SpriteFont1");
+            //forest shit
+            forest = Content.Load<Texture2D>(@"Game\forest");
+            forestCharacter = Content.Load<Texture2D>(@"Player\forestChar");
+            forestCybot = Content.Load<Texture2D>(@"Npc\sprite\forestCybot");
+            forestDialogue = new cDialogue(Content.Load<Texture2D>(@"Npc\portrait\Cybot"), textBox, this, spriteFont, "First cybot encounter", "Ziva");
+
             AddMobs();
 
             music = new MusicPlayer();
@@ -259,10 +273,20 @@ namespace GameBuild
             {
                 ChooseGender();
             }
-            
+
             oldState = keyState;
             keyState = Keyboard.GetState();
-            if (keyState.IsKeyDown(Keys.Escape) && oldState.IsKeyUp(Keys.Escape))
+
+            if (currentGameState == GameState.STARTMENU)
+            {
+                //update menu
+            }
+            else if (currentGameState == GameState.FOREST)
+            {
+                forestDialogue.Update();
+            }
+
+            if (keyState.IsKeyDown(Keys.Escape) && oldState.IsKeyUp(Keys.Escape) && (currentGameState == GameState.PLAY || currentGameState == GameState.PAUSE || currentGameState == GameState.INTERACT))
             {
                 if (!menu.paused)
                 {
@@ -334,7 +358,7 @@ namespace GameBuild
                             }
                         }
                     }
-                    else 
+                    else
                     {
                         if (activeNpcs[i].key != null)
                         {
@@ -394,10 +418,31 @@ namespace GameBuild
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-            if (gender != null)
+            if (currentGameState == GameState.STARTMENU)
+            {
+                //DRaw start menu
+            }
+            else if (currentGameState == GameState.GENDER)
+            {
+                spriteBatch.Begin();
+                spriteBatch.Draw(male, new Rectangle(-40, 0, male.Width / 2, male.Height / 2), Color.White);
+                spriteBatch.Draw(female, new Rectangle(graphics.PreferredBackBufferWidth - female.Width / 2, 0, female.Width / 2, female.Height / 2), Color.White);
+                spriteBatch.DrawString(spriteFont, "Choose a gender, please.", new Vector2((graphics.PreferredBackBufferWidth / 2) - 20 * 6.38f, 6), new Color(200, 200, 200));
+                spriteBatch.End();
+            }
+            else if (currentGameState == GameState.FOREST)
+            {
+                spriteBatch.Begin();
+                spriteBatch.Draw(forest, new Rectangle(0, 0, 1280, 720), Color.White);
+                spriteBatch.Draw(forestCharacter, new Rectangle(400, 400, 48,48), Color.White);
+                spriteBatch.Draw(forestCybot, new Rectangle(500, 400, 48, 48), Color.White);
+                forestDialogue.Draw(spriteBatch);
+            }
+            else
             {
                 spriteBatch.Begin(SpriteSortMode.Immediate, null, SamplerState.PointClamp, null, null, null, camera.GetTransformation());
                 map.DrawBackgroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
+                character.Draw(spriteBatch);
                 map.DrawInteractiveLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
 
                 for (int i = 0; i < keys.Count; i++)
@@ -426,7 +471,6 @@ namespace GameBuild
                         Mobs[i].Draw(spriteBatch);
                     }
                 }
-                character.Draw(spriteBatch);
                 if (testBoss.IsOnMap())
                 {
                     testBoss.Draw(spriteBatch);
@@ -436,7 +480,7 @@ namespace GameBuild
                 {
                     activeNpcs[i].DrawHealth(spriteBatch);
                 }
-               
+
                 if (testBoss.IsOnMap())
                 {
                     testBoss.DrawMobs(spriteBatch);
@@ -482,25 +526,14 @@ namespace GameBuild
                 warpManager.Draw(spriteBatch, this);
                 spriteBatch.End();
             }
-            
-            if (gender == null)
+
+            if (character.health <= 0)
             {
                 spriteBatch.Begin();
-                spriteBatch.Draw(male, new Rectangle(-40, 0, male.Width / 2, male.Height / 2), Color.White);
-                spriteBatch.Draw(female, new Rectangle(graphics.PreferredBackBufferWidth - female.Width / 2, 0, female.Width / 2, female.Height / 2), Color.White);
-                spriteBatch.DrawString(spriteFont, "Choose a gender, please.", new Vector2((graphics.PreferredBackBufferWidth / 2) - 20 * 6.38f, 6), new Color(200, 200, 200));
+                character.DrawDeath(spriteBatch, this);
                 spriteBatch.End();
             }
-            else
-            {
-                if (character.health <= 0)
-                {
-                    spriteBatch.Begin();
-                    character.DrawDeath(spriteBatch, this);
-                    spriteBatch.End();
-                }
-            }
-
+            
             //menu
             menu.Draw(spriteBatch);
             base.Draw(gameTime);
