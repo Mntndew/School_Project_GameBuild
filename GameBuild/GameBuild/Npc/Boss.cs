@@ -29,8 +29,8 @@ namespace GameBuild.Npc
         float beamAttackTimer = 0.08f;
         const float BEAMATTACKTIMER = 0.08f;
         string map;
-        public int health = 250;
-        public int maxHealth = 250;
+        public int health = 1;//300
+        public int maxHealth = 1;//300
         float healthBarWidth;
         float healthPct;
         int beamDamage;
@@ -42,8 +42,19 @@ namespace GameBuild.Npc
         public bool dead;
         public bool attackPlayer;
         public bool enraged;
+        bool up, down, left, right;
         List<DamageEffect> damageEffectList = new List<DamageEffect>();
+        AnimationComponent animation;
         Texture2D healthTexture;
+
+        const int WALK_UP = 0;
+        const int WALK_RIGHT = 1;
+        const int WALK_DOWN = 2;
+        const int WALK_LEFT = 3;
+        const int IDLE_UP = 4;
+        const int IDLE_RIGHT = 5;
+        const int IDLE_DOWN = 6;
+        const int IDLE_LEFT = 7;
 
         public enum phase
         {
@@ -60,10 +71,11 @@ namespace GameBuild.Npc
             this.map = map;
             healthTexture = game.Content.Load<Texture2D>(@"Game\health100");
             healthPos = new Rectangle();
-            texture = game.Content.Load<Texture2D>(@"Game\blackness");
+            texture = game.Content.Load<Texture2D>(@"Npc\sprite\Cybot");
             targetTexture = game.Content.Load<Texture2D>(@"Game\target");
             angle = Math.Atan2(Game1.character.bossTarget.Y - position.Y, Game1.character.bossTarget.X + 16 - position.X);
-            robot = new Npc(new Rectangle(position.X - 64, position.Y, 64, 64), game.Content.Load<Texture2D>(@"robot"), game, this.map, 0, false, 10, 0, 0, 0, false);
+            robot = new Npc(position.X - 64, position.Y, 64, 64, game.Content.Load<Texture2D>(@"robot"), game, this.map, 0, false, 10, 0, 0, 0, false);
+            animation = new AnimationComponent(2, 8, 54, 70, 175, Microsoft.Xna.Framework.Point.Zero);
         }
 
         public void Update(Game1 game, GameTime gameTime)//Manages the phases
@@ -75,6 +87,7 @@ namespace GameBuild.Npc
             healthPos.Y = 10;
             healthPos.Height = healthTexture.Height;
             angle = Math.Atan2(Game1.character.bossTarget.Y - position.Y, Game1.character.bossTarget.X + 16 - position.X);
+            animation.UpdateAnimation(gameTime);
             for (int i = 0; i < mobs.Count; i++)
             {
                 if (mobs[i].health > 0)
@@ -159,6 +172,10 @@ namespace GameBuild.Npc
                             }
                             damageEffectList.Add(new DamageEffect(beamDamage, game, new Vector2(Game1.character.positionRectangle.X, Game1.character.positionRectangle.Y), new Color(255, 0, 0, 255), "npc"));
                             Game1.character.health -= beamDamage;
+                            if (Game1.character.health <= 0)
+                            {
+                                Respawn(game);
+                            }
                             Game1.character.Hit();
                             beamAttackTimer = BEAMATTACKTIMER;
                         }
@@ -169,7 +186,6 @@ namespace GameBuild.Npc
             }
 
             #region mob stuff
-
             for (int i = 0; i < mobs.Count; i++)
             {
                 if (mobs[i].position.Intersects(Game1.character.positionRectangle))
@@ -228,6 +244,38 @@ namespace GameBuild.Npc
             }
             #endregion
 
+            if (currentPhase != phase.charge)
+            {
+                if (left)
+                {
+                    if (!animation.IsAnimationPlaying(IDLE_LEFT))
+                    {
+                        animation.LoopAnimation(IDLE_LEFT);
+                    }
+                }
+                else if (right)
+                {
+                    if (!animation.IsAnimationPlaying(IDLE_RIGHT))
+                    {
+                        animation.LoopAnimation(IDLE_RIGHT);
+                    }
+                }
+                else if (up)
+                {
+                    if (!animation.IsAnimationPlaying(IDLE_UP))
+                    {
+                        animation.LoopAnimation(IDLE_UP);
+                    }
+                }
+                else if (down)
+                {
+                    if (!animation.IsAnimationPlaying(IDLE_DOWN))
+                    {
+                        animation.LoopAnimation(IDLE_DOWN);
+                    }
+                }
+            }
+
             if (attackPlayer && healthPct > 0)
             {
                 switch (currentPhase)
@@ -260,6 +308,42 @@ namespace GameBuild.Npc
                         break;
                 }
             }
+        }
+
+        public void Respawn(Game1 game)
+        {
+            health += (maxHealth - health) / 2;
+            Game1.character.health = Game1.character.maxHealth;
+            Game1.map = game.Content.Load<H_Map.TileMap>(@"Map\Map4_B");
+            Game1.character.position.X = 1000;
+            Game1.character.position.Y = 720;
+        }
+
+        private void Death(Game1 game)
+        {
+            if (!dead)
+            {
+                game.Npcs.Add(new Npc(map, "Cybotdead", -256, -256, 0, 0, false, false, false, false, "Cybot", "Cybot", true, false, false, false, 0, 0, 0, 0, 0, game, "Cybot dead", "nokey", null));
+            }
+            
+            attackPlayer = false;
+            for (int i = 0; i < mobs.Count; i++)
+            {
+                mobs[i].health = 0;
+            }
+            for (int i = 0; i < game.Npcs.Count; i++)
+            {
+                if (game.Npcs[i].name == "Cybotdead" && !dead)
+                {
+                    game.Npcs[i].isInteracting = true;
+                    game.Npcs[i].dialogue.isTalking = true;
+                }
+            }
+            if (!dead)
+            {
+                Game1.currentGameState = Game1.GameState.INTERACT;
+            }
+            dead = true;
         }
 
         public bool IsOnMap()
@@ -305,7 +389,7 @@ namespace GameBuild.Npc
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    mobs.Add(new Npc(new Rectangle(position.X + i, position.Y - 48 + i, 30, 25), game.Content.Load<Texture2D>(@"Npc\bot"), game, map, 1, true, 25, 1, 5, 1, true));
+                    mobs.Add(new Npc(position.X + i, position.Y - 48 + i, 30, 25, game.Content.Load<Texture2D>(@"Npc\bot"), game, map, 1, true, 25, 1, 5, 1, true));
                 }
                 for (int i = 0; i < mobs.Count; i++)
                 {
@@ -335,6 +419,10 @@ namespace GameBuild.Npc
                 damage = game.damageObject.dealDamage(10, 27);
                 damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.positionRectangle.X, Game1.character.positionRectangle.Y), new Color(235, 10, 10, 255), "npc"));
                 Game1.character.health -= damage;
+                if (Game1.character.health <= 0)
+                {
+                    Respawn(game);
+                }
                 Game1.character.Hit();
                 phaseTimer = 0;
                 currentPhase = phase.beam;
@@ -416,44 +504,56 @@ namespace GameBuild.Npc
                         followPath = false;
                     }
                 }
-                if (followPath)
+                if (followPath && currentPhase == phase.charge)
                 {
                     if (path[pathIndex].X < position.X + position.Width / 2)
                     {
+                        if (!animation.IsAnimationPlaying(WALK_LEFT))
+                        {
+                            animation.LoopAnimation(WALK_LEFT);
+                        }
                         position.X -= speed;
+                        left = true;
+                        right = false;
+                        up = false;
+                        down = false;
                     }
                     else if (path[pathIndex].X > position.X + position.Width / 2)
                     {
+                        if (!animation.IsAnimationPlaying(WALK_RIGHT))
+                        {
+                            animation.LoopAnimation(WALK_RIGHT);
+                        }
                         position.X += speed;
+                        left = false;
+                        right = true;
+                        up = false;
+                        down = false;
                     }
                     if (path[pathIndex].Y < position.Y + position.Height / 2)
                     {
+                        if (!animation.IsAnimationPlaying(WALK_UP))
+                        {
+                            animation.LoopAnimation(WALK_UP);
+                        }
                         position.Y -= speed;
+                        left = false;
+                        right = false;
+                        up = true;
+                        down = false;
                     }
                     else if (path[pathIndex].Y > position.Y + position.Height / 2)
                     {
+                        if (!animation.IsAnimationPlaying(WALK_DOWN))
+                        {
+                            animation.LoopAnimation(WALK_DOWN);
+                        }
                         position.Y += speed;
+                        left = false;
+                        right = false;
+                        up = false;
+                        down = true;
                     }
-                }
-            }
-        }
-
-        private void Death(Game1 game)
-        {
-            for (int i = 0; i < mobs.Count; i++)
-            {
-                mobs[i].health = 0;
-            }
-            game.activeNpcs.Add(new Npc(map, "Cybot", -256, -256, 0, 0, false, false, false, false, "Cybot", "Cybot", true, false, false, false,0, 0, 0, 0, 0, game, "Cybot dead", "nokey", null));
-            dead = true;
-            attackPlayer = false;
-            for (int i = 0; i < game.activeNpcs.Count; i++)
-            {
-                if (game.activeNpcs[i].name == "Cybot")
-                {
-                    game.activeNpcs[i].isInteracting = true;
-                    game.activeNpcs[i].dialogue.isTalking = true;
-                    Game1.currentGameState = Game1.GameState.INTERACT;
                 }
             }
         }
@@ -461,7 +561,7 @@ namespace GameBuild.Npc
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(robot.walkSprite, robot.position, Color.White);
-            spriteBatch.Draw(texture, position, Color.White);
+            spriteBatch.Draw(texture, position, animation.GetFrame(), Color.White);
             spriteBatch.Draw(targetTexture, Game1.character.bossTarget, new Color(255, 50, 50, 100));
         }
 

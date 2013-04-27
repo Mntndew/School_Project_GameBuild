@@ -215,7 +215,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Cybot.xnb</Output>
-      <Time>2013-04-25T14:17:09+02:00</Time>
+      <Time>2013-04-27T03:12:28.0385826+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\portrait\Headmaster.png</Source>
@@ -342,6 +342,123 @@
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\maleSheet.xnb</Output>
       <Time>2013-04-25T22:03:50+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Game\female.png</Source>
+      <Name>Game\female</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\female.xnb</Output>
+      <Time>2013-04-25T23:47:18+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Game\femaleSelected.png</Source>
+      <Name>Game\femaleSelected</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\femaleSelected.xnb</Output>
+      <Time>2013-04-25T23:47:18+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Game\male.png</Source>
+      <Name>Game\male</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\male.xnb</Output>
+      <Time>2013-04-25T23:47:18+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Game\maleSelected.png</Source>
+      <Name>Game\maleSelected</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\maleSelected.xnb</Output>
+      <Time>2013-04-25T23:47:18+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Game\Menu\exit.png</Source>
+      <Name>Game\Menu\exit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\exit.xnb</Output>
+      <Time>2013-04-25T23:47:18+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Game\Menu\exitSelected.png</Source>
+      <Name>Game\Menu\exitSelected</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\exitSelected.xnb</Output>
+      <Time>2013-04-25T23:47:18+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Game\Menu\resume.png</Source>
+      <Name>Game\Menu\resume</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\resume.xnb</Output>
+      <Time>2013-04-25T23:47:18+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Game\Menu\resumeSelected.png</Source>
+      <Name>Game\Menu\resumeSelected</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\resumeSelected.xnb</Output>
+      <Time>2013-04-25T23:47:18+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Game\Startmenu\exitDeselect.png</Source>
+      <Name>Game\Startmenu\exitDeselect</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Startmenu\exitDeselect.xnb</Output>
+      <Time>2013-04-25T23:51:39+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Game\Startmenu\exitSelect.png</Source>
+      <Name>Game\Startmenu\exitSelect</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Startmenu\exitSelect.xnb</Output>
+      <Time>2013-04-25T23:51:39+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Game\Startmenu\playDeselect.png</Source>
+      <Name>Game\Startmenu\playDeselect</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Startmenu\playDeselect.xnb</Output>
+      <Time>2013-04-25T23:51:39+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Game\Startmenu\playSelect.png</Source>
+      <Name>Game\Startmenu\playSelect</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Startmenu\playSelect.xnb</Output>
+      <Time>2013-04-25T23:51:39+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\deathSprite.png</Source>
+      <Name>Npc\deathSprite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\deathSprite.xnb</Output>
+      <Time>2013-04-26T22:52:41.6244191+02:00</Time>
     </Item>
     <Item>
       <Source>Game\lighting.fx</Source>
@@ -554,78 +671,6 @@
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School battle song.xnb</Output>
       <Extra>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School battle song.wma</Extra>
       <Time>2013-04-25T14:17:08+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Game\female.png</Source>
-      <Name>Game\female</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\female.xnb</Output>
-      <Time>2013-04-25T22:39:22.4418895+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Game\femaleSelected.png</Source>
-      <Name>Game\femaleSelected</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\femaleSelected.xnb</Output>
-      <Time>2013-04-25T22:39:22.4468898+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Game\male.png</Source>
-      <Name>Game\male</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\male.xnb</Output>
-      <Time>2013-04-25T22:39:22.4448897+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Game\maleSelected.png</Source>
-      <Name>Game\maleSelected</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\maleSelected.xnb</Output>
-      <Time>2013-04-25T22:39:22.4478899+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Game\Menu\exit.png</Source>
-      <Name>Game\Menu\exit</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\exit.xnb</Output>
-      <Time>2013-04-25T23:41:44.9689498+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Game\Menu\exitSelected.png</Source>
-      <Name>Game\Menu\exitSelected</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\exitSelected.xnb</Output>
-      <Time>2013-04-25T23:42:00.0138104+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Game\Menu\resume.png</Source>
-      <Name>Game\Menu\resume</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\resume.xnb</Output>
-      <Time>2013-04-25T23:42:14.763654+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Game\Menu\resumeSelected.png</Source>
-      <Name>Game\Menu\resumeSelected</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\resumeSelected.xnb</Output>
-      <Time>2013-04-25T23:42:27.7823986+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

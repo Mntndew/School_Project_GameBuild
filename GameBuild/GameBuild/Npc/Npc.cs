@@ -11,24 +11,17 @@ namespace GameBuild.Npc
     public class Npc
     {
         #region shit load of variables
-        public Rectangle position;
+        public Rectangle position = new Rectangle(-1000, -1000, 0, 0);
         public Rectangle healthPos;
         Rectangle patrolRect;
         Rectangle aPosition;
-        Rectangle corner1;
-        Rectangle corner2;
-        Rectangle colRect;
-        public Rectangle combatRectangle;
-        Vector2 point1;
-        Vector2 point2;
-        Vector2 point3;
-        Vector2 point4;
         Vector2[] path;
         Vector2 randomWalkTarget;
         public Rectangle bumpRectangle;//for mini bots :) they bump into eachother
 
         Texture2D debugTile;
         public Texture2D walkSprite;
+        Texture2D deathSprite;
         Texture2D aTexture;
         public Texture2D healthTexture;
 
@@ -41,7 +34,6 @@ namespace GameBuild.Npc
         public float health;
         public float healthPct;
         public float speed;
-        public float SPEED;
         public float attackTimer = 500f;
         float pathTimer = 200f;
         const float ATTACKTIMER = 2000f;//milliseconds
@@ -55,7 +47,6 @@ namespace GameBuild.Npc
         public bool point1Tagged = false, point2Tagged = false, point3Tagged = false, point4Tagged = false;
         public bool canInteract;
         public bool countedInteractRect;//so that you cant interact with two npcs at once
-        public bool hasBeenAdded = false;
         public bool isInteracting = false;
         public bool attackPlayer = false;
         public bool mob;
@@ -66,6 +57,10 @@ namespace GameBuild.Npc
         bool hasTarget;
         public bool reached = true;//for waypoint
         public bool vulnerable;
+        bool walking;
+        public bool remove;
+        bool dead;
+
         string secondDialogue;
 
         public enum patrolType
@@ -78,11 +73,10 @@ namespace GameBuild.Npc
 
         public Key key;
 
-        patrolType currentPatrolType = new patrolType();
-
         public cDialogue dialogue;
         List<DamageEffect> damageEffectList = new List<DamageEffect>();
         AnimationComponent animation;
+        AnimationComponent deathAnimation;  
 
         Random rand = new Random();
 
@@ -127,39 +121,16 @@ namespace GameBuild.Npc
             }
             minDamage = 2;
             maxDamage = 15;
-            combatRectangle = new Rectangle(position.X - 128, position.Y - 128, 256, 256);
             patrolRect = new Rectangle(patrolX, patrolY, patrolWidth, patrolHeight);
             aTexture = game.Content.Load<Texture2D>(@"Npc\A");
             aPosition = new Rectangle(0, 0, aTexture.Width, aTexture.Height);
             health = 200;
             maxHealth = health;
-            this.SPEED = 1;
+            this.speed = speed;
             dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + portraitPath), Game1.textBox, game, Game1.spriteFont, dialoguePath, name);
             walkSprite = game.Content.Load<Texture2D>(@"npc\sprite\" + spritePath);
             debugTile = game.Content.Load<Texture2D>(@"Player\emptySlot");
             healthTexture = game.Content.Load<Texture2D>(@"Game\health100");
-            
-            if (patrolLeftRight)
-            {
-                currentPatrolType = patrolType.leftRight;
-            }
-            if (patrolUpDown)
-            {
-                currentPatrolType = patrolType.upDown;
-            }
-            if (patrolBox)
-            {
-                currentPatrolType = patrolType.box;
-            }
-            if (patrolNone)
-            {
-                currentPatrolType = patrolType.none;
-            }
-
-            if (!patrolBox && !patrolUpDown && !patrolLeftRight)
-            {
-                currentPatrolType = patrolType.none;
-            }
 
             aColor = Color.White;
             if (name == "Celine")
@@ -178,39 +149,42 @@ namespace GameBuild.Npc
             {
                 key = new Key(Rectangle.Empty, keyName, game.keyTexture, this.mapName, game);
             }
+            deathAnimation = new AnimationComponent(3, 1, 44, 38, 175, Microsoft.Xna.Framework.Point.Zero);
+            deathSprite = game.Content.Load<Texture2D>(@"Npc\deathSprite");
             this.secondDialogue = secondDialogue;
         }
 
-        public Npc(Rectangle position, Texture2D walkSprite, Game1 game, string mapName,
+        public Npc(int x, int y, int width, int height, Texture2D walkSprite, Game1 game, string mapName,
             float timerMod, bool attackPlayer, int health, int minDamage, int maxDamage, int hitChance, bool vulnerable)
         {
             this.mapName = mapName;
-            this.position = position;
-            this.position.Width = 50;
-            this.position.Height = 71;
+            position.X = x;
+            position.Y = y - 128;
+            position.Width = 50;
+            position.Height = 71;
             this.walkSprite = walkSprite;
             this.attackPlayer = attackPlayer;
-            this.health = health;
+            this.health = 1;
             this.minDamage = minDamage;
             this.maxDamage = maxDamage;
             this.hitChance = hitChance;
             this.vulnerable = vulnerable;
-            combatRectangle = new Rectangle(position.X - 128, position.Y - 128, 256, 256);
+            this.speed = 1;
             pathTimerMod = timerMod;
             healthTexture = game.Content.Load<Texture2D>(@"Game\health100");
             debugTile = game.Content.Load<Texture2D>(@"Player\emptySlot");
             maxHealth = health;
             MOBPATHTIMER = rand.Next(2000, 10000) * timerMod;
             mob = true;
-            currentPatrolType = patrolType.none;
             animation = new AnimationComponent(2, 8, 50, 72, 175, Microsoft.Xna.Framework.Point.Zero);
-            this.SPEED = 1;
+            deathAnimation = new AnimationComponent(3, 1, 44, 38, 175, Microsoft.Xna.Framework.Point.Zero);
+            deathSprite = game.Content.Load<Texture2D>(@"Npc\deathSprite");
             key = null;
         }
 
         public bool IsOnMap()
         {
-            if (Game1.map.mapName.Remove(Game1.map.mapName.Length - 1) == mapName)
+            if (Game1.map.mapName.Remove(Game1.map.mapName.Length - 1) == mapName || Game1.map.mapName == mapName)
             {
                 return true;
             }
@@ -315,18 +289,20 @@ namespace GameBuild.Npc
                 }
                 if (followPath)
                 {
+                    walking = false;
                     if (path[pathIndex].X < position.X + position.Width / 2)
                     {
                         MoveLeft(ref position);
-                    }
-                    else if (path[pathIndex].X > position.X + position.Width / 2)
-                    {
-                        MoveRight(ref position);
                     }
                     if (path[pathIndex].Y < position.Y + position.Height / 2)
                     {
                         MoveUp(ref position);
                     }
+                    else if (path[pathIndex].X > position.X + position.Width / 2)
+                    {
+                        MoveRight(ref position);
+                    }
+                    
                     else if (path[pathIndex].Y > position.Y + position.Height / 2)
                     {
                         MoveDown(ref position);
@@ -368,27 +344,29 @@ namespace GameBuild.Npc
             float elapsed = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             if (bossMob)
             {
+                walking = false;
                 if (Game1.character.positionRectangle.X > position.X)
                 {
-                    position.X += (int)speed * 2;
+                    MoveRight(ref position);
                 }
                 if (Game1.character.positionRectangle.X < position.X)
                 {
-                    position.X += (int)-speed * 2;
+                    MoveLeft(ref position);
                 }
                 if (Game1.character.positionRectangle.Y > position.Y)
                 {
-                    position.Y += (int)speed * 2;
+                    MoveDown(ref position);
                 }
                 if (Game1.character.positionRectangle.Y < position.Y)
                 {
-                    position.Y += (int)-speed * 2;
+                    MoveUp(ref position);
                 }
             }
             if (Game1.character.positionRectangle.Intersects(position) && IsOnMap() && !Game1.character.dead && !bossMob)
             {
                 if (attackTimer <= 0)
                 {
+                    walking = false;
                     damage = game.damageObject.dealDamage(minDamage, maxDamage);
                     damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.positionRectangle.X, Game1.character.positionRectangle.Y), new Color(255, 0, 0, 255), "npc"));
                     Game1.character.health -= damage;
@@ -442,6 +420,13 @@ namespace GameBuild.Npc
                             damage = game.damageObject.dealDamage(minDamage, maxDamage);
                             damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.character.positionRectangle.X, Game1.character.positionRectangle.Y), new Color(255, 0, 0, 255), "npc"));
                             Game1.character.health -= damage;
+                            if (bossMob)
+                            {
+                                if (Game1.character.health <= 0)
+                                {
+                                    Game1.testBoss.Respawn(game);
+                                }
+                            }
                             Game1.character.Hit();
                             chance = 101;
                             attackTimer = ATTACKTIMER;
@@ -458,70 +443,61 @@ namespace GameBuild.Npc
             }
         }
 
-        //fucking swag
-        #region Swaggy movement functions
+        #region Movement functions
         private void MoveUp(ref Rectangle location)
         {
-            speed = SPEED;
             up = true;
             down = false;
             left = false;
             right = false;
             location.Y += (int)-(speed * 2);
-            combatRectangle.Y += (int)-(speed * 2);
             if (!animation.IsAnimationPlaying(WALK_UP))
             {
                 animation.LoopAnimation(WALK_UP);
             }
-            speed = 0;
+            walking = true;
         }
 
         private void MoveDown(ref Rectangle location)
         {
-            speed = SPEED;
             up = false;
             down = true;
             left = false;
             right = false;
             location.Y += (int)(speed * 2);
-            combatRectangle.Y += (int)(speed * 2);
             if (!animation.IsAnimationPlaying(WALK_DOWN))
             {
                 animation.LoopAnimation(WALK_DOWN);
             }
-            speed = 0;
+            walking = true;
         }
 
         private void MoveLeft(ref Rectangle location)
         {
-            speed = SPEED;
             up = false;
             down = false;
             left = true;
             right = false;
             location.X += (int)-(speed * 2);
-            combatRectangle.X += (int)-(speed * 2);
             if (!animation.IsAnimationPlaying(WALK_LEFT))
             {
                 animation.LoopAnimation(WALK_LEFT);
             }
-            speed = 0;
+            walking = true;
         }
 
         private void MoveRight(ref Rectangle location)
         {
-            speed = SPEED;
             up = false;
             down = false;
             left = false;
             right = true;
             location.X += (int)(speed * 2);
-            combatRectangle.X += (int)(speed * 2);
             if (!animation.IsAnimationPlaying(WALK_RIGHT))
             {
                 animation.LoopAnimation(WALK_RIGHT);
             }
-            speed = 0;
+            walking = true;
         } 
         #endregion
 
@@ -549,8 +525,6 @@ namespace GameBuild.Npc
             #region things to update every frame, positions
             aPosition.X = position.X - (position.Width / 2);
             aPosition.Y = position.Y - (position.Height / 2);
-            corner1 = new Rectangle(colRect.X, colRect.Y, colRect.Width, colRect.Height);
-            corner2 = new Rectangle(colRect.X, colRect.Y, colRect.Width, colRect.Height);
             Rectangle location = new Rectangle(position.X, position.Y, position.Width, position.Height);
             healthPos.X = position.X + 8;
             healthPos.Y = position.Y - 15;
@@ -605,7 +579,7 @@ namespace GameBuild.Npc
                 }
             }
 
-            if (speed == 0)
+            if (!walking)
             {
                 if (up)
                 {
@@ -636,12 +610,10 @@ namespace GameBuild.Npc
                     }
                 }
             }
-
-            animation.PauseAnimation();
-
+            
             if (mob && !bossMob)
             {
-                if (!attackPlayer && IsOnMap())
+                if (!attackPlayer && IsOnMap() && health > 0)
                 {
                     RandomMovement(gameTime);
                 }
@@ -662,11 +634,12 @@ namespace GameBuild.Npc
 
             animation.UpdateAnimation(gameTime);
 
-            if (!attackPlayer)
+            if (health <= 0)
             {
-                Patrol(tiles);
+                Death(gameTime);
+                
             }
-
+            
             #region Player Interaction
             if (IsOnMap())
             {
@@ -710,271 +683,35 @@ namespace GameBuild.Npc
             }
             #endregion
 
-            if (health <= 0)
+            if (!attackPlayer && player.positionRectangle.Intersects(position) && IsOnMap())
             {
-                attackPlayer = false;
-            }
-
-            if (!attackPlayer && player.positionRectangle.Intersects(position))
-            {
-                Vector2 pos = new Vector2(location.X, location.Y);
-                Vector2 direction = Game1.character.position - pos;
-                direction.Normalize();
-                Game1.character.Push(direction, 3);
+                if (health > 0)
+                {
+                    Vector2 pos = new Vector2(location.X, location.Y);
+                    Vector2 direction = Game1.character.position - pos;
+                    direction.Normalize();
+                    Game1.character.Push(direction, 3);
+                }
             }
         }
 
-        public void Patrol(H_Map.TileMap tiles)
+        public void Death(GameTime gameTime)
         {
-            Rectangle location = position;
-
-            switch (currentPatrolType)
+            attackPlayer = false;
+            if (!dead)
             {
-                case patrolType.upDown:
-                    #region logic
-                    point1 = new Vector2(patrolRect.X + (patrolRect.Width / 2), patrolRect.Y);
-                    point2 = new Vector2(patrolRect.X + (patrolRect.Width / 2), patrolRect.Y + patrolRect.Height);
-                    if (point1.Y < position.Y && !point1Tagged)
-                    {
-                        speed = SPEED;
-                        location.Y += (int)-speed;
-                        corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + (position.Height / 2));
-                        corner2 = tiles.GetTileRectangleFromPosition(location.X + position.Width, location.Y + (position.Height / 2));
-                        if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
-                        {
-                            position.Y = location.Y;
-                            colRect = position;
-                        }
-                        if (!animation.IsAnimationPlaying(WALK_UP))
-                        {
-                            animation.LoopAnimation(WALK_UP);
-                        }
-                        if (position.Y == point1.Y)
-                        {
-                            point2Tagged = false;
-                            point1Tagged = true;
-                        }
-                    }
+                deathAnimation.UpdateAnimation(gameTime);
+            }
+            
+            if (!dead && !deathAnimation.IsAnimationPlaying(0))
+            {
+                deathAnimation.PlayAnimation(0);
+            }
 
-                    if (point2.Y > position.Y && !point2Tagged)
-                    {
-                        speed = SPEED;
-                        location.Y += (int)speed;
-                        corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + (position.Height / 2));
-                        corner2 = tiles.GetTileRectangleFromPosition(location.X + position.Width, location.Y + (position.Height / 2));
-                        if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
-                        {
-                            position.Y = location.Y;
-                            colRect = position;
-                        }
-                        if (!animation.IsAnimationPlaying(WALK_DOWN))
-                        {
-                            animation.LoopAnimation(WALK_DOWN);
-                        }
-                        if ((position.Y + position.Height) == point2.Y)
-                        {
-                            point2Tagged = true;
-                            point1Tagged = false;
-                        }
-                    }
-                    #endregion
-                    break;
-                case patrolType.leftRight:
-                    #region logic
-                    point1 = new Vector2(patrolRect.X, patrolRect.Y + (patrolRect.Height / 2));
-                    point2 = new Vector2(patrolRect.X + patrolRect.Width, patrolRect.Y + (patrolRect.Height / 2));
-                    if (point1.X < position.X && !point1Tagged)
-                    {
-                        location.X += (int)-speed;
-                        location.Y = position.Y;
-                        corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + (position.Height / 2));
-                        corner2 = tiles.GetTileRectangleFromPosition(location.X, location.Y + position.Height);
-                        if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
-                        {
-                            position.X = location.X;
-                            colRect = position;
-                        }
-                        if (!animation.IsAnimationPlaying(WALK_LEFT))
-                        {
-                            animation.LoopAnimation(WALK_LEFT);
-                        }
-                        if (position.X == point1.X)
-                        {
-                            point2Tagged = false;
-                            point1Tagged = true;
-                        }
-                    }
-
-                    if (point2.X > position.X && !point2Tagged)
-                    {
-                        location.X += (int)speed;
-                        location.Y = position.Y;
-                        corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + (position.Height / 2));
-                        corner2 = tiles.GetTileRectangleFromPosition(location.X, location.Y + position.Height);
-                        if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
-                        {
-                            position.X = location.X;
-                            colRect = position;
-                        }
-                        if (!animation.IsAnimationPlaying(WALK_RIGHT))
-                        {
-                            animation.LoopAnimation(WALK_RIGHT);
-                        }
-                        if ((position.X + position.Width) == point2.X)
-                        {
-                            point2Tagged = true;
-                            point1Tagged = false;
-                        }
-                    }
-                    #endregion
-                    break;
-                case patrolType.box:
-                    #region logic
-                    point1 = new Vector2(patrolRect.X, patrolRect.Y);
-                    point2 = new Vector2(patrolRect.X + patrolRect.Width, patrolRect.Y);
-                    point3 = new Vector2(patrolRect.X + patrolRect.Width, patrolRect.Y + patrolRect.Height);
-                    point4 = new Vector2(patrolRect.X, patrolRect.Y + patrolRect.Height);
-                    if (!point1Tagged)
-                    {
-                        if (point1.X < position.X)
-                        {
-                            location.X += (int)-speed;
-                            location.Y = position.Y;
-                            corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + (position.Height / 2));
-                            corner2 = tiles.GetTileRectangleFromPosition(location.X, location.Y + position.Height);
-                        }
-                        if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
-                        {
-                            position.X = location.X;
-                            colRect = position;
-                        }
-                        if (!animation.IsAnimationPlaying(WALK_RIGHT))
-                        {
-                            animation.LoopAnimation(WALK_RIGHT);
-                        }
-                        if (point1.X == position.X)
-                        {
-                            point1Tagged = true;
-                        }
-                    }
-
-                    if (point1Tagged && !point2Tagged)
-                    {
-                        location.X += (int)speed;
-                        location.Y = position.Y;
-                        corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + (position.Height / 2));
-                        corner2 = tiles.GetTileRectangleFromPosition(location.X, location.Y + position.Height);
-                        if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
-                        {
-                            position.X = location.X;
-                            colRect = position;
-                        }
-                        if (animation.IsAnimationPlaying(WALK_RIGHT))
-                        {
-                            animation.LoopAnimation(WALK_RIGHT);
-                        }
-                        if (position.X + position.Width == point2.X)
-                        {
-                            point2Tagged = true;
-                        }
-                    }
-
-                    if (point2Tagged && !point3Tagged)
-                    {
-                        location.Y += (int)speed;
-                        corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + position.Height);
-                        corner2 = tiles.GetTileRectangleFromPosition(location.X + position.Width, location.Y + position.Height);
-                        if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
-                        {
-                            position.Y = location.Y;
-                            colRect = position;
-                        }
-                        if (!animation.IsAnimationPlaying(WALK_DOWN))
-                        {
-                            animation.LoopAnimation(WALK_DOWN);
-                        }
-                        if (position.Y + position.Height == point3.Y)
-                        {
-                            point3Tagged = true;
-                        }
-                    }
-
-                    if (point3Tagged && !point4Tagged)
-                    {
-                        location.X += (int)-speed;
-                        location.Y = position.Y;
-                        corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + (position.Height / 2));
-                        corner2 = tiles.GetTileRectangleFromPosition(location.X, location.Y + position.Height);
-                        if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
-                        {
-                            position.X = location.X;
-                            colRect = position;
-                        }
-                        if (!animation.IsAnimationPlaying(WALK_LEFT))
-                        {
-                            animation.LoopAnimation(WALK_LEFT);
-                        }
-                        if (position.X == point1.X && point3Tagged)
-                        {
-                            point4Tagged = true;
-                        }
-                    }
-
-                    if (point4Tagged)
-                    {
-                        location.Y += (int)-speed;
-                        location.X = position.X;
-                        corner1 = tiles.GetTileRectangleFromPosition(location.X, location.Y + position.Height);
-                        corner2 = tiles.GetTileRectangleFromPosition(location.X + position.Width, location.Y + position.Height);
-                        if (!IsCollision(tiles, corner1) && !IsCollision(tiles, corner2))
-                        {
-                            position.Y = location.Y;
-                            colRect = position;
-                        }
-                        if (!animation.IsAnimationPlaying(WALK_UP))
-                        {
-                            animation.LoopAnimation(WALK_UP);
-                        }
-                        if (position.Y == point1.Y)
-                        {
-                            point1Tagged = false;
-                            point2Tagged = false;
-                            point3Tagged = false;
-                            point4Tagged = false;
-                        }
-                    }
-                    #endregion
-                    break;
-                case patrolType.none:
-                    if (up)
-                    {
-                        if (!animation.IsAnimationPlaying(WALK_UP))
-                        {
-                            animation.LoopAnimation(WALK_UP);
-                        }
-                    }
-                    if (down)
-                    {
-                        if (!animation.IsAnimationPlaying(WALK_DOWN))
-                        {
-                            animation.LoopAnimation(WALK_DOWN);
-                        }
-                    }
-                    if (left)
-                    {
-                        if (!animation.IsAnimationPlaying(WALK_LEFT))
-                        {
-                            animation.LoopAnimation(WALK_LEFT);
-                        }
-                    }
-                    if (right)
-                    {
-                        if (!animation.IsAnimationPlaying(WALK_RIGHT))
-                        {
-                            animation.LoopAnimation(WALK_RIGHT);
-                        }
-                    }
-                    break;
+            if (!deathAnimation.IsAnimationPlaying(0))
+            {
+                dead = true;
+                remove = true;
             }
         }
 
@@ -987,6 +724,7 @@ namespace GameBuild.Npc
                     spriteBatch.Draw(walkSprite, position, animation.GetFrame(), Color.White);
                 }
             }
+            spriteBatch.Draw(deathSprite, new Rectangle(position.X, position.Y, 49, 38), animation.GetFrame(), Color.White);
         }
 
         public void DrawHealth(SpriteBatch spriteBatch)

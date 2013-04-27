@@ -166,7 +166,7 @@ namespace GameBuild
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             collisionTex = Content.Load<Texture2D>(@"Game\blackness");
-            map = Content.Load<H_Map.TileMap>(@"Map\Map1_A");
+            map = Content.Load<H_Map.TileMap>(@"Map\Map4_B");
             map.tileset = Content.Load<Texture2D>(@"Game\tileset");
             textBox = Content.Load<Texture2D>(@"Game\textBox");
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
@@ -220,15 +220,15 @@ namespace GameBuild
         {
             for (int i = 0; i < 5; i++)
             {
-                Mobs.Add(new Npc.Npc(new Rectangle(256 + (i * 100), 1800, 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Nurse"), this, "Map1_A", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
+                Mobs.Add(new Npc.Npc(256 + (i * 100), 1800, 48, 48, Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), this, "Map1_A", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
             }
             for (int i = 0; i < 5; i++)
             {
-                Mobs.Add(new Npc.Npc(new Rectangle(256 + (i * 100), 1800, 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Nurse"), this, "Map3_A", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
+                Mobs.Add(new Npc.Npc(256 + (i * 100), 1800, 48, 48, Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), this, "Map3_A", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
             }
             for (int i = 0; i < 5; i++)
             {
-                Mobs.Add(new Npc.Npc(new Rectangle(256 + (i * 100), 1800, 48, 48), Content.Load<Texture2D>(@"Npc\sprite\Nurse"), this, "Map3_B", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
+                Mobs.Add(new Npc.Npc(256 + (i * 100), 1800, 48, 48, Content.Load<Texture2D>(@"Npc\sprite\Nurse"), this, "Map3_B", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
             }
         }
 
@@ -266,14 +266,12 @@ namespace GameBuild
                 if (Npcs[i].IsOnMap() && !Npcs[i].bossMob && !Npcs[i].mob && Npcs[i].health > 0)
                 {
                     activeNpcs.Add(Npcs[i]);
-                    Npcs[i].hasBeenAdded = true;
                 }
             }
             for (int i = 0; i < activeNpcs.Count; i++)
             {
                 if (!activeNpcs[i].IsOnMap() || activeNpcs[i].health <= 0)
                 {
-                    activeNpcs[i].hasBeenAdded = false;
                     activeNpcs.RemoveAt(i);
                 }
             }
@@ -360,6 +358,11 @@ namespace GameBuild
                         }
                     }
 
+                    for (int i = 0; i < Npcs.Count; i++)
+                    {
+                        Npcs[i].UpdateDialogue(this);
+                    }
+
                     for (int i = 0; i < activeNpcs.Count; i++)
                     {
                         if (activeNpcs[i].health > 0)
@@ -404,7 +407,7 @@ namespace GameBuild
                     for (int i = 0; i < Mobs.Count; i++)
                     {
                         Mobs[i].Update(character, map, this, gameTime);
-                        if (Mobs[i].health <= 0)
+                        if (Mobs[i].remove)
                         {
                             Mobs.RemoveAt(i);
                         }
@@ -423,68 +426,71 @@ namespace GameBuild
 
         public void ChooseGender()
         {
-            if (keyState.IsKeyDown(Keys.Right) && oldState.IsKeyUp(Keys.Right))
+            if (!transition)
             {
-                if (!maleSelected && !femaleSelected)
+                if (keyState.IsKeyDown(Keys.Right) && oldState.IsKeyUp(Keys.Right))
                 {
-                    femaleSelected = true;
-                    maleSelected = false;
+                    if (!maleSelected && !femaleSelected)
+                    {
+                        femaleSelected = true;
+                        maleSelected = false;
+                    }
+                    else if (femaleSelected)
+                    {
+                        maleSelected = true;
+                        femaleSelected = false;
+                    }
+                    else if (maleSelected)
+                    {
+                        femaleSelected = true;
+                        maleSelected = false;
+                    }
                 }
-                else if (femaleSelected)
+                if (keyState.IsKeyDown(Keys.Left) && oldState.IsKeyUp(Keys.Left))
                 {
-                    maleSelected = true;
-                    femaleSelected = false;
+                    if (!maleSelected && !femaleSelected)
+                    {
+                        maleSelected = true;
+                        femaleSelected = false;
+                    }
+                    else if (femaleSelected)
+                    {
+                        maleSelected = true;
+                        femaleSelected = false;
+                    }
+                    else if (maleSelected)
+                    {
+                        femaleSelected = true;
+                        maleSelected = false;
+                    }
                 }
-                else if (maleSelected)
+                if (femaleSelected)
                 {
-                    femaleSelected = true;
-                    maleSelected = false;
+                    male = Content.Load<Texture2D>(@"Game\male");
+                    female = Content.Load<Texture2D>(@"Game\femaleSelected");
+                    if (keyState.IsKeyDown(Keys.Enter))
+                    {
+                        gender = "female";
+                        forestCharacter = Content.Load<Texture2D>(@"Player\forestFemale");
+                    }
                 }
-            }
-            if (keyState.IsKeyDown(Keys.Left) && oldState.IsKeyUp(Keys.Left))
-            {
-                if (!maleSelected && !femaleSelected)
+                if (maleSelected)
                 {
-                    maleSelected = true;
-                    femaleSelected = false;
+                    male = Content.Load<Texture2D>(@"Game\maleSelected");
+                    female = Content.Load<Texture2D>(@"Game\female");
+                    if (keyState.IsKeyDown(Keys.Enter))
+                    {
+                        gender = "male";
+                        forestCharacter = Content.Load<Texture2D>(@"Player\forestMale");
+                    }
                 }
-                else if (femaleSelected)
+                if (gender != null)
                 {
-                    maleSelected = true;
-                    femaleSelected = false;
+                    character = new cCharacter(this, gender);
+                    testBoss = new Npc.Boss(new Rectangle(16 * 64, 7 * 64, 64, 64), this, "Map4_C");
+                    nextState = GameState.FOREST;
+                    transition = true;
                 }
-                else if (maleSelected)
-                {
-                    femaleSelected = true;
-                    maleSelected = false;
-                }
-            }
-            if (femaleSelected)
-            {
-                male = Content.Load<Texture2D>(@"Game\male");
-                female = Content.Load<Texture2D>(@"Game\femaleSelected");
-                if (keyState.IsKeyDown(Keys.Enter))
-                {
-                    gender = "female";
-                    forestCharacter = Content.Load<Texture2D>(@"Player\forestFemale");
-                }
-            }
-            if (maleSelected)
-            {
-                male = Content.Load<Texture2D>(@"Game\maleSelected");
-                female = Content.Load<Texture2D>(@"Game\female");
-                if (keyState.IsKeyDown(Keys.Enter))
-                {
-                    gender = "male";
-                    forestCharacter = Content.Load<Texture2D>(@"Player\forestMale");
-                }
-            }
-            if (gender != null)
-            {
-                character = new cCharacter(this, gender);
-                testBoss = new Npc.Boss(new Rectangle(16 * 64, 7 * 64, 64, 64), this, "Map4_C");
-                nextState = GameState.FOREST;
-                transition = true;
             }
         }
 
@@ -540,7 +546,7 @@ namespace GameBuild
                 }
                 for (int i = 0; i < Mobs.Count; i++)
                 {
-                    if (Mobs[i].IsOnMap())
+                    //if (Mobs[i].IsOnMap())
                     {
                         Mobs[i].Draw(spriteBatch);
                     }

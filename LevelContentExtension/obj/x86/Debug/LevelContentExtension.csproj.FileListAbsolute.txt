@@ -65,3 +65,9 @@ C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\LevelContentEx
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\LevelContentExtension\obj\x86\Debug\LevelContentExtension.csprojResolveAssemblyReference.cache
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\LevelContentExtension\obj\x86\Debug\LevelContentExtension.dll
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\LevelContentExtension\obj\x86\Debug\LevelContentExtension.pdb
+C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\LevelContentExtension\bin\x86\Debug\LevelContentExtension.dll
+C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\LevelContentExtension\bin\x86\Debug\LevelContentExtension.pdb
+C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\LevelContentExtension\bin\x86\Debug\H_Map.dll
+C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\LevelContentExtension\obj\x86\Debug\LevelContentExtension.csprojResolveAssemblyReference.cache
+C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\LevelContentExtension\obj\x86\Debug\LevelContentExtension.dll
+C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\LevelContentExtension\obj\x86\Debug\LevelContentExtension.pdb

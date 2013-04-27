@@ -73,9 +73,12 @@ namespace GameBuild.Game
                         {
                             if (game.Npcs[i].name == "Ziva")
                             {
-                                game.Npcs[i].isInteracting = true;
-                                game.Npcs[i].dialogue.isTalking = true;
-                                Game1.currentGameState = Game1.GameState.INTERACT;
+                                if (game.Npcs[i].health > 0)
+                                {
+                                    game.Npcs[i].isInteracting = true;
+                                    game.Npcs[i].dialogue.isTalking = true;
+                                    Game1.currentGameState = Game1.GameState.INTERACT;
+                                }
                             }
                         }
                     }

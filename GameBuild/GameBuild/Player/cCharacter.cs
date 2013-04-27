@@ -122,7 +122,7 @@ namespace GameBuild
             #endregion
 
             #region Rectangles and Vectors
-            positionRectangle = new Rectangle(640, 640, 65, 70);
+            positionRectangle = new Rectangle(640, 640, 59, 64);
             position.X = positionRectangle.X;
             position.Y = positionRectangle.Y;
             interactRect = new Rectangle(positionRectangle.X - (positionRectangle.Width / 2), positionRectangle.Y - (positionRectangle.Height / 2), positionRectangle.Width * 2, positionRectangle.Height * 2);
