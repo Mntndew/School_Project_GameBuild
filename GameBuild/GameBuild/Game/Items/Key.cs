@@ -9,11 +9,12 @@ namespace GameBuild
 {
     public class Key
     {
-        string key;
+        public string key;
         public Rectangle position;
         public Texture2D texture;
         public bool added = false;
         public string mapName;
+        public ItemLabel label;
 
         public Key(Rectangle position, string key, Texture2D texture, string mapName, Game1 game)
         {
@@ -21,6 +22,7 @@ namespace GameBuild
             this.position = position;
             this.mapName = mapName;
             this.texture = texture;
+            label = new ItemLabel(new Rectangle(position.X, position.Y - 25, 0, 25), this.key.Length, game);
         }
 
         void ExitedDialogue(object sender, DialogueEventArgs e)
@@ -47,6 +49,11 @@ namespace GameBuild
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, position, Color.White);
+        }
+
+        public void DrawLabel(SpriteBatch spriteBatch)
+        {
+            label.Draw(spriteBatch);
         }
     }
 }

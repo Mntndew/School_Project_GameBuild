@@ -110,6 +110,7 @@
     <Compile Include="Game\Menu\StartMenu.cs" />
     <Compile Include="Game\Warp\WarpItem.cs" />
     <Compile Include="Game\Warp\WarpManager.cs" />
+    <Compile Include="ItemLabel.cs" />
     <Compile Include="Npc\Boss.cs" />
     <Compile Include="Game\Menu\Menu.cs" />
     <Compile Include="Npc\Projectile.cs" />

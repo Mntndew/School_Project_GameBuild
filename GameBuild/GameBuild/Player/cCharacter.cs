@@ -70,7 +70,7 @@ namespace GameBuild
         const float REGENTIMER = 1000;
         float bleedTimer = 3000;
         const float BLEEDTIMER = 3000;
-        const float ATTACKTIMER = 200; //in total milliseconds
+        const float ATTACKTIMER = 600; //in total milliseconds
         float attackTimer = 0f;
         public float targetSpeed = 4;//for boss target
 

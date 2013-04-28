@@ -37,7 +37,7 @@ namespace GameBuild.Npc
         public float attackTimer = 500f;
         float pathTimer = 200f;
         const float ATTACKTIMER = 2000f;//milliseconds
-        const float PATHTIMER = 1000f;//milliseconds
+        const float PATHTIMER = 200f;//milliseconds
         float MOBPATHTIMER = PATHTIMER;
         float pathTimerMod;
         int pathIndex;
@@ -292,37 +292,58 @@ namespace GameBuild.Npc
                 if (followPath)
                 {
                     walking = false;
-                    directionTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds * 0.75f;
-
-                    if (directionTimer <= 0)
+                    if (mob)
                     {
-                        direction = rand.Next(1, 5);
-                        directionTimer = DIRECTIONTIMER;
+                        directionTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds * 0.75f;
+
+                        if (directionTimer <= 0)
+                        {
+                            direction = rand.Next(1, 5);
+                            directionTimer = DIRECTIONTIMER;
+                        }
+                        if (direction == 1)
+                        {
+                            if (path[pathIndex].Y < position.Y + position.Height / 2)
+                            {
+                                MoveUp(ref position);
+                            }
+                        }
+                        if (direction == 2)
+                        {
+                            if (path[pathIndex].Y > position.Y + position.Height / 2)
+                            {
+                                MoveDown(ref position);
+                            }
+                        }
+                        if (direction == 3)
+                        {
+                            if (path[pathIndex].X < position.X + position.Width / 2)
+                            {
+                                MoveLeft(ref position);
+                            }
+                        }
+                        if (direction == 4)
+                        {
+                            if (path[pathIndex].X > position.X + position.Width / 2)
+                            {
+                                MoveRight(ref position);
+                            }
+                        }
                     }
-                    
-                    if (direction == 1)
+                    else
                     {
                         if (path[pathIndex].Y < position.Y + position.Height / 2)
                         {
                             MoveUp(ref position);
                         }
-                    }
-                    if (direction == 2)
-                    {
                         if (path[pathIndex].Y > position.Y + position.Height / 2)
                         {
                             MoveDown(ref position);
                         }
-                    }
-                    if (direction == 3)
-                    {
                         if (path[pathIndex].X < position.X + position.Width / 2)
                         {
                             MoveLeft(ref position);
                         }
-                    }
-                    if (direction == 4)
-                    {
                         if (path[pathIndex].X > position.X + position.Width / 2)
                         {
                             MoveRight(ref position);
@@ -471,7 +492,13 @@ namespace GameBuild.Npc
             down = false;
             left = false;
             right = false;
-            location.Y += (int)-(speed * 2);
+            if (!attackPlayer)
+            {
+                location.Y += (int)-(speed * 2);
+            }
+            else
+                location.Y += (int)-(speed * 4);
+
             animation.MaxFrameCount = 1;
             if (!animation.IsAnimationPlaying(WALK_UP))
             {
@@ -486,7 +513,13 @@ namespace GameBuild.Npc
             down = true;
             left = false;
             right = false;
-            location.Y += (int)(speed * 2);
+            if (!attackPlayer)
+            {
+                location.Y += (int)(speed * 2);
+            }
+            else
+                location.Y += (int)(speed * 4);
+
             animation.MaxFrameCount = 1;
             if (!animation.IsAnimationPlaying(WALK_DOWN))
             {
@@ -501,7 +534,13 @@ namespace GameBuild.Npc
             down = false;
             left = true;
             right = false;
-            location.X += (int)-(speed * 2);
+            if (!attackPlayer)
+            {
+                location.X += (int)-(speed * 2);
+            }
+            else
+                location.X += (int)-(speed * 4);
+
             animation.MaxFrameCount = 1;
             if (!animation.IsAnimationPlaying(WALK_LEFT))
             {
@@ -516,7 +555,13 @@ namespace GameBuild.Npc
             down = false;
             left = false;
             right = true;
-            location.X += (int)(speed * 2);
+            if (!attackPlayer)
+            {
+                location.X += (int)(speed * 2);
+            }
+            else
+                location.X += (int)(speed * 4);
+
             animation.MaxFrameCount = 1;
             if (!animation.IsAnimationPlaying(WALK_RIGHT))
             {

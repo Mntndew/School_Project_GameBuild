@@ -178,7 +178,6 @@ namespace GameBuild
             warpManager = new Game.WarpManager(this);
             warpManager.UpdateList(map.mapName);
             keyTexture = Content.Load<Texture2D>(@"Game\key");
-            LoadKeys();
             LoadNpcs();
             debugFont = Content.Load<SpriteFont>(@"Game\SpriteFont1");
 
@@ -236,15 +235,6 @@ namespace GameBuild
             }
         }
 
-        public void LoadKeys()
-        {
-            keyTextures = new Texture2D[2];
-            for (int i = 0; i < keyTextures.Length; i++)
-            {
-                keyTextures[i] = Content.Load<Texture2D>(@"Game\key");
-            }
-            keys.Add(new Key(new Rectangle(320, 320, keyTextures[0].Width, keyTextures[0].Height), "key 0", keyTextures[0], "Testing Ground", this));
-        }
 
         public void LoadNpcs()
         {
@@ -403,6 +393,8 @@ namespace GameBuild
                                 activeNpcs[i].key.position = activeNpcs[i].position;
                                 activeNpcs[i].key.position.Width = activeNpcs[i].key.texture.Width;
                                 activeNpcs[i].key.position.Height = activeNpcs[i].key.texture.Height;
+                                activeNpcs[i].key.label.position.X = activeNpcs[i].key.position.X;
+                                activeNpcs[i].key.label.position.Y = activeNpcs[i].key.position.Y - (activeNpcs[i].key.label.position.Height + 2);
                                 keys.Add(activeNpcs[i].key);
                                 activeNpcs[i].key = null;
                             }
@@ -531,39 +523,11 @@ namespace GameBuild
                 spriteBatch.Begin(SpriteSortMode.Immediate, null, SamplerState.PointClamp, null, null, null, camera.GetTransformation());
                 map.DrawBackgroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
                 character.Draw(spriteBatch);
-                map.DrawInteractiveLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
-
-                for (int i = 0; i < keys.Count; i++)
-                {
-                    if (keys[i].mapName == map.mapName.Remove(map.mapName.Length - 1))
-                    {
-                        if (keys[i].mapName == map.mapName.Remove(map.mapName.Length - 1))
-                        {
-                            keys[i].Draw(spriteBatch);
-                        }
-                    }
-                }
                 particleSystem.Draw(spriteBatch);
+                map.DrawInteractiveLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
                 for (int i = 0; i < activeNpcs.Count; i++)
                 {
-                    for (int j = 0; j < activeNpcs.Count; j++)
-                    {
-                        if (activeNpcs[i] != activeNpcs[j])
-                        {
-                            if (activeNpcs[i].position.Y < activeNpcs[j].position.Y)
-                            {
-                                activeNpcs[i].Draw(spriteBatch);
-                                activeNpcs[j].Draw(spriteBatch);
-                                
-                            }
-                            else
-                            {
-                                
-                                activeNpcs[j].Draw(spriteBatch);
-                                activeNpcs[i].Draw(spriteBatch);
-                            }
-                        }
-                    }
+                    activeNpcs[i].Draw(spriteBatch);
                 }
                 for (int i = 0; i < Mobs.Count; i++)
                 {
@@ -576,6 +540,14 @@ namespace GameBuild
                 {
                     testBoss.Draw(spriteBatch);
                 }
+                for (int i = 0; i < keys.Count; i++)
+                {
+                    if (keys[i].mapName == map.mapName.Remove(map.mapName.Length - 1))
+                    {
+                        keys[i].Draw(spriteBatch);
+                    }
+                }
+
                 map.DrawForegroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
                 for (int i = 0; i < activeNpcs.Count; i++)
                 {
@@ -605,6 +577,14 @@ namespace GameBuild
                 {
                     activeNpcs[i].DrawDamage(spriteBatch, this);
                 }
+                for (int i = 0; i < keys.Count; i++)
+                {
+                    if (keys[i].mapName == map.mapName.Remove(map.mapName.Length - 1))
+                    {
+                        keys[i].DrawLabel(spriteBatch);
+                        spriteBatch.DrawString(spriteFont, keys[i].key, new Vector2(keys[i].position.X, keys[i].position.Y - (keys[i].label.position.Height + 2)), new Color(20, 20, 20, 255));
+                    }
+                }
                 spriteBatch.End();
 
                 spriteBatch.Begin();
@@ -619,7 +599,6 @@ namespace GameBuild
                     }
                 }
                 character.inventory.Draw(spriteBatch, this);
-
                 if (testBoss.IsOnMap())
                 {
                     testBoss.DrawHealth(spriteBatch);

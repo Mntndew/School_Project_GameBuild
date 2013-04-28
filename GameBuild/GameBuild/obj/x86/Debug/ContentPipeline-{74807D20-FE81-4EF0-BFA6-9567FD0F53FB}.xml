@@ -672,6 +672,33 @@
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Laune.xnb</Output>
       <Time>2013-04-25T14:17:09+02:00</Time>
     </Item>
+    <Item>
+      <Source>Game\itemLabel.png</Source>
+      <Name>Game\itemLabel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\itemLabel.xnb</Output>
+      <Time>2013-04-28T15:29:56.0566096+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Game\labelSide.png</Source>
+      <Name>Game\labelSide</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\labelSide.xnb</Output>
+      <Time>2013-04-28T14:50:06.0639706+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Game\labelSide2.png</Source>
+      <Name>Game\labelSide2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\labelSide2.xnb</Output>
+      <Time>2013-04-28T14:55:03.9597403+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}</ContentProjectGUID>
