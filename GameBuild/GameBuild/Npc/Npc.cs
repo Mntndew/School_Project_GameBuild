@@ -43,6 +43,8 @@ namespace GameBuild.Npc
         int pathIndex;
         bool followPath;
         public double robotAngle;
+        float directionTimer = 2;
+        const float DIRECTIONTIMER = 2;
 
         public bool point1Tagged = false, point2Tagged = false, point3Tagged = false, point4Tagged = false;
         public bool canInteract;
@@ -59,7 +61,6 @@ namespace GameBuild.Npc
         public bool vulnerable;
         bool walking;
         public bool remove;
-        bool dead;
 
         string secondDialogue;
 
@@ -88,6 +89,7 @@ namespace GameBuild.Npc
         const int IDLE_RIGHT = 5;
         const int IDLE_DOWN = 6;
         const int IDLE_LEFT = 7;
+        const int DEATH = 8;
 
         Color color = new Color(255, 255, 255, 255);
         Color aColor;
@@ -97,6 +99,7 @@ namespace GameBuild.Npc
         int maxDamage;
         int hitChance;
         int chance;
+        int direction;
         #endregion
 
         public Npc(string mapName, string name, int x, int y, int width, int height, bool up, bool down, bool left, bool right,
@@ -111,14 +114,6 @@ namespace GameBuild.Npc
             this.left = left;
             this.right = right;
             vulnerable = true;
-            if (name == "Celine")
-            {
-                sword = "sword1";
-            }
-            if (name == "Headmaster")
-            {
-                vulnerable = false;
-            }
             minDamage = 2;
             maxDamage = 15;
             patrolRect = new Rectangle(patrolX, patrolY, patrolWidth, patrolHeight);
@@ -131,11 +126,19 @@ namespace GameBuild.Npc
             walkSprite = game.Content.Load<Texture2D>(@"npc\sprite\" + spritePath);
             debugTile = game.Content.Load<Texture2D>(@"Player\emptySlot");
             healthTexture = game.Content.Load<Texture2D>(@"Game\health100");
-
             aColor = Color.White;
             if (name == "Celine")
             {
                 animation = new AnimationComponent(2, 8, 50, 72, 175, Microsoft.Xna.Framework.Point.Zero);
+                position.Height = 72;
+            }
+            else if(name == "Headmaster")
+            {
+                animation = new AnimationComponent(2, 8, 50, 127, 175, Microsoft.Xna.Framework.Point.Zero);
+                sword = "sword1";
+                vulnerable = false;
+                position.Y -= 60;
+                position.Height = 127;
             }
             else
             {
@@ -176,8 +179,7 @@ namespace GameBuild.Npc
             maxHealth = health;
             MOBPATHTIMER = rand.Next(2000, 10000) * timerMod;
             mob = true;
-            animation = new AnimationComponent(2, 8, 50, 72, 175, Microsoft.Xna.Framework.Point.Zero);
-            deathAnimation = new AnimationComponent(3, 1, 44, 38, 175, Microsoft.Xna.Framework.Point.Zero);
+            animation = new AnimationComponent(2, 9, 50, 72, 175, Microsoft.Xna.Framework.Point.Zero);
             deathSprite = game.Content.Load<Texture2D>(@"Npc\deathSprite");
             key = null;
         }
@@ -290,22 +292,41 @@ namespace GameBuild.Npc
                 if (followPath)
                 {
                     walking = false;
-                    if (path[pathIndex].X < position.X + position.Width / 2)
+                    directionTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds * 0.75f;
+
+                    if (directionTimer <= 0)
                     {
-                        MoveLeft(ref position);
-                    }
-                    if (path[pathIndex].Y < position.Y + position.Height / 2)
-                    {
-                        MoveUp(ref position);
-                    }
-                    else if (path[pathIndex].X > position.X + position.Width / 2)
-                    {
-                        MoveRight(ref position);
+                        direction = rand.Next(1, 5);
+                        directionTimer = DIRECTIONTIMER;
                     }
                     
-                    else if (path[pathIndex].Y > position.Y + position.Height / 2)
+                    if (direction == 1)
                     {
-                        MoveDown(ref position);
+                        if (path[pathIndex].Y < position.Y + position.Height / 2)
+                        {
+                            MoveUp(ref position);
+                        }
+                    }
+                    if (direction == 2)
+                    {
+                        if (path[pathIndex].Y > position.Y + position.Height / 2)
+                        {
+                            MoveDown(ref position);
+                        }
+                    }
+                    if (direction == 3)
+                    {
+                        if (path[pathIndex].X < position.X + position.Width / 2)
+                        {
+                            MoveLeft(ref position);
+                        }
+                    }
+                    if (direction == 4)
+                    {
+                        if (path[pathIndex].X > position.X + position.Width / 2)
+                        {
+                            MoveRight(ref position);
+                        }
                     }
                 }
             }
@@ -451,6 +472,7 @@ namespace GameBuild.Npc
             left = false;
             right = false;
             location.Y += (int)-(speed * 2);
+            animation.MaxFrameCount = 1;
             if (!animation.IsAnimationPlaying(WALK_UP))
             {
                 animation.LoopAnimation(WALK_UP);
@@ -465,6 +487,7 @@ namespace GameBuild.Npc
             left = false;
             right = false;
             location.Y += (int)(speed * 2);
+            animation.MaxFrameCount = 1;
             if (!animation.IsAnimationPlaying(WALK_DOWN))
             {
                 animation.LoopAnimation(WALK_DOWN);
@@ -479,6 +502,7 @@ namespace GameBuild.Npc
             left = true;
             right = false;
             location.X += (int)-(speed * 2);
+            animation.MaxFrameCount = 1;
             if (!animation.IsAnimationPlaying(WALK_LEFT))
             {
                 animation.LoopAnimation(WALK_LEFT);
@@ -493,6 +517,7 @@ namespace GameBuild.Npc
             left = false;
             right = true;
             location.X += (int)(speed * 2);
+            animation.MaxFrameCount = 1;
             if (!animation.IsAnimationPlaying(WALK_RIGHT))
             {
                 animation.LoopAnimation(WALK_RIGHT);
@@ -581,6 +606,7 @@ namespace GameBuild.Npc
 
             if (!walking)
             {
+                animation.MaxFrameCount = 1;
                 if (up)
                 {
                     if (!animation.IsAnimationPlaying(IDLE_UP))
@@ -636,8 +662,8 @@ namespace GameBuild.Npc
 
             if (health <= 0)
             {
+                animation.StopAnimation();
                 Death(gameTime);
-                
             }
             
             #region Player Interaction
@@ -698,20 +724,17 @@ namespace GameBuild.Npc
         public void Death(GameTime gameTime)
         {
             attackPlayer = false;
-            if (!dead)
+            animation.MaxFrameCount = 2;
+            animation.UpdateAnimation(gameTime);
+            //if (!dead)
             {
-                deathAnimation.UpdateAnimation(gameTime);
-            }
-            
-            if (!dead && !deathAnimation.IsAnimationPlaying(0))
-            {
-                deathAnimation.PlayAnimation(0);
+                animation.PlayAnimation(DEATH);
             }
 
-            if (!deathAnimation.IsAnimationPlaying(0))
+            if (!animation.IsAnimationPlaying(DEATH))
             {
-                dead = true;
-                remove = true;
+                //remove = true;
+                Console.WriteLine("done");
             }
         }
 
@@ -719,12 +742,11 @@ namespace GameBuild.Npc
         {
             if (IsOnMap())
             {
-                if (health > 0)
+                if (!remove)
                 {
                     spriteBatch.Draw(walkSprite, position, animation.GetFrame(), Color.White);
                 }
             }
-            spriteBatch.Draw(deathSprite, new Rectangle(position.X, position.Y, 49, 38), animation.GetFrame(), Color.White);
         }
 
         public void DrawHealth(SpriteBatch spriteBatch)

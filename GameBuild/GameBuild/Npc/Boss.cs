@@ -29,8 +29,8 @@ namespace GameBuild.Npc
         float beamAttackTimer = 0.08f;
         const float BEAMATTACKTIMER = 0.08f;
         string map;
-        public int health = 1;//300
-        public int maxHealth = 1;//300
+        public int health = 300;
+        public int maxHealth = 300;
         float healthBarWidth;
         float healthPct;
         int beamDamage;
@@ -126,9 +126,19 @@ namespace GameBuild.Npc
                 robot.position.Y += 2;
             }
             phaseTimer += elapsed;
-            if (phaseTimer >= 5)
+            if (!enraged)
             {
-                SwitchPhase();
+                if (phaseTimer >= 5)
+                {
+                    SwitchPhase();
+                }
+            }
+            else
+            {
+                if (phaseTimer >= 2.5f)
+                {
+                    SwitchPhase();
+                }
             }
             
             if (healthPct <= 0)
@@ -289,19 +299,13 @@ namespace GameBuild.Npc
                         }
                         break;
                     case phase.mobs:
-                        if (!enraged)
-                        {
-                            SpawnMobs(game);
-                        }
+                        SpawnMobs(game);
                         break;
                     case phase.sleep:
                         Sleep(gameTime);
                         break;
                     case phase.charge:
-                        if (!enraged)
-                        {
-                            Charge(game, gameTime);
-                        }
+                        Charge(game, gameTime);
                         break;
                     default:
                         Charge(game, gameTime);
@@ -313,10 +317,15 @@ namespace GameBuild.Npc
         public void Respawn(Game1 game)
         {
             health += (maxHealth - health) / 2;
+            healthPct = ((float)health / (float)maxHealth);
             Game1.character.health = Game1.character.maxHealth;
             Game1.map = game.Content.Load<H_Map.TileMap>(@"Map\Map4_B");
             Game1.character.position.X = 1000;
             Game1.character.position.Y = 720;
+            if (healthPct > 30)
+            {
+                enraged = false;
+            }
         }
 
         private void Death(Game1 game)
@@ -358,17 +367,17 @@ namespace GameBuild.Npc
 
         private void SwitchPhase()
         {
-            if (currentPhase == phase.beam && phaseTimer != 0 && !enraged)
+            if (currentPhase == phase.beam && phaseTimer != 0)
             {
                 currentPhase = phase.mobs;
                 phaseTimer = 0;
             }
-            if (currentPhase == phase.mobs && phaseTimer != 0 && !enraged)
+            if (currentPhase == phase.mobs && phaseTimer != 0)
             {
                 currentPhase = phase.charge;
                 phaseTimer = 0;
             }
-            if ((currentPhase == phase.sleep) || enraged)
+            if ((currentPhase == phase.sleep))
             {
                 sleepTimer = SLEEPTIMER;
                 currentPhase = phase.beam;
@@ -428,10 +437,21 @@ namespace GameBuild.Npc
                 currentPhase = phase.beam;
             }
 
-            if (phaseTimer >= 5)
+            if (!enraged)
             {
-                phaseTimer = 0;
-                currentPhase = phase.beam;
+                if (phaseTimer >= 5)
+                {
+                    phaseTimer = 0;
+                    currentPhase = phase.beam;
+                }
+            }
+            else
+            {
+                if (phaseTimer >= 2.5f)
+                {
+                    phaseTimer = 0;
+                    currentPhase = phase.beam;
+                }
             }
         }
 

@@ -24,10 +24,8 @@ Content\Npc\portrait\Cybot.xnb
 Content\Npc\sprite\Cybot.xnb
 Content\Npc\portrait\Headmaster.xnb
 Content\Npc\portrait\Lamia.xnb
-Content\Npc\portrait\Succubus.xnb
 Content\Npc\portrait\Sylian.xnb
 Content\Npc\sprite\Sylian.xnb
-Content\Npc\sprite\Succubus.xnb
 Content\Npc\sprite\Nurse.xnb
 Content\Game\forest.xnb
 Content\Npc\sprite\forestCybot.xnb
@@ -85,6 +83,8 @@ Content\Audio\Songs\School basic song 9.xnb
 Content\Audio\Songs\School basic song 9.wma
 Content\Audio\Songs\School battle song.xnb
 Content\Audio\Songs\School battle song.wma
+Content\Npc\portrait\Laune.xnb
+Content\Npc\sprite\Laune.xnb
 Content\Npc\dialogue\test.txt
 Content\Npc\dialogue\doorLocked.txt
 Content\Warp\Map1_A_0.txt
@@ -102,9 +102,9 @@ Content\Npc\npc\Nurse.txt
 Content\Npc\npc\Cybot.txt
 Content\Npc\dialogue\Cybot dead.txt
 Content\Npc\npc\Sylian.txt
-Content\Npc\npc\Succubus.txt
+Content\Npc\npc\Laune.txt
 Content\Npc\dialogue\nurse.txt
 Content\Npc\dialogue\headmaster.txt
-Content\Npc\dialogue\recieve key.txt
 Content\Npc\dialogue\First cybot encounter.txt
 Content\Npc\dialogue\Nurse questions.txt
+Content\Npc\dialogue\Laune.txt

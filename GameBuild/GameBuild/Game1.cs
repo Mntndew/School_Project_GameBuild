@@ -166,7 +166,7 @@ namespace GameBuild
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             collisionTex = Content.Load<Texture2D>(@"Game\blackness");
-            map = Content.Load<H_Map.TileMap>(@"Map\Map4_B");
+            map = Content.Load<H_Map.TileMap>(@"Map\Map1_A");
             map.tileset = Content.Load<Texture2D>(@"Game\tileset");
             textBox = Content.Load<Texture2D>(@"Game\textBox");
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
@@ -181,6 +181,7 @@ namespace GameBuild
             LoadKeys();
             LoadNpcs();
             debugFont = Content.Load<SpriteFont>(@"Game\SpriteFont1");
+
             //forest shit
             forest = Content.Load<Texture2D>(@"Game\forest");
             forestCybot = Content.Load<Texture2D>(@"Npc\sprite\forestCybot");
@@ -220,15 +221,18 @@ namespace GameBuild
         {
             for (int i = 0; i < 5; i++)
             {
-                Mobs.Add(new Npc.Npc(256 + (i * 100), 1800, 48, 48, Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), this, "Map1_A", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
+                Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1800, 48, 48, Content.Load<Texture2D>(@"Npc\sprite\Nurse"), this, "Map1_A", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
+                Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1500, 48, 48, Content.Load<Texture2D>(@"Npc\sprite\Nurse"), this, "Map1_A", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
             }
             for (int i = 0; i < 5; i++)
             {
-                Mobs.Add(new Npc.Npc(256 + (i * 100), 1800, 48, 48, Content.Load<Texture2D>(@"Npc\sprite\Headmaster"), this, "Map3_A", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
+                Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1800, 48, 48, Content.Load<Texture2D>(@"Npc\sprite\Nurse"), this, "Map3_A", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
+                Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1500, 48, 48, Content.Load<Texture2D>(@"Npc\sprite\Nurse"), this, "Map3_A", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
             }
             for (int i = 0; i < 5; i++)
             {
-                Mobs.Add(new Npc.Npc(256 + (i * 100), 1800, 48, 48, Content.Load<Texture2D>(@"Npc\sprite\Nurse"), this, "Map3_B", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
+                Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1800, 48, 48, Content.Load<Texture2D>(@"Npc\sprite\Nurse"), this, "Map3_B", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
+                Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1500, 48, 48, Content.Load<Texture2D>(@"Npc\sprite\Nurse"), this, "Map3_B", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
             }
         }
 
@@ -518,7 +522,7 @@ namespace GameBuild
                 spriteBatch.Begin();
                 spriteBatch.Draw(forest, new Rectangle(0, 0, 1280, 720), Color.White);
                 spriteBatch.Draw(forestCharacter, new Rectangle(400, 400, 42, 69), Color.White);
-                spriteBatch.Draw(forestCybot, new Rectangle(500, 400, 48, 48), Color.White);
+                spriteBatch.Draw(forestCybot, new Rectangle(500, 400, forestCybot.Width, forestCybot.Height), Color.White);
                 forestDialogue.Draw(spriteBatch);
                 spriteBatch.End();
             }
@@ -542,7 +546,24 @@ namespace GameBuild
                 particleSystem.Draw(spriteBatch);
                 for (int i = 0; i < activeNpcs.Count; i++)
                 {
-                    activeNpcs[i].Draw(spriteBatch);
+                    for (int j = 0; j < activeNpcs.Count; j++)
+                    {
+                        if (activeNpcs[i] != activeNpcs[j])
+                        {
+                            if (activeNpcs[i].position.Y < activeNpcs[j].position.Y)
+                            {
+                                activeNpcs[i].Draw(spriteBatch);
+                                activeNpcs[j].Draw(spriteBatch);
+                                
+                            }
+                            else
+                            {
+                                
+                                activeNpcs[j].Draw(spriteBatch);
+                                activeNpcs[i].Draw(spriteBatch);
+                            }
+                        }
+                    }
                 }
                 for (int i = 0; i < Mobs.Count; i++)
                 {

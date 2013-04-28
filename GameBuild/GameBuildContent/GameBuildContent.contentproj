@@ -338,8 +338,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Npc\portrait\Succubus.png">
-      <Name>Succubus</Name>
+    <Compile Include="Npc\portrait\Laune.png">
+      <Name>Laune</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -369,14 +369,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Npc\npc\Succubus.txt">
+    <None Include="Npc\npc\Laune.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>Succubus</Name>
+      <Name>Laune</Name>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Npc\sprite\Succubus.png">
-      <Name>Succubus</Name>
+    <Compile Include="Npc\sprite\Laune.png">
+      <Name>Laune</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -399,12 +399,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Npc\dialogue\recieve key.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>recieve key</Name>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Audio\Songs\Boss battle song 1.mp3">
@@ -607,6 +601,12 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\dialogue\Laune.txt">
+      <Name>Laune</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

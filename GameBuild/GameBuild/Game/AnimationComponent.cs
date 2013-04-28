@@ -17,7 +17,7 @@ namespace GameBuild
         int frameWidth, frameHeight;
 
         Point defaultFrame;
-        Point currentFrame;
+        public Point currentFrame;
 
         int maxFrameCount;
 

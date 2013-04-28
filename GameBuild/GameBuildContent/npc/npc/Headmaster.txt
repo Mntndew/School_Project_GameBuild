@@ -4,8 +4,8 @@ Headmaster
 576
 64
 64
-False
 True
+False
 False
 False
 Headmaster

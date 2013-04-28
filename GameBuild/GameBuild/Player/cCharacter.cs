@@ -70,8 +70,8 @@ namespace GameBuild
         const float REGENTIMER = 1000;
         float bleedTimer = 3000;
         const float BLEEDTIMER = 3000;
-        const float ATTACKTIMER = 500f; //in total milliseconds
-        float attackTimer = 500f;
+        const float ATTACKTIMER = 200; //in total milliseconds
+        float attackTimer = 0f;
         public float targetSpeed = 4;//for boss target
 
         public Inventory inventory;
@@ -114,7 +114,7 @@ namespace GameBuild
             if (gender == "female")
             {
                 spriteSheet = game.Content.Load<Texture2D>("player/femalewalk");
-                animation = new AnimationComponent(4, 4, 65, 70, 150, Point.Zero);
+                animation = new AnimationComponent(4, 4, 50, 70, 150, Point.Zero);
             }
             
             shadowBlob = game.Content.Load<Texture2D>("player/shadowTex");
@@ -122,7 +122,14 @@ namespace GameBuild
             #endregion
 
             #region Rectangles and Vectors
-            positionRectangle = new Rectangle(640, 640, 59, 64);
+            if (gender == "male")
+            {
+                positionRectangle = new Rectangle(640, 640, 59, 64);
+            }
+            if (gender == "female")
+            {
+                positionRectangle = new Rectangle(640, 640, 59, 64);
+            }
             position.X = positionRectangle.X;
             position.Y = positionRectangle.Y;
             interactRect = new Rectangle(positionRectangle.X - (positionRectangle.Width / 2), positionRectangle.Y - (positionRectangle.Height / 2), positionRectangle.Width * 2, positionRectangle.Height * 2);
