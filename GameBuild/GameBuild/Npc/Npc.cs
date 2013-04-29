@@ -369,18 +369,15 @@ namespace GameBuild.Npc
                         {
                             MoveUp(ref position);
                         }
-
-                        else if (path[pathIndex].X < position.X + position.Width / 2)
+                        if (path[pathIndex].X < position.X + position.Width / 2 && !(path[pathIndex].Y < position.Y + position.Height / 2))
                         {
                             MoveLeft(ref position);
                         }
-
                         if (path[pathIndex].Y > position.Y + position.Height / 2)
                         {
                             MoveDown(ref position);
                         }
-
-                        else if (path[pathIndex].X > position.X + position.Width / 2)
+                        if (path[pathIndex].X > position.X + position.Width / 2 && !(path[pathIndex].Y > position.Y + position.Height / 2))
                         {
                             MoveRight(ref position);
                         }
@@ -518,6 +515,44 @@ namespace GameBuild.Npc
             if (IsOnMap() && !bossMob)
             {
                 GoTo(new Vector2((Game1.character.positionRectangle.X + (Game1.character.positionRectangle.Width / 2)), (Game1.character.positionRectangle.Y + (Game1.character.positionRectangle.Height / 2))), false, gameTime);
+                if (path == null)
+                {
+                    if (Game1.character.positionRectangle.X > position.X)
+                    {
+                        MoveRight(ref position);
+                    }
+                    if (Game1.character.positionRectangle.X < position.X)
+                    {
+                        MoveLeft(ref position);
+                    }
+                    if (Game1.character.positionRectangle.Y > position.Y)
+                    {
+                        MoveDown(ref position);
+                    }
+                    if (Game1.character.positionRectangle.Y < position.Y)
+                    {
+                        MoveUp(ref position);
+                    }
+                }
+                else if(!hasPath)
+                {
+                    if (Game1.character.positionRectangle.X > position.X)
+                    {
+                        MoveRight(ref position);
+                    }
+                    if (Game1.character.positionRectangle.X < position.X)
+                    {
+                        MoveLeft(ref position);
+                    }
+                    if (Game1.character.positionRectangle.Y > position.Y)
+                    {
+                        MoveDown(ref position);
+                    }
+                    if (Game1.character.positionRectangle.Y < position.Y)
+                    {
+                        MoveUp(ref position);
+                    }
+                }
             }
         }
 
@@ -538,6 +573,7 @@ namespace GameBuild.Npc
             }
             else
                 location.Y += (int)-(speed * 4);
+
             if (!animation.IsAnimationPlaying(WALK_UP))
             {
                 animation.LoopAnimation(WALK_UP);
@@ -561,6 +597,7 @@ namespace GameBuild.Npc
             }
             else
                 location.Y += (int)(speed * 4);
+
             if (!animation.IsAnimationPlaying(WALK_DOWN))
             {
                 animation.LoopAnimation(WALK_DOWN);
@@ -584,6 +621,7 @@ namespace GameBuild.Npc
             }
             else
                 location.X += (int)-(speed * 4);
+
             if (!animation.IsAnimationPlaying(WALK_LEFT))
             {
                 animation.LoopAnimation(WALK_LEFT);
@@ -607,6 +645,7 @@ namespace GameBuild.Npc
             }
             else
                 location.X += (int)(speed * 4);
+
             if (!animation.IsAnimationPlaying(WALK_RIGHT))
             {
                 animation.LoopAnimation(WALK_RIGHT);

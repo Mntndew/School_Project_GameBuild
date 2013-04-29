@@ -421,7 +421,7 @@ namespace GameBuild
 
         public void ChooseGender()
         {
-            if (!transition)
+            if (!transition && currentGameState == GameState.GENDER)
             {
                 if (keyState.IsKeyDown(Keys.Right) && oldState.IsKeyUp(Keys.Right))
                 {
@@ -521,10 +521,7 @@ namespace GameBuild
             {
                 spriteBatch.Begin(SpriteSortMode.Immediate, null, SamplerState.PointClamp, null, null, null, camera.GetTransformation());
                 map.DrawBackgroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
-                if (!character.up)
-                {
-                    particleSystem.Draw(spriteBatch);
-                }
+                particleSystem.Draw(spriteBatch);
                 character.Draw(spriteBatch);
                 map.DrawInteractiveLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
                 for (int i = 0; i < activeNpcs.Count; i++)

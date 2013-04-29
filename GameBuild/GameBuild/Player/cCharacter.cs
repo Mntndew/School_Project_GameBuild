@@ -522,6 +522,7 @@ namespace GameBuild
                             npc.health -= damage;
                             npc.attackPlayer = true;
                             npc.attackTimer += 300;
+                            Slash(npc.position);
                         }
                     }
                 }
@@ -652,6 +653,12 @@ namespace GameBuild
             emitter.Add(positionRectangle.X + positionRectangle.Width / 2, positionRectangle.Y + positionRectangle.Height - 15, rand.Next(5, 8), rand.Next(5, 8), 10, -2, 2, -5, 2, new Color(50, 50, 255), 0.2f, 1, 1, false, false, true);
             emitter.Add(positionRectangle.X + positionRectangle.Width / 2, positionRectangle.Y + positionRectangle.Height - 15, rand.Next(5, 8), rand.Next(5, 8), 10, -2, 2, -5, 2, new Color(50, 175, 255), 0.2f, 1, 1, false, false, true);
             emitter.Add(positionRectangle.X + positionRectangle.Width / 2, positionRectangle.Y + positionRectangle.Height - 15, rand.Next(5, 8), rand.Next(5, 8), 10, -2, 2, -5, 2, new Color(200, 200, 200), 0.2f, 1, 1, false, false, true);
+        }
+
+        public void Slash(Rectangle enemyPos)
+        {
+            emitter.Add(enemyPos.X + enemyPos.Width / 2, enemyPos.Y + enemyPos.Height / 2, rand.Next(5, 8), rand.Next(5, 8), 20, -4, 4, -4, 4, new Color(200, 20, 20, 255), 1, 1, 1, false, false, true);
+            emitter.Add(enemyPos.X + enemyPos.Width / 2, enemyPos.Y + enemyPos.Height / 2, rand.Next(5, 8), rand.Next(5, 8), 10, -4, 4, -4, 4, new Color(200, 20, 20, 255), 1, 1, 1, false, false, true);
         }
         #endregion
 
