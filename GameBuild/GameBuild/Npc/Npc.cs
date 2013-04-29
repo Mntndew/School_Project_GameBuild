@@ -365,20 +365,22 @@ namespace GameBuild.Npc
                     }
                     else
                     {
-                        
                         if (path[pathIndex].Y < position.Y + position.Height / 2)
                         {
                             MoveUp(ref position);
                         }
+
+                        else if (path[pathIndex].X < position.X + position.Width / 2)
+                        {
+                            MoveLeft(ref position);
+                        }
+
                         if (path[pathIndex].Y > position.Y + position.Height / 2)
                         {
                             MoveDown(ref position);
                         }
-                        if (path[pathIndex].X < position.X + position.Width / 2)
-                        {
-                            MoveLeft(ref position);
-                        }
-                        if (path[pathIndex].X > position.X + position.Width / 2)
+
+                        else if (path[pathIndex].X > position.X + position.Width / 2)
                         {
                             MoveRight(ref position);
                         }
@@ -462,23 +464,23 @@ namespace GameBuild.Npc
                     }
                     else if (down)
                     {
-                        if (!animation.IsAnimationPlaying(WALK_UP))
+                        if (!animation.IsAnimationPlaying(WALK_DOWN))
                         {
-                            animation.LoopAnimation(WALK_UP);
+                            animation.LoopAnimation(WALK_DOWN);
                         }
                     }
-                    else if (left)
+                    if (left)
                     {
-                        if (!animation.IsAnimationPlaying(WALK_UP))
+                        if (!animation.IsAnimationPlaying(WALK_LEFT))
                         {
-                            animation.LoopAnimation(WALK_UP);
+                            animation.LoopAnimation(WALK_LEFT);
                         }
                     }
                     else if (right)
                     {
-                        if (!animation.IsAnimationPlaying(WALK_UP))
+                        if (!animation.IsAnimationPlaying(WALK_RIGHT))
                         {
-                            animation.LoopAnimation(WALK_UP);
+                            animation.LoopAnimation(WALK_RIGHT);
                         }
                     }
                 }

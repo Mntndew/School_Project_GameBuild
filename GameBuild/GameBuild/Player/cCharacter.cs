@@ -14,6 +14,7 @@ namespace GameBuild
 {
     public class cCharacter
     {
+        #region shit ton of variables
         public bool up = false, right = false, down = true, left = false;
         public bool attacking = false;
         public bool inCombat;
@@ -95,6 +96,7 @@ namespace GameBuild
         const int ATTACK_LEFT = 11;
         const int ATTACK_RIGHT = 9;
         bool walking = false;
+        #endregion
 
         public cCharacter(Game1 game, string gender)
         {
