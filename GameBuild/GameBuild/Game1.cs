@@ -82,7 +82,6 @@ namespace GameBuild
         public Texture2D collisionTex;
         Texture2D male;
         Texture2D female;
-        Texture2D[] keyTextures;
 
         public static ParticleSystem particleSystem;
         public static TileMap map;
@@ -513,8 +512,8 @@ namespace GameBuild
             {
                 spriteBatch.Begin();
                 spriteBatch.Draw(forest, new Rectangle(0, 0, 1280, 720), Color.White);
-                spriteBatch.Draw(forestCharacter, new Rectangle(400, 400, 42, 69), Color.White);
-                spriteBatch.Draw(forestCybot, new Rectangle(500, 400, forestCybot.Width, forestCybot.Height), Color.White);
+                spriteBatch.Draw(forestCharacter, new Rectangle(600, 400, 42, 69), Color.White);
+                spriteBatch.Draw(forestCybot, new Rectangle(700, 400, forestCybot.Width, forestCybot.Height), Color.White);
                 forestDialogue.Draw(spriteBatch);
                 spriteBatch.End();
             }
@@ -522,8 +521,11 @@ namespace GameBuild
             {
                 spriteBatch.Begin(SpriteSortMode.Immediate, null, SamplerState.PointClamp, null, null, null, camera.GetTransformation());
                 map.DrawBackgroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
+                if (!character.up)
+                {
+                    particleSystem.Draw(spriteBatch);
+                }
                 character.Draw(spriteBatch);
-                particleSystem.Draw(spriteBatch);
                 map.DrawInteractiveLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
                 for (int i = 0; i < activeNpcs.Count; i++)
                 {
@@ -531,7 +533,7 @@ namespace GameBuild
                 }
                 for (int i = 0; i < Mobs.Count; i++)
                 {
-                    //if (Mobs[i].IsOnMap())
+                    if (Mobs[i].IsOnMap())
                     {
                         Mobs[i].Draw(spriteBatch);
                     }

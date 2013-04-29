@@ -1,15 +1,15 @@
-Map3_A
-Laune
-816
-640
+Map1_A
+Lamia
+1425
+1076
 64
 64
 True
 False
 False
 False
-Laune
-Laune
+Lamia
+Lamia
 True
 False
 False
@@ -19,6 +19,6 @@ False
 0
 0
 1
-Laune
-key2
-null
+nurse
+key
+Nurse questions

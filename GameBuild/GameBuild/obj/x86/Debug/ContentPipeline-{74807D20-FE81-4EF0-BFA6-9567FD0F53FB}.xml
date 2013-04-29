@@ -269,7 +269,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\forest.xnb</Output>
-      <Time>2013-04-25T14:27:43+02:00</Time>
+      <Time>2013-04-29T14:42:26.7256089+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\sprite\forestCybot.png</Source>
@@ -670,7 +670,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Laune.xnb</Output>
-      <Time>2013-04-25T14:17:09+02:00</Time>
+      <Time>2013-04-29T13:54:15.9294213+02:00</Time>
     </Item>
     <Item>
       <Source>Game\itemLabel.png</Source>
@@ -698,6 +698,15 @@
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\labelSide2.xnb</Output>
       <Time>2013-04-28T14:55:03.9597403+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\sprite\Lamia.png</Source>
+      <Name>Npc\sprite\Lamia</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Lamia.xnb</Output>
+      <Time>2013-04-29T13:25:53.5784585+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

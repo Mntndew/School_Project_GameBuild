@@ -43,8 +43,8 @@ namespace GameBuild.Npc
         int pathIndex;
         bool followPath;
         public double robotAngle;
-        float directionTimer = 2;
-        const float DIRECTIONTIMER = 2;
+        float directionTimer = 1;
+        const float DIRECTIONTIMER = 1;
 
         public bool point1Tagged = false, point2Tagged = false, point3Tagged = false, point4Tagged = false;
         public bool canInteract;
@@ -140,6 +140,17 @@ namespace GameBuild.Npc
                 position.Y -= 60;
                 position.Height = 127;
             }
+            else if(name == "Lamia")
+            {
+                animation = new AnimationComponent(2, 4, 100, 76, 175, Microsoft.Xna.Framework.Point.Zero);
+                position.Y -= 64;
+                position.Height = 64;
+                position.Width = 84;
+            }
+            else if (name == "Laune")
+            {
+                animation = new AnimationComponent(3, 11, 50, 75, 175, Microsoft.Xna.Framework.Point.Zero);
+            }
             else
             {
                 animation = new AnimationComponent(2, 4, 50, 71, 175, Microsoft.Xna.Framework.Point.Zero);
@@ -219,6 +230,28 @@ namespace GameBuild.Npc
             if (path != null)
             {
                 FollowPath(gameTime, isWaypoint);
+            }
+            else
+            {
+                if (targetPoint == Game1.character.position)
+                {
+                    if (position.X > targetPoint.X)
+                    {
+                        position.X -= (int)speed * 2;
+                    }
+                    if (position.X < targetPoint.X)
+                    {
+                        position.X += (int)speed * 2;
+                    }
+                    if (position.Y > targetPoint.Y)
+                    {
+                        position.Y -= (int)speed * 2;
+                    }
+                    if (position.Y < targetPoint.Y)
+                    {
+                        position.Y += (int)speed * 2;
+                    }
+                }
             }
         }
 
@@ -332,6 +365,7 @@ namespace GameBuild.Npc
                     }
                     else
                     {
+                        
                         if (path[pathIndex].Y < position.Y + position.Height / 2)
                         {
                             MoveUp(ref position);
@@ -492,14 +526,16 @@ namespace GameBuild.Npc
             down = false;
             left = false;
             right = false;
+            if (name == "Laune")
+            {
+                animation.MaxFrameCount = 2;
+            }
             if (!attackPlayer)
             {
                 location.Y += (int)-(speed * 2);
             }
             else
                 location.Y += (int)-(speed * 4);
-
-            animation.MaxFrameCount = 1;
             if (!animation.IsAnimationPlaying(WALK_UP))
             {
                 animation.LoopAnimation(WALK_UP);
@@ -513,14 +549,16 @@ namespace GameBuild.Npc
             down = true;
             left = false;
             right = false;
+            if (name == "Laune")
+            {
+                animation.MaxFrameCount = 2;
+            }
             if (!attackPlayer)
             {
                 location.Y += (int)(speed * 2);
             }
             else
                 location.Y += (int)(speed * 4);
-
-            animation.MaxFrameCount = 1;
             if (!animation.IsAnimationPlaying(WALK_DOWN))
             {
                 animation.LoopAnimation(WALK_DOWN);
@@ -534,14 +572,16 @@ namespace GameBuild.Npc
             down = false;
             left = true;
             right = false;
+            if (name == "Laune")
+            {
+                animation.MaxFrameCount = 1;
+            }
             if (!attackPlayer)
             {
                 location.X += (int)-(speed * 2);
             }
             else
                 location.X += (int)-(speed * 4);
-
-            animation.MaxFrameCount = 1;
             if (!animation.IsAnimationPlaying(WALK_LEFT))
             {
                 animation.LoopAnimation(WALK_LEFT);
@@ -555,14 +595,16 @@ namespace GameBuild.Npc
             down = false;
             left = false;
             right = true;
+            if (name == "Laune")
+            {
+                animation.MaxFrameCount = 1;
+            }
             if (!attackPlayer)
             {
                 location.X += (int)(speed * 2);
             }
             else
                 location.X += (int)(speed * 4);
-
-            animation.MaxFrameCount = 1;
             if (!animation.IsAnimationPlaying(WALK_RIGHT))
             {
                 animation.LoopAnimation(WALK_RIGHT);

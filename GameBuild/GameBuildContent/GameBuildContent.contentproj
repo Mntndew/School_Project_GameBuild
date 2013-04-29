@@ -473,13 +473,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Game\forest.png">
-      <Name>forest</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Npc\sprite\forestCybot.png">
       <Name>forestCybot</Name>
       <Importer>TextureImporter</Importer>
@@ -625,6 +618,32 @@
   <ItemGroup>
     <Compile Include="Game\labelSide2.png">
       <Name>labelSide2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\sprite\Lamia.png">
+      <Name>Lamia</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\npc\Lamia.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>Lamia</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\dialogue\lamia.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>lamia</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\forest.png">
+      <Name>forest</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

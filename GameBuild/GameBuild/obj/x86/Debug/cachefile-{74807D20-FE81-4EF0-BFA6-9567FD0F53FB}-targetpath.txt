@@ -88,6 +88,7 @@ Content\Npc\sprite\Laune.xnb
 Content\Game\itemLabel.xnb
 Content\Game\labelSide.xnb
 Content\Game\labelSide2.xnb
+Content\Npc\sprite\Lamia.xnb
 Content\Npc\dialogue\test.txt
 Content\Npc\dialogue\doorLocked.txt
 Content\Warp\Map1_A_0.txt
@@ -111,3 +112,5 @@ Content\Npc\dialogue\headmaster.txt
 Content\Npc\dialogue\First cybot encounter.txt
 Content\Npc\dialogue\Nurse questions.txt
 Content\Npc\dialogue\Laune.txt
+Content\Npc\npc\Lamia.txt
+Content\Npc\dialogue\lamia.txt

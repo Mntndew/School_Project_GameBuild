@@ -114,7 +114,7 @@ namespace GameBuild
             if (gender == "female")
             {
                 spriteSheet = game.Content.Load<Texture2D>("player/femalewalk");
-                animation = new AnimationComponent(4, 4, 50, 70, 150, Point.Zero);
+                animation = new AnimationComponent(4, 4, 41, 70, 150, Point.Zero);
             }
             
             shadowBlob = game.Content.Load<Texture2D>("player/shadowTex");
@@ -128,7 +128,7 @@ namespace GameBuild
             }
             if (gender == "female")
             {
-                positionRectangle = new Rectangle(640, 640, 59, 64);
+                positionRectangle = new Rectangle(640, 640, 50, 64);
             }
             position.X = positionRectangle.X;
             position.Y = positionRectangle.Y;
@@ -307,7 +307,6 @@ namespace GameBuild
             }
 
             #region walk
-            
             if (!attacking && !showInventory && !dead)// && cWarp.canWalk
             {
                 walking = false;
@@ -648,8 +647,9 @@ namespace GameBuild
 
         public void Splash()
         {
-            emitter.Add(positionRectangle.X + 22, positionRectangle.Y + positionRectangle.Height - 5, rand.Next(5, 8), rand.Next(5, 8), 10, -2, 2, -5, 2, new Color(50, 50, 255), 0.2f, 1, 1, false, false, true);
-            emitter.Add(positionRectangle.X + 22, positionRectangle.Y + positionRectangle.Height - 5, rand.Next(5, 8), rand.Next(5, 8), 10, -2, 2, -5, 2, new Color(200, 200, 200), 0.2f, 1, 1, false, false, true);
+            emitter.Add(positionRectangle.X + positionRectangle.Width / 2, positionRectangle.Y + positionRectangle.Height - 15, rand.Next(5, 8), rand.Next(5, 8), 10, -2, 2, -5, 2, new Color(50, 50, 255), 0.2f, 1, 1, false, false, true);
+            emitter.Add(positionRectangle.X + positionRectangle.Width / 2, positionRectangle.Y + positionRectangle.Height - 15, rand.Next(5, 8), rand.Next(5, 8), 10, -2, 2, -5, 2, new Color(50, 175, 255), 0.2f, 1, 1, false, false, true);
+            emitter.Add(positionRectangle.X + positionRectangle.Width / 2, positionRectangle.Y + positionRectangle.Height - 15, rand.Next(5, 8), rand.Next(5, 8), 10, -2, 2, -5, 2, new Color(200, 200, 200), 0.2f, 1, 1, false, false, true);
         }
         #endregion
 

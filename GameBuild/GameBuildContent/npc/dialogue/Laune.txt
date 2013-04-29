@@ -1,31 +1,31 @@
 0:0: :0
 0:1:Excuse me? Are you Laune?:0
 0:2:Hello! I'm... New here.:0
-1:0:Huh? Yes... Who are you? Wait a second... You're a human! Gross!:0
-1:3:I'm new... Do you have a problem with humans?:0
-1:4:Gross? I'm sorry. Well I'm not here to cause trouble. I'm looking for someone.:0
-2:0:New? A human...? That's weird. Anyway, I'm Laune. What do you want?:0
-2:5:I'm looking for a girl named Ziva, she's somewhere in the school and I wonder if I could borrow your key so I could go into the next part of the school.:0
+1:0:Huh? Yes... Who are you? Wait a second...| You're a human! Gross!:0
+1:3:I'm new... Do you have a problem with |humans?:0
+1:4:Gross? I'm sorry. Well I'm not here to |cause trouble. I'm looking for someone.:0
+2:0:New? A human...? That's weird. Anyway, |I'm Laune. What do you want?:0
+2:5:I'm looking for a girl named Ziva, |she's somewhere in the school |and I wonder if I could borrow |your key so I could go into |the next part of the school.:0
 2:6:That's a beautiful name!:0
 2:7:You look weird, what are you?:0
-3:0:Hmm... Not really, this is the first time I've met one. I heard they're supposed to smell really badly. But you don't smell like more than flesh, blood and maybe a bit of dirt.:0
-3:8:Uh... That's good. I suppose. Could you help me?:0
-4:0:Better not! Else I'll give you a good whooping. Who are you looking for?:0
-4:5:Her name is Ziva. I need your key to find her.:0
-5:0:Ziva? She's brought a human to the school? Just perfect. She's always causing trouble. Wait, you want my key? Why would I give it to you, you're an outsider.:0
-5:9:Please, I need it to search for her, she took me here so she probably knows how to bring me back.:0
-5:10:Because else this outsider might beat you up.:0
-6:0:You think so? No one's ever said that before. Thank you! Uhm... Oh right- Did you need something?:0
-6:11:Totally! If you don't mind... I would like to borrow your key so I can go into the next area...?:0
-6:12:Not really, haha! Kind of an ugly name. I need your key though.:0
-7:0:Weird!? Rude! For you information- I'm a lamia! I should smack you for that!:0
-7:8:I'm sorry, that was really mean. Would you be up for helping me?:0
+3:0:Hmm... Not really, this is the |first time I've met one. I heard |they're supposed to smell really |badly. But you don't smell |like more than flesh, blood and |maybe a bit of dirt.:0
+3:8:Uh... That's good. I suppose. |Could you help me?:0
+4:0:Better not! Else I'll give you |a good whooping. Who are you |looking for?:0
+4:5:Her name is Ziva. I need your |key to find her.:0
+5:0:Ziva? She's brought a human to |the school? Just perfect. |She's always causing trouble. Wait, |you want my key? Why would I |give it to you? You're an |outsider.:0
+5:9:Please, I need it to search for |her, she took me here so |she probably knows how to bring me |back.:0
+5:10:Because else this outsider might |beat you up.:0
+6:0:You think so? No one's ever said |that before. Thank you! |Uhm... Oh right- Did you need |something?:0
+6:11:Totally! If you don't mind... I |would like to borrow your| key so I can go into the next |area...?:0
+6:12:Not really, haha! Kind of an ugly |name. I need your key |though.:0
+7:0:Weird!? Rude! For you information- |I'm a lamia! I should |smack you for that!:0
+7:8:I'm sorry, that was really mean. |Would you be up for |helping me?:0
 7:14:You could try!:0
-8:0:Depends on what it is, what do you need help with?:0
-8:9:Please, I need it to search for her, she took me here so she probably knows how to bring me back.:0
-9:0:Hmm... I understand. If you really need it then I'd be mean to refuse. Here.:1
-10:0:You think you can scare me, human? You looking for a fight?! :0
-10:8:I'm sorry, that was really mean. Would you be up for helping me?:0
-11:0:Well... I suppose. But only because you're so sweet.:1
+8:0:Depends on what it is, what do |you need help with?:0
+8:9:Please, I need it to search for |her, she took me here so |she probably knows how to bring |me back.:0
+9:0:Hmm... I understand. If you really |need it then I'd be mean |to refuse. Here.:1
+10:0:You think you can scare me, human? |You looking for a fight?! :0
+10:8:I'm sorry, that was really mean. |Would you be up for helping |me?:0
+11:0:Well... I suppose. But only |because you're so sweet.:1
 12:0:What!? You son of a- :2
 13:0:Watch me!:2
