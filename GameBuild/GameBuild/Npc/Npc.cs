@@ -122,8 +122,35 @@ namespace GameBuild.Npc
             health = 200;
             maxHealth = health;
             this.speed = speed;
-            dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + portraitPath), Game1.textBox, game, Game1.spriteFont, dialoguePath, name);
-            walkSprite = game.Content.Load<Texture2D>(@"npc\sprite\" + spritePath);
+            if (name != "Informer")
+            {
+                dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + portraitPath), Game1.textBox, game, Game1.spriteFont, dialoguePath, name);
+                walkSprite = game.Content.Load<Texture2D>(@"npc\sprite\" + spritePath);
+            }
+            else
+            {
+                if (Game1.character != null)
+                {
+                    if (Game1.character.gender == "male")
+                    {
+                        dialogue = new cDialogue(game.Content.Load<Texture2D>(@"Player\female"), Game1.textBox, game, Game1.spriteFont, dialoguePath, name);
+                        walkSprite = game.Content.Load<Texture2D>(@"Player\femalewalk");
+                    }
+                    else
+                    {
+                        dialogue = new cDialogue(game.Content.Load<Texture2D>(@"Player\Male"), Game1.textBox, game, Game1.spriteFont, dialoguePath, name);
+                        walkSprite = game.Content.Load<Texture2D>(@"Player\maleSheet");
+                    }
+                    mapName = Game1.map.mapName;
+                }
+                else
+                {
+                    dialogue = new cDialogue(game.Content.Load<Texture2D>(@"Player\Male"), Game1.textBox, game, Game1.spriteFont, dialoguePath, name);
+                    walkSprite = game.Content.Load<Texture2D>(@"Player\maleSheet");
+                    mapName = Game1.map.mapName;
+                }
+            }
+            
             debugTile = game.Content.Load<Texture2D>(@"Player\emptySlot");
             healthTexture = game.Content.Load<Texture2D>(@"Game\health100");
             aColor = Color.White;
@@ -150,6 +177,17 @@ namespace GameBuild.Npc
             else if (name == "Laune")
             {
                 animation = new AnimationComponent(3, 11, 50, 75, 175, Microsoft.Xna.Framework.Point.Zero);
+            }
+            else if (name == "Informer")
+            {
+                if (spritePath == @"Player\maleSheet")
+                {
+                    animation = new AnimationComponent(4, 13, 50, 70, 150, Microsoft.Xna.Framework.Point.Zero);
+                }
+                else
+                {
+                    animation = new AnimationComponent(4, 4, 41, 70, 150, Microsoft.Xna.Framework.Point.Zero);
+                }
             }
             else
             {
@@ -515,26 +553,7 @@ namespace GameBuild.Npc
             if (IsOnMap() && !bossMob)
             {
                 GoTo(new Vector2((Game1.character.positionRectangle.X + (Game1.character.positionRectangle.Width / 2)), (Game1.character.positionRectangle.Y + (Game1.character.positionRectangle.Height / 2))), false, gameTime);
-                if (path == null)
-                {
-                    if (Game1.character.positionRectangle.X > position.X)
-                    {
-                        MoveRight(ref position);
-                    }
-                    if (Game1.character.positionRectangle.X < position.X)
-                    {
-                        MoveLeft(ref position);
-                    }
-                    if (Game1.character.positionRectangle.Y > position.Y)
-                    {
-                        MoveDown(ref position);
-                    }
-                    if (Game1.character.positionRectangle.Y < position.Y)
-                    {
-                        MoveUp(ref position);
-                    }
-                }
-                else if(!hasPath)
+                if(!hasPath && !position.Intersects(Game1.character.positionRectangle))
                 {
                     if (Game1.character.positionRectangle.X > position.X)
                     {
@@ -852,17 +871,15 @@ namespace GameBuild.Npc
         public void Death(GameTime gameTime)
         {
             attackPlayer = false;
-            animation.MaxFrameCount = 2;
-            animation.UpdateAnimation(gameTime);
-            //if (!dead)
+            animation.MaxFrameCount = 3;
+            if (!remove)
             {
                 animation.PlayAnimation(DEATH);
             }
-
-            if (!animation.IsAnimationPlaying(DEATH))
+           
+            if (animation.currentFrame.X >= 1)
             {
-                //remove = true;
-                Console.WriteLine("done");
+                remove = true;
             }
         }
 

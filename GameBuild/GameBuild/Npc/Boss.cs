@@ -404,6 +404,8 @@ namespace GameBuild.Npc
                 {
                     mobs[i].mob = true;
                     mobs[i].bossMob = true;
+                    mobs[i].position.Width = 30;
+                    mobs[i].position.Height = 25;
                     currentPhase = phase.charge;
                 }
             }

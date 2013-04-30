@@ -165,7 +165,7 @@ namespace GameBuild
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             collisionTex = Content.Load<Texture2D>(@"Game\blackness");
-            map = Content.Load<H_Map.TileMap>(@"Map\Map1_A");
+            map = Content.Load<H_Map.TileMap>(@"Map\Map2_A");
             map.tileset = Content.Load<Texture2D>(@"Game\tileset");
             textBox = Content.Load<Texture2D>(@"Game\textBox");
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
@@ -263,7 +263,7 @@ namespace GameBuild
             }
             for (int i = 0; i < activeNpcs.Count; i++)
             {
-                if (!activeNpcs[i].IsOnMap() || activeNpcs[i].health <= 0)
+                if (!activeNpcs[i].IsOnMap() || activeNpcs[i].remove)
                 {
                     activeNpcs.RemoveAt(i);
                 }
@@ -358,34 +358,31 @@ namespace GameBuild
 
                     for (int i = 0; i < activeNpcs.Count; i++)
                     {
-                        if (activeNpcs[i].health > 0)
+                        if (!activeNpcs[i].isInteracting && activeNpcs[i].IsOnMap() && !character.showInventory)
                         {
-                            if (!activeNpcs[i].isInteracting && activeNpcs[i].IsOnMap() && !character.showInventory)
+                            activeNpcs[i].Update(character, map, this, gameTime);
+                        }
+
+                        activeNpcs[i].UpdateDialogue(this);
+
+                        if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && activeNpcs[i].canInteract && !activeNpcs[i].mob && !character.inCombat && character.npcsInRectangle < 2)
+                        {
+                            if (activeNpcs[i].isInteracting)
                             {
-                                activeNpcs[i].Update(character, map, this, gameTime);
+                                activeNpcs[i].isInteracting = false;
+                                activeNpcs[i].dialogue.isTalking = false;
+                                activeNpcs[i].dialogue.ResetDialogue();
+                                currentGameState = GameState.PLAY;
                             }
-
-                            activeNpcs[i].UpdateDialogue(this);
-
-                            if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && activeNpcs[i].canInteract && !activeNpcs[i].mob && !character.inCombat && character.npcsInRectangle < 2)
+                            else
                             {
-                                if (activeNpcs[i].isInteracting)
-                                {
-                                    activeNpcs[i].isInteracting = false;
-                                    activeNpcs[i].dialogue.isTalking = false;
-                                    activeNpcs[i].dialogue.ResetDialogue();
-                                    currentGameState = GameState.PLAY;
-                                }
-                                else
-                                {
-                                    Console.WriteLine(activeNpcs[i].speed);
-                                    activeNpcs[i].isInteracting = true;
-                                    activeNpcs[i].dialogue.isTalking = true;
-                                    currentGameState = GameState.INTERACT;
-                                }
+                                Console.WriteLine(activeNpcs[i].speed);
+                                activeNpcs[i].isInteracting = true;
+                                activeNpcs[i].dialogue.isTalking = true;
+                                currentGameState = GameState.INTERACT;
                             }
                         }
-                        else
+                        if (activeNpcs[i].health <= 0)
                         {
                             if (activeNpcs[i].key != null)
                             {
@@ -466,6 +463,7 @@ namespace GameBuild
                     if (keyState.IsKeyDown(Keys.Enter))
                     {
                         gender = "female";
+                        activeNpcs.Add(new Npc.Npc("Map1_A", "Informer", 590, 640, 59, 64, false, false, false, false, @"Player\maleSheet", @"Player\Male", false, false, false, false, 0, 0, 0, 0, 0, this, "informer", "nokey", null));
                         forestCharacter = Content.Load<Texture2D>(@"Player\forestFemale");
                     }
                 }
@@ -476,6 +474,7 @@ namespace GameBuild
                     if (keyState.IsKeyDown(Keys.Enter))
                     {
                         gender = "male";
+                        Npcs.Add(new Npc.Npc("Map1_A", "Informer", 750, 130, 50, 64, false, false, false, false, @"Player\femalewalk", @"Player\female", false, false, false, false, 0, 0, 0, 0, 0, this, "informer", "nokey", null));
                         forestCharacter = Content.Load<Texture2D>(@"Player\forestMale");
                     }
                 }
@@ -483,6 +482,7 @@ namespace GameBuild
                 {
                     character = new cCharacter(this, gender);
                     testBoss = new Npc.Boss(new Rectangle(16 * 64, 7 * 64, 64, 64), this, "Map4_C");
+                    UpdateActiveNpcs();
                     nextState = GameState.FOREST;
                     transition = true;
                 }

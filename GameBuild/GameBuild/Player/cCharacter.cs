@@ -74,6 +74,8 @@ namespace GameBuild
         const float ATTACKTIMER = 600; //in total milliseconds
         float attackTimer = 0f;
         public float targetSpeed = 4;//for boss target
+        float splashTimer = 0;
+        const float SPLASHTIMER = 0.05f;
 
         public Inventory inventory;
         public List<DamageEffect> damageEffectList = new List<DamageEffect>();
@@ -320,7 +322,7 @@ namespace GameBuild
                         if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
                             || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
                         {
-                            Splash();
+                            Splash(gameTime);
                         }
                         else
                             Walk();
@@ -346,7 +348,7 @@ namespace GameBuild
                         if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
                             || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
                         {
-                            Splash();
+                            Splash(gameTime);
                         }
                         else
                             Walk();
@@ -371,7 +373,7 @@ namespace GameBuild
                         if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
                             || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
                         {
-                            Splash();
+                            Splash(gameTime);
                         }
                         else
                             Walk();
@@ -396,7 +398,7 @@ namespace GameBuild
                         if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
                             || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
                         {
-                            Splash();
+                            Splash(gameTime);
                         }
                         else
                             Walk();
@@ -547,7 +549,7 @@ namespace GameBuild
                             Game1.testBoss.mobs[i].health -= damage;
                             if (Game1.testBoss.mobs[i].health <= 0)
                             {
-                                Game1.testBoss.health -= 3;
+                                Game1.testBoss.health -= 1;
                             }
                         }
                     }
@@ -648,11 +650,17 @@ namespace GameBuild
             emitter.Add(positionRectangle.X + 22, positionRectangle.Y + positionRectangle.Height - 5, 6, 6, 1, -2, 2, -3, -1, new Color(rand.Next(50, 65), rand.Next(35, 50), rand.Next(35, 50), rand.Next(100, 250)), 0.0f, 1, 1, false, false, true);
         }
 
-        public void Splash()
+        public void Splash(GameTime gameTime)
         {
-            emitter.Add(positionRectangle.X + positionRectangle.Width / 2, positionRectangle.Y + positionRectangle.Height - 15, rand.Next(5, 8), rand.Next(5, 8), 10, -2, 2, -5, 2, new Color(50, 50, 255), 0.2f, 1, 1, false, false, true);
-            emitter.Add(positionRectangle.X + positionRectangle.Width / 2, positionRectangle.Y + positionRectangle.Height - 15, rand.Next(5, 8), rand.Next(5, 8), 10, -2, 2, -5, 2, new Color(50, 175, 255), 0.2f, 1, 1, false, false, true);
-            emitter.Add(positionRectangle.X + positionRectangle.Width / 2, positionRectangle.Y + positionRectangle.Height - 15, rand.Next(5, 8), rand.Next(5, 8), 10, -2, 2, -5, 2, new Color(200, 200, 200), 0.2f, 1, 1, false, false, true);
+            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            splashTimer -= elapsed;
+            if (splashTimer <= 0)
+            {
+                emitter.Add(positionRectangle.X + positionRectangle.Width / 2, positionRectangle.Y + positionRectangle.Height - 15, rand.Next(5, 8), rand.Next(5, 8), 10, -2, 2, -5, 2, new Color(50, 50, 255), 0.2f, 1, 1, false, false, true);
+                emitter.Add(positionRectangle.X + positionRectangle.Width / 2, positionRectangle.Y + positionRectangle.Height - 15, rand.Next(5, 8), rand.Next(5, 8), 10, -2, 2, -5, 2, new Color(50, 175, 255), 0.2f, 1, 1, false, false, true);
+                emitter.Add(positionRectangle.X + positionRectangle.Width / 2, positionRectangle.Y + positionRectangle.Height - 15, rand.Next(5, 8), rand.Next(5, 8), 10, -2, 2, -5, 2, new Color(200, 200, 200), 0.2f, 1, 1, false, false, true);
+                splashTimer = SPLASHTIMER;
+            }
         }
 
         public void Slash(Rectangle enemyPos)

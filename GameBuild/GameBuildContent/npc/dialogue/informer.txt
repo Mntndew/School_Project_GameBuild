@@ -1,0 +1,7 @@
+0:0: Welcome to our world. |Things are different here. |Your navigation is now located |in your right hand | instead of in your brain. |Specifically set to the arrow |keys on your internal keyboard.:0
+0:1: I see.:0
+1:0: You can interact with |some of the people here by |pressing 'A' on you keyboard.:0
+1:2: Cool. :0
+2:0: If you ever find yourself |in a situation where |you need to defend yourself, |simply press 'Z' to attack.:0
+2:3: Okay, thank you. :0
+3:0: No problem. I'll be standing |here if you happen |to forget the new manipulation |methods of this universe.:0
