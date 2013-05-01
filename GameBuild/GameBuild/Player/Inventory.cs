@@ -11,7 +11,7 @@ namespace GameBuild
     public class Inventory
     {
         public InventorySlot[,] inventorySlot;
-        public int width = 1, height = 5;
+        public int width = 1, height = 6;
         int spacing = 5;
         int size = 3;
 

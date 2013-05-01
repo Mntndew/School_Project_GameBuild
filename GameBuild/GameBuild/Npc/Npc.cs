@@ -54,10 +54,10 @@ namespace GameBuild.Npc
         public bool mob;
         public bool bossMob;
         public bool up, down, left, right;
+        bool ribbonQuest;
         bool addA = false;
         bool hasPath = false;
         bool hasTarget;
-        public bool reached = true;//for waypoint
         public bool vulnerable;
         bool walking;
         public bool remove;
@@ -76,8 +76,8 @@ namespace GameBuild.Npc
 
         public cDialogue dialogue;
         List<DamageEffect> damageEffectList = new List<DamageEffect>();
-        AnimationComponent animation;
-        AnimationComponent deathAnimation;  
+        public AnimationComponent animation;
+        WaypointManager waypoint;
 
         Random rand = new Random();
 
@@ -158,6 +158,8 @@ namespace GameBuild.Npc
             {
                 animation = new AnimationComponent(2, 8, 50, 72, 175, Microsoft.Xna.Framework.Point.Zero);
                 position.Height = 72;
+
+                waypoint = new WaypointManager(name, "Map3_B", 2);
             }
             else if(name == "Headmaster")
             {
@@ -166,6 +168,8 @@ namespace GameBuild.Npc
                 vulnerable = false;
                 position.Y -= 60;
                 position.Height = 127;
+
+                waypoint = new WaypointManager(name, "Map3_B", 3);
             }
             else if(name == "Lamia")
             {
@@ -201,7 +205,6 @@ namespace GameBuild.Npc
             {
                 key = new Key(Rectangle.Empty, keyName, game.keyTexture, this.mapName, game);
             }
-            deathAnimation = new AnimationComponent(3, 1, 44, 38, 175, Microsoft.Xna.Framework.Point.Zero);
             deathSprite = game.Content.Load<Texture2D>(@"Npc\deathSprite");
             this.secondDialogue = secondDialogue;
         }
@@ -243,7 +246,7 @@ namespace GameBuild.Npc
                 return false;
         }
 
-        public void GoTo(Vector2 targetPoint, bool isWaypoint, GameTime gameTime)//manages findpath and followpath
+        public void GoTo(Vector2 targetPoint, GameTime gameTime)//manages findpath and followpath
         {
             float elapsed = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             pathTimer -= elapsed;
@@ -267,7 +270,7 @@ namespace GameBuild.Npc
             }
             if (path != null)
             {
-                FollowPath(gameTime, isWaypoint);
+                FollowPath(gameTime);
             }
             else
             {
@@ -329,7 +332,7 @@ namespace GameBuild.Npc
             }
         }
 
-        private void FollowPath(GameTime gameTime, bool isWaypoint)
+        private void FollowPath(GameTime gameTime)
         {
             if ((path.Length == 1 && path[0].X == -32 && path[0].Y == -32) || position.Intersects(Game1.character.positionRectangle))
             {
@@ -337,15 +340,9 @@ namespace GameBuild.Npc
                 hasPath = false;
             }
             else
+
             {
                 followPath = true;
-            }
-            if (isWaypoint)
-            {
-                if (Math.Abs(path[0].X - position.X) <= 32 && Math.Abs(path[0].Y - position.Y) <= 32)
-                {
-                    reached = true;
-                }
             }
             if (hasPath && pathIndex < path.Length && followPath)
             {
@@ -429,7 +426,7 @@ namespace GameBuild.Npc
             GetTargetLocation();
             if (hasTarget)
             {
-                GoTo(randomWalkTarget, false, gameTime);
+                GoTo(randomWalkTarget, gameTime);
             }
         }
 
@@ -552,7 +549,7 @@ namespace GameBuild.Npc
 
             if (IsOnMap() && !bossMob)
             {
-                GoTo(new Vector2((Game1.character.positionRectangle.X + (Game1.character.positionRectangle.Width / 2)), (Game1.character.positionRectangle.Y + (Game1.character.positionRectangle.Height / 2))), false, gameTime);
+                GoTo(new Vector2((Game1.character.positionRectangle.X + (Game1.character.positionRectangle.Width / 2)), (Game1.character.positionRectangle.Y + (Game1.character.positionRectangle.Height / 2))), gameTime);
                 if(!hasPath && !position.Intersects(Game1.character.positionRectangle))
                 {
                     if (Game1.character.positionRectangle.X > position.X)
@@ -576,7 +573,7 @@ namespace GameBuild.Npc
         }
 
         #region Movement functions
-        private void MoveUp(ref Rectangle location)
+        public void MoveUp(ref Rectangle location)
         {
             up = true;
             down = false;
@@ -600,7 +597,7 @@ namespace GameBuild.Npc
             walking = true;
         }
 
-        private void MoveDown(ref Rectangle location)
+        public void MoveDown(ref Rectangle location)
         {
             up = false;
             down = true;
@@ -624,7 +621,7 @@ namespace GameBuild.Npc
             walking = true;
         }
 
-        private void MoveLeft(ref Rectangle location)
+        public void MoveLeft(ref Rectangle location)
         {
             up = false;
             down = false;
@@ -648,7 +645,7 @@ namespace GameBuild.Npc
             walking = true;
         }
 
-        private void MoveRight(ref Rectangle location)
+        public void MoveRight(ref Rectangle location)
         {
             up = false;
             down = false;
@@ -704,51 +701,13 @@ namespace GameBuild.Npc
             healthPos.Height = 10;
             healthPct = (health / maxHealth);
             healthBarWidth = (float)healthTexture.Width * healthPct;
+            bumpRectangle = new Rectangle(position.X + position.Width / 2, position.Y + position.Height / 2, position.Width / 2, position.Height / 2);
+            animation.UpdateAnimation(gameTime);
             #endregion
 
-            bumpRectangle = new Rectangle(position.X + position.Width / 2, position.Y + position.Height / 2, position.Width / 2, position.Height / 2);
-
-            if (name == "Headmaster")
+            if (waypoint != null)
             {
-                if (mapName == "Map3_B")
-                {
-                    if (IsOnMap())
-                    {
-                        if (!reached)
-                        {
-                            up = false;
-                            down = false;
-                            right = false;
-                            left = false;
-                            GoTo(new Vector2(576, 1152), true, gameTime);
-                        }
-                        else
-                        {
-                            down = true;
-                        }
-                    }
-                }
-            }
-            if (name == "Celine")
-            {
-                if (mapName == "Map3_B")
-                {
-                    if (IsOnMap())
-                    {
-                        if (!reached)
-                        {
-                            up = false;
-                            down = false;
-                            right = false;
-                            left = false;
-                            GoTo(new Vector2(620, 1248), true, gameTime);
-                        }
-                        else
-                        {
-                            up = true;
-                        }
-                    }
-                }
+                waypoint.Update(game, new Vector2(position.X, position.Y));
             }
 
             if (!walking)
@@ -805,8 +764,6 @@ namespace GameBuild.Npc
                 Attack(game, gameTime);
             }
 
-            animation.UpdateAnimation(gameTime);
-
             if (health <= 0)
             {
                 animation.StopAnimation();
@@ -814,6 +771,7 @@ namespace GameBuild.Npc
             }
             
             #region Player Interaction
+            
             if (IsOnMap())
             {
                 if (position.Intersects(player.interactRect) && !attackPlayer)
@@ -846,6 +804,21 @@ namespace GameBuild.Npc
                     }
                     else
                     {
+                        if (ribbonQuest)
+                        {
+                            if (name == "Sylian")
+                            {
+                                //switch dialogue
+                                for (int y = 0; y < Game1.character.inventory.height; y++)
+                                {
+                                    if ((Game1.character.inventory.inventorySlot[0, y].item == Game1.ribbon.item))//checks if the player has the key or if the key is ".", aka no key required
+                                    {
+                                        //switch again
+                                        //remove ribbon
+                                    }
+                                }
+                            }
+                        }
                         this.dialogue.isTalking = true;
                     }
                 }
@@ -905,7 +878,6 @@ namespace GameBuild.Npc
             }
         }
         
-
         public void DrawA(SpriteBatch spriteBatch)
         {
             if (IsOnMap())
@@ -977,6 +949,12 @@ namespace GameBuild.Npc
                         dialogue.dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + secondDialogue + ".txt");
                     }
                     break;
+                case 7:
+                    ribbonQuest = true;
+                    isInteracting = false;
+                    dialogue.isTalking = false;
+                    Game1.currentGameState = Game1.GameState.PLAY;
+                    break;
                 default:
                     isInteracting = false;
                     dialogue.isTalking = false;
@@ -986,3 +964,21 @@ namespace GameBuild.Npc
         }
     }
 }
+
+
+//this is the troll that lives under the code...........................
+//it likes to eat little children.., and vagina flaps with extra salt im not durnk i promise
+
+/*              Le troll
+ *       /\                 /\
+ *      /  \   crazy hair  /  \
+ *     | /\ \    *   *    / /\ |
+ *     | | | |    \ /    | | | |
+ *     | | |  |   *|*   |  | | |
+ *      \ \/  \___/ \___/  \/ /
+ *       \   / 0       0 \   /
+ *        \ /             \ /
+ *         \| /\    >  /\ |/
+ *          | || _____ || |
+ *          \_\\|HHHHH|//_/                                                 sex.
+*/

@@ -152,7 +152,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Headmaster.xnb</Output>
-      <Time>2013-04-27T23:57:14.0608475+02:00</Time>
+      <Time>2013-04-30T12:28:25.9142901+02:00</Time>
     </Item>
     <Item>
       <Source>Game\Hp bar.png</Source>
@@ -485,7 +485,7 @@
       <Processor>TileMapProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map3_B.xnb</Output>
-      <Time>2013-04-25T14:17:08+02:00</Time>
+      <Time>2013-04-30T12:37:47.1023875+02:00</Time>
     </Item>
     <Item>
       <Source>Map\Map3_A.tm</Source>
@@ -707,6 +707,15 @@
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Lamia.xnb</Output>
       <Time>2013-04-29T13:25:53.5784585+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Game\ribbon.png</Source>
+      <Name>Game\ribbon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\ribbon.xnb</Output>
+      <Time>2013-05-01T01:19:18.6776136+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

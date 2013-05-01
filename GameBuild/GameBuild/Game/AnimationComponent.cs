@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 namespace GameBuild
 {
-    class AnimationComponent
+    public class AnimationComponent
     {
         #region Declarations
         bool playing;

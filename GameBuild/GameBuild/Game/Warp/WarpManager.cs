@@ -59,6 +59,7 @@ namespace GameBuild.Game
                     hasKey = true;
                     Game1.map = game.Content.Load<H_Map.TileMap>(@"Map\" + map);
                     Game1.map.tileset = game.Content.Load<Texture2D>(@"Game\tileset");
+                    game.UpdateActiveNpcs();
                     if (warp.targetX != -1)//warp the X value if it isnt -1(the player's X value)
                     {
                         Game1.character.position.X = warp.targetX;
@@ -82,28 +83,23 @@ namespace GameBuild.Game
                             }
                         }
                     }
-                    if (map == "Map3_B")
+                    else if(map == "Map3_B")
                     {
                         for (int i = 0; i < game.Npcs.Count; i++)
                         {
                             if (game.Npcs[i].name == "Headmaster")
                             {
                                 game.Npcs[i].mapName = map;
-                                game.Npcs[i].position.X = 1800;
-                                game.Npcs[i].position.Y = 192;
-                                game.Npcs[i].reached = false;
                             }
                             if (game.Npcs[i].name == "Celine")
                             {
+                                game.Npcs[i].position.X = 1625;
+                                game.Npcs[i].position.Y = 1521;
                                 game.Npcs[i].mapName = map;
-                                game.Npcs[i].position.X = 1728;
-                                game.Npcs[i].position.Y = 1248;
-                                game.Npcs[i].reached = false;
                             }
                         }
                     }
                 }
-                
             }
             if (!hasKey)
             {

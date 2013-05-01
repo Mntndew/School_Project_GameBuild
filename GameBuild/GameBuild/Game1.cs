@@ -96,6 +96,7 @@ namespace GameBuild
         public static Npc.Boss testBoss;
         public static Menu.Menu menu;
         public static Menu.StartMenu startMenu;
+        public static Game.Items.Ribbon ribbon;
 
         MusicPlayer music;
 
@@ -153,6 +154,7 @@ namespace GameBuild
             malePos = new Rectangle(0, 0, graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight);
             femalePos = new Rectangle(graphics.PreferredBackBufferWidth / 2, 0, graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight);
             menu = new Menu.Menu(this);
+            ribbon = new Game.Items.Ribbon(new Rectangle(210, 570, 25, 19), "Ribbon", Content.Load<Texture2D>(@"Game\ribbon"), "Map2_A", this);
             base.Initialize();
         }
 
@@ -263,9 +265,9 @@ namespace GameBuild
             }
             for (int i = 0; i < activeNpcs.Count; i++)
             {
-                if (!activeNpcs[i].IsOnMap() || activeNpcs[i].remove)
+                if (!activeNpcs[i].IsOnMap() || activeNpcs[i].health <= 0)
                 {
-                    activeNpcs.RemoveAt(i);
+                    //activeNpcs.RemoveAt(i);
                 }
             }
         }
@@ -341,6 +343,10 @@ namespace GameBuild
                             keys[i].PickUp(character);
                             keys.RemoveAt(i);
                         }
+                    }
+                    if (character.positionRectangle.Intersects(ribbon.position) && ribbon.IsOnMap() && !ribbon.added)
+                    {
+                        ribbon.PickUp(character);
                     }
                     character.npcsInRectangle = 0;
                     for (int i = 0; i < activeNpcs.Count; i++)
@@ -524,9 +530,9 @@ namespace GameBuild
                 particleSystem.Draw(spriteBatch);
                 character.Draw(spriteBatch);
                 map.DrawInteractiveLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
-                for (int i = 0; i < activeNpcs.Count; i++)
+                if (ribbon.IsOnMap() && !ribbon.added)
                 {
-                    activeNpcs[i].Draw(spriteBatch);
+                    ribbon.Draw(spriteBatch);
                 }
                 for (int i = 0; i < Mobs.Count; i++)
                 {
@@ -534,6 +540,10 @@ namespace GameBuild
                     {
                         Mobs[i].Draw(spriteBatch);
                     }
+                }
+                for (int i = 0; i < activeNpcs.Count; i++)
+                {
+                    activeNpcs[i].Draw(spriteBatch);
                 }
                 if (testBoss.IsOnMap())
                 {
@@ -546,7 +556,6 @@ namespace GameBuild
                         keys[i].Draw(spriteBatch);
                     }
                 }
-
                 map.DrawForegroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
                 for (int i = 0; i < activeNpcs.Count; i++)
                 {

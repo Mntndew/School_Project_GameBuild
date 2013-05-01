@@ -89,6 +89,7 @@ Content\Game\itemLabel.xnb
 Content\Game\labelSide.xnb
 Content\Game\labelSide2.xnb
 Content\Npc\sprite\Lamia.xnb
+Content\Game\ribbon.xnb
 Content\Npc\dialogue\test.txt
 Content\Npc\dialogue\doorLocked.txt
 Content\Warp\Map1_A_0.txt

@@ -309,7 +309,6 @@ namespace GameBuild
                     disabledTimer = DISABLEDTIMER;
                 }
             }
-
             #region walk
             if (!attacking && !showInventory && !dead)// && cWarp.canWalk
             {
@@ -488,7 +487,6 @@ namespace GameBuild
             {
                 attacking = false;
             }
-
             #region Attack
             attackTimer -= elapsed;
             if (game.keyState.IsKeyDown(Keys.Z) && game.oldState.IsKeyUp(Keys.Z) && !dead && attackTimer <= 0)

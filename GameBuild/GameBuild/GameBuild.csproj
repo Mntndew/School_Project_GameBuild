@@ -107,6 +107,7 @@
     <Compile Include="Audio\MusicPlayer.cs" />
     <Compile Include="Game\AnimationComponent.cs" />
     <Compile Include="Game\Camera2d.cs" />
+    <Compile Include="Game\Items\Ribbon.cs" />
     <Compile Include="Game\Menu\StartMenu.cs" />
     <Compile Include="Game\Warp\WarpItem.cs" />
     <Compile Include="Game\Warp\WarpManager.cs" />
@@ -114,6 +115,7 @@
     <Compile Include="Npc\Boss.cs" />
     <Compile Include="Game\Menu\Menu.cs" />
     <Compile Include="Npc\Projectile.cs" />
+    <Compile Include="Npc\WaypointManager.cs" />
     <Compile Include="Particle\Particle.cs" />
     <Compile Include="Particle\ParticleSystem.cs" />
     <Compile Include="Particle\ParticleSystemEmitter.cs" />
