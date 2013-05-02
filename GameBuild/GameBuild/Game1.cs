@@ -182,7 +182,6 @@ namespace GameBuild
             LoadNpcs();
             debugFont = Content.Load<SpriteFont>(@"Game\SpriteFont1");
 
-            //forest shit
             forest = Content.Load<Texture2D>(@"Game\forest");
             forestCybot = Content.Load<Texture2D>(@"Npc\sprite\forestCybot");
             forestDialogue = new cDialogue(Content.Load<Texture2D>(@"Npc\portrait\Cybot"), textBox, this, spriteFont, "First cybot encounter", "Ziva");
@@ -236,7 +235,6 @@ namespace GameBuild
             }
         }
 
-
         public void LoadNpcs()
         {
             names = new string[files];
@@ -248,7 +246,7 @@ namespace GameBuild
                 Npc.Npc npc = new Npc.Npc(reader.ReadLine(), reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
                 bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), reader.ReadLine(), reader.ReadLine(),
                 bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()),
-                int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), this, reader.ReadLine(), reader.ReadLine(), reader.ReadLine());
+                int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), this, reader.ReadLine(), reader.ReadLine(), reader.ReadLine(), reader.ReadLine());
                 Npcs.Add(npc);
             }
         }
@@ -346,7 +344,7 @@ namespace GameBuild
                     }
                     if (character.positionRectangle.Intersects(ribbon.position) && ribbon.IsOnMap() && !ribbon.added)
                     {
-                        ribbon.PickUp(character);
+                        ribbon.PickUp(character, this);
                     }
                     character.npcsInRectangle = 0;
                     for (int i = 0; i < activeNpcs.Count; i++)
@@ -361,7 +359,6 @@ namespace GameBuild
                     {
                         Npcs[i].UpdateDialogue(this);
                     }
-
                     for (int i = 0; i < activeNpcs.Count; i++)
                     {
                         if (!activeNpcs[i].isInteracting && activeNpcs[i].IsOnMap() && !character.showInventory)
@@ -371,7 +368,8 @@ namespace GameBuild
 
                         activeNpcs[i].UpdateDialogue(this);
 
-                        if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && activeNpcs[i].canInteract && !activeNpcs[i].mob && !character.inCombat && character.npcsInRectangle < 2)
+                        if (keyState.IsKeyDown(Keys.A) && oldState.IsKeyUp(Keys.A) && activeNpcs[i].canInteract 
+                            && !activeNpcs[i].mob && !character.inCombat && character.npcsInRectangle < 2)
                         {
                             if (activeNpcs[i].isInteracting)
                             {
@@ -382,7 +380,14 @@ namespace GameBuild
                             }
                             else
                             {
-                                Console.WriteLine(activeNpcs[i].speed);
+                                if (activeNpcs[i].quest != null)
+                                {
+                                    if (character.HasItem(activeNpcs[i].quest.item))
+                                    {
+                                        activeNpcs[i].quest.Return(this);
+                                        activeNpcs[i].UpdateDialogue(this);
+                                    }
+                                }
                                 activeNpcs[i].isInteracting = true;
                                 activeNpcs[i].dialogue.isTalking = true;
                                 currentGameState = GameState.INTERACT;
@@ -469,7 +474,6 @@ namespace GameBuild
                     if (keyState.IsKeyDown(Keys.Enter))
                     {
                         gender = "female";
-                        activeNpcs.Add(new Npc.Npc("Map1_A", "Informer", 590, 640, 59, 64, false, false, false, false, @"Player\maleSheet", @"Player\Male", false, false, false, false, 0, 0, 0, 0, 0, this, "informer", "nokey", null));
                         forestCharacter = Content.Load<Texture2D>(@"Player\forestFemale");
                     }
                 }
@@ -480,7 +484,6 @@ namespace GameBuild
                     if (keyState.IsKeyDown(Keys.Enter))
                     {
                         gender = "male";
-                        Npcs.Add(new Npc.Npc("Map1_A", "Informer", 750, 130, 50, 64, false, false, false, false, @"Player\femalewalk", @"Player\female", false, false, false, false, 0, 0, 0, 0, 0, this, "informer", "nokey", null));
                         forestCharacter = Content.Load<Texture2D>(@"Player\forestMale");
                     }
                 }
@@ -488,6 +491,7 @@ namespace GameBuild
                 {
                     character = new cCharacter(this, gender);
                     testBoss = new Npc.Boss(new Rectangle(16 * 64, 7 * 64, 64, 64), this, "Map4_C");
+                    Npcs.Add(new Npc.Npc("Map1_A", "Informer", 750, 130, 50, 64, false, false, false, false, @"Player\femalewalk", @"Player\female", false, false, false, false, 0, 0, 0, 0, 0, this, "informer", "nokey", null, null));
                     UpdateActiveNpcs();
                     nextState = GameState.FOREST;
                     transition = true;

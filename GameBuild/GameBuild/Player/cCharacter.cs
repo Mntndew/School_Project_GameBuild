@@ -618,6 +618,18 @@ namespace GameBuild
             }
         }
 
+        public bool HasItem(string item)
+        {
+            for (int y = 0; y < inventory.height; y++)
+            {
+                if (inventory.inventorySlot[0, y].item == item)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public void DeathEffect(Game1 game)
         {
             if (game.screenColor.A < 255)

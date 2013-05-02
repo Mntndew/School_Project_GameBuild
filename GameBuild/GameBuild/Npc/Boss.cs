@@ -332,7 +332,7 @@ namespace GameBuild.Npc
         {
             if (!dead)
             {
-                game.Npcs.Add(new Npc(map, "Cybotdead", -256, -256, 0, 0, false, false, false, false, "Cybot", "Cybot", true, false, false, false, 0, 0, 0, 0, 0, game, "Cybot dead", "nokey", null));
+                game.Npcs.Add(new Npc(map, "Cybotdead", -256, -256, 0, 0, false, false, false, false, "Cybot", "Cybot", true, false, false, false, 0, 0, 0, 0, 0, game, "Cybot dead", "nokey", null, null));
             }
             
             attackPlayer = false;

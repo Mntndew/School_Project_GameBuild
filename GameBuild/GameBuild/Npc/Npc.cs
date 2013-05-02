@@ -18,7 +18,7 @@ namespace GameBuild.Npc
         Vector2[] path;
         Vector2 randomWalkTarget;
         public Rectangle bumpRectangle;//for mini bots :) they bump into eachother
-
+        Game1 game;
         Texture2D debugTile;
         public Texture2D walkSprite;
         Texture2D deathSprite;
@@ -54,7 +54,6 @@ namespace GameBuild.Npc
         public bool mob;
         public bool bossMob;
         public bool up, down, left, right;
-        bool ribbonQuest;
         bool addA = false;
         bool hasPath = false;
         bool hasTarget;
@@ -62,7 +61,8 @@ namespace GameBuild.Npc
         bool walking;
         public bool remove;
 
-        string secondDialogue;
+        public string secondDialogue;
+        public string thirdDialogue;
 
         public enum patrolType
         {
@@ -78,6 +78,7 @@ namespace GameBuild.Npc
         List<DamageEffect> damageEffectList = new List<DamageEffect>();
         public AnimationComponent animation;
         WaypointManager waypoint;
+        public Quest quest;
 
         Random rand = new Random();
 
@@ -104,7 +105,8 @@ namespace GameBuild.Npc
 
         public Npc(string mapName, string name, int x, int y, int width, int height, bool up, bool down, bool left, bool right,
             string spritePath, string portraitPath, bool patrolNone, bool patrolUpDown, bool patrolLeftRight,
-            bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game, string dialoguePath, string keyName, string secondDialogue)
+            bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game, 
+            string dialoguePath, string keyName, string secondDialogue, string thirdDialogue)
         {
             position = new Rectangle(x, y, 50, 71);
             this.name = name;
@@ -122,6 +124,7 @@ namespace GameBuild.Npc
             health = 200;
             maxHealth = health;
             this.speed = speed;
+            this.game = game;
             if (name != "Informer")
             {
                 dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + portraitPath), Game1.textBox, game, Game1.spriteFont, dialoguePath, name);
@@ -181,6 +184,7 @@ namespace GameBuild.Npc
             else if (name == "Laune")
             {
                 animation = new AnimationComponent(3, 11, 50, 75, 175, Microsoft.Xna.Framework.Point.Zero);
+                
             }
             else if (name == "Informer")
             {
@@ -192,6 +196,11 @@ namespace GameBuild.Npc
                 {
                     animation = new AnimationComponent(4, 4, 41, 70, 150, Microsoft.Xna.Framework.Point.Zero);
                 }
+            }
+            else if (name == "Sylian")
+            {
+                quest = new Quest(Game1.ribbon.item, this.name);
+                animation = new AnimationComponent(2, 4, 50, 71, 175, Microsoft.Xna.Framework.Point.Zero);
             }
             else
             {
@@ -206,7 +215,9 @@ namespace GameBuild.Npc
                 key = new Key(Rectangle.Empty, keyName, game.keyTexture, this.mapName, game);
             }
             deathSprite = game.Content.Load<Texture2D>(@"Npc\deathSprite");
+            
             this.secondDialogue = secondDialogue;
+            this.thirdDialogue = thirdDialogue;
         }
 
         public Npc(int x, int y, int width, int height, Texture2D walkSprite, Game1 game, string mapName,
@@ -804,21 +815,6 @@ namespace GameBuild.Npc
                     }
                     else
                     {
-                        if (ribbonQuest)
-                        {
-                            if (name == "Sylian")
-                            {
-                                //switch dialogue
-                                for (int y = 0; y < Game1.character.inventory.height; y++)
-                                {
-                                    if ((Game1.character.inventory.inventorySlot[0, y].item == Game1.ribbon.item))//checks if the player has the key or if the key is ".", aka no key required
-                                    {
-                                        //switch again
-                                        //remove ribbon
-                                    }
-                                }
-                            }
-                        }
                         this.dialogue.isTalking = true;
                     }
                 }
@@ -905,6 +901,7 @@ namespace GameBuild.Npc
 
         private void ExitedDialogue(object sender, DialogueEventArgs e)
         {
+            Console.WriteLine(e.exitNumber);
             switch (e.exitNumber)
             {
                 case 0:
@@ -915,6 +912,7 @@ namespace GameBuild.Npc
 
                 case 1:
                     attackPlayer = true;
+                    
                     break;
 
                 case 2:
@@ -933,15 +931,18 @@ namespace GameBuild.Npc
                     }
                     health = 0;
                     break;
+
                 case 4:
                     Game1.character.GetSword(sword, 1, 20);
                     break;
+
                 case 5:
                     if (secondDialogue != "null")
                     {
                         dialogue.dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + secondDialogue + ".txt");
                     }
                     break;
+
                 case 6:
                     Game1.character.GetSword(sword, 1, 20);
                     if (secondDialogue != "null")
@@ -950,10 +951,10 @@ namespace GameBuild.Npc
                     }
                     break;
                 case 7:
-                    ribbonQuest = true;
-                    isInteracting = false;
-                    dialogue.isTalking = false;
-                    Game1.currentGameState = Game1.GameState.PLAY;
+                    if (quest != null)
+                    {
+                        quest.Accept(game);
+                    }
                     break;
                 default:
                     isInteracting = false;

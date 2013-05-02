@@ -636,12 +636,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Npc\dialogue\lamia.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>lamia</Name>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Game\forest.png">
       <Name>forest</Name>
       <Importer>TextureImporter</Importer>
@@ -660,6 +654,24 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\dialogue\SylianAccept.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>SylianAccept</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\dialogue\SylianComplete.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>SylianComplete</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\dialogue\SylianNoRibbon.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>SylianNoRibbon</Name>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -36,6 +36,19 @@ namespace GameBuild
             }
         }
 
+        public void RemoveItem(string item)
+        {
+            Console.WriteLine(item);
+            for (int y = 0; y < height; y++)
+            {
+                if (inventorySlot[0, y].item == item)
+                {
+                    inventorySlot[0, y].item = null;
+                    inventorySlot[0, y].itemTexture = null;
+                }
+            }
+        }
+
         public void Draw(SpriteBatch spriteBatch, Game1 game)
         {
             for (int x = 0; x < width; x++)

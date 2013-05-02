@@ -114,5 +114,7 @@ Content\Npc\dialogue\First cybot encounter.txt
 Content\Npc\dialogue\Nurse questions.txt
 Content\Npc\dialogue\Laune.txt
 Content\Npc\npc\Lamia.txt
-Content\Npc\dialogue\lamia.txt
 Content\Npc\dialogue\informer.txt
+Content\Npc\dialogue\SylianAccept.txt
+Content\Npc\dialogue\SylianComplete.txt
+Content\Npc\dialogue\SylianNoRibbon.txt

@@ -68,7 +68,7 @@ namespace GameBuild
                 }
                 catch
                 {
-                    throw new Exception("Failed to load dialogue.");
+                    throw new Exception("Failed to load dialogue: " + filepath);
                 }
             }
         }
