@@ -680,12 +680,8 @@ namespace GameBuild
         }
         #endregion
 
-        public void GetSword(string sword, int minDamage, int maxDamage)
+        public void GetSword(Game.Items.Sword sword, int minDamage, int maxDamage)
         {
-            if (sword == "sword1")
-            {
-                //texture
-            }
             this.minDamage = minDamage;
             this.maxDamage = maxDamage;
         }

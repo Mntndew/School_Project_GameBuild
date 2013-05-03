@@ -27,7 +27,6 @@ namespace GameBuild.Npc
 
         public string name;
         public string mapName;
-        string sword;
 
         float healthBarWidth;
         float maxHealth;
@@ -79,6 +78,7 @@ namespace GameBuild.Npc
         public AnimationComponent animation;
         WaypointManager waypoint;
         public Quest quest;
+        Game.Items.Sword sword;
 
         Random rand = new Random();
 
@@ -125,6 +125,7 @@ namespace GameBuild.Npc
             maxHealth = health;
             this.speed = speed;
             this.game = game;
+            sword = new Game.Items.Sword();
             if (name != "Informer")
             {
                 dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + portraitPath), Game1.textBox, game, Game1.spriteFont, dialoguePath, name);
@@ -167,7 +168,6 @@ namespace GameBuild.Npc
             else if(name == "Headmaster")
             {
                 animation = new AnimationComponent(2, 8, 50, 127, 175, Microsoft.Xna.Framework.Point.Zero);
-                sword = "sword1";
                 vulnerable = false;
                 position.Y -= 60;
                 position.Height = 127;
@@ -813,10 +813,6 @@ namespace GameBuild.Npc
                             addA = false;
                         }
                     }
-                    else
-                    {
-                        this.dialogue.isTalking = true;
-                    }
                 }
                 else
                 {
@@ -922,6 +918,10 @@ namespace GameBuild.Npc
                         Game1.keys.Add(key);
                         key = null;
                     }
+                    if (quest != null)
+                    {
+                        quest.completed = true;
+                    }
                     break;
 
                 case 3:
@@ -953,7 +953,7 @@ namespace GameBuild.Npc
                 case 7:
                     if (quest != null)
                     {
-                        quest.Accept(game);
+                        quest.Accept(this);
                     }
                     break;
                 default:

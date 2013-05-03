@@ -116,6 +116,7 @@
     <Compile Include="Game\Menu\Menu.cs" />
     <Compile Include="Npc\Projectile.cs" />
     <Compile Include="Npc\Quest.cs" />
+    <Compile Include="Game\Items\Sword.cs" />
     <Compile Include="Npc\WaypointManager.cs" />
     <Compile Include="Particle\Particle.cs" />
     <Compile Include="Particle\ParticleSystem.cs" />

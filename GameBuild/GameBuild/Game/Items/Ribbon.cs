@@ -25,17 +25,21 @@ namespace GameBuild.Game.Items
             label = new ItemLabel(new Rectangle(position.X, position.Y - 25, 0, 25), this.item.Length, game);
         }
 
-        public void PickUp(cCharacter player, Game1 game)
+        public void PickUp(Game1 game)
         {
-            for (int x = 0; x < player.inventory.width; x++)
+            for (int x = 0; x < Game1.character.inventory.width; x++)
             {
-                for (int y = 0; y < player.inventory.height; y++)
+                for (int y = 0; y < Game1.character.inventory.height; y++)
                 {
-                    if (player.inventory.inventorySlot[x, y].item == null && !added)
+                    if (Game1.character.inventory.inventorySlot[x, y].item == null && !added)
                     {
-                        player.inventory.inventorySlot[x, y].item = item;
-                        player.inventory.inventorySlot[x, y].itemTexture = texture;
+                        Game1.character.inventory.inventorySlot[x, y].item = item;
+                        Game1.character.inventory.inventorySlot[x, y].itemTexture = texture;
                         added = true;
+                    }
+                    if (added)
+                    {
+                        break;
                     }
                 }
             }

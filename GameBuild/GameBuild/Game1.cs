@@ -344,7 +344,7 @@ namespace GameBuild
                     }
                     if (character.positionRectangle.Intersects(ribbon.position) && ribbon.IsOnMap() && !ribbon.added)
                     {
-                        ribbon.PickUp(character, this);
+                        ribbon.PickUp(this);
                     }
                     character.npcsInRectangle = 0;
                     for (int i = 0; i < activeNpcs.Count; i++)
@@ -353,11 +353,6 @@ namespace GameBuild
                         {
                             character.npcsInRectangle++;
                         }
-                    }
-
-                    for (int i = 0; i < Npcs.Count; i++)
-                    {
-                        Npcs[i].UpdateDialogue(this);
                     }
                     for (int i = 0; i < activeNpcs.Count; i++)
                     {
@@ -385,12 +380,20 @@ namespace GameBuild
                                     if (character.HasItem(activeNpcs[i].quest.item))
                                     {
                                         activeNpcs[i].quest.Return(this);
-                                        activeNpcs[i].UpdateDialogue(this);
+                                    }
+                                    if (!activeNpcs[i].quest.completed)
+                                    {
+                                        activeNpcs[i].isInteracting = true;
+                                        activeNpcs[i].dialogue.isTalking = true;
+                                        currentGameState = GameState.INTERACT;
                                     }
                                 }
-                                activeNpcs[i].isInteracting = true;
-                                activeNpcs[i].dialogue.isTalking = true;
-                                currentGameState = GameState.INTERACT;
+                                else
+                                {
+                                    activeNpcs[i].isInteracting = true;
+                                    activeNpcs[i].dialogue.isTalking = true;
+                                    currentGameState = GameState.INTERACT;
+                                }
                             }
                         }
                         if (activeNpcs[i].health <= 0)
