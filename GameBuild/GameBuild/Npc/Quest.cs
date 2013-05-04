@@ -20,7 +20,7 @@ namespace GameBuild.Npc
             this.npcName = npcName;
         }
 
-        public void Accept(Game1 game)
+        public void Accept(Game1 game, Npc npc)
         {
             accepted = true;
             for (int i = 0; i < game.activeNpcs.Count; i++)
@@ -33,6 +33,20 @@ namespace GameBuild.Npc
                     }
                     else
                         game.activeNpcs[i].dialogue.dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + game.activeNpcs[i].secondDialogue + ".txt");
+
+                    if (npc.name == npcName)
+                    {
+                        if (Game1.character.HasItem(item))
+                        {
+                            npc.dialogue.dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + npc.thirdDialogue + ".txt");
+                            npc.dialogue.dialogueManager.ReachedExit += npc.ExitedDialogue;
+                        }
+                        else
+                        {
+                            npc.dialogue.dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + npc.secondDialogue + ".txt");
+                            npc.dialogue.dialogueManager.ReachedExit += npc.ExitedDialogue;
+                        }
+                    }
                 }
             }
         }

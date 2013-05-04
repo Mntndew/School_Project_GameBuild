@@ -9,34 +9,16 @@ Content\particle.xnb
 Content\Particle\particle.xnb
 Content\Game\key.xnb
 Content\Game\tileset.xnb
+Content\Npc\portrait\Headmaster.xnb
 Content\Npc\portrait\Nurse.xnb
 Content\Npc\sprite\Headmaster.xnb
+Content\Npc\sprite\Nurse.xnb
 Content\Game\Hp bar.xnb
 Content\Game\target.xnb
 Content\robot.xnb
 Content\Npc\bot.xnb
-Content\Npc\portrait\Cybot.xnb
-Content\Npc\sprite\Cybot.xnb
-Content\Npc\portrait\Headmaster.xnb
-Content\Npc\portrait\Lamia.xnb
-Content\Npc\portrait\Sylian.xnb
-Content\Npc\sprite\Sylian.xnb
-Content\Npc\sprite\Nurse.xnb
-Content\Game\forest.xnb
-Content\Npc\sprite\forestCybot.xnb
-Content\Game\female.xnb
-Content\Game\femaleSelected.xnb
-Content\Game\male.xnb
-Content\Game\maleSelected.xnb
-Content\Game\Menu\exit.xnb
-Content\Game\Menu\exitSelected.xnb
-Content\Game\Menu\resume.xnb
-Content\Game\Menu\resumeSelected.xnb
-Content\Game\Startmenu\exitDeselect.xnb
-Content\Game\Startmenu\exitSelect.xnb
-Content\Game\Startmenu\playDeselect.xnb
-Content\Game\Startmenu\playSelect.xnb
-Content\Npc\deathSprite.xnb
+<<<<<<< HEAD
+=======
 Content\Game\lighting.xnb
 Content\Game\SpriteFont1.xnb
 Content\Map\Map4_C.xnb
@@ -45,6 +27,17 @@ Content\Map\Map3_B.xnb
 Content\Map\Map3_A.xnb
 Content\Map\Map2_A.xnb
 Content\Map\Map1_A.xnb
+Content\Player\female.xnb
+>>>>>>> 93fdd2d6c2eb1ac618d19011f0daa714262d51a0
+Content\Npc\portrait\Cybot.xnb
+Content\Npc\sprite\Cybot.xnb
+Content\Npc\portrait\Lamia.xnb
+Content\Npc\portrait\Sylian.xnb
+Content\Npc\sprite\Sylian.xnb
+Content\Game\forest.xnb
+Content\Npc\sprite\forestCybot.xnb
+<<<<<<< HEAD
+=======
 Content\Audio\Songs\Boss battle song 1.xnb
 Content\Audio\Songs\Boss battle song 2.xnb
 Content\Audio\Songs\School basic song 1.xnb
@@ -59,8 +52,27 @@ Content\Audio\Songs\School basic song 7.xnb
 Content\Audio\Songs\School basic song 8.xnb
 Content\Audio\Songs\School basic song 9.xnb
 Content\Audio\Songs\School battle song.xnb
+Content\Player\femalewalk.xnb
+Content\Player\malewalk.xnb
+Content\Player\forestFemale.xnb
+Content\Player\forestMale.xnb
+Content\Player\maleSheet.xnb
+>>>>>>> 93fdd2d6c2eb1ac618d19011f0daa714262d51a0
+Content\Game\female.xnb
+Content\Game\femaleSelected.xnb
+Content\Game\male.xnb
+Content\Game\maleSelected.xnb
+Content\Game\Menu\exit.xnb
+Content\Game\Menu\exitSelected.xnb
+Content\Game\Menu\resume.xnb
+Content\Game\Menu\resumeSelected.xnb
+Content\Game\Startmenu\exitDeselect.xnb
+Content\Game\Startmenu\exitSelect.xnb
+Content\Game\Startmenu\playDeselect.xnb
+Content\Game\Startmenu\playSelect.xnb
 Content\Npc\portrait\Laune.xnb
 Content\Npc\sprite\Laune.xnb
+Content\Npc\deathSprite.xnb
 Content\Game\itemLabel.xnb
 Content\Game\labelSide.xnb
 Content\Game\labelSide2.xnb

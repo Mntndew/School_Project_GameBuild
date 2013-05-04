@@ -560,10 +560,8 @@ C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild
 C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Cybot.xnb
 C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Cybot.xnb
 C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Lamia.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Succubus.xnb
 C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Sylian.xnb
 C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Sylian.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Succubus.xnb
 C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\forest.xnb
 C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\forestCybot.xnb
 C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 1.xnb
@@ -597,10 +595,8 @@ C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild
 C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Cybot.txt
 C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\Cybot dead.txt
 C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Sylian.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Succubus.txt
 C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\nurse.txt
 C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\headmaster.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\recieve key.txt
 C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\First cybot encounter.txt
 C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\forest.xnb
 C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\forestCybot.xnb
@@ -879,3 +875,18 @@ C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\Game
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-cockiri.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Laune.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Laune.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\deathSprite.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\itemLabel.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\labelSide.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\labelSide2.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Lamia.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\ribbon.xnb
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Laune.txt
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\Laune.txt
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Lamia.txt
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\informer.txt
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\SylianAccept.txt
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\SylianComplete.txt
+C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\SylianNoRibbon.txt

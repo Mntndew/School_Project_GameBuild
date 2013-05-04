@@ -161,7 +161,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Headmaster.xnb</Output>
-      <Time>2013-04-25T14:17:09.0465215+02:00</Time>
+      <Time>2013-05-03T15:34:26.5102865+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\sprite\Nurse.png</Source>
@@ -170,7 +170,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Nurse.xnb</Output>
-      <Time>2013-04-25T14:17:09.0475216+02:00</Time>
+      <Time>2013-05-03T15:34:26.5122866+02:00</Time>
     </Item>
     <Item>
       <Source>Game\Hp bar.png</Source>
@@ -269,7 +269,7 @@
       <Processor>TileMapProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map2_A.xnb</Output>
-      <Time>2013-04-25T14:17:08.9655169+02:00</Time>
+      <Time>2013-05-03T15:34:26.2622723+02:00</Time>
     </Item>
     <Item>
       <Source>Map\Map1_A.tm</Source>
@@ -305,7 +305,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Cybot.xnb</Output>
-      <Time>2013-04-25T14:17:09.0455215+02:00</Time>
+      <Time>2013-05-03T15:34:26.5092865+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\portrait\Lamia.png</Source>
@@ -315,15 +315,6 @@
       <Options>None</Options>
       <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Lamia.xnb</Output>
       <Time>2013-04-25T14:17:09.0245203+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Npc\portrait\Succubus.png</Source>
-      <Name>Npc\portrait\Succubus</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Succubus.xnb</Output>
-      <Time>2013-04-25T14:17:09.037521+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\portrait\Sylian.png</Source>
@@ -344,22 +335,13 @@
       <Time>2013-04-25T14:17:09.0485217+02:00</Time>
     </Item>
     <Item>
-      <Source>Npc\sprite\Succubus.png</Source>
-      <Name>Npc\sprite\Succubus</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Succubus.xnb</Output>
-      <Time>2013-04-25T14:17:09.0475216+02:00</Time>
-    </Item>
-    <Item>
       <Source>Game\forest.png</Source>
       <Name>Game\forest</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\forest.xnb</Output>
-      <Time>2013-04-25T14:27:43.3878038+02:00</Time>
+      <Time>2013-05-03T15:34:26.2422712+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\sprite\forestCybot.png</Source>
@@ -368,7 +350,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\forestCybot.xnb</Output>
-      <Time>2013-04-25T14:28:03.9199782+02:00</Time>
+      <Time>2013-05-03T15:34:26.5262874+02:00</Time>
     </Item>
     <Item>
       <Source>Audio\Songs\Boss battle song 1.mp3</Source>
@@ -662,6 +644,78 @@
       <Options>None</Options>
       <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Startmenu\playSelect.xnb</Output>
       <Time>2013-04-25T23:51:39.3521102+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\portrait\Laune.png</Source>
+      <Name>Npc\portrait\Laune</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Laune.xnb</Output>
+      <Time>2013-05-03T15:34:26.501286+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\sprite\Laune.png</Source>
+      <Name>Npc\sprite\Laune</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Laune.xnb</Output>
+      <Time>2013-05-03T15:34:26.5112866+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\deathSprite.png</Source>
+      <Name>Npc\deathSprite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\deathSprite.xnb</Output>
+      <Time>2013-05-03T15:34:26.2632724+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Game\itemLabel.png</Source>
+      <Name>Game\itemLabel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\itemLabel.xnb</Output>
+      <Time>2013-05-03T15:34:26.2422712+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Game\labelSide.png</Source>
+      <Name>Game\labelSide</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\labelSide.xnb</Output>
+      <Time>2013-05-03T15:34:26.2432713+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Game\labelSide2.png</Source>
+      <Name>Game\labelSide2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\labelSide2.xnb</Output>
+      <Time>2013-05-03T15:34:26.2432713+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\sprite\Lamia.png</Source>
+      <Name>Npc\sprite\Lamia</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Lamia.xnb</Output>
+      <Time>2013-05-03T15:34:26.5102865+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Game\ribbon.png</Source>
+      <Name>Game\ribbon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\ribbon.xnb</Output>
+      <Time>2013-05-03T15:34:26.2432713+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

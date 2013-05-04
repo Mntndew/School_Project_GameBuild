@@ -6,7 +6,6 @@ using System.IO;
 
 namespace GameBuild
 {
-
     public delegate void ExitEventHandler(object sender, DialogueEventArgs e);
 
     /// <summary>

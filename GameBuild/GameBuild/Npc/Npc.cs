@@ -136,7 +136,7 @@ namespace GameBuild.Npc
             healthTexture = game.Content.Load<Texture2D>(@"Game\health100");
             aColor = Color.White;
             if (name == "Celine")
-            {
+            { 
                 animation = new AnimationComponent(2, 8, 50, 72, 175, Microsoft.Xna.Framework.Point.Zero);
                 position.Height = 72;
                 sword = new Game.Items.Sword("cockiri", 3, 17);
@@ -872,9 +872,10 @@ namespace GameBuild.Npc
             }
         }
 
-        private void ExitedDialogue(object sender, DialogueEventArgs e)
+        public void ExitedDialogue(object sender, DialogueEventArgs e)
         {
             Console.WriteLine(e.exitNumber);
+            
             switch (e.exitNumber)
             {
                 case 0:
@@ -887,7 +888,7 @@ namespace GameBuild.Npc
                     attackPlayer = true;
                     
                     break;
-
+                     
                 case 2:
                     if (key != null)
                     {
@@ -920,6 +921,7 @@ namespace GameBuild.Npc
                     if (secondDialogue != "null")
                     {
                         dialogue.dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + secondDialogue + ".txt");
+                        dialogue.dialogueManager.ReachedExit += ExitedDialogue; 
                     }
                     break;
 
@@ -932,12 +934,13 @@ namespace GameBuild.Npc
                     if (secondDialogue != "null")
                     {
                         dialogue.dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + secondDialogue + ".txt");
+                        dialogue.dialogueManager.ReachedExit += ExitedDialogue; 
                     }
                     break;
                 case 7:
                     if (quest != null)
                     {
-                        quest.Accept(game);
+                        quest.Accept(game, this);
                     }
                     break;
                 default:
