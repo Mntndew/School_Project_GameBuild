@@ -20,19 +20,19 @@ namespace GameBuild.Npc
             this.npcName = npcName;
         }
 
-        public void Accept(Npc npc)
+        public void Accept(Game1 game)
         {
             accepted = true;
-            //for (int i = 0; i < game.activeNpcs.Count; i++)
+            for (int i = 0; i < game.activeNpcs.Count; i++)
             {
-                if (npc.name == npcName)
+                if (game.activeNpcs[i].name == npcName)
                 {
                     if (Game1.character.HasItem(item))
                     {
-                        npc.dialogue.dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + npc.thirdDialogue + ".txt");
+                        game.activeNpcs[i].dialogue.dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + game.activeNpcs[i].thirdDialogue + ".txt");
                     }
                     else
-                        npc.dialogue.dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + npc.secondDialogue + ".txt");
+                        game.activeNpcs[i].dialogue.dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + game.activeNpcs[i].secondDialogue + ".txt");
                 }
             }
         }

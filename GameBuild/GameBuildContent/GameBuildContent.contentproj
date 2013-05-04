@@ -63,21 +63,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Player\CharaAttackSheet V2.png">
-      <Name>CharaAttackSheet V2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Player\CharaWalkSheet.png">
-      <Name>CharaWalkSheet</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Player\CharaWalkSheetBKU.png">
-      <Name>CharaWalkSheetBKU</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Player\shadowTex.png">
       <Name>shadowTex</Name>
       <Importer>TextureImporter</Importer>
@@ -170,7 +155,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Player\Male.png">
+    <Compile Include="Player\Portrait\Male.png">
       <Name>Male</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -301,7 +286,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Player\female.png">
+    <Compile Include="Player\Portrait\female.png">
       <Name>female</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -486,24 +471,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Player\femalewalk.png">
-      <Name>femalewalk</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Player\malewalk.png">
-      <Name>malewalk</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Player\forestFemale.png">
+    <Compile Include="Player\Sprite\Female\forestFemale.png">
       <Name>forestFemale</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Player\forestMale.png">
+    <Compile Include="Player\Sprite\Male\forestMale.png">
       <Name>forestMale</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -514,13 +487,6 @@
       <Name>Nurse questions</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Player\maleSheet.png">
-      <Name>maleSheet</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game\female.png">
@@ -672,6 +638,71 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <Name>SylianNoRibbon</Name>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\sprite\student\student1.png">
+      <Name>student1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Npc\sprite\student\student2.png">
+      <Name>student2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Npc\sprite\student\student3.png">
+      <Name>student3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Player\Sprite\Male\male.png">
+      <Name>male</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Player\Sprite\Female\female-cockiri.png">
+      <Name>female-cockiri</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Player\Sprite\Female\female-dong.png">
+      <Name>female-dong</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Player\Sprite\Female\female-thruster.png">
+      <Name>female-thruster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Player\Sprite\Male\male-cockiri.png">
+      <Name>male-cockiri</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Player\Sprite\Male\male-dong.png">
+      <Name>male-dong</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Player\Sprite\Male\male-thruster.png">
+      <Name>male-thruster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Player\Sprite\Female\female.png">
+      <Name>female</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

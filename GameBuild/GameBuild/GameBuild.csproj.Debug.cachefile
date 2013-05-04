@@ -1,16 +1,12 @@
 Content\Game\blackness.xnb
 Content\Game\lightTexture.xnb
 Content\Npc\A.xnb
-Content\Player\CharaAttackSheet V2.xnb
-Content\Player\CharaWalkSheet.xnb
-Content\Player\CharaWalkSheetBKU.xnb
 Content\Player\shadowTex.xnb
 Content\Game\health100.xnb
 Content\Player\emptySlot.xnb
 Content\Game\textBox.xnb
 Content\particle.xnb
 Content\Particle\particle.xnb
-Content\Player\Male.xnb
 Content\Game\key.xnb
 Content\Game\tileset.xnb
 Content\Npc\portrait\Nurse.xnb
@@ -19,7 +15,6 @@ Content\Game\Hp bar.xnb
 Content\Game\target.xnb
 Content\robot.xnb
 Content\Npc\bot.xnb
-Content\Player\female.xnb
 Content\Npc\portrait\Cybot.xnb
 Content\Npc\sprite\Cybot.xnb
 Content\Npc\portrait\Headmaster.xnb
@@ -29,11 +24,6 @@ Content\Npc\sprite\Sylian.xnb
 Content\Npc\sprite\Nurse.xnb
 Content\Game\forest.xnb
 Content\Npc\sprite\forestCybot.xnb
-Content\Player\femalewalk.xnb
-Content\Player\malewalk.xnb
-Content\Player\forestFemale.xnb
-Content\Player\forestMale.xnb
-Content\Player\maleSheet.xnb
 Content\Game\female.xnb
 Content\Game\femaleSelected.xnb
 Content\Game\male.xnb
@@ -76,6 +66,21 @@ Content\Game\labelSide.xnb
 Content\Game\labelSide2.xnb
 Content\Npc\sprite\Lamia.xnb
 Content\Game\ribbon.xnb
+Content\Npc\sprite\student\student1.xnb
+Content\Npc\sprite\student\student2.xnb
+Content\Npc\sprite\student\student3.xnb
+Content\Player\Portrait\Male.xnb
+Content\Player\Portrait\female.xnb
+Content\Player\Sprite\Female\forestFemale.xnb
+Content\Player\Sprite\Male\forestMale.xnb
+Content\Player\Sprite\Female\female-cockiri.xnb
+Content\Player\Sprite\Female\female-dong.xnb
+Content\Player\Sprite\Female\female-thruster.xnb
+Content\Player\Sprite\Male\male-dong.xnb
+Content\Player\Sprite\Male\male-thruster.xnb
+Content\Player\Sprite\Male\male-cockiri.xnb
+Content\Player\Sprite\Male\male.xnb
+Content\Player\Sprite\Female\female.xnb
 Content\Audio\Songs\Boss battle song 1.wma
 Content\Audio\Songs\Boss battle song 2.wma
 Content\Audio\Songs\School basic song 1.wma

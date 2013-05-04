@@ -29,33 +29,6 @@
       <Time>2013-04-18T18:36:35+02:00</Time>
     </Item>
     <Item>
-      <Source>Player\CharaAttackSheet V2.png</Source>
-      <Name>Player\CharaAttackSheet V2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\CharaAttackSheet V2.xnb</Output>
-      <Time>2013-04-18T18:36:35+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Player\CharaWalkSheet.png</Source>
-      <Name>Player\CharaWalkSheet</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\CharaWalkSheet.xnb</Output>
-      <Time>2013-04-18T18:36:35+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Player\CharaWalkSheetBKU.png</Source>
-      <Name>Player\CharaWalkSheetBKU</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\CharaWalkSheetBKU.xnb</Output>
-      <Time>2013-04-18T18:36:35+02:00</Time>
-    </Item>
-    <Item>
       <Source>Player\shadowTex.png</Source>
       <Name>Player\shadowTex</Name>
       <Importer>TextureImporter</Importer>
@@ -108,15 +81,6 @@
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Particle\particle.xnb</Output>
       <Time>2013-04-22T17:07:11+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Player\Male.png</Source>
-      <Name>Player\Male</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Male.xnb</Output>
-      <Time>2013-04-18T18:36:36+02:00</Time>
     </Item>
     <Item>
       <Source>Game\key.png</Source>
@@ -189,15 +153,6 @@
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\bot.xnb</Output>
       <Time>2013-04-22T17:07:33+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Player\female.png</Source>
-      <Name>Player\female</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\female.xnb</Output>
-      <Time>2013-04-25T14:17:09+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\portrait\Cybot.png</Source>
@@ -279,51 +234,6 @@
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\forestCybot.xnb</Output>
       <Time>2013-04-27T13:18:01.0196249+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Player\femalewalk.png</Source>
-      <Name>Player\femalewalk</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\femalewalk.xnb</Output>
-      <Time>2013-04-25T20:42:16+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Player\malewalk.png</Source>
-      <Name>Player\malewalk</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\malewalk.xnb</Output>
-      <Time>2013-04-25T20:42:16+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Player\forestFemale.png</Source>
-      <Name>Player\forestFemale</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\forestFemale.xnb</Output>
-      <Time>2013-04-25T20:42:16+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Player\forestMale.png</Source>
-      <Name>Player\forestMale</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\forestMale.xnb</Output>
-      <Time>2013-04-25T20:42:16+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Player\maleSheet.png</Source>
-      <Name>Player\maleSheet</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\maleSheet.xnb</Output>
-      <Time>2013-04-25T22:03:50+02:00</Time>
     </Item>
     <Item>
       <Source>Game\female.png</Source>
@@ -716,6 +626,141 @@
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\ribbon.xnb</Output>
       <Time>2013-05-01T01:19:18.6776136+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\sprite\student\student1.png</Source>
+      <Name>Npc\sprite\student\student1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student1.xnb</Output>
+      <Time>2013-05-03T21:30:31.5857+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\sprite\student\student2.png</Source>
+      <Name>Npc\sprite\student\student2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student2.xnb</Output>
+      <Time>2013-05-03T21:33:15.6169052+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\sprite\student\student3.png</Source>
+      <Name>Npc\sprite\student\student3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student3.xnb</Output>
+      <Time>2013-05-03T21:41:11.1039651+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Player\Portrait\Male.png</Source>
+      <Name>Player\Portrait\Male</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Portrait\Male.xnb</Output>
+      <Time>2013-04-18T18:36:36+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Player\Portrait\female.png</Source>
+      <Name>Player\Portrait\female</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Portrait\female.xnb</Output>
+      <Time>2013-04-25T14:17:09+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Player\Sprite\Female\forestFemale.png</Source>
+      <Name>Player\Sprite\Female\forestFemale</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\forestFemale.xnb</Output>
+      <Time>2013-04-25T20:42:16+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Player\Sprite\Male\forestMale.png</Source>
+      <Name>Player\Sprite\Male\forestMale</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\forestMale.xnb</Output>
+      <Time>2013-04-25T20:42:16+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Player\Sprite\Female\female-cockiri.png</Source>
+      <Name>Player\Sprite\Female\female-cockiri</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-cockiri.xnb</Output>
+      <Time>2013-05-04T00:36:34.6635845+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Player\Sprite\Female\female-dong.png</Source>
+      <Name>Player\Sprite\Female\female-dong</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-dong.xnb</Output>
+      <Time>2013-05-04T00:35:58.2595322+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Player\Sprite\Female\female-thruster.png</Source>
+      <Name>Player\Sprite\Female\female-thruster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-thruster.xnb</Output>
+      <Time>2013-05-04T00:35:27.4734888+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Player\Sprite\Male\male-dong.png</Source>
+      <Name>Player\Sprite\Male\male-dong</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-dong.xnb</Output>
+      <Time>2013-05-04T01:03:16.0198467+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Player\Sprite\Male\male-thruster.png</Source>
+      <Name>Player\Sprite\Male\male-thruster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-thruster.xnb</Output>
+      <Time>2013-05-04T01:13:09.0842081+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Player\Sprite\Male\male-cockiri.png</Source>
+      <Name>Player\Sprite\Male\male-cockiri</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-cockiri.xnb</Output>
+      <Time>2013-05-04T01:17:12.0775501+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Player\Sprite\Male\male.png</Source>
+      <Name>Player\Sprite\Male\male</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male.xnb</Output>
+      <Time>2013-05-04T19:53:11.7343194+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Player\Sprite\Female\female.png</Source>
+      <Name>Player\Sprite\Female\female</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female.xnb</Output>
+      <Time>2013-05-04T19:56:46.2336219+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

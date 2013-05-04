@@ -33,7 +33,6 @@ namespace GameBuild
         public int damage;
         public int speed;
         public int npcsInRectangle = 0;
-        int minDamage = 1, maxDamage = 12;
 
         public float regenAmount;
 
@@ -80,9 +79,11 @@ namespace GameBuild
         public Inventory inventory;
         public List<DamageEffect> damageEffectList = new List<DamageEffect>();
 
-        AnimationComponent animation;
+        public AnimationComponent animation;
 
         ParticleSystemEmitter emitter;
+
+        Game.Items.Sword sword;
 
         //Animations
         const int WALK_UP = 3;
@@ -112,13 +113,13 @@ namespace GameBuild
             debugTexture = game.Content.Load<Texture2D>(@"Game\blackness");
             if (gender == "male")
             {
-                spriteSheet = game.Content.Load<Texture2D>("player/maleSheet");
-                animation = new AnimationComponent(4, 13, 50, 70, 150, Point.Zero);
+                spriteSheet = game.Content.Load<Texture2D>("Player/Sprite/Male/male");
+                animation = new AnimationComponent(4, 8, 53, 70, 150, Point.Zero);
             }
             if (gender == "female")
             {
-                spriteSheet = game.Content.Load<Texture2D>("player/femalewalk");
-                animation = new AnimationComponent(4, 4, 41, 70, 150, Point.Zero);
+                spriteSheet = game.Content.Load<Texture2D>("Player/Sprite/Female/female");
+                animation = new AnimationComponent(4, 8, 41, 70, 150, Point.Zero);
             }
             
             shadowBlob = game.Content.Load<Texture2D>("player/shadowTex");
@@ -489,79 +490,82 @@ namespace GameBuild
             }
             #region Attack
             attackTimer -= elapsed;
-            if (game.keyState.IsKeyDown(Keys.Z) && game.oldState.IsKeyUp(Keys.Z) && !dead && attackTimer <= 0)
+            if (sword != null)
             {
-                attackTimer = ATTACKTIMER;
-                attacking = true;
-                animation.MaxFrameCount = 1;
-                if (up)
+                if (game.keyState.IsKeyDown(Keys.Z) && game.oldState.IsKeyUp(Keys.Z) && !dead && attackTimer <= 0)
                 {
-                    animation.PlayAnimation(ATTACK_UP);
-                }
-                else if (down)
-                {
-                    animation.PlayAnimation(ATTACK_DOWN);
-                }
-                else if (left)
-                {
-                    animation.PlayAnimation(ATTACK_LEFT);
-                }
-                else if (right)
-                {
-                    animation.PlayAnimation(ATTACK_RIGHT);
-                }
+                    attackTimer = ATTACKTIMER;
+                    attacking = true;
+                    animation.MaxFrameCount = 1;
+                    if (up)
+                    {
+                        animation.PlayAnimation(ATTACK_UP);
+                    }
+                    else if (down)
+                    {
+                        animation.PlayAnimation(ATTACK_DOWN);
+                    }
+                    else if (left)
+                    {
+                        animation.PlayAnimation(ATTACK_LEFT);
+                    }
+                    else if (right)
+                    {
+                        animation.PlayAnimation(ATTACK_RIGHT);
+                    }
 
-                foreach (Npc.Npc npc in game.activeNpcs)
-                {
-                    if (npc.position.Intersects(attackRectangle))
+                    foreach (Npc.Npc npc in game.activeNpcs)
                     {
-                        if (npc.health > 0 && npc.IsOnMap() && npc.vulnerable)
+                        if (npc.position.Intersects(attackRectangle))
                         {
-                            damage = game.damageObject.dealDamage(minDamage, maxDamage);
-                            damageEffectList.Add(new DamageEffect(damage, game, new Vector2(npc.position.X, npc.position.Y - 16), new Color(255, 255, 255, 255), "player"));
-                            npc.health -= damage;
-                            npc.attackPlayer = true;
-                            npc.attackTimer += 300;
-                            Slash(npc.position);
-                        }
-                    }
-                }
-                if (positionRectangle.Intersects(Game1.testBoss.position))
-                {
-                    if (Game1.testBoss.health > 0 && Game1.testBoss.IsOnMap())
-                    {
-                        damage = game.damageObject.dealDamage(minDamage, maxDamage) * 2;
-                        damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.testBoss.position.X, Game1.testBoss.position.Y - 16), new Color(255, 255, 255, 255), "player"));
-                        Game1.testBoss.health -= damage;
-                        Game1.testBoss.currentPhase = Npc.Boss.phase.sleep;
-                    }
-                }
-                for (int i = 0; i < Game1.testBoss.mobs.Count; i++)
-                {
-                    if (positionRectangle.Intersects(Game1.testBoss.mobs[i].position))
-                    {
-                        if (Game1.testBoss.mobs[i].health > 0)
-                        {
-                            damage = game.damageObject.dealDamage(minDamage, maxDamage);
-                            damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.testBoss.mobs[i].position.X, Game1.testBoss.mobs[i].position.Y - 16), new Color(255, 255, 255, 255), "player"));
-                            Game1.testBoss.mobs[i].health -= damage;
-                            if (Game1.testBoss.mobs[i].health <= 0)
+                            if (npc.health > 0 && npc.IsOnMap() && npc.vulnerable)
                             {
-                                Game1.testBoss.health -= 1;
+                                damage = game.damageObject.dealDamage(sword.minDamage, sword.maxDamage);
+                                damageEffectList.Add(new DamageEffect(damage, game, new Vector2(npc.position.X, npc.position.Y - 16), new Color(255, 255, 255, 255), "player"));
+                                npc.health -= damage;
+                                npc.attackPlayer = true;
+                                npc.attackTimer += 300;
+                                Slash(npc.position);
                             }
                         }
                     }
-                }
-                for (int i = 0; i < game.Mobs.Count; i++)
-                {
-                    if (game.Mobs[i].position.Intersects(attackRectangle))
+                    if (positionRectangle.Intersects(Game1.testBoss.position))
                     {
-                        if (game.Mobs[i].health > 0 && game.Mobs[i].IsOnMap())
+                        if (Game1.testBoss.health > 0 && Game1.testBoss.IsOnMap())
                         {
-                            damage = game.damageObject.dealDamage(minDamage, maxDamage);
-                            damageEffectList.Add(new DamageEffect(damage, game, new Vector2(game.Mobs[i].position.X, game.Mobs[i].position.Y - 16), new Color(255, 255, 255, 255), "player"));
-                            game.Mobs[i].health -= damage;
-                            game.Mobs[i].attackPlayer = true;
+                            damage = game.damageObject.dealDamage(sword.minDamage, sword.maxDamage) * 2;
+                            damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.testBoss.position.X, Game1.testBoss.position.Y - 16), new Color(255, 255, 255, 255), "player"));
+                            Game1.testBoss.health -= damage;
+                            Game1.testBoss.currentPhase = Npc.Boss.phase.sleep;
+                        }
+                    }
+                    for (int i = 0; i < Game1.testBoss.mobs.Count; i++)
+                    {
+                        if (positionRectangle.Intersects(Game1.testBoss.mobs[i].position))
+                        {
+                            if (Game1.testBoss.mobs[i].health > 0)
+                            {
+                                damage = game.damageObject.dealDamage(sword.minDamage, sword.maxDamage);
+                                damageEffectList.Add(new DamageEffect(damage, game, new Vector2(Game1.testBoss.mobs[i].position.X, Game1.testBoss.mobs[i].position.Y - 16), new Color(255, 255, 255, 255), "player"));
+                                Game1.testBoss.mobs[i].health -= damage;
+                                if (Game1.testBoss.mobs[i].health <= 0)
+                                {
+                                    Game1.testBoss.health -= 1;
+                                }
+                            }
+                        }
+                    }
+                    for (int i = 0; i < game.Mobs.Count; i++)
+                    {
+                        if (game.Mobs[i].position.Intersects(attackRectangle))
+                        {
+                            if (game.Mobs[i].health > 0 && game.Mobs[i].IsOnMap())
+                            {
+                                damage = game.damageObject.dealDamage(sword.minDamage, sword.maxDamage);
+                                damageEffectList.Add(new DamageEffect(damage, game, new Vector2(game.Mobs[i].position.X, game.Mobs[i].position.Y - 16), new Color(255, 255, 255, 255), "player"));
+                                game.Mobs[i].health -= damage;
+                                game.Mobs[i].attackPlayer = true;
+                            }
                         }
                     }
                 }
@@ -680,10 +684,10 @@ namespace GameBuild
         }
         #endregion
 
-        public void GetSword(Game.Items.Sword sword, int minDamage, int maxDamage)
+        public void GetSword(Game.Items.Sword sword, Game1 game)
         {
-            this.minDamage = minDamage;
-            this.maxDamage = maxDamage;
+            this.sword = new Game.Items.Sword(sword.swordName, sword.minDamage, sword.maxDamage);
+            this.sword.SetSprite(sword.swordName, game);
         }
 
         public void Draw(SpriteBatch spriteBatch)

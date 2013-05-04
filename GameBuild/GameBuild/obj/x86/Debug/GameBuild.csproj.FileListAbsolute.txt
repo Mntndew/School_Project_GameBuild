@@ -619,16 +619,12 @@ C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\blackness.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\lightTexture.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\A.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\CharaAttackSheet V2.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\CharaWalkSheet.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\CharaWalkSheetBKU.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\shadowTex.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\health100.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\emptySlot.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\textBox.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\particle.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Particle\particle.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Male.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\key.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\tileset.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Nurse.xnb
@@ -637,7 +633,6 @@ C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\Game
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\target.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\robot.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\bot.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\female.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Cybot.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Cybot.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Headmaster.xnb
@@ -647,11 +642,6 @@ C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\Game
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Nurse.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\forest.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\forestCybot.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\femalewalk.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\malewalk.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\forestFemale.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\forestMale.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\maleSheet.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\lighting.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\SpriteFont1.xnb
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map4_C.xnb
@@ -874,3 +864,18 @@ C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\Game
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\SylianAccept.txt
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\SylianComplete.txt
 C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\SylianNoRibbon.txt
+C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student1.xnb
+C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student2.xnb
+C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student3.xnb
+C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Portrait\Male.xnb
+C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Portrait\female.xnb
+C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\forestFemale.xnb
+C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\forestMale.xnb
+C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-cockiri.xnb
+C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-dong.xnb
+C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-thruster.xnb
+C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-dong.xnb
+C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-thruster.xnb
+C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-cockiri.xnb
+C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male.xnb
+C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female.xnb

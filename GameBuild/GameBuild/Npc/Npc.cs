@@ -125,34 +125,11 @@ namespace GameBuild.Npc
             maxHealth = health;
             this.speed = speed;
             this.game = game;
-            sword = new Game.Items.Sword();
+            
             if (name != "Informer")
             {
                 dialogue = new cDialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + portraitPath), Game1.textBox, game, Game1.spriteFont, dialoguePath, name);
                 walkSprite = game.Content.Load<Texture2D>(@"npc\sprite\" + spritePath);
-            }
-            else
-            {
-                if (Game1.character != null)
-                {
-                    if (Game1.character.gender == "male")
-                    {
-                        dialogue = new cDialogue(game.Content.Load<Texture2D>(@"Player\female"), Game1.textBox, game, Game1.spriteFont, dialoguePath, name);
-                        walkSprite = game.Content.Load<Texture2D>(@"Player\femalewalk");
-                    }
-                    else
-                    {
-                        dialogue = new cDialogue(game.Content.Load<Texture2D>(@"Player\Male"), Game1.textBox, game, Game1.spriteFont, dialoguePath, name);
-                        walkSprite = game.Content.Load<Texture2D>(@"Player\maleSheet");
-                    }
-                    mapName = Game1.map.mapName;
-                }
-                else
-                {
-                    dialogue = new cDialogue(game.Content.Load<Texture2D>(@"Player\Male"), Game1.textBox, game, Game1.spriteFont, dialoguePath, name);
-                    walkSprite = game.Content.Load<Texture2D>(@"Player\maleSheet");
-                    mapName = Game1.map.mapName;
-                }
             }
             
             debugTile = game.Content.Load<Texture2D>(@"Player\emptySlot");
@@ -162,7 +139,7 @@ namespace GameBuild.Npc
             {
                 animation = new AnimationComponent(2, 8, 50, 72, 175, Microsoft.Xna.Framework.Point.Zero);
                 position.Height = 72;
-
+                sword = new Game.Items.Sword("cockiri", 3, 17);
                 waypoint = new WaypointManager(name, "Map3_B", 2);
             }
             else if(name == "Headmaster")
@@ -226,11 +203,11 @@ namespace GameBuild.Npc
             this.mapName = mapName;
             position.X = x;
             position.Y = y - 128;
-            position.Width = 50;
-            position.Height = 71;
+            position.Width = width;
+            position.Height = height;
             this.walkSprite = walkSprite;
             this.attackPlayer = attackPlayer;
-            this.health = 1;
+            this.health = health;
             this.minDamage = minDamage;
             this.maxDamage = maxDamage;
             this.hitChance = hitChance;
@@ -242,7 +219,7 @@ namespace GameBuild.Npc
             maxHealth = health;
             MOBPATHTIMER = rand.Next(2000, 10000) * timerMod;
             mob = true;
-            animation = new AnimationComponent(2, 9, 50, 72, 175, Microsoft.Xna.Framework.Point.Zero);
+            animation = new AnimationComponent(2, 9, 50, 74, 175, Microsoft.Xna.Framework.Point.Zero);
             deathSprite = game.Content.Load<Texture2D>(@"Npc\deathSprite");
             key = null;
         }
@@ -876,7 +853,7 @@ namespace GameBuild.Npc
             {
                 if (health > 0)
                 {
-                    if (canInteract)
+                    if (canInteract && Game1.character.npcsInRectangle < 2)
                     {
                         spriteBatch.Draw(aTexture, aPosition, aColor);
                     }
@@ -933,7 +910,10 @@ namespace GameBuild.Npc
                     break;
 
                 case 4:
-                    Game1.character.GetSword(sword, 1, 20);
+                    if (sword != null)
+                    {
+                        Game1.character.GetSword(sword, game);
+                    }
                     break;
 
                 case 5:
@@ -944,7 +924,11 @@ namespace GameBuild.Npc
                     break;
 
                 case 6:
-                    Game1.character.GetSword(sword, 1, 20);
+                    if (sword != null)
+                    {
+                        Game1.character.GetSword(sword, game);
+                        sword = null;
+                    }
                     if (secondDialogue != "null")
                     {
                         dialogue.dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + secondDialogue + ".txt");
@@ -953,7 +937,7 @@ namespace GameBuild.Npc
                 case 7:
                     if (quest != null)
                     {
-                        quest.Accept(this);
+                        quest.Accept(game);
                     }
                     break;
                 default:

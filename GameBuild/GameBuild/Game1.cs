@@ -167,7 +167,7 @@ namespace GameBuild
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             collisionTex = Content.Load<Texture2D>(@"Game\blackness");
-            map = Content.Load<H_Map.TileMap>(@"Map\Map2_A");
+            map = Content.Load<H_Map.TileMap>(@"Map\Map1_A");
             map.tileset = Content.Load<Texture2D>(@"Game\tileset");
             textBox = Content.Load<Texture2D>(@"Game\textBox");
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
@@ -220,18 +220,60 @@ namespace GameBuild
         {
             for (int i = 0; i < 5; i++)
             {
-                Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1800, 48, 48, Content.Load<Texture2D>(@"Npc\sprite\Nurse"), this, "Map1_A", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
-                Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1500, 48, 48, Content.Load<Texture2D>(@"Npc\sprite\Nurse"), this, "Map1_A", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
+                int sprite = rand.Next(1, 4);
+                if (sprite == 1)
+                {
+                    Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1800, 48, 74, Content.Load<Texture2D>(@"Npc\sprite\student\student1"), this, "Map1_A", i + 1 * 0.5f, false, 20, 1, 5, 1, true));
+                    Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1500, 48, 74, Content.Load<Texture2D>(@"Npc\sprite\student\student1"), this, "Map1_A", i + 1 * 0.5f, false, 20, 1, 5, 1, true));
+                }
+                else if(sprite == 2)
+                {
+                    Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1800, 48, 74, Content.Load<Texture2D>(@"Npc\sprite\student\student2"), this, "Map1_A", i + 1 * 0.5f, false, 20, 1, 5, 1, true));
+                    Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1500, 48, 74, Content.Load<Texture2D>(@"Npc\sprite\student\student2"), this, "Map1_A", i + 1 * 0.5f, false, 20, 1, 5, 1, true));
+                }
+                else if (sprite == 3)
+                {
+                    Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1800, 48, 74, Content.Load<Texture2D>(@"Npc\sprite\student\student3"), this, "Map1_A", i + 1 * 0.5f, false, 20, 1, 5, 1, true));
+                    Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1500, 48, 74, Content.Load<Texture2D>(@"Npc\sprite\student\student3"), this, "Map1_A", i + 1 * 0.5f, false, 20, 1, 5, 1, true));
+                }
             }
             for (int i = 0; i < 5; i++)
             {
-                Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1800, 48, 48, Content.Load<Texture2D>(@"Npc\sprite\Nurse"), this, "Map3_A", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
-                Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1500, 48, 48, Content.Load<Texture2D>(@"Npc\sprite\Nurse"), this, "Map3_A", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
+                int sprite = rand.Next(1, 4);
+                if (sprite == 1)
+                {
+                    Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1800, 48, 74, Content.Load<Texture2D>(@"Npc\sprite\student\student1"), this, "Map3_A", i + 1 * 0.5f, false, 20, 1, 5, 1, true));
+                    Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1500, 48, 74, Content.Load<Texture2D>(@"Npc\sprite\student\student1"), this, "Map3_A", i + 1 * 0.5f, false, 20, 1, 5, 1, true));
+                }
+                else if (sprite == 2)
+                {
+                    Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1800, 48, 74, Content.Load<Texture2D>(@"Npc\sprite\student\student2"), this, "Map3_A", i + 1 * 0.5f, false, 20, 1, 5, 1, true));
+                    Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1500, 48, 74, Content.Load<Texture2D>(@"Npc\sprite\student\student2"), this, "Map3_A", i + 1 * 0.5f, false, 20, 1, 5, 1, true));
+                }
+                else if (sprite == 3)
+                {
+                    Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1800, 48, 74, Content.Load<Texture2D>(@"Npc\sprite\student\student3"), this, "Map3_A", i + 1 * 0.5f, false, 20, 1, 5, 1, true));
+                    Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1500, 48, 74, Content.Load<Texture2D>(@"Npc\sprite\student\student3"), this, "Map3_A", i + 1 * 0.5f, false, 20, 1, 5, 1, true));
+                }
             }
             for (int i = 0; i < 5; i++)
             {
-                Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1800, 48, 48, Content.Load<Texture2D>(@"Npc\sprite\Nurse"), this, "Map3_B", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
-                Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1500, 48, 48, Content.Load<Texture2D>(@"Npc\sprite\Nurse"), this, "Map3_B", i + 1 * 0.5f, false, 50, 1, 5, 1, true));
+                int sprite = rand.Next(1, 4);
+                if (sprite == 1)
+                {
+                    Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1800, 48, 74, Content.Load<Texture2D>(@"Npc\sprite\student\student1"), this, "Map3_b", i + 1 * 0.5f, false, 20, 1, 5, 1, true));
+                    Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1500, 48, 74, Content.Load<Texture2D>(@"Npc\sprite\student\student1"), this, "Map3_b", i + 1 * 0.5f, false, 20, 1, 5, 1, true));
+                }   
+                else if (sprite == 2)
+                {
+                    Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1800, 48, 74, Content.Load<Texture2D>(@"Npc\sprite\student\student2"), this, "Map3_b", i + 1 * 0.5f, false, 20, 1, 5, 1, true));
+                    Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1500, 48, 74, Content.Load<Texture2D>(@"Npc\sprite\student\student2"), this, "Map3_b", i + 1 * 0.5f, false, 20, 1, 5, 1, true));
+                }
+                else if (sprite == 3)
+                {
+                    Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1800, 48, 74, Content.Load<Texture2D>(@"Npc\sprite\student\student3"), this, "Map3_b", i + 1 * 0.5f, false, 20, 1, 5, 1, true));
+                    Mobs.Add(new Npc.Npc(256 + (i * 100 + rand.Next(-64, 64)), 1500, 48, 74, Content.Load<Texture2D>(@"Npc\sprite\student\student3"), this, "Map3_b", i + 1 * 0.5f, false, 20, 1, 5, 1, true));
+                }
             }
         }
 
@@ -477,7 +519,7 @@ namespace GameBuild
                     if (keyState.IsKeyDown(Keys.Enter))
                     {
                         gender = "female";
-                        forestCharacter = Content.Load<Texture2D>(@"Player\forestFemale");
+                        forestCharacter = Content.Load<Texture2D>(@"Player\Sprite\Female\forestFemale");
                     }
                 }
                 if (maleSelected)
@@ -487,14 +529,13 @@ namespace GameBuild
                     if (keyState.IsKeyDown(Keys.Enter))
                     {
                         gender = "male";
-                        forestCharacter = Content.Load<Texture2D>(@"Player\forestMale");
+                        forestCharacter = Content.Load<Texture2D>(@"Player\Sprite\Male\forestMale");
                     }
                 }
                 if (gender != null)
                 {
                     character = new cCharacter(this, gender);
                     testBoss = new Npc.Boss(new Rectangle(16 * 64, 7 * 64, 64, 64), this, "Map4_C");
-                    Npcs.Add(new Npc.Npc("Map1_A", "Informer", 750, 130, 50, 64, false, false, false, false, @"Player\femalewalk", @"Player\female", false, false, false, false, 0, 0, 0, 0, 0, this, "informer", "nokey", null, null));
                     UpdateActiveNpcs();
                     nextState = GameState.FOREST;
                     transition = true;
