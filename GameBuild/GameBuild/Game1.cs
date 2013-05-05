@@ -577,17 +577,17 @@ namespace GameBuild
                 map.DrawBackgroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
                 particleSystem.Draw(spriteBatch);
                 character.Draw(spriteBatch);
-                map.DrawInteractiveLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
-                if (ribbon.IsOnMap() && !ribbon.added)
-                {
-                    ribbon.Draw(spriteBatch);
-                }
                 for (int i = 0; i < Mobs.Count; i++)
                 {
                     if (Mobs[i].IsOnMap())
                     {
                         Mobs[i].Draw(spriteBatch);
                     }
+                }
+                map.DrawInteractiveLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
+                if (ribbon.IsOnMap() && !ribbon.added)
+                {
+                    ribbon.Draw(spriteBatch);
                 }
                 for (int i = 0; i < activeNpcs.Count; i++)
                 {
@@ -605,6 +605,7 @@ namespace GameBuild
                     }
                 }
                 map.DrawForegroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
+                warpManager.Draw(spriteBatch, this);
                 for (int i = 0; i < activeNpcs.Count; i++)
                 {
                     activeNpcs[i].DrawHealth(spriteBatch);
@@ -659,7 +660,7 @@ namespace GameBuild
                 {
                     testBoss.DrawHealth(spriteBatch);
                 }
-                warpManager.Draw(spriteBatch, this);
+                
                 spriteBatch.End();
                 if (character.health <= 0)
                 {

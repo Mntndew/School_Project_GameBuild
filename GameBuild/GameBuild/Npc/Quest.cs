@@ -10,6 +10,7 @@ namespace GameBuild.Npc
         //just simple get item quest thingy
         public string item;
         public string npcName;
+        public Key rewardKey;
 
         public bool accepted;
         public bool completed;
