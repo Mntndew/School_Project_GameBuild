@@ -29,80 +29,144 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
-namespace GameBuild.Audio
+namespace GameBuild
 {
-    class MusicPlayer
+    public class Dialogue
     {
-        IList<Song> songs;
+        Texture2D portrait;
+        Texture2D textBox;
+        SpriteFont font;
 
-        Random r;
+        public Rectangle portraitPos;
+        public Rectangle textBoxPos;
 
-        float songInterval; //specified in seconds
+        public bool isTalking;
 
-        float currentSongLength;
-        float currentSongPlayTime;
+        int selection = 1;
+        int currentStatement = 0;
 
-        float FadeTime = 3000;
+        KeyboardState oldState;
+        KeyboardState currentState;
 
-        public IList<Song> Songs
+        string[] currentLines;
+        string name;
+
+        public DialogueManager dialogueManager;
+
+        public Dialogue(Texture2D portrait, Texture2D textBox, Game1 game, SpriteFont font, string dialogueFileName, string name)
         {
-            get { return songs; }
-            set { songs = value; }
-        }
+            this.portrait = portrait;
+            this.textBox = textBox;
+            this.font = font;
+            this.name = name;
 
-        public MusicPlayer()
-        {
-            songs = new List<Song>();
-            MediaPlayer.IsVisualizationEnabled = true;
-            r = new Random();
-        }
-
-        public void Play(int Index)
-        {
-            MediaPlayer.Volume = 0; // for fading in and out
-            MediaPlayer.Stop();
-            //MediaPlayer.Play(songs[Index]);
-            currentSongLength = (float)songs[Index].Duration.TotalMilliseconds;
-            currentSongPlayTime = 0;
-        }
-
-        public void Pause()
-        {
-            MediaPlayer.Pause();
-        }
-
-        public void Stop()
-        {
-            MediaPlayer.Stop();
-        }
-
-        public void Update(GameTime gameTime)
-        {
-            if (MediaPlayer.State != MediaState.Playing)
+            int screenWidth = game.graphics.PreferredBackBufferWidth;
+            int screenHeight = game.graphics.PreferredBackBufferHeight;
+            if (portrait != null)
             {
-                songInterval -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                if (songInterval <= 0)
+                if (name == "Sylian")
                 {
-                    Play(r.Next(songs.Count));
-                    songInterval = r.Next(0, 50);
+                    portraitPos = new Rectangle(screenWidth - 600, screenHeight - 720, 600, 720);
+                }
+                else
+                    portraitPos = new Rectangle(screenWidth - 450, screenHeight - 720, 450, 720);
+            }
+
+            textBoxPos = new Rectangle(screenWidth / 2 - textBox.Width / 2, screenHeight - screenHeight / 4 - 150, textBox.Width, textBox.Height);
+
+            dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + dialogueFileName + ".txt");
+            GetLines(0);
+        }
+
+        public void Update()
+        {
+            if (isTalking)
+            {
+                oldState = currentState;
+                currentState = Keyboard.GetState();
+
+                if (currentState.IsKeyDown(Keys.Up) && oldState.IsKeyUp(Keys.Up))
+                {
+                    selection -= 1;
+                    if (selection < 1)
+                    {
+                        selection = currentLines.Length - 1;
+                    }
+                }
+                else if (currentState.IsKeyDown(Keys.Down) && oldState.IsKeyUp(Keys.Down))
+                {
+                    selection += 1;
+                    if (selection > currentLines.Length - 1)
+                    {
+                        selection = 1;
+                    }
+                }
+                if (currentState.IsKeyDown(Keys.Enter) && oldState.IsKeyUp(Keys.Enter))
+                {
+                    GotoNextStatement();
+                    selection = 1;
                 }
             }
-            else if (MediaPlayer.State == MediaState.Playing)
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            if (isTalking)
             {
-                float elapsed = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-                currentSongPlayTime += elapsed;
-                if (currentSongPlayTime <= FadeTime)
+                if (portrait != null)
                 {
-                    MediaPlayer.Volume += elapsed/FadeTime/2;
+                    spriteBatch.Draw(portrait, portraitPos, Color.White);
                 }
-                else if (currentSongPlayTime + FadeTime >= currentSongLength)
+                spriteBatch.Draw(textBox, textBoxPos, Color.White);
+
+                Vector2 baseVector = new Vector2(textBoxPos.X + 60, textBoxPos.Y + 75);
+                Vector2 offsetVector = Vector2.Zero;
+                spriteBatch.DrawString(font, "" + name, new Vector2(textBoxPos.X + textBox.Width - 190, textBoxPos.Y + 25), Color.Black);
+                spriteBatch.DrawString(font, currentLines[0], new Vector2(textBoxPos.X + 75, textBoxPos.Y + 75), Color.Black);
+                offsetVector.Y = font.MeasureString(currentLines[0]).Y;
+                for (int i = 1; i < currentLines.Length; i++)
                 {
-                    MediaPlayer.Volume -= elapsed/FadeTime/2;
+                    if (i == selection && currentLines.Length > 1)
+                    {
+                        spriteBatch.DrawString(font, currentLines[i], new Vector2(baseVector.X + offsetVector.X, baseVector.Y + offsetVector.Y), Color.PeachPuff);
+                    }
+                    else
+                    {
+                        spriteBatch.DrawString(font, currentLines[i], new Vector2(baseVector.X + offsetVector.X, baseVector.Y + offsetVector.Y), Color.Red);
+                    }
+                    offsetVector.Y += font.MeasureString(currentLines[i]).Y;
                 }
             }
+        }
+
+        private void GotoNextStatement()
+        {
+            int index = dialogueManager.GetNextStatementIndex(currentStatement, selection);
+            if (index > -1)
+            {
+                currentLines = dialogueManager.GetDialogueLinesFromIndex(index);
+                currentStatement = index;
+            }
+            else
+            {
+                ResetDialogue();
+            }
+        }
+
+        private void GetLines(int index)
+        {
+            currentLines = dialogueManager.GetDialogueLinesFromIndex(index);
+        }
+
+        public void ResetDialogue()
+        {
+            isTalking = false;
+            selection = 1;
+            currentLines = dialogueManager.GetDialogueLinesFromIndex(0);
+            currentStatement = 0;
         }
     }
 }

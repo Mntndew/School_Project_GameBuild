@@ -123,11 +123,10 @@
     <Compile Include="Particle\ParticleSystemEmitter.cs" />
     <Compile Include="Pathfinding\Node.cs" />
     <Compile Include="Pathfinding\PathFinder.cs" />
-    <Compile Include="Player\cCharacter.cs" />
-    <Compile Include="Dialogue\cDialogue.cs" />
+    <Compile Include="Player\Character.cs" />
+    <Compile Include="Dialogue\Dialogue.cs" />
     <Compile Include="Game\Effects\Damage.cs" />
     <Compile Include="Player\Inventory.cs" />
-    <Compile Include="Game\Effects\cLighting.cs" />
     <Compile Include="Dialogue\DialogueItem.cs" />
     <Compile Include="Dialogue\DialogueManager.cs" />
     <Compile Include="Player\InventorySlot.cs" />

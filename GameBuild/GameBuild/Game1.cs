@@ -56,7 +56,7 @@ namespace GameBuild
 
         //for the forest scene
         Texture2D forest;
-        cDialogue forestDialogue;
+        Dialogue forestDialogue;
         Texture2D forestCharacter;
         Texture2D forestCybot;
 
@@ -87,7 +87,7 @@ namespace GameBuild
         public static TileMap map;
         public static Camera2d camera;
         public static List<Key> keys = new List<Key>();
-        public static cCharacter character;
+        public static Character character;
         public Damage damageObject;
         public static Game.WarpManager warpManager;
         public List<Npc.Npc> activeNpcs = new List<Npc.Npc>();
@@ -184,7 +184,7 @@ namespace GameBuild
 
             forest = Content.Load<Texture2D>(@"Game\forest");
             forestCybot = Content.Load<Texture2D>(@"Npc\sprite\forestCybot");
-            forestDialogue = new cDialogue(Content.Load<Texture2D>(@"Npc\portrait\Cybot"), textBox, this, spriteFont, "First cybot encounter", "Ziva");
+            forestDialogue = new Dialogue(Content.Load<Texture2D>(@"Npc\portrait\Cybot"), textBox, this, spriteFont, "First cybot encounter", "Ziva");
             forestDialogue.isTalking = true;
             forestDialogue.dialogueManager.ReachedExit += new ExitEventHandler(ForestSceneExit);
             fadeOverlay = Content.Load<Texture2D>(@"Game\blackness");
@@ -534,7 +534,7 @@ namespace GameBuild
                 }
                 if (gender != null)
                 {
-                    character = new cCharacter(this, gender);
+                    character = new Character(this, gender);
                     testBoss = new Npc.Boss(new Rectangle(16 * 64, 7 * 64, 64, 64), this, "Map4_C");
                     UpdateActiveNpcs();
                     nextState = GameState.FOREST;
