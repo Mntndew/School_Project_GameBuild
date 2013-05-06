@@ -975,7 +975,7 @@ namespace GameBuild.Npc
                 case 7:
                     if (quest != null)
                     {
-                        quest.Accept(game, this);
+                        quest.Accept(game);
                     }
                     break;
                 default:

@@ -514,7 +514,6 @@ namespace GameBuild
             }
 
             #endregion
-
             if (game.keyState.IsKeyDown(Keys.Tab) && oldState.IsKeyUp(Keys.Tab) && !dead)
             {
                 if (showInventory)

@@ -47,7 +47,7 @@ namespace GameBuild.Npc
             this.npcName = npcName;
         }
 
-        public void Accept(Game1 game, Npc npc)
+        public void Accept(Game1 game)
         {
             accepted = true;
             for (int i = 0; i < game.activeNpcs.Count; i++)
@@ -57,25 +57,12 @@ namespace GameBuild.Npc
                     if (Game1.character.HasItem(item))
                     {
                         game.activeNpcs[i].dialogue.dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + game.activeNpcs[i].thirdDialogue + ".txt");
-                        npc.dialogue.dialogueManager.ReachedExit += npc.ExitedDialogue;
+                        game.activeNpcs[i].dialogue.dialogueManager.ReachedExit += game.activeNpcs[i].ExitedDialogue;
                     }
                     else
                     {
                         game.activeNpcs[i].dialogue.dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + game.activeNpcs[i].secondDialogue + ".txt");
-                        npc.dialogue.dialogueManager.ReachedExit += npc.ExitedDialogue;
-                    }
-
-                    if (npc.name == npcName)
-                    {
-                        if (Game1.character.HasItem(item))
-                        {
-                            npc.dialogue.dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + npc.thirdDialogue + ".txt");
-                        }
-                        else
-                        {
-                            npc.dialogue.dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + npc.secondDialogue + ".txt");
-                        }
-                        npc.dialogue.dialogueManager.ReachedExit += npc.ExitedDialogue;
+                        game.activeNpcs[i].dialogue.dialogueManager.ReachedExit += game.activeNpcs[i].ExitedDialogue;
                     }
                 }
             }
@@ -88,17 +75,18 @@ namespace GameBuild.Npc
                 if (game.activeNpcs[i].name == npcName)
                 {
                     game.activeNpcs[i].dialogue.dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + game.activeNpcs[i].thirdDialogue + ".txt");
-                    rewardKey = new Key(Game1.character.positionRectangle, game.activeNpcs[i].key.key, game.activeNpcs[i].key.texture, game.activeNpcs[i].mapName, game);
-                    rewardKey.position.Width = 1;
-                    rewardKey.position.Height = 1;
-                    rewardKey.position = Game1.character.positionRectangle;
-                    Game1.keys.Add(rewardKey);
-                    rewardKey = null;
+                    game.activeNpcs[i].dialogue.dialogueManager.ReachedExit += game.activeNpcs[i].ExitedDialogue;
+                    //rewardKey = new Key(Game1.character.positionRectangle, game.activeNpcs[i].key.key, game.activeNpcs[i].key.texture, game.activeNpcs[i].mapName, game);
+                    //rewardKey.position.Width = 1;
+                    //rewardKey.position.Height = 1;
+                    //rewardKey.position = Game1.character.positionRectangle;
+                    //Game1.keys.Add(rewardKey);
+                    //rewardKey = null;
                     Game1.character.inventory.RemoveItem(item);
                     break;
                 }
             }
-            completed = true;
+            //completed = true;
         }
     }
 }

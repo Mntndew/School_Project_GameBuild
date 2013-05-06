@@ -3,7 +3,7 @@ using System;
 namespace GameBuild
 {
 #if WINDOWS || XBOX
-    static class Program
+    class Program
     {
         /// <summary>
         /// The main entry point for the application.
