@@ -79,6 +79,7 @@ namespace GameBuild.Npc
         public bool mob;
         public bool bossMob;
         public bool up, down, left, right;
+        bool playDeath = true;
         bool addA = false;
         bool hasPath = false;
         bool hasTarget;
@@ -116,7 +117,11 @@ namespace GameBuild.Npc
         const int IDLE_RIGHT = 5;
         const int IDLE_DOWN = 6;
         const int IDLE_LEFT = 7;
-        const int DEATH = 8;
+        int DEATH;
+        const int ATTACK_UP = 10;
+        const int ATTACK_DOWN = 8;
+        const int ATTACK_LEFT = 11;
+        const int ATTACK_RIGHT = 9;
 
         Color color = new Color(255, 255, 255, 255);
         Color aColor;
@@ -131,7 +136,7 @@ namespace GameBuild.Npc
 
         public Npc(string mapName, string name, int x, int y, int width, int height, bool up, bool down, bool left, bool right,
             string spritePath, string portraitPath, bool patrolNone, bool patrolUpDown, bool patrolLeftRight,
-            bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game, 
+            bool patrolBox, int patrolX, int patrolY, int patrolWidth, int patrolHeight, float speed, Game1 game,
             string dialoguePath, string keyName, string secondDialogue, string thirdDialogue)
         {
             position = new Rectangle(x, y, 50, 71);
@@ -151,33 +156,34 @@ namespace GameBuild.Npc
             maxHealth = health;
             this.speed = speed;
             this.game = game;
-            
+
             if (name != "Informer")
             {
                 dialogue = new Dialogue(game.Content.Load<Texture2D>(@"npc\portrait\" + portraitPath), Game1.textBox, game, Game1.spriteFont, dialoguePath, name);
                 walkSprite = game.Content.Load<Texture2D>(@"npc\sprite\" + spritePath);
             }
-            
+
             debugTile = game.Content.Load<Texture2D>(@"Player\emptySlot");
             healthTexture = game.Content.Load<Texture2D>(@"Game\health100");
             aColor = Color.White;
+            DEATH = 8;
             if (name == "Celine")
-            { 
-                animation = new AnimationComponent(2, 8, 50, 72, 175, Microsoft.Xna.Framework.Point.Zero);
+            {
+                animation = new AnimationComponent(2, 9, 50, 72, 175, Microsoft.Xna.Framework.Point.Zero);
                 position.Height = 72;
-                sword = new Game.Items.Sword("cockiri", 3, 17);
+                sword = new Game.Items.Sword("cockiri", 17, 27);//3, 17
                 waypoint = new WaypointManager(name, "Map3_B", 2);
             }
-            else if(name == "Headmaster")
+            else if (name == "Headmaster")
             {
-                animation = new AnimationComponent(2, 8, 50, 127, 175, Microsoft.Xna.Framework.Point.Zero);
+                animation = new AnimationComponent(2, 9, 50, 127, 175, Microsoft.Xna.Framework.Point.Zero);
                 vulnerable = false;
                 position.Y -= 60;
                 position.Height = 127;
 
                 waypoint = new WaypointManager(name, "Map3_B", 3);
             }
-            else if(name == "Lamia")
+            else if (name == "Lamia")
             {
                 animation = new AnimationComponent(2, 4, 100, 76, 175, Microsoft.Xna.Framework.Point.Zero);
                 position.Y -= 64;
@@ -187,7 +193,7 @@ namespace GameBuild.Npc
             else if (name == "Laune")
             {
                 animation = new AnimationComponent(3, 11, 50, 75, 175, Microsoft.Xna.Framework.Point.Zero);
-                
+
             }
             else if (name == "Informer")
             {
@@ -209,7 +215,7 @@ namespace GameBuild.Npc
             {
                 animation = new AnimationComponent(2, 4, 50, 71, 175, Microsoft.Xna.Framework.Point.Zero);
             }
-            
+
             mob = false;
 
             dialogue.dialogueManager.ReachedExit += ExitedDialogue;
@@ -217,8 +223,7 @@ namespace GameBuild.Npc
             {
                 key = new Key(Rectangle.Empty, keyName, game.keyTexture, this.mapName, game);
             }
-            deathSprite = game.Content.Load<Texture2D>(@"Npc\deathSprite");
-            
+
             this.secondDialogue = secondDialogue;
             this.thirdDialogue = thirdDialogue;
         }
@@ -245,9 +250,10 @@ namespace GameBuild.Npc
             maxHealth = health;
             MOBPATHTIMER = rand.Next(2000, 10000) * timerMod;
             mob = true;
-            animation = new AnimationComponent(2, 9, 50, 74, 175, Microsoft.Xna.Framework.Point.Zero);
+            animation = new AnimationComponent(3, 13, 50, 74, 175, Microsoft.Xna.Framework.Point.Zero);
             deathSprite = game.Content.Load<Texture2D>(@"Npc\deathSprite");
             key = null;
+            DEATH = 12;
         }
 
         public bool IsOnMap()
@@ -354,7 +360,6 @@ namespace GameBuild.Npc
                 hasPath = false;
             }
             else
-
             {
                 followPath = true;
             }
@@ -503,31 +508,19 @@ namespace GameBuild.Npc
                     Game1.character.Disable();
                     if (up)
                     {
-                        if (!animation.IsAnimationPlaying(WALK_UP))
-                        {
-                            animation.LoopAnimation(WALK_UP);
-                        }
+                        animation.PlayAnimation(ATTACK_UP);
                     }
                     else if (down)
                     {
-                        if (!animation.IsAnimationPlaying(WALK_DOWN))
-                        {
-                            animation.LoopAnimation(WALK_DOWN);
-                        }
+                        animation.PlayAnimation(ATTACK_DOWN);
                     }
                     if (left)
                     {
-                        if (!animation.IsAnimationPlaying(WALK_LEFT))
-                        {
-                            animation.LoopAnimation(WALK_LEFT);
-                        }
+                        animation.PlayAnimation(ATTACK_LEFT);
                     }
                     else if (right)
                     {
-                        if (!animation.IsAnimationPlaying(WALK_RIGHT))
-                        {
-                            animation.LoopAnimation(WALK_RIGHT);
-                        }
+                        animation.PlayAnimation(ATTACK_RIGHT);
                     }
                 }
                 followPath = false;
@@ -564,7 +557,7 @@ namespace GameBuild.Npc
             if (IsOnMap() && !bossMob)
             {
                 GoTo(new Vector2((Game1.character.positionRectangle.X + (Game1.character.positionRectangle.Width / 2)), (Game1.character.positionRectangle.Y + (Game1.character.positionRectangle.Height / 2))), gameTime);
-                if(!hasPath && !position.Intersects(Game1.character.positionRectangle))
+                if (!hasPath && !position.Intersects(Game1.character.positionRectangle))
                 {
                     if (Game1.character.positionRectangle.X > position.X)
                     {
@@ -681,7 +674,7 @@ namespace GameBuild.Npc
                 animation.LoopAnimation(WALK_RIGHT);
             }
             walking = true;
-        } 
+        }
         #endregion
 
         public bool IsCollision(H_Map.TileMap tiles, Rectangle location)
@@ -719,127 +712,132 @@ namespace GameBuild.Npc
             animation.UpdateAnimation(gameTime);
             #endregion
 
-            if (waypoint != null)
-            {
-                waypoint.Update(game, new Vector2(position.X, position.Y));
-            }
-
-            if (!walking)
-            {
-                animation.MaxFrameCount = 1;
-                if (up)
-                {
-                    if (!animation.IsAnimationPlaying(IDLE_UP))
-                    {
-                        animation.LoopAnimation(IDLE_UP);
-                    }
-                }
-                if (down)
-                {
-                    if (!animation.IsAnimationPlaying(IDLE_DOWN))
-                    {
-                        animation.LoopAnimation(IDLE_DOWN);
-                    }
-                }
-                if (left)
-                {
-                    if (!animation.IsAnimationPlaying(IDLE_LEFT))
-                    {
-                        animation.LoopAnimation(IDLE_LEFT);
-                    }
-                }
-                if (right)
-                {
-                    if (!animation.IsAnimationPlaying(IDLE_RIGHT))
-                    {
-                        animation.LoopAnimation(IDLE_RIGHT);
-                    }
-                }
-            }
-            
-            if (mob && !bossMob)
-            {
-                if (!attackPlayer && IsOnMap() && health > 0)
-                {
-                    RandomMovement(gameTime);
-                }
-                else
-                    pathTimer = 0;
-            }
-
-            for (int i = 0; i < damageEffectList.Count; i++)
-            {
-                damageEffectList[i].Effect();
-            }
-
-            if (attackPlayer)
-            {
-                canInteract = false;
-                Attack(game, gameTime);
-            }
-
             if (health <= 0)
             {
-                animation.StopAnimation();
                 Death(gameTime);
             }
-            
-            #region Player Interaction
-            
-            if (IsOnMap())
+            else
             {
-                if (position.Intersects(player.interactRect) && !attackPlayer)
+                if (waypoint != null)
                 {
-                    canInteract = true;
-                    if (!isInteracting)
+                    waypoint.Update(game, new Vector2(position.X, position.Y));
+                }
+
+                if (!walking && health > 0)
+                {
+                    animation.MaxFrameCount = 1;
+                    if (up)
                     {
-                        if (!addA)
+                        if (!animation.IsAnimationPlaying(IDLE_UP))
                         {
-                            aColor.A -= 10;
-                            aColor.B += 10;
-                            aColor.R -= 10;
-                            aColor.G += 10;
+                            animation.LoopAnimation(IDLE_UP);
                         }
-                        if (aColor.A <= 50)
+                    }
+                    if (down)
+                    {
+                        if (!animation.IsAnimationPlaying(IDLE_DOWN))
                         {
-                            addA = true;
+                            animation.LoopAnimation(IDLE_DOWN);
                         }
-                        if (addA)
+                    }
+                    if (left)
+                    {
+                        if (!animation.IsAnimationPlaying(IDLE_LEFT))
                         {
-                            aColor.A += 10;
-                            aColor.R += 10;
-                            aColor.B -= 10;
-                            aColor.G -= 10;
+                            animation.LoopAnimation(IDLE_LEFT);
                         }
-                        if (aColor.A >= 240)
+                    }
+                    if (right)
+                    {
+                        if (!animation.IsAnimationPlaying(IDLE_RIGHT))
                         {
-                            addA = false;
+                            animation.LoopAnimation(IDLE_RIGHT);
                         }
                     }
                 }
-                else
+
+                if (mob && !bossMob)
+                {
+                    if (!attackPlayer && IsOnMap() && health > 0)
+                    {
+                        RandomMovement(gameTime);
+                    }
+                    else
+                        pathTimer = 0;
+                }
+
+                for (int i = 0; i < damageEffectList.Count; i++)
+                {
+                    damageEffectList[i].Effect();
+                }
+
+                if (attackPlayer)
                 {
                     canInteract = false;
+                    Attack(game, gameTime);
                 }
-            }
-            #endregion
 
-            if (!attackPlayer && player.positionRectangle.Intersects(position) && IsOnMap())
-            {
-                if (health > 0)
+                #region Player Interaction
+
+                if (IsOnMap())
                 {
-                    Vector2 pos = new Vector2(location.X, location.Y);
-                    Vector2 direction = Game1.character.position - pos;
-                    direction.Normalize();
-                    if (name != "")
+                    if (position.Intersects(player.interactRect) && !attackPlayer)
                     {
-                        Game1.character.Push(direction, 3);
+                        canInteract = true;
+                        if (!isInteracting)
+                        {
+                            if (!addA)
+                            {
+                                aColor.A -= 10;
+                                aColor.B += 10;
+                                aColor.R -= 10;
+                                aColor.G += 10;
+                            }
+                            if (aColor.A <= 50)
+                            {
+                                addA = true;
+                            }
+                            if (addA)
+                            {
+                                aColor.A += 10;
+                                aColor.R += 10;
+                                aColor.B -= 10;
+                                aColor.G -= 10;
+                            }
+                            if (aColor.A >= 240)
+                            {
+                                addA = false;
+                            }
+                        }
                     }
                     else
                     {
-                        if (attackPlayer)
+                        canInteract = false;
+                    }
+                }
+                if (quest != null && quest.completed)
+                {
+                    canInteract = false;
+                }
+                #endregion
+
+                if (!attackPlayer && player.positionRectangle.Intersects(position) && IsOnMap())
+                {
+                    if (health > 0)
+                    {
+                        Vector2 pos = new Vector2(location.X, location.Y);
+                        Vector2 direction = Game1.character.position - pos;
+                        direction.Normalize();
+                        if (name != "")
                         {
                             Game1.character.Push(direction, 3);
+                        }
+                        else
+                        {
+                            if (attackPlayer)
+                            {
+                                Game1.character.Push(direction, 3);
+                            }
                         }
                     }
                 }
@@ -849,13 +847,14 @@ namespace GameBuild.Npc
         public void Death(GameTime gameTime)
         {
             attackPlayer = false;
-            animation.MaxFrameCount = 3;
-            if (!remove)
+            if (!remove && playDeath)
             {
+                animation.StopAnimation();
                 animation.PlayAnimation(DEATH);
+                animation.MaxFrameCount = 3;
+                playDeath = false;
             }
-           
-            if (animation.currentFrame.X >= 1)
+            else if (!animation.playing)//!animation.IsAnimationPlaying(DEATH)
             {
                 remove = true;
             }
@@ -882,7 +881,7 @@ namespace GameBuild.Npc
                 }
             }
         }
-        
+
         public void DrawA(SpriteBatch spriteBatch)
         {
             if (IsOnMap())
@@ -911,7 +910,7 @@ namespace GameBuild.Npc
         public void ExitedDialogue(object sender, DialogueEventArgs e)
         {
             Console.WriteLine(e.exitNumber);
-            
+
             switch (e.exitNumber)
             {
                 case 0:
@@ -923,7 +922,7 @@ namespace GameBuild.Npc
                 case 1:
                     attackPlayer = true;
                     break;
-                     
+
                 case 2:
                     if (key != null)
                     {
@@ -956,7 +955,7 @@ namespace GameBuild.Npc
                     if (secondDialogue != "null")
                     {
                         dialogue.dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + secondDialogue + ".txt");
-                        dialogue.dialogueManager.ReachedExit += ExitedDialogue; 
+                        dialogue.dialogueManager.ReachedExit += ExitedDialogue;
                     }
                     break;
 
@@ -969,7 +968,7 @@ namespace GameBuild.Npc
                     if (secondDialogue != "null")
                     {
                         dialogue.dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + secondDialogue + ".txt");
-                        dialogue.dialogueManager.ReachedExit += ExitedDialogue; 
+                        dialogue.dialogueManager.ReachedExit += ExitedDialogue;
                     }
                     break;
                 case 7:
@@ -987,21 +986,3 @@ namespace GameBuild.Npc
         }
     }
 }
-
-
-//this is the troll that lives under the code...........................
-//it likes to eat little children.., and vagina flaps with extra salt im not durnk i promise
-
-/*              Le troll
- *       /\                 /\
- *      /  \   crazy hair  /  \
- *     | /\ \    *   *    / /\ |
- *     | | | |    \ /    | | | |
- *     | | |  |   *|*   |  | | |
- *      \ \/  \___/ \___/  \/ /
- *       \   / 0       0 \   /
- *        \ /             \ /
- *         \| /\    >  /\ |/
- *          | || _____ || |
- *          \_\\|HHHHH|//_/                                                 sex.
-*/

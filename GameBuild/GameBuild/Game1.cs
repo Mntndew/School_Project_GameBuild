@@ -298,18 +298,18 @@ namespace GameBuild
             activeNpcs.Clear();
             for (int i = 0; i < Npcs.Count; i++)
             {
-                if (Npcs[i].IsOnMap() && !Npcs[i].bossMob && !Npcs[i].mob && Npcs[i].health > 0)
+                if (Npcs[i].IsOnMap() && !Npcs[i].bossMob && !Npcs[i].mob && !Npcs[i].remove)
                 {
                     activeNpcs.Add(Npcs[i]);
                 }
             }
-            for (int i = 0; i < activeNpcs.Count; i++)
-            {
-                if (!activeNpcs[i].IsOnMap() || activeNpcs[i].health <= 0)
-                {
-                    //activeNpcs.RemoveAt(i);
-                }
-            }
+            //for (int i = 0; i < activeNpcs.Count; i++)
+            //{
+            //    if (!activeNpcs[i].IsOnMap() || activeNpcs[i].health <= 0)
+            //    {
+            //        //activeNpcs.RemoveAt(i);
+            //    }
+            //}
         }
 
         /// <summary>

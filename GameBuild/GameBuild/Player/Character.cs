@@ -140,12 +140,12 @@ namespace GameBuild
             if (gender == "male")
             {
                 spriteSheet = game.Content.Load<Texture2D>("Player/Sprite/Male/male");
-                animation = new AnimationComponent(4, 8, 53, 70, 150, Point.Zero);
+                animation = new AnimationComponent(4, 8, 54, 70, 150, Point.Zero);
             }
             if (gender == "female")
             {
                 spriteSheet = game.Content.Load<Texture2D>("Player/Sprite/Female/female");
-                animation = new AnimationComponent(4, 8, 41, 70, 150, Point.Zero);
+                animation = new AnimationComponent(4, 8, 54, 70, 150, Point.Zero);
             }
             
             shadowBlob = game.Content.Load<Texture2D>("player/shadowTex");
@@ -159,7 +159,7 @@ namespace GameBuild
             }
             if (gender == "female")
             {
-                positionRectangle = new Rectangle(640, 640, 50, 64);
+                positionRectangle = new Rectangle(640, 640, 59, 64);
             }
             position.X = positionRectangle.X;
             position.Y = positionRectangle.Y;

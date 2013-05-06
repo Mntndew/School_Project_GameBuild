@@ -49,7 +49,7 @@ namespace GameBuild.Game.Items
         {
             if (Game1.character.gender == "male")
             {
-                Game1.character.animation = new AnimationComponent(4, 12, 53, 70, 150, Point.Zero);
+                Game1.character.animation = new AnimationComponent(4, 12, 54, 70, 150, Point.Zero);
                 if (swordName == "cockiri")
                 {
                     Game1.character.spriteSheet = game.Content.Load<Texture2D>(@"Player\Sprite\Male\male-cockiri");
@@ -65,18 +65,18 @@ namespace GameBuild.Game.Items
             }
             else if (Game1.character.gender == "female")
             {
-                Game1.character.animation = new AnimationComponent(4, 12, 41, 70, 150, Point.Zero);
+                Game1.character.animation = new AnimationComponent(4, 12, 54, 70, 150, Point.Zero);
                 if (swordName == "cockiri")
                 {
-                    Game1.character.spriteSheet = game.Content.Load<Texture2D>(@"Player\Sprite\Female\male-cockiri");
+                    Game1.character.spriteSheet = game.Content.Load<Texture2D>(@"Player\Sprite\Female\female-cockiri");
                 }
                 else if (swordName == "dong")
                 {
-                    Game1.character.spriteSheet = game.Content.Load<Texture2D>(@"Player\Sprite\Female\male-dong");
+                    Game1.character.spriteSheet = game.Content.Load<Texture2D>(@"Player\Sprite\Female\female-dong");
                 }
                 else if (swordName == "thruster")
                 {
-                    Game1.character.spriteSheet = game.Content.Load<Texture2D>(@"Player\Sprite\Female\male-thruster");
+                    Game1.character.spriteSheet = game.Content.Load<Texture2D>(@"Player\Sprite\Female\female-thruster");
                 }
             }
         }

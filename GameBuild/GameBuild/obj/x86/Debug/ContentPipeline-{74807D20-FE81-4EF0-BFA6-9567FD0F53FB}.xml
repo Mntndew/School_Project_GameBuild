@@ -634,7 +634,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student1.xnb</Output>
-      <Time>2013-05-03T21:30:31.5857+02:00</Time>
+      <Time>2013-05-06T14:12:30.9337275+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\sprite\student\student2.png</Source>
@@ -643,7 +643,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student2.xnb</Output>
-      <Time>2013-05-03T21:33:15.6169052+02:00</Time>
+      <Time>2013-05-06T14:12:28.162866+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\sprite\student\student3.png</Source>
@@ -652,7 +652,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student3.xnb</Output>
-      <Time>2013-05-03T21:41:11.1039651+02:00</Time>
+      <Time>2013-05-06T14:12:24.7130385+02:00</Time>
     </Item>
     <Item>
       <Source>Player\Portrait\Male.png</Source>
@@ -679,7 +679,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\forestFemale.xnb</Output>
-      <Time>2013-04-25T20:42:16+02:00</Time>
+      <Time>2013-05-06T22:32:59.7208642+02:00</Time>
     </Item>
     <Item>
       <Source>Player\Sprite\Male\forestMale.png</Source>
@@ -697,7 +697,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-cockiri.xnb</Output>
-      <Time>2013-05-04T00:36:34.6635845+02:00</Time>
+      <Time>2013-05-06T22:42:25.0437071+02:00</Time>
     </Item>
     <Item>
       <Source>Player\Sprite\Female\female-dong.png</Source>
@@ -724,7 +724,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-dong.xnb</Output>
-      <Time>2013-05-04T01:03:16.0198467+02:00</Time>
+      <Time>2013-05-06T22:28:02.8206269+02:00</Time>
     </Item>
     <Item>
       <Source>Player\Sprite\Male\male-thruster.png</Source>
@@ -733,7 +733,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-thruster.xnb</Output>
-      <Time>2013-05-04T01:13:09.0842081+02:00</Time>
+      <Time>2013-05-06T22:32:12.7337969+02:00</Time>
     </Item>
     <Item>
       <Source>Player\Sprite\Male\male-cockiri.png</Source>
@@ -742,7 +742,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-cockiri.xnb</Output>
-      <Time>2013-05-04T01:17:12.0775501+02:00</Time>
+      <Time>2013-05-06T22:23:06.9972238+02:00</Time>
     </Item>
     <Item>
       <Source>Player\Sprite\Male\male.png</Source>
@@ -751,7 +751,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male.xnb</Output>
-      <Time>2013-05-04T19:53:11.7343194+02:00</Time>
+      <Time>2013-05-06T22:29:05.2449716+02:00</Time>
     </Item>
     <Item>
       <Source>Player\Sprite\Female\female.png</Source>
@@ -760,7 +760,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female.xnb</Output>
-      <Time>2013-05-04T19:56:46.2336219+02:00</Time>
+      <Time>2013-05-06T22:56:13.9570085+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

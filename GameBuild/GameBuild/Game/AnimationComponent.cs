@@ -35,7 +35,7 @@ namespace GameBuild
     public class AnimationComponent
     {
         #region Declarations
-        bool playing;
+        public bool playing;
         bool loop;
         //bool paused; //never used, only set
 

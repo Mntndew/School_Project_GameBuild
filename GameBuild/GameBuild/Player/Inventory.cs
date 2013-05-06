@@ -37,7 +37,7 @@ namespace GameBuild
     public class Inventory
     {
         public InventorySlot[,] inventorySlot;
-        public int width = 1, height = 6;
+        public int width = 3, height = 6;
         int spacing = 5;
         int size = 3;
 
@@ -64,7 +64,6 @@ namespace GameBuild
 
         public void RemoveItem(string item)
         {
-            Console.WriteLine(item);
             for (int y = 0; y < height; y++)
             {
                 if (inventorySlot[0, y].item == item)
