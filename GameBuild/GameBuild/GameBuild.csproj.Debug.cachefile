@@ -18,7 +18,6 @@ Content\Npc\bot.xnb
 Content\Npc\portrait\Cybot.xnb
 Content\Npc\sprite\Cybot.xnb
 Content\Npc\portrait\Headmaster.xnb
-Content\Npc\portrait\Lamia.xnb
 Content\Npc\portrait\Sylian.xnb
 Content\Npc\sprite\Sylian.xnb
 Content\Npc\sprite\Nurse.xnb
@@ -64,7 +63,6 @@ Content\Npc\sprite\Laune.xnb
 Content\Game\itemLabel.xnb
 Content\Game\labelSide.xnb
 Content\Game\labelSide2.xnb
-Content\Npc\sprite\Lamia.xnb
 Content\Game\ribbon.xnb
 Content\Npc\sprite\student\student1.xnb
 Content\Npc\sprite\student\student2.xnb
@@ -81,6 +79,8 @@ Content\Player\Sprite\Male\male-thruster.xnb
 Content\Player\Sprite\Male\male-cockiri.xnb
 Content\Player\Sprite\Male\male.xnb
 Content\Player\Sprite\Female\female.xnb
+Content\Npc\sprite\Melitta.xnb
+Content\Npc\portrait\Melitta.xnb
 Content\Audio\Songs\Boss battle song 1.wma
 Content\Audio\Songs\Boss battle song 2.wma
 Content\Audio\Songs\School basic song 1.wma
@@ -95,6 +95,41 @@ Content\Audio\Songs\School basic song 7.wma
 Content\Audio\Songs\School basic song 8.wma
 Content\Audio\Songs\School basic song 9.wma
 Content\Audio\Songs\School battle song.wma
+Content\Npc\A.png
+Content\Player\shadowTex.png
+Content\Player\emptySlot.png
+Content\particle.png
+Content\Player\Portrait\Male.png
+Content\Npc\portrait\Nurse.png
+Content\Npc\sprite\Headmaster.png
+Content\robot.png
+Content\Npc\bot.png
+Content\Player\Portrait\female.png
+Content\Npc\portrait\Cybot.png
+Content\Npc\sprite\Cybot.png
+Content\Npc\portrait\Headmaster.png
+Content\Npc\portrait\Laune.png
+Content\Npc\portrait\Melitta.png
+Content\Npc\portrait\Sylian.png
+Content\Npc\sprite\Sylian.png
+Content\Npc\sprite\Melitta.png
+Content\Npc\sprite\Nurse.png
+Content\Npc\sprite\forestCybot.png
+Content\Player\Sprite\Female\forestFemale.png
+Content\Player\Sprite\Male\forestMale.png
+Content\Npc\deathSprite.png
+Content\Npc\sprite\Laune.png
+Content\Npc\sprite\student\student1.png
+Content\Npc\sprite\student\student2.png
+Content\Npc\sprite\student\student3.png
+Content\Player\Sprite\Male\male.png
+Content\Player\Sprite\Female\female-cockiri.png
+Content\Player\Sprite\Female\female-dong.png
+Content\Player\Sprite\Female\female-thruster.png
+Content\Player\Sprite\Male\male-cockiri.png
+Content\Player\Sprite\Male\male-dong.png
+Content\Player\Sprite\Male\male-thruster.png
+Content\Player\Sprite\Female\female.png
 Content\Npc\dialogue\test.txt
 Content\Npc\dialogue\doorLocked.txt
 Content\Warp\Map1_A_0.txt
@@ -112,13 +147,13 @@ Content\Npc\npc\Nurse.txt
 Content\Npc\npc\Cybot.txt
 Content\Npc\dialogue\Cybot dead.txt
 Content\Npc\npc\Sylian.txt
-Content\Npc\npc\Laune.txt
+Content\Npc\npc\Melitta.txt
 Content\Npc\dialogue\nurse.txt
 Content\Npc\dialogue\headmaster.txt
 Content\Npc\dialogue\First cybot encounter.txt
 Content\Npc\dialogue\Nurse questions.txt
 Content\Npc\dialogue\Laune.txt
-Content\Npc\npc\Lamia.txt
+Content\Npc\npc\Laune.txt
 Content\Npc\dialogue\informer.txt
 Content\Npc\dialogue\SylianAccept.txt
 Content\Npc\dialogue\SylianComplete.txt

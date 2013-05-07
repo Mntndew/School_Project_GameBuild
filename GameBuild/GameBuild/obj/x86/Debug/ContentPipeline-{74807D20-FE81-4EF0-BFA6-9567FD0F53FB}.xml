@@ -26,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\A.xnb</Output>
-      <Time>2013-04-18T18:36:35+02:00</Time>
+      <Time>2013-05-06T14:02:52+02:00</Time>
     </Item>
     <Item>
       <Source>Player\shadowTex.png</Source>
@@ -107,7 +107,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Nurse.xnb</Output>
-      <Time>2013-04-25T14:17:09+02:00</Time>
+      <Time>2013-05-06T14:02:52+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\sprite\Headmaster.png</Source>
@@ -116,7 +116,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Headmaster.xnb</Output>
-      <Time>2013-04-30T12:28:25.9142901+02:00</Time>
+      <Time>2013-05-06T14:02:52+02:00</Time>
     </Item>
     <Item>
       <Source>Game\Hp bar.png</Source>
@@ -152,7 +152,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\bot.xnb</Output>
-      <Time>2013-04-22T17:07:33+02:00</Time>
+      <Time>2013-05-06T14:02:52+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\portrait\Cybot.png</Source>
@@ -161,7 +161,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Cybot.xnb</Output>
-      <Time>2013-04-25T14:17:09+02:00</Time>
+      <Time>2013-05-06T14:02:52+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\sprite\Cybot.png</Source>
@@ -170,7 +170,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Cybot.xnb</Output>
-      <Time>2013-04-27T03:12:28.0385826+02:00</Time>
+      <Time>2013-05-06T14:02:52+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\portrait\Headmaster.png</Source>
@@ -179,16 +179,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Headmaster.xnb</Output>
-      <Time>2013-04-25T14:17:09+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Npc\portrait\Lamia.png</Source>
-      <Name>Npc\portrait\Lamia</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Lamia.xnb</Output>
-      <Time>2013-04-25T14:17:09+02:00</Time>
+      <Time>2013-05-06T14:02:52+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\portrait\Sylian.png</Source>
@@ -197,7 +188,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Sylian.xnb</Output>
-      <Time>2013-04-25T14:17:09+02:00</Time>
+      <Time>2013-05-06T14:02:52+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\sprite\Sylian.png</Source>
@@ -206,7 +197,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Sylian.xnb</Output>
-      <Time>2013-04-25T14:17:09+02:00</Time>
+      <Time>2013-05-06T14:02:52+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\sprite\Nurse.png</Source>
@@ -215,7 +206,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Nurse.xnb</Output>
-      <Time>2013-04-28T12:46:28.3104644+02:00</Time>
+      <Time>2013-05-06T14:02:52+02:00</Time>
     </Item>
     <Item>
       <Source>Game\forest.png</Source>
@@ -233,7 +224,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\forestCybot.xnb</Output>
-      <Time>2013-04-27T13:18:01.0196249+02:00</Time>
+      <Time>2013-05-06T14:02:52+02:00</Time>
     </Item>
     <Item>
       <Source>Game\female.png</Source>
@@ -350,7 +341,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\deathSprite.xnb</Output>
-      <Time>2013-04-26T22:52:41.6244191+02:00</Time>
+      <Time>2013-05-06T14:02:52+02:00</Time>
     </Item>
     <Item>
       <Source>Game\lighting.fx</Source>
@@ -571,7 +562,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Laune.xnb</Output>
-      <Time>2013-04-25T14:17:09+02:00</Time>
+      <Time>2013-05-06T14:02:52+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\sprite\Laune.png</Source>
@@ -580,7 +571,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Laune.xnb</Output>
-      <Time>2013-04-29T13:54:15.9294213+02:00</Time>
+      <Time>2013-05-06T14:02:52+02:00</Time>
     </Item>
     <Item>
       <Source>Game\itemLabel.png</Source>
@@ -610,15 +601,6 @@
       <Time>2013-04-28T14:55:03.9597403+02:00</Time>
     </Item>
     <Item>
-      <Source>Npc\sprite\Lamia.png</Source>
-      <Name>Npc\sprite\Lamia</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Lamia.xnb</Output>
-      <Time>2013-04-29T13:25:53.5784585+02:00</Time>
-    </Item>
-    <Item>
       <Source>Game\ribbon.png</Source>
       <Name>Game\ribbon</Name>
       <Importer>TextureImporter</Importer>
@@ -634,7 +616,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student1.xnb</Output>
-      <Time>2013-05-06T14:12:30.9337275+02:00</Time>
+      <Time>2013-05-06T14:02:52+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\sprite\student\student2.png</Source>
@@ -643,7 +625,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student2.xnb</Output>
-      <Time>2013-05-06T14:12:28.162866+02:00</Time>
+      <Time>2013-05-06T14:02:52+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\sprite\student\student3.png</Source>
@@ -652,7 +634,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student3.xnb</Output>
-      <Time>2013-05-06T14:12:24.7130385+02:00</Time>
+      <Time>2013-05-06T14:02:52+02:00</Time>
     </Item>
     <Item>
       <Source>Player\Portrait\Male.png</Source>
@@ -761,6 +743,24 @@
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female.xnb</Output>
       <Time>2013-05-06T22:56:13.9570085+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\sprite\Melitta.png</Source>
+      <Name>Npc\sprite\Melitta</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Melitta.xnb</Output>
+      <Time>2013-05-06T14:02:52+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Npc\portrait\Melitta.png</Source>
+      <Name>Npc\portrait\Melitta</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Melitta.xnb</Output>
+      <Time>2013-05-06T14:02:52+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

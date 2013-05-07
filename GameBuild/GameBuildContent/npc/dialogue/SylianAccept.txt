@@ -4,14 +4,14 @@
 0:3: Hey, squidgirl! Stop that wailing, |what's wrong with you?:0
 1:0: *sniff* Oh... I... I'm alright. I |just... I lost my ribbon. *sob* It |was my favorite...:0
 2:0: Huh...? *sniff* Me...? *blush* I... |Lost my favorite ribbon.:0
-3:0: What? S..squidgirl? H..how mean...! |*sob* I'm sorry, but I'm really |sad... I didnt't mean any harm... |*sniff*:0
+3:0: What? S..squidgirl? H..how mean...! |*sob* I'm sorry, but I'm really |sad... I didnt't mean any harm...:0
 1:4: I see... Maybe I could help you find| it? And then you could help me in return?:0
 1:5: Aha... Fear not! I'll find it and |bring it back to you!:0
 1:6: Lost your favorite ribbon? How |careless, you have yourself to blame.:0
 2:4: I see... Maybe I could help you find |it?:0
 2:5: Aha... Fear not! I'll find it and |bring it back to you!:0
 3:7: What a crybaby. That sobbing is so |annoying, cut it out or I'll give |you something to really cry about.:0
-3:8: Ugh, whatever. So what are you so |sad about?:0
+3:8: Ugh, whatever. So why are you so sad?:0
 3:9: Well at least you're kind of cute, |if you need me I can help you.:0
 4:0: W..would you? That's so kind of |you... *sniff* Oh thank you. Yes.. |I'll Definitely help you in return!:7
 5:0: Really? *sniff* M..my savior!:7

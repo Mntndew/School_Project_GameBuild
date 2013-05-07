@@ -125,6 +125,48 @@ namespace GameBuild.Game
                             }
                         }
                     }
+                    else if (map == "Map4_B")
+                    {
+                        for (int i = 0; i < game.Npcs.Count; i++)
+                        {
+                            if (game.Npcs[i].name == "Celine")
+                            {
+                                game.Npcs[i].mapName = map;
+                                game.Npcs[i].position.X = 834;
+                                game.Npcs[i].position.Y = 711;
+                                
+                            }
+                            if (game.Npcs[i].name == "Laune")
+                            {
+                                game.Npcs[i].mapName = map;
+                                game.Npcs[i].position.X = 834;
+                                game.Npcs[i].position.Y = 793;
+                            }
+                            if (game.Npcs[i].name == "Melitta")
+                            {
+                                game.Npcs[i].mapName = map;
+                                game.Npcs[i].position.X = 834;
+                                game.Npcs[i].position.Y = 867;
+                            }
+                            if (game.Npcs[i].name == "Sylian")
+                            {
+                                game.Npcs[i].mapName = map;
+                                game.Npcs[i].position.X = 834;
+                                game.Npcs[i].position.Y = 948;
+                            }
+                            if (game.Npcs[i].name == "Ziva")
+                            {
+                                game.Npcs[i].mapName = map;
+                                game.Npcs[i].position.X = 834;
+                                game.Npcs[i].position.Y = 1029;
+                            }
+                            game.Npcs[i].left = true;
+                            game.Npcs[i].right = false;
+                            game.Npcs[i].up = false;
+                            game.Npcs[i].down = false;
+                            game.Npcs[i].animation.LoopAnimation(7);
+                        }
+                    }
                 }
             }
             if (!hasKey)

@@ -35,7 +35,7 @@ namespace GameBuild.Game.Items
 {
     public class Ribbon
     {
-        public string item;
+        public string item = "Ribbon";
         public Rectangle position;
         public Texture2D texture;
         public bool added = false;

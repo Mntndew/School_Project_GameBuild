@@ -84,7 +84,7 @@ namespace GameBuild.Npc
         bool hasPath = false;
         bool hasTarget;
         public bool vulnerable;
-        bool walking;
+        public bool walking;
         public bool remove;
 
         public string secondDialogue;
@@ -116,7 +116,7 @@ namespace GameBuild.Npc
         const int IDLE_UP = 4;
         const int IDLE_RIGHT = 5;
         const int IDLE_DOWN = 6;
-        const int IDLE_LEFT = 7;
+        public const int IDLE_LEFT = 7;
         int DEATH;
         const int ATTACK_UP = 10;
         const int ATTACK_DOWN = 8;
@@ -183,14 +183,14 @@ namespace GameBuild.Npc
 
                 waypoint = new WaypointManager(name, "Map3_B", 3);
             }
-            else if (name == "Lamia")
+            else if (name == "Laune")
             {
                 animation = new AnimationComponent(2, 4, 100, 76, 175, Microsoft.Xna.Framework.Point.Zero);
                 position.Y -= 64;
                 position.Height = 64;
                 position.Width = 84;
             }
-            else if (name == "Laune")
+            else if (name == "Melitta")
             {
                 animation = new AnimationComponent(3, 11, 50, 75, 175, Microsoft.Xna.Framework.Point.Zero);
 
@@ -208,7 +208,7 @@ namespace GameBuild.Npc
             }
             else if (name == "Sylian")
             {
-                quest = new Quest(Game1.ribbon.item, this.name);
+                quest = new Quest("Ribbon", this.name);
                 animation = new AnimationComponent(2, 4, 50, 71, 175, Microsoft.Xna.Framework.Point.Zero);
             }
             else
