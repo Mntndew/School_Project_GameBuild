@@ -223,6 +223,7 @@ namespace GameBuild.Npc
             mob = false;
 
             dialogue.dialogueManager.ReachedExit += ExitedDialogue;
+
             if (keyName != "nokey")
             {
                 key = new Key(Rectangle.Empty, keyName, game.keyTexture, this.mapName, game);
