@@ -116,7 +116,7 @@ namespace GameBuild.Npc
         const int IDLE_UP = 4;
         const int IDLE_RIGHT = 5;
         const int IDLE_DOWN = 6;
-        public const int IDLE_LEFT = 7;
+        const int IDLE_LEFT = 7;
         int DEATH;
         const int ATTACK_UP = 10;
         const int ATTACK_DOWN = 8;
@@ -185,7 +185,7 @@ namespace GameBuild.Npc
             }
             else if (name == "Laune")
             {
-                animation = new AnimationComponent(2, 4, 100, 76, 175, Microsoft.Xna.Framework.Point.Zero);
+                animation = new AnimationComponent(2, 9, 100, 76, 175, Microsoft.Xna.Framework.Point.Zero);
                 position.Y -= 64;
                 position.Height = 64;
                 position.Width = 84;
@@ -203,13 +203,17 @@ namespace GameBuild.Npc
                 }
                 else
                 {
-                    animation = new AnimationComponent(4, 4, 41, 70, 150, Microsoft.Xna.Framework.Point.Zero);
+                    animation = new AnimationComponent(4, 8, 41, 70, 150, Microsoft.Xna.Framework.Point.Zero);
                 }
             }
             else if (name == "Sylian")
             {
                 quest = new Quest("Ribbon", this.name);
                 animation = new AnimationComponent(2, 4, 50, 71, 175, Microsoft.Xna.Framework.Point.Zero);
+            }
+            else if (name == "Ziva")
+            {
+                animation = new AnimationComponent(2, 8, 55, 70, 175, Microsoft.Xna.Framework.Point.Zero);
             }
             else
             {

@@ -94,6 +94,8 @@ namespace GameBuild.Game
                     {
                         Game1.character.position.Y = warp.targetY;
                     }
+
+                    #region story stuff
                     if (map == "Map4_C")
                     {
                         for (int i = 0; i < game.Npcs.Count; i++)
@@ -109,7 +111,7 @@ namespace GameBuild.Game
                             }
                         }
                     }
-                    else if(map == "Map3_B")
+                    else if (map == "Map3_B")
                     {
                         for (int i = 0; i < game.Npcs.Count; i++)
                         {
@@ -134,39 +136,65 @@ namespace GameBuild.Game
                                 game.Npcs[i].mapName = map;
                                 game.Npcs[i].position.X = 834;
                                 game.Npcs[i].position.Y = 711;
-                                
+                                game.Npcs[i].left = true;
+                                game.Npcs[i].right = false;
+                                game.Npcs[i].up = false;
+                                game.Npcs[i].down = false;
+                                game.Npcs[i].MoveLeft(ref game.Npcs[i].position);
+                                game.Npcs[i].animation.LoopAnimation(7);
                             }
                             if (game.Npcs[i].name == "Laune")
                             {
                                 game.Npcs[i].mapName = map;
                                 game.Npcs[i].position.X = 834;
                                 game.Npcs[i].position.Y = 793;
+                                game.Npcs[i].left = true;
+                                game.Npcs[i].right = false;
+                                game.Npcs[i].up = false;
+                                game.Npcs[i].down = false;
+                                game.Npcs[i].MoveLeft(ref game.Npcs[i].position);
+                                game.Npcs[i].animation.LoopAnimation(9);
                             }
                             if (game.Npcs[i].name == "Melitta")
                             {
                                 game.Npcs[i].mapName = map;
                                 game.Npcs[i].position.X = 834;
                                 game.Npcs[i].position.Y = 867;
+                                game.Npcs[i].left = true;
+                                game.Npcs[i].right = false;
+                                game.Npcs[i].up = false;
+                                game.Npcs[i].down = false;
+                                game.Npcs[i].MoveLeft(ref game.Npcs[i].position);
+                                game.Npcs[i].animation.LoopAnimation(7);
                             }
                             if (game.Npcs[i].name == "Sylian")
                             {
                                 game.Npcs[i].mapName = map;
                                 game.Npcs[i].position.X = 834;
                                 game.Npcs[i].position.Y = 948;
+                                game.Npcs[i].left = true;
+                                game.Npcs[i].right = false;
+                                game.Npcs[i].up = false;
+                                game.Npcs[i].down = false;
+                                game.Npcs[i].MoveLeft(ref game.Npcs[i].position);
+                                game.Npcs[i].animation.LoopAnimation(7);
                             }
                             if (game.Npcs[i].name == "Ziva")
                             {
                                 game.Npcs[i].mapName = map;
                                 game.Npcs[i].position.X = 834;
                                 game.Npcs[i].position.Y = 1029;
+                                game.Npcs[i].left = true;
+                                game.Npcs[i].right = false;
+                                game.Npcs[i].up = false;
+                                game.Npcs[i].down = false;
+                                game.Npcs[i].MoveLeft(ref game.Npcs[i].position);
+                                game.Npcs[i].animation.LoopAnimation(7);
                             }
-                            game.Npcs[i].left = true;
-                            game.Npcs[i].right = false;
-                            game.Npcs[i].up = false;
-                            game.Npcs[i].down = false;
-                            game.Npcs[i].animation.LoopAnimation(7);
+                            
                         }
                     }
+                    #endregion
                 }
             }
             if (!hasKey)

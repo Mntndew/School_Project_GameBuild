@@ -170,7 +170,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Cybot.xnb</Output>
-      <Time>2013-05-06T14:02:52+02:00</Time>
+      <Time>2013-05-07T21:11:44.3643482+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\portrait\Headmaster.png</Source>
@@ -571,7 +571,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Laune.xnb</Output>
-      <Time>2013-05-06T14:02:52+02:00</Time>
+      <Time>2013-05-07T20:58:30.1247006+02:00</Time>
     </Item>
     <Item>
       <Source>Game\itemLabel.png</Source>
@@ -751,7 +751,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Melitta.xnb</Output>
-      <Time>2013-05-06T14:02:52+02:00</Time>
+      <Time>2013-05-07T21:09:10.4713761+02:00</Time>
     </Item>
     <Item>
       <Source>Npc\portrait\Melitta.png</Source>
