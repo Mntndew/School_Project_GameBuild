@@ -164,7 +164,7 @@ namespace GameBuild
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             collisionTex = Content.Load<Texture2D>(@"Game\blackness");
-            map = Content.Load<H_Map.TileMap>(@"Map\Map3_B");
+            map = Content.Load<H_Map.TileMap>(@"Map\Map1_A");
             map.tileset = Content.Load<Texture2D>(@"Game\tileset");
             textBox = Content.Load<Texture2D>(@"Game\textBox");
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
@@ -475,6 +475,7 @@ namespace GameBuild
                             Mobs.RemoveAt(i);
                         }
                     }
+                    Mobs = SortNpcsAfterY(Mobs.ToArray()).ToList();
                 }
             }
             else
@@ -718,6 +719,22 @@ namespace GameBuild
                     increaseAlpha = true;
                 }
             }
+        }
+
+        private Npc.Npc[] SortNpcsAfterY(Npc.Npc[] a)
+        {
+            for (int i = 1; i < a.Length; i++)
+            {
+                Npc.Npc insertValue = a[i];
+                int holePosition = i;
+                while (holePosition > 0 && insertValue.position.Y < a[holePosition-1].position.Y)
+                {
+                    a[holePosition] = a[holePosition - 1];
+                    holePosition--;
+                }
+                a[holePosition]= insertValue;
+            }
+            return a;
         }
     }
 }
