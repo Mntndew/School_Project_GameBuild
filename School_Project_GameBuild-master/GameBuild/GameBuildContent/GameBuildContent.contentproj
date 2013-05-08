@@ -1,0 +1,715 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}</ProjectGuid>
+    <ProjectTypeGuids>{96E2B04D-8817-42c6-938A-82C39BA4D311};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
+    <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
+    <ContentRootDirectory>Content</ContentRootDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>Mob_TestContent</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.EffectImporter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.FBXImporter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.TextureImporter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.XImporter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.AudioImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.VideoImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\blackness.png">
+      <Name>blackness</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\lightTexture.png">
+      <Name>lightTexture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\lighting.fx">
+      <Name>lighting</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\A.png">
+      <Name>A</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\SpriteFont1.spritefont">
+      <Name>SpriteFont1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Player\shadowTex.png">
+      <Name>shadowTex</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\LevelContentExtension\LevelContentExtension.csproj">
+      <Project>{EDF5CC00-62CF-4CC5-A630-C3596767BD43}</Project>
+      <Name>LevelContentExtension</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Map\Map4_C.tm">
+      <Name>Map4_C</Name>
+      <Importer>TileMapImporter</Importer>
+      <Processor>TileMapProcessor</Processor>
+    </Compile>
+    <Compile Include="Map\Map4_B.tm">
+      <Name>Map4_B</Name>
+      <Importer>TileMapImporter</Importer>
+      <Processor>TileMapProcessor</Processor>
+    </Compile>
+    <Compile Include="Map\Map3_B.tm">
+      <Name>Map3_B</Name>
+      <Importer>TileMapImporter</Importer>
+      <Processor>TileMapProcessor</Processor>
+    </Compile>
+    <Compile Include="Map\Map3_A.tm">
+      <Name>Map3_A</Name>
+      <Importer>TileMapImporter</Importer>
+      <Processor>TileMapProcessor</Processor>
+    </Compile>
+    <Compile Include="Map\Map2_A.tm">
+      <Name>Map2_A</Name>
+      <Importer>TileMapImporter</Importer>
+      <Processor>TileMapProcessor</Processor>
+    </Compile>
+    <Compile Include="Map\Map1_A.tm">
+      <Name>Map1_A</Name>
+      <Importer>TileMapImporter</Importer>
+      <Processor>TileMapProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\health100.png">
+      <Name>health100</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Player\emptySlot.png">
+      <Name>emptySlot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\textBox.png">
+      <Name>textBox</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="particle.png">
+      <Name>particle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Particle\particle.png">
+      <Name>particle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\dialogue\test.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>test</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\dialogue\doorLocked.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>doorLocked</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Player\Portrait\Male.png">
+      <Name>Male</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\key.png">
+      <Name>key</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\tileset.png">
+      <Name>tileset</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\portrait\Nurse.png">
+      <Name>Nurse</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\sprite\Headmaster.png">
+      <Name>Headmaster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\Hp bar.png">
+      <Name>Hp bar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Warp\Map1_A_0.txt">
+      <Name>Map1_A_0</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Warp\Map2_A_0.txt">
+      <Name>Map2_A_0</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Warp\Map2_A_1.txt">
+      <Name>Map2_A_1</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Warp\Map3_A_0.txt">
+      <Name>Map3_A_0</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Warp\Map3_A_1.txt">
+      <Name>Map3_A_1</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Warp\Map3_B_0.txt">
+      <Name>Map3_B_0</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Warp\Map4_B_0.txt">
+      <Name>Map4_B_0</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\dialogue\dialogue2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>dialogue2</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Warp\Map4_C_0.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>Map4_C_0</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Warp\Map4_B_1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>Map4_B_1</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\npc\Headmaster.txt">
+      <Name>Headmaster</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\target.png">
+      <Name>target</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="robot.png">
+      <Name>robot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\npc\Nurse.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>Nurse</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\bot.png">
+      <Name>bot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Player\Portrait\female.png">
+      <Name>female</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\npc\Cybot.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>Cybot</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\portrait\Cybot.png">
+      <Name>Cybot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\sprite\Cybot.png">
+      <Name>Cybot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\portrait\Headmaster.png">
+      <Name>Headmaster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Npc\portrait\Lamia.png">
+      <Name>Lamia</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Npc\portrait\Laune.png">
+      <Name>Laune</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Npc\portrait\Sylian.png">
+      <Name>Sylian</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\dialogue\Cybot dead.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>Cybot dead</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\npc\Sylian.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>Sylian</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\sprite\Sylian.png">
+      <Name>Sylian</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\npc\Laune.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>Laune</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\sprite\Laune.png">
+      <Name>Laune</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\dialogue\nurse.txt">
+      <Name>nurse</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\dialogue\headmaster.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>headmaster</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\sprite\Nurse.png">
+      <Name>Nurse</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Audio\Songs\Boss battle song 1.mp3">
+      <Name>Boss battle song 1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\Boss battle song 2.mp3">
+      <Name>Boss battle song 2</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\School basic song 1.mp3">
+      <Name>School basic song 1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\School basic song 10.mp3">
+      <Name>School basic song 10</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\School basic song 11.mp3">
+      <Name>School basic song 11</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\School basic song 2.mp3">
+      <Name>School basic song 2</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\School basic song 3.mp3">
+      <Name>School basic song 3</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\School basic song 4.mp3">
+      <Name>School basic song 4</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\School basic song 5.mp3">
+      <Name>School basic song 5</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\School basic song 6.mp3">
+      <Name>School basic song 6</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\School basic song 7.mp3">
+      <Name>School basic song 7</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\School basic song 8.mp3">
+      <Name>School basic song 8</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\School basic song 9.mp3">
+      <Name>School basic song 9</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Songs\School battle song.mp3">
+      <Name>School battle song</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\sprite\forestCybot.png">
+      <Name>forestCybot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\dialogue\First cybot encounter.txt">
+      <Name>First cybot encounter</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Player\Sprite\Female\forestFemale.png">
+      <Name>forestFemale</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Player\Sprite\Male\forestMale.png">
+      <Name>forestMale</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\dialogue\Nurse questions.txt">
+      <Name>Nurse questions</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\female.png">
+      <Name>female</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\femaleSelected.png">
+      <Name>femaleSelected</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\male.png">
+      <Name>male</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\maleSelected.png">
+      <Name>maleSelected</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\Menu\exit.png">
+      <Name>exit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Menu\exitSelected.png">
+      <Name>exitSelected</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Menu\resume.png">
+      <Name>resume</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Menu\resumeSelected.png">
+      <Name>resumeSelected</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\Startmenu\exitDeselect.png">
+      <Name>exitDeselect</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Startmenu\exitSelect.png">
+      <Name>exitSelect</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Startmenu\playDeselect.png">
+      <Name>playDeselect</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Game\Startmenu\playSelect.png">
+      <Name>playSelect</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\deathSprite.png">
+      <Name>deathSprite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\dialogue\Laune.txt">
+      <Name>Laune</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\itemLabel.png">
+      <Name>itemLabel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\labelSide.png">
+      <Name>labelSide</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\labelSide2.png">
+      <Name>labelSide2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\sprite\Lamia.png">
+      <Name>Lamia</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\npc\Lamia.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>Lamia</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\forest.png">
+      <Name>forest</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\dialogue\informer.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>informer</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\ribbon.png">
+      <Name>ribbon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\dialogue\SylianAccept.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>SylianAccept</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\dialogue\SylianComplete.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>SylianComplete</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\dialogue\SylianNoRibbon.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>SylianNoRibbon</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Npc\sprite\student\student1.png">
+      <Name>student1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Npc\sprite\student\student2.png">
+      <Name>student2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Npc\sprite\student\student3.png">
+      <Name>student3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Player\Sprite\Male\male.png">
+      <Name>male</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Player\Sprite\Female\female-cockiri.png">
+      <Name>female-cockiri</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Player\Sprite\Female\female-dong.png">
+      <Name>female-dong</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Player\Sprite\Female\female-thruster.png">
+      <Name>female-thruster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Player\Sprite\Male\male-cockiri.png">
+      <Name>male-cockiri</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Player\Sprite\Male\male-dong.png">
+      <Name>male-dong</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Player\Sprite\Male\male-thruster.png">
+      <Name>male-thruster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Player\Sprite\Female\female.png">
+      <Name>female</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
+  <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

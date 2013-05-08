@@ -83,13 +83,13 @@ namespace GameBuild.Menu
             spriteBatch.Begin();
             if (play)
             {
-                spriteBatch.Draw(playButtonSelected, new Rectangle(400, 300, playButtonSelected.Width, playButtonSelected.Height), Color.White);
-                spriteBatch.Draw(exitButtonDeselected, new Rectangle(400, 500, exitButtonDeselected.Width, exitButtonDeselected.Height), Color.White);
+                spriteBatch.Draw(playButtonSelected, new Rectangle(640 - (playButtonSelected.Width/2), 300, playButtonSelected.Width, playButtonSelected.Height), Color.White);
+                spriteBatch.Draw(exitButtonDeselected, new Rectangle(640 - (playButtonSelected.Width / 2), 500, exitButtonDeselected.Width, exitButtonDeselected.Height), Color.White);
             }
             else
             {
-                spriteBatch.Draw(playButtonDeselected, new Rectangle(400, 300, playButtonDeselected.Width, playButtonDeselected.Height), Color.White);
-                spriteBatch.Draw(exitButtonSelected, new Rectangle(400, 500, exitButtonSelected.Width, exitButtonSelected.Height), Color.White);
+                spriteBatch.Draw(playButtonDeselected, new Rectangle(640 - (playButtonSelected.Width / 2), 300, playButtonDeselected.Width, playButtonDeselected.Height), Color.White);
+                spriteBatch.Draw(exitButtonSelected, new Rectangle(640 - (playButtonSelected.Width / 2), 500, exitButtonSelected.Width, exitButtonSelected.Height), Color.White);
             }
             spriteBatch.End();
         }

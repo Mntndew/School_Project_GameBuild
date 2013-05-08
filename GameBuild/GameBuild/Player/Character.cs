@@ -149,7 +149,7 @@ namespace GameBuild
                 spriteSheet = game.Content.Load<Texture2D>("Player/Sprite/Female/female");
                 animation = new AnimationComponent(4, 8, 54, 70, 150, Point.Zero);
             }
-            
+
             shadowBlob = game.Content.Load<Texture2D>("player/shadowTex");
             healthTexture = game.Content.Load<Texture2D>(@"Game\health100");
             #endregion
@@ -166,7 +166,7 @@ namespace GameBuild
             position.X = positionRectangle.X;
             position.Y = positionRectangle.Y;
             interactRect = new Rectangle(positionRectangle.X - (positionRectangle.Width / 2), positionRectangle.Y - (positionRectangle.Height / 2), positionRectangle.Width * 2, positionRectangle.Height * 2);
-            
+
             attackRectangle = new Rectangle();
             warpRectangle = new Rectangle();
             healthPos = new Rectangle();
@@ -175,7 +175,7 @@ namespace GameBuild
             hpColor = new Color(200, 200, 200, 255);
 
             inventory = new Inventory(game);
-            
+
             emitter = new ParticleSystemEmitter(game);
             Game1.particleSystem.emitters.Add(emitter);
             bossTarget = new Vector2(-128, -128);
@@ -384,9 +384,19 @@ namespace GameBuild
                         //talk to the npc
                     }
                 }
-                SetPosition();
+                
                 try
                 {
+                    if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
+                                || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+                    {
+                        CalculateFriction(0.7f);
+                    }
+                    else
+                        CalculateFriction(0.2f);
+
+                    SetPosition();
+
                     if (leftSide.Intersects(tile.GetTileRectangleFromPosition(leftSide.X, leftSide.Y)) && !tile.CheckCellPositionPassable(new Vector2(leftSide.X, leftSide.Y)))
                     {
                         position.X = tile.GetTileRectangleFromPosition(leftSide.X, leftSide.Y).Right;
@@ -765,7 +775,7 @@ namespace GameBuild
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle shadowPos = new Rectangle(positionRectangle.X + (positionRectangle.Width/2 - shadowBlob.Width/2), positionRectangle.Bottom - shadowBlob.Height / 2, shadowBlob.Width, shadowBlob.Height);
+            Rectangle shadowPos = new Rectangle(positionRectangle.X + (positionRectangle.Width / 2 - shadowBlob.Width / 2), positionRectangle.Bottom - shadowBlob.Height / 2, shadowBlob.Width, shadowBlob.Height);
             spriteBatch.Draw(shadowBlob, shadowPos, Color.White);
             spriteBatch.Draw(spriteSheet, positionRectangle, animation.GetFrame(), Color.White);
         }
@@ -809,7 +819,7 @@ namespace GameBuild
             friction.Normalize();
             float normal = 1; //power of the normal force pushing on the object making it not slip through the floor(not important here)
             float magnitude = c * normal;
-            friction *= magnitude-1;
+            friction *= magnitude - 1;
             ApplyForce(friction);
         }
 

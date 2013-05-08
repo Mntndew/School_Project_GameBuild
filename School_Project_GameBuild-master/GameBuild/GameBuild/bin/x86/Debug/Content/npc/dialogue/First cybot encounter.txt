@@ -1,0 +1,7 @@
+0:0:Hehehe... Hi!:0
+0:1:Oh- Wow who are you?:0
+1:0:Me? I'm Ziva. I'm not from here.:0
+1:2:I... I can see that. But what are |you doing out here?:0
+2:0:Not much! Or actually... I was waiting for |someone to come around! And now you're |here! That's great! I want to show |you something...:0
+2:3:What?:0
+3:0:WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE:1

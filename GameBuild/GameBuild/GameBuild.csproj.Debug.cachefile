@@ -7,16 +7,58 @@ Content\Player\emptySlot.xnb
 Content\Game\textBox.xnb
 Content\particle.xnb
 Content\Particle\particle.xnb
+Content\Player\Portrait\Male.xnb
 Content\Game\key.xnb
 Content\Game\tileset.xnb
-Content\Npc\portrait\Headmaster.xnb
 Content\Npc\portrait\Nurse.xnb
 Content\Npc\sprite\Headmaster.xnb
-Content\Npc\sprite\Nurse.xnb
 Content\Game\Hp bar.xnb
 Content\Game\target.xnb
 Content\robot.xnb
 Content\Npc\bot.xnb
+Content\Player\Portrait\female.xnb
+Content\Npc\portrait\Cybot.xnb
+Content\Npc\sprite\Cybot.xnb
+Content\Npc\portrait\Headmaster.xnb
+Content\Npc\portrait\Laune.xnb
+Content\Npc\portrait\Melitta.xnb
+Content\Npc\portrait\Sylian.xnb
+Content\Npc\sprite\Sylian.xnb
+Content\Npc\sprite\Melitta.xnb
+Content\Npc\sprite\Nurse.xnb
+Content\Npc\sprite\forestCybot.xnb
+Content\Player\Sprite\Female\forestFemale.xnb
+Content\Player\Sprite\Male\forestMale.xnb
+Content\Game\female.xnb
+Content\Game\femaleSelected.xnb
+Content\Game\male.xnb
+Content\Game\maleSelected.xnb
+Content\Game\Menu\exit.xnb
+Content\Game\Menu\exitSelected.xnb
+Content\Game\Menu\resume.xnb
+Content\Game\Menu\resumeSelected.xnb
+Content\Game\Startmenu\exitDeselect.xnb
+Content\Game\Startmenu\exitSelect.xnb
+Content\Game\Startmenu\playDeselect.xnb
+Content\Game\Startmenu\playSelect.xnb
+Content\Npc\deathSprite.xnb
+Content\Game\itemLabel.xnb
+Content\Game\labelSide.xnb
+Content\Game\labelSide2.xnb
+Content\Npc\sprite\Laune.xnb
+Content\Game\forest.xnb
+Content\Game\ribbon.xnb
+Content\Npc\sprite\student\student1.xnb
+Content\Npc\sprite\student\student2.xnb
+Content\Npc\sprite\student\student3.xnb
+Content\Player\Sprite\Male\male.xnb
+Content\Player\Sprite\Female\female-cockiri.xnb
+Content\Player\Sprite\Female\female-dong.xnb
+Content\Player\Sprite\Female\female-thruster.xnb
+Content\Player\Sprite\Male\male-cockiri.xnb
+Content\Player\Sprite\Male\male-dong.xnb
+Content\Player\Sprite\Male\male-thruster.xnb
+Content\Player\Sprite\Female\female.xnb
 Content\Game\lighting.xnb
 Content\Game\SpriteFont1.xnb
 Content\Map\Map4_C.xnb
@@ -25,12 +67,6 @@ Content\Map\Map3_B.xnb
 Content\Map\Map3_A.xnb
 Content\Map\Map2_A.xnb
 Content\Map\Map1_A.xnb
-Content\Npc\portrait\Cybot.xnb
-Content\Npc\sprite\Cybot.xnb
-Content\Npc\portrait\Sylian.xnb
-Content\Npc\sprite\Sylian.xnb
-Content\Game\forest.xnb
-Content\Npc\sprite\forestCybot.xnb
 Content\Audio\Songs\Boss battle song 1.xnb
 Content\Audio\Songs\Boss battle song 2.xnb
 Content\Audio\Songs\School basic song 1.xnb
@@ -45,42 +81,6 @@ Content\Audio\Songs\School basic song 7.xnb
 Content\Audio\Songs\School basic song 8.xnb
 Content\Audio\Songs\School basic song 9.xnb
 Content\Audio\Songs\School battle song.xnb
-Content\Game\female.xnb
-Content\Game\femaleSelected.xnb
-Content\Game\male.xnb
-Content\Game\maleSelected.xnb
-Content\Game\Menu\exit.xnb
-Content\Game\Menu\exitSelected.xnb
-Content\Game\Menu\resume.xnb
-Content\Game\Menu\resumeSelected.xnb
-Content\Game\Startmenu\exitDeselect.xnb
-Content\Game\Startmenu\exitSelect.xnb
-Content\Game\Startmenu\playDeselect.xnb
-Content\Game\Startmenu\playSelect.xnb
-Content\Npc\portrait\Laune.xnb
-Content\Npc\sprite\Laune.xnb
-Content\Npc\deathSprite.xnb
-Content\Game\itemLabel.xnb
-Content\Game\labelSide.xnb
-Content\Game\labelSide2.xnb
-Content\Game\ribbon.xnb
-Content\Player\Portrait\Male.xnb
-Content\Player\Portrait\female.xnb
-Content\Npc\portrait\Melitta.xnb
-Content\Npc\sprite\Melitta.xnb
-Content\Player\Sprite\Female\forestFemale.xnb
-Content\Player\Sprite\Male\forestMale.xnb
-Content\Npc\sprite\student\student1.xnb
-Content\Npc\sprite\student\student2.xnb
-Content\Npc\sprite\student\student3.xnb
-Content\Player\Sprite\Male\male.xnb
-Content\Player\Sprite\Female\female-cockiri.xnb
-Content\Player\Sprite\Female\female-dong.xnb
-Content\Player\Sprite\Female\female-thruster.xnb
-Content\Player\Sprite\Male\male-cockiri.xnb
-Content\Player\Sprite\Male\male-dong.xnb
-Content\Player\Sprite\Male\male-thruster.xnb
-Content\Player\Sprite\Female\female.xnb
 Content\Audio\Songs\Boss battle song 1.wma
 Content\Audio\Songs\Boss battle song 2.wma
 Content\Audio\Songs\School basic song 1.wma

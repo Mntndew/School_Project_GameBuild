@@ -1,0 +1,28 @@
+//This is a comment test
+0:0:Hi. How are you?:0
+0:1: I'm good. :0
+0:2: Not so good. :0
+1:0: Would you like an xbox? :0
+1:6: No, thank you. :0
+1:3: Yes, please. :0
+2:0: Would you like a dreamcast? :0
+2:6: No, thank you. :0
+2:3: Yes, please. :0 
+3:0: Here you go! :0
+3:4: Talk :0 
+4:0:Yes or no? :0
+4:5: Yes :0 
+4:6: No :0
+5:0: What is your favorite color? :0
+5:7: Green. :0
+5:7: Blue. :0
+5:7: Red. :0
+5:8: Purple. :0
+5:7: Orange. :0
+5:7: Pink. :0
+5:7: Green. :0
+5:7: Blue. :0
+5:7: Red. :0
+6:0: I KILL U:1
+7:0: Here's a key :2
+8:0: I died x( :3
