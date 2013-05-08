@@ -997,10 +997,8 @@ namespace GameBuild.Npc
                     }
                     break;
                 case 8:
-                    if (name == "Ziva")
-                    {
-                        waypoint = new WaypointManager(this.name, this.mapName, 1);
-                    }
+                    waypoint = new WaypointManager("Ziva", this.mapName, 1);
+                    Game1.character.waypointManager = null;
                     isInteracting = false;
                     dialogue.isTalking = false;
                     Game1.currentGameState = Game1.GameState.PLAY;

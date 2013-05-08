@@ -399,10 +399,6 @@ namespace GameBuild
                                 Game1.currentGameState = Game1.GameState.INTERACT;
                             }
                         }
-                        if (Game1.currentGameState == Game1.GameState.PLAY)
-                        {
-                            waypointManager = null;
-                        }
                     }
                 }
                 
