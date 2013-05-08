@@ -684,6 +684,7 @@ namespace GameBuild
 
             spriteBatch.Begin();
             spriteBatch.Draw(fadeOverlay, screenRectangle, fadeColor);
+            spriteBatch.DrawString(spriteFont, "" + map.mapName, Vector2.Zero, Color.Red);
             spriteBatch.End();
             //menu
             menu.Draw(spriteBatch);

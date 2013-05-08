@@ -1,4 +1,4 @@
-0:0: You seem to have completed our tests.:0
+0:0:You seem to have completed our tests.:0
 0:1: :0
-1:0:You surely won't be able to beat our |next obstacle.:0
+1:0:You surely won't be able to beat our |next obstacle.:8
 1:2: :8
