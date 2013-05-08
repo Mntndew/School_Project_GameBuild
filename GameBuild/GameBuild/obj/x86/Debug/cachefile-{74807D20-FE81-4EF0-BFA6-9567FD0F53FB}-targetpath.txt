@@ -159,3 +159,4 @@ Content\Npc\dialogue\SylianAccept.txt
 Content\Npc\dialogue\SylianComplete.txt
 Content\Npc\dialogue\SylianNoRibbon.txt
 Content\Npc\dialogue\Laune.txt
+Content\Npc\dialogue\Confrontation.txt

@@ -329,6 +329,7 @@ namespace GameBuild
 
             animation.UpdateAnimation(gameTime);
             #endregion
+            Console.WriteLine((int)position.Y);
             if (disabled)
             {
                 disabledTimer -= elapsed;
@@ -344,22 +345,22 @@ namespace GameBuild
                 walking = false;
                 if (!disabled)
                 {
-                    if (game.keyState.IsKeyDown(Keys.Up) && !CollidesWithNpc(game, upSide))
+                    if (game.keyState.IsKeyDown(Keys.Up))
                     {
                         MoveUp(gameTime);
                     }
 
-                    else if (game.keyState.IsKeyDown(Keys.Down) && !CollidesWithNpc(game, downSide))
+                    else if (game.keyState.IsKeyDown(Keys.Down))
                     {
                         MoveDown(gameTime);
                     }
 
-                    if (game.keyState.IsKeyDown(Keys.Right) && !CollidesWithNpc(game, rightSide))
+                    if (game.keyState.IsKeyDown(Keys.Right))
                     {
                         MoveRight(gameTime);
                     }
 
-                    else if (game.keyState.IsKeyDown(Keys.Left) && !CollidesWithNpc(game, leftSide))
+                    else if (game.keyState.IsKeyDown(Keys.Left))
                     {
                         MoveLeft(gameTime);
                     }
@@ -388,13 +389,19 @@ namespace GameBuild
                     {
                         for (int i = 0; i < game.activeNpcs.Count; i++)
                         {
-
-                            if (game.activeNpcs[i].name == "")
+                            if (game.activeNpcs[i].name == "Celine")
                             {
+                                game.activeNpcs[i].dialogue.dialogueManager = new DialogueManager(@"Content\Npc\dialogue\" + game.activeNpcs[i].thirdDialogue + ".txt");
+                                game.activeNpcs[i].dialogue.dialogueManager.ReachedExit += game.activeNpcs[i].ExitedDialogue;
+                                game.activeNpcs[i].dialogue.GetLines(0);
                                 game.activeNpcs[i].isInteracting = true;
                                 game.activeNpcs[i].dialogue.isTalking = true;
                                 Game1.currentGameState = Game1.GameState.INTERACT;
                             }
+                        }
+                        if (Game1.currentGameState == Game1.GameState.PLAY)
+                        {
+                            waypointManager = null;
                         }
                     }
                 }
@@ -903,25 +910,6 @@ namespace GameBuild
         {
             disabled = true;
             disabledTimer = DISABLEDTIMER;
-        }
-
-        public bool CollidesWithNpc(Game1 game, Rectangle rectangle)
-        {
-            for (int i = 0; i < game.activeNpcs.Count; i++)
-            {
-                if (game.activeNpcs[i].position.Intersects(rectangle))
-                {
-                    return true;
-                }
-            }
-            for (int i = 0; i < game.Mobs.Count; i++)
-            {
-                if (game.Mobs[i].position.Intersects(rectangle))
-                {
-                    return true;
-                }
-            }
-            return false;
         }
     }
 }

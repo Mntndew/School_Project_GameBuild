@@ -156,7 +156,7 @@ namespace GameBuild
             }
         }
 
-        private void GetLines(int index)
+        public void GetLines(int index)
         {
             currentLines = dialogueManager.GetDialogueLinesFromIndex(index);
         }

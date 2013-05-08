@@ -58,11 +58,13 @@ namespace GameBuild.Npc
                     {
                         game.activeNpcs[i].dialogue.dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + game.activeNpcs[i].thirdDialogue + ".txt");
                         game.activeNpcs[i].dialogue.dialogueManager.ReachedExit += game.activeNpcs[i].ExitedDialogue;
+                        game.activeNpcs[i].dialogue.GetLines(0);
                     }
                     else
                     {
                         game.activeNpcs[i].dialogue.dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + game.activeNpcs[i].secondDialogue + ".txt");
                         game.activeNpcs[i].dialogue.dialogueManager.ReachedExit += game.activeNpcs[i].ExitedDialogue;
+                        game.activeNpcs[i].dialogue.GetLines(0);
                     }
                 }
             }

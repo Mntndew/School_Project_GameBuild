@@ -72,6 +72,10 @@ namespace GameBuild.Npc
                 waypoints[0] = new Vector2(560, 1521);
                 waypoints[1] = new Vector2(560, 1234);
             }
+            else if(name == "Ziva" && map == "Map4_B")
+            {
+                waypoints[0] = new Vector2(1920, 863);
+            }
         }
 
         public void Update(Game1 game, Vector2 position)

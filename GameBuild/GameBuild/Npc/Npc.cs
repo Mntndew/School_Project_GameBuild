@@ -996,6 +996,15 @@ namespace GameBuild.Npc
                         quest.Accept(game);
                     }
                     break;
+                case 8:
+                    if (name == "Ziva")
+                    {
+                        waypoint = new WaypointManager(this.name, this.mapName, 1);
+                    }
+                    isInteracting = false;
+                    dialogue.isTalking = false;
+                    Game1.currentGameState = Game1.GameState.PLAY;
+                    break;
                 default:
                     isInteracting = false;
                     dialogue.isTalking = false;
