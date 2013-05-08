@@ -1,0 +1,22 @@
+new map
+YOOOYOYOYOYOYO
+256
+128
+64
+64
+False
+True
+False
+False
+YOOOYOYOYOYOYO
+YOOOYOYOYOYOYO
+False
+False
+False
+False
+0
+0
+0
+0
+1
+yo

@@ -1,967 +1,168 @@
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\blackness.xnb
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\CharacterIdleFront.xnb
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\CharaWalkSheet.xnb
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Down.xnb
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Left.xnb
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Right.xnb
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Up.xnb
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\lightTexture.xnb
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\shadowTex.xnb
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\tileset.xnb
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\point.xnb
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\A.xnb
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\questReceive.xnb
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc_test_portrait.xnb
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc_test_portrait2.xnb
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaAttackSheet V2.xnb
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharacterIdleFront.xnb
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaWalkSheet.xnb
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaWalkSheetBKU.xnb
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\shadowTex.xnb
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\lighting.xnb
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\SpriteFont1.xnb
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\map test.txt
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.exe
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.pdb
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\H_Map.dll
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.exe
-C:\Users\Howser\Documents\Programming projects\Games\spelprojekt\GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.pdb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.exe
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.pdb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\blackness.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\CharacterIdleFront.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\CharaWalkSheet.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Down.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Left.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Right.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Up.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\lightTexture.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\shadowTex.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\tileset.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\point.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\A.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\questReceive.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc_test_portrait.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc_test_portrait2.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaAttackSheet V2.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharacterIdleFront.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaWalkSheet.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaWalkSheetBKU.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\shadowTex.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\lighting.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\SpriteFont1.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\map test.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.exe
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.pdb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\bin\x86\Debug\H_Map.dll
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.csprojResolveAssemblyReference.cache
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\GameBuild\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.csprojResolveAssemblyReference.cache
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.exe
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\blackness.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\CharacterIdleFront.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\CharaWalkSheet.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Down.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Left.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Right.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Up.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\lightTexture.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\shadowTex.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\point.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\A.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\questReceive.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc_test_portrait.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc_test_portrait2.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaAttackSheet V2.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharacterIdleFront.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaWalkSheet.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaWalkSheetBKU.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\shadowTex.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\lighting.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\SpriteFont1.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\map test.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.exe
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.pdb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\H_Map.dll
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\MntnNpc.dll
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.pdb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\tileset.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\tilesets.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\blackness.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\CharacterIdleFront.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\CharaWalkSheet.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Down.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Left.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Right.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Up.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\lightTexture.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\shadowTex.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\tilesets.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\point.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\A.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\questReceive.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc_test_portrait.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc_test_portrait2.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaAttackSheet V2.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharacterIdleFront.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaWalkSheet.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaWalkSheetBKU.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\shadowTex.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\tileset.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\lighting.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\SpriteFont1.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\map test.xnb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.exe
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.pdb
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\H_Map.dll
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\MntnNpc.dll
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.csprojResolveAssemblyReference.cache
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.exe
-C:\Users\suhg12simon\Documents\Programmering\Spel projekt\GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.pdb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\portrait\Amelia.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\sprite\Amelia.xnb
-C:\Users\suhg12patrik\Desktop\spelprojekt\GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\sprite\test.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.exe
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.pdb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\H_Map.dll
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\MntnNpc.dll
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.csprojResolveAssemblyReference.cache
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.exe
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.pdb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.exe
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.pdb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\H_Map.dll
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\MntnNpc.dll
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.csprojResolveAssemblyReference.cache
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.exe
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.pdb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaAttackSheet V2.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaWalkSheet.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaWalkSheetBKU.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\shadowTex.xnb
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaAttackSheet V2.xnb
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaWalkSheet.xnb
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaWalkSheetBKU.xnb
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\shadowTex.xnb
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\portrait\Test.xnb
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\sprite\Test.xnb
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\npc\Test.txt
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\dialogue\dialogueTest.txt
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.exe
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.pdb
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\H_Map.dll
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\MntnNpc.dll
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.exe
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.pdb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.exe
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.pdb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaAttackSheet V2.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaWalkSheet.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaWalkSheetBKU.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\shadowTex.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.exe
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.pdb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\H_Map.dll
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\MntnNpc.dll
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.csprojResolveAssemblyReference.cache
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\dialogue\dialogue2.txt
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\blackness.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\CharacterIdleFront.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\CharaWalkSheet.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Down.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Left.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Right.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\enemy\Up.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\lightTexture.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\shadowTex.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\tilesets.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\point.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\A.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\questReceive.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc_test_portrait.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc_test_portrait2.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaAttackSheet V2.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharacterIdleFront.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaWalkSheet.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\CharaWalkSheetBKU.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\player\shadowTex.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\tileset.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\portrait\Test.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\sprite\Test.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\portrait\Testing.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\sprite\Testing.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\textBox.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\sprite\npc2.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\portrait\npc2.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\lighting.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\SpriteFont1.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\source.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\target.xnb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\npc\Test.txt
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\warp\source.txt
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\warp\target.txt
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\dialogue\dialogue2.txt
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\dialogue\dialogueTest.txt
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\npc\npc2.txt
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.exe
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.pdb
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\H_Map.dll
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\MntnNpc.dll
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.csprojResolveAssemblyReference.cache
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.exe
-C:\Users\suhg12patrik\Dropbox\Oscillation Game Studios\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.pdb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\dialogue\dialogue2.txt
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\sprite\npc2.xnb
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\portrait\npc2.xnb
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\warp\source.txt
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\warp\target.txt
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\dialogue\dialogue2.txt
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\npc\npc\npc2.txt
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\blackness.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\lightTexture.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\A.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\health100.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\emptySlot.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\textBox.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\tileset.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\lighting.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\SpriteFont1.xnb
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\blackness.xnb
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\lightTexture.xnb
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\A.xnb
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\health100.xnb
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\emptySlot.xnb
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\textBox.xnb
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\tileset.xnb
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\lighting.xnb
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\SpriteFont1.xnb
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\source.xnb
-C:\Users\Howser\Documents\Programming_projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\target.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\doorLocked.txt
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\particle.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Particle\particle.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Male.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\doorLocked.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\blackness.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\lightTexture.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\A.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\shadowTex.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\health100.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\emptySlot.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\textBox.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\particle.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Particle\particle.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\tileset.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\lighting.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\SpriteFont1.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\dialogue2.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\doorLocked.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.exe
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.pdb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\H_Map.dll
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\MntnNpc.dll
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.exe
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.pdb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map1_A_0.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map2_A_0.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map3_A_0.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map2_A_1.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\test.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map3_A_1.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map3_B_0.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_B_0.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\dialogue2.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_C_0.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_B_1.txt
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\key.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Headmaster.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Nurse.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Headmaster.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Nurse.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map4_C.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map4_B.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map3_B.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map3_A.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map2_A.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map1_A.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\test.txt
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map1_A_0.txt
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map2_A_0.txt
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map2_A_1.txt
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map3_A_0.txt
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map3_A_1.txt
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map3_B_0.txt
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_B_0.txt
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_C_0.txt
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_B_1.txt
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Headmaster.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Headmaster.txt
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\blackness.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\lightTexture.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\A.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\health100.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\emptySlot.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\textBox.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\particle.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Particle\particle.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Male.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\key.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\tileset.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Headmaster.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Nurse.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Headmaster.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Nurse.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Hp bar.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\target.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\lighting.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\SpriteFont1.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\testing maps\source.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\testing maps\target.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\testing maps\new map.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\testing maps\Testing Ground.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\testing maps\Testing Ground 2.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map4_C.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map4_B.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map3_B.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map3_A.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map2_A.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map1_A.xnb
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\test.txt
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\doorLocked.txt
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map1_A_0.txt
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map2_A_0.txt
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map2_A_1.txt
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map3_A_0.txt
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map3_A_1.txt
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map3_B_0.txt
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_B_0.txt
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_C_0.txt
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_B_1.txt
-C:\Users\Mntndew\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Headmaster.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Nurse.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\key.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Headmaster.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Nurse.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Headmaster.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Nurse.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map4_C.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map4_B.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map3_B.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map3_A.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map2_A.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map1_A.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\test.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map1_A_0.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map2_A_0.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map2_A_1.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map3_A_0.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map3_A_1.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map3_B_0.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_B_0.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_C_0.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_B_1.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Headmaster.txt
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Hp bar.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\target.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\robot.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\bot.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Nurse.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Hp bar.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\target.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\robot.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\bot.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Nurse.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\blackness.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\lightTexture.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\A.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\CharaAttackSheet V2.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\CharaWalkSheet.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\CharaWalkSheetBKU.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\shadowTex.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\health100.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\emptySlot.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\textBox.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\particle.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Particle\particle.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Male.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\key.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\tileset.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Headmaster.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Nurse.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Headmaster.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Nurse.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Hp bar.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\target.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\robot.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\bot.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\lighting.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\SpriteFont1.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map4_C.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map4_B.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map3_B.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map3_A.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map2_A.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map1_A.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\test.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\doorLocked.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map1_A_0.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map2_A_0.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map2_A_1.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map3_A_0.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map3_A_1.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map3_B_0.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_B_0.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\dialogue2.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_C_0.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_B_1.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Headmaster.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Nurse.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.exe
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.pdb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\H_Map.dll
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\MntnNpc.dll
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.csprojResolveAssemblyReference.cache
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.exe
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\Unfucked\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.pdb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Cybot.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\Cybot dead.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Sylian.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Succubus.txt
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\female.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Cybot.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Cybot.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Lamia.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Succubus.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Sylian.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Sylian.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Succubus.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Cybot.txt
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\Cybot dead.txt
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Sylian.txt
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Succubus.txt
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 1.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 2.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 1.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 10.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 11.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 2.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 3.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 4.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 5.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 6.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 7.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 8.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 9.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School battle song.xnb
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 1.wma
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 2.wma
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 1.wma
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 10.wma
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 11.wma
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 2.wma
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 3.wma
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 4.wma
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 5.wma
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 6.wma
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 7.wma
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 8.wma
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 9.wma
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School battle song.wma
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\nurse.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\headmaster.txt
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\nurse.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\recieve key.txt
-C:\Users\suhg12simon\Documents\Programmering\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\headmaster.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\blackness.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\lightTexture.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\A.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\CharaAttackSheet V2.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\CharaWalkSheet.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\CharaWalkSheetBKU.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\shadowTex.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\health100.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\emptySlot.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\textBox.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\particle.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Particle\particle.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Male.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\key.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\tileset.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Nurse.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Headmaster.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Hp bar.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\target.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\robot.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\bot.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\female.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Cybot.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Cybot.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Headmaster.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Lamia.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Succubus.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Sylian.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Sylian.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Succubus.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Nurse.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\lighting.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\SpriteFont1.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map4_C.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map4_B.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map3_B.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map3_A.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map2_A.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map1_A.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 1.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 2.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 1.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 10.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 11.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 2.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 3.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 4.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 5.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 6.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 7.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 8.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 9.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School battle song.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 1.wma
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 2.wma
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 1.wma
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 10.wma
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 11.wma
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 2.wma
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 3.wma
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 4.wma
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 5.wma
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 6.wma
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 7.wma
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 8.wma
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 9.wma
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School battle song.wma
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Cybot.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Cybot.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Sylian.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Sylian.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\forest.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\forestCybot.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 1.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 2.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 1.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 10.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 11.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 2.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 3.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 4.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 5.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 6.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 7.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 8.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 9.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School battle song.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 1.wma
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 2.wma
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 1.wma
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 10.wma
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 11.wma
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 2.wma
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 3.wma
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 4.wma
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 5.wma
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 6.wma
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 7.wma
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 8.wma
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 9.wma
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School battle song.wma
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Cybot.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\Cybot dead.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Sylian.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\nurse.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\headmaster.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\First cybot encounter.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\forest.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\forestCybot.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\First cybot encounter.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\femalewalk.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\malewalk.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\forestFemale.xnb
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\forestMale.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\Nurse questions.txt
-C:\Users\suhg12patrik\Documents\Projects\GameBuild\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\Nurse questions.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\blackness.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\lightTexture.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\A.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\shadowTex.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\health100.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\emptySlot.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\textBox.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\particle.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Particle\particle.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\key.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\tileset.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Nurse.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Headmaster.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Hp bar.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\target.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\robot.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\bot.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Cybot.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Cybot.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Headmaster.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Sylian.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Sylian.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Nurse.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\forest.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\forestCybot.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\lighting.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\SpriteFont1.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map4_C.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map4_B.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map3_B.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map3_A.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map2_A.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map1_A.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 1.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 2.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 1.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 10.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 11.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 2.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 3.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 4.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 5.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 6.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 7.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 8.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 9.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School battle song.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 1.wma
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 2.wma
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 1.wma
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 10.wma
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 11.wma
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 2.wma
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 3.wma
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 4.wma
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 5.wma
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 6.wma
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 7.wma
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 8.wma
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 9.wma
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School battle song.wma
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\test.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\doorLocked.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map1_A_0.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map2_A_0.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map2_A_1.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map3_A_0.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map3_A_1.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map3_B_0.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_B_0.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\dialogue2.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_C_0.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_B_1.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Headmaster.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Nurse.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Cybot.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\Cybot dead.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Sylian.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\nurse.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\headmaster.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\First cybot encounter.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\Nurse questions.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.exe
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.pdb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\H_Map.dll
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\MntnNpc.dll
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.csprojResolveAssemblyReference.cache
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.exe
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.pdb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\female.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\femaleSelected.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\male.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\maleSelected.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\exit.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\exitSelected.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\resume.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\resumeSelected.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\female.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\femaleSelected.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\male.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\maleSelected.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\exit.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\exitSelected.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\resume.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\resumeSelected.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Startmenu\exitDeselect.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Startmenu\exitSelect.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Startmenu\playDeselect.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Startmenu\playSelect.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\blackness.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\lightTexture.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\A.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\CharaAttackSheet V2.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\CharaWalkSheet.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\CharaWalkSheetBKU.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\shadowTex.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\health100.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\emptySlot.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\textBox.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\particle.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Particle\particle.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Male.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\key.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\tileset.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Nurse.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Headmaster.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Hp bar.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\target.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\robot.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\bot.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\female.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Cybot.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Cybot.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Headmaster.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Lamia.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Succubus.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Sylian.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Sylian.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Succubus.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Nurse.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\forest.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\forestCybot.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\femalewalk.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\malewalk.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\forestFemale.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\forestMale.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\maleSheet.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\female.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\femaleSelected.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\male.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\maleSelected.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\exit.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\exitSelected.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\resume.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\resumeSelected.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Startmenu\exitDeselect.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Startmenu\exitSelect.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Startmenu\playDeselect.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Startmenu\playSelect.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\lighting.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\SpriteFont1.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map4_C.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map4_B.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map3_B.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map3_A.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map2_A.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map1_A.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 1.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 2.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 1.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 10.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 11.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 2.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 3.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 4.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 5.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 6.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 7.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 8.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 9.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School battle song.xnb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 1.wma
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 2.wma
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 1.wma
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 10.wma
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 11.wma
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 2.wma
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 3.wma
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 4.wma
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 5.wma
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 6.wma
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 7.wma
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 8.wma
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 9.wma
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School battle song.wma
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\test.txt
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\doorLocked.txt
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map1_A_0.txt
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map2_A_0.txt
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map2_A_1.txt
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map3_A_0.txt
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map3_A_1.txt
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map3_B_0.txt
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_B_0.txt
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\dialogue2.txt
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_C_0.txt
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_B_1.txt
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Headmaster.txt
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Nurse.txt
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Cybot.txt
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\Cybot dead.txt
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Sylian.txt
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Succubus.txt
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\nurse.txt
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\headmaster.txt
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\recieve key.txt
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\First cybot encounter.txt
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\Nurse questions.txt
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.exe
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.pdb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\H_Map.dll
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\MntnNpc.dll
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.csprojResolveAssemblyReference.cache
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.exe
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.pdb
-C:\Users\suhg12patrik\Documents\Projects\simon\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\deathSprite.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Startmenu\exitDeselect.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Startmenu\exitSelect.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Startmenu\playDeselect.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Startmenu\playSelect.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\deathSprite.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\laune.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Laune.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Laune.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Laune.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\itemLabel.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\labelSide.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\labelSide2.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\informer.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\ribbon.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\SylianAccept.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\SylianComplete.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\SylianNoRibbon.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student1.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student2.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student3.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Portrait\Male.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Portrait\female.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\forestFemale.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\forestMale.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-cockiri.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-dong.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-thruster.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-dong.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-thruster.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-cockiri.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Laune.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Laune.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\deathSprite.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\itemLabel.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\labelSide.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\labelSide2.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\ribbon.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Laune.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\Laune.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\informer.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\SylianAccept.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\SylianComplete.txt
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\SylianNoRibbon.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Melitta.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Melitta.txt
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Melitta.xnb
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\A.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\shadowTex.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\emptySlot.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\particle.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Portrait\Male.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Nurse.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Headmaster.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\robot.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\bot.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Portrait\female.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Cybot.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Cybot.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Headmaster.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Laune.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Melitta.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Sylian.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Sylian.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Melitta.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Nurse.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\forestCybot.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\forestFemale.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\forestMale.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\deathSprite.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Laune.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student1.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student2.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student3.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-cockiri.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-dong.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-thruster.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-cockiri.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-dong.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-thruster.png
-C:\Users\suhg12patrik\Documents\Projects\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Portrait\Male.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Portrait\female.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Melitta.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Melitta.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\forestFemale.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\forestMale.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student1.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student2.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student3.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-cockiri.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-dong.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-thruster.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-cockiri.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-dong.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-thruster.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female.xnb
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\A.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\shadowTex.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\emptySlot.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\particle.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Portrait\Male.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Nurse.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Headmaster.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\robot.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\bot.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Portrait\female.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Cybot.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Cybot.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Headmaster.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Laune.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Melitta.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Sylian.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Sylian.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Melitta.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Nurse.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\forestCybot.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\forestFemale.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\forestMale.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\deathSprite.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Laune.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student1.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student2.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student3.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-cockiri.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-dong.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-thruster.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-cockiri.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-dong.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-thruster.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female.png
-C:\Users\HoWseR\Documents\XNA_Games\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Melitta.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\blackness.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\lightTexture.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\A.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\shadowTex.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\health100.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\emptySlot.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\textBox.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\particle.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Particle\particle.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Portrait\Male.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\key.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\tileset.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Nurse.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Headmaster.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Hp bar.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\target.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\robot.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\bot.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Portrait\female.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Cybot.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Cybot.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Headmaster.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Laune.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Melitta.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Sylian.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Sylian.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Melitta.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Nurse.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\forestCybot.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\forestFemale.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\forestMale.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\female.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\femaleSelected.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\male.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\maleSelected.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\exit.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\exitSelected.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\resume.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Menu\resumeSelected.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Startmenu\exitDeselect.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Startmenu\exitSelect.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Startmenu\playDeselect.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\Startmenu\playSelect.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\deathSprite.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\itemLabel.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\labelSide.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\labelSide2.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Laune.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\forest.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\ribbon.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student1.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student2.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student3.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-cockiri.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-dong.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-thruster.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-cockiri.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-dong.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-thruster.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\lighting.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Game\SpriteFont1.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map4_C.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map4_B.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map3_B.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map3_A.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map2_A.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Map\Map1_A.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 1.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 2.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 1.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 10.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 11.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 2.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 3.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 4.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 5.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 6.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 7.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 8.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 9.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School battle song.xnb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 1.wma
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\Boss battle song 2.wma
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 1.wma
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 10.wma
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 11.wma
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 2.wma
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 3.wma
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 4.wma
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 5.wma
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 6.wma
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 7.wma
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 8.wma
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School basic song 9.wma
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Audio\Songs\School battle song.wma
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\A.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\shadowTex.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\emptySlot.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\particle.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Portrait\Male.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Nurse.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Headmaster.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\robot.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\bot.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Portrait\female.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Cybot.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Cybot.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Headmaster.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Laune.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Melitta.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\portrait\Sylian.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Sylian.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Melitta.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Nurse.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\forestCybot.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\forestFemale.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\forestMale.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\deathSprite.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\Laune.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student1.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student2.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\sprite\student\student3.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-cockiri.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-dong.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female-thruster.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-cockiri.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-dong.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Male\male-thruster.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Player\Sprite\Female\female.png
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\test.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\doorLocked.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map1_A_0.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map2_A_0.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map2_A_1.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map3_A_0.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map3_A_1.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map3_B_0.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_B_0.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\dialogue2.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_C_0.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Warp\Map4_B_1.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Headmaster.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Nurse.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Cybot.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\Cybot dead.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Sylian.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Melitta.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\nurse.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\headmaster.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\First cybot encounter.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\Nurse questions.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\Laune.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\npc\Laune.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\informer.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\SylianAccept.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\SylianComplete.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\Content\Npc\dialogue\SylianNoRibbon.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.exe
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\GameBuild.pdb
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\H_Map.dll
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\bin\x86\Debug\MntnNpc.dll
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.exe
+C:\Users\suhg12simon\Desktop\School_Project_GameBuild\GameBuild\GameBuild\obj\x86\Debug\GameBuild.pdb

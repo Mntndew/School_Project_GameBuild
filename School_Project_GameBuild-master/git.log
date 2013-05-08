@@ -1,0 +1,833 @@
+user:Mntndew
+1363818753
+:000000 100644 0000000... 6a035a5... A	README.md
+
+user:Mntndew
+1363818631
+:000000 100644 0000000... 412eeda... A	.gitattributes
+:000000 100644 0000000... 5ebd21a... A	.gitignore
+
+user:Mntndew
+1363818661
+:100644 000000 412eeda... 0000000... D	.gitattributes
+:100644 000000 5ebd21a... 0000000... D	.gitignore
+
+user:Mntndew
+1363818857
+:000000 100644 0000000... d01f4e9... A	DLLs/H_Map.dll
+:000000 100644 0000000... dce461e... A	DLLs/MntnNpc.dll
+:000000 100644 0000000... 39cfc2c... A	GameBuild.sln
+:000000 100644 0000000... 0b24220... A	GameBuild.suo
+:000000 100644 0000000... 7775501... A	GameBuild/GameBuild/Camera2d.cs
+:000000 100644 0000000... 1de4d59... A	GameBuild/GameBuild/Dialogue/DialogueItem.cs
+:000000 100644 0000000... 2700ee2... A	GameBuild/GameBuild/Dialogue/DialogueManager.cs
+:000000 100644 0000000... 8cff41e... A	GameBuild/GameBuild/Game.ico
+:000000 100644 0000000... c46ca57... A	GameBuild/GameBuild/Game1.cs
+:000000 100644 0000000... 001b1e8... A	GameBuild/GameBuild/GameBuild.csproj
+:000000 100644 0000000... 97e3f96... A	GameBuild/GameBuild/GameBuild.csproj.Debug.cachefile
+:000000 100644 0000000... 1818298... A	GameBuild/GameBuild/GameBuild.csproj.user
+:000000 100644 0000000... 462311a... A	GameBuild/GameBuild/GameThumbnail.png
+:000000 100644 0000000... 20c7c67... A	GameBuild/GameBuild/Mob_Test.csproj.Debug.cachefile
+:000000 100644 0000000... 5cd3a96... A	GameBuild/GameBuild/Program.cs
+:000000 100644 0000000... fc9c85e... A	GameBuild/GameBuild/Properties/AssemblyInfo.cs
+:000000 100644 0000000... 7a8e6a6... A	GameBuild/GameBuild/bin/x86/Debug/Content/A.xnb
+:000000 100644 0000000... ded1aa3... A	GameBuild/GameBuild/bin/x86/Debug/Content/CharaWalkSheet.xnb
+:000000 100644 0000000... d34ba16... A	GameBuild/GameBuild/bin/x86/Debug/Content/CharacterIdleFront.xnb
+:000000 100644 0000000... 7527368... A	GameBuild/GameBuild/bin/x86/Debug/Content/SpriteFont1.xnb
+:000000 100644 0000000... 90af8bc... A	GameBuild/GameBuild/bin/x86/Debug/Content/blackness.xnb
+:000000 100644 0000000... 3ece029... A	GameBuild/GameBuild/bin/x86/Debug/Content/enemy/Down.xnb
+:000000 100644 0000000... 0036eb8... A	GameBuild/GameBuild/bin/x86/Debug/Content/enemy/Left.xnb
+:000000 100644 0000000... fc41e8c... A	GameBuild/GameBuild/bin/x86/Debug/Content/enemy/Right.xnb
+:000000 100644 0000000... ad0a25a... A	GameBuild/GameBuild/bin/x86/Debug/Content/enemy/Up.xnb
+:000000 100644 0000000... 63cfb1f... A	GameBuild/GameBuild/bin/x86/Debug/Content/lightTexture.xnb
+:000000 100644 0000000... 2d7b888... A	GameBuild/GameBuild/bin/x86/Debug/Content/lighting.xnb
+:000000 100644 0000000... 684105e... A	GameBuild/GameBuild/bin/x86/Debug/Content/map test.txt
+:000000 100644 0000000... 4d5c206... A	GameBuild/GameBuild/bin/x86/Debug/Content/map test.xnb
+:000000 100644 0000000... 1dfd5b9... A	GameBuild/GameBuild/bin/x86/Debug/Content/npc/portrait/Amelia.xnb
+:000000 100644 0000000... ce94ee4... A	GameBuild/GameBuild/bin/x86/Debug/Content/npc/sprite/Amelia.xnb
+:000000 100644 0000000... ce94ee4... A	GameBuild/GameBuild/bin/x86/Debug/Content/npc/sprite/test.xnb
+:000000 100644 0000000... 672c434... A	GameBuild/GameBuild/bin/x86/Debug/Content/npc_test_portrait.xnb
+:000000 100644 0000000... 8cd1acf... A	GameBuild/GameBuild/bin/x86/Debug/Content/npc_test_portrait2.xnb
+:000000 100644 0000000... 2082d72... A	GameBuild/GameBuild/bin/x86/Debug/Content/player/CharaAttackSheet V2.xnb
+:000000 100644 0000000... 0e8e811... A	GameBuild/GameBuild/bin/x86/Debug/Content/player/CharaWalkSheet.xnb
+:000000 100644 0000000... ded1aa3... A	GameBuild/GameBuild/bin/x86/Debug/Content/player/CharaWalkSheetBKU.xnb
+:000000 100644 0000000... d34ba16... A	GameBuild/GameBuild/bin/x86/Debug/Content/player/CharacterIdleFront.xnb
+:000000 100644 0000000... 98d4aa2... A	GameBuild/GameBuild/bin/x86/Debug/Content/player/shadowTex.xnb
+:000000 100644 0000000... 59e9b9f... A	GameBuild/GameBuild/bin/x86/Debug/Content/point.xnb
+:000000 100644 0000000... 4c8ccea... A	GameBuild/GameBuild/bin/x86/Debug/Content/questReceive.xnb
+:000000 100644 0000000... 6bbc769... A	GameBuild/GameBuild/bin/x86/Debug/Content/shadowTex.xnb
+:000000 100644 0000000... afc8b76... A	GameBuild/GameBuild/bin/x86/Debug/Content/tileset.xnb
+:000000 100644 0000000... 495ef53... A	GameBuild/GameBuild/bin/x86/Debug/Content/tilesets.xnb
+:000000 100644 0000000... 6a346a7... A	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:000000 100644 0000000... 4b0ea45... A	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:000000 100644 0000000... d01f4e9... A	GameBuild/GameBuild/bin/x86/Debug/H_Map.dll
+:000000 100644 0000000... dce461e... A	GameBuild/GameBuild/bin/x86/Debug/MntnNpc.dll
+:000000 100644 0000000... 71d5434... A	GameBuild/GameBuild/bin/x86/Debug/Mob_Test.exe
+:000000 100644 0000000... c15a3a4... A	GameBuild/GameBuild/bin/x86/Debug/Mob_Test.pdb
+:000000 100644 0000000... 2a9fdb9... A	GameBuild/GameBuild/cAnimation.cs
+:000000 100644 0000000... 5a793bf... A	GameBuild/GameBuild/cAnimationManager.cs
+:000000 100644 0000000... 0a48b1f... A	GameBuild/GameBuild/cCharacter.cs
+:000000 100644 0000000... 5845add... A	GameBuild/GameBuild/cCombat.cs
+:000000 100644 0000000... 96311e5... A	GameBuild/GameBuild/cDialogue.cs
+:000000 100644 0000000... d181401... A	GameBuild/GameBuild/cLighting.cs
+:000000 100644 0000000... 4023003... A	GameBuild/GameBuild/cNpc.cs
+:000000 100644 0000000... c2196a4... A	GameBuild/GameBuild/obj/x86/Debug/ContentPipeline-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}.xml
+:000000 100644 0000000... 31d6855... A	GameBuild/GameBuild/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:000000 100644 0000000... 0dab82b... A	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csproj.FileListAbsolute.txt
+:000000 100644 0000000... 2afd18f... A	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csprojResolveAssemblyReference.cache
+:000000 100644 0000000... 6a346a7... A	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:000000 100644 0000000... 4b0ea45... A	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:000000 100644 0000000... e6776c3... A	GameBuild/GameBuild/obj/x86/Debug/Microsoft.Xna.Framework.RuntimeProfile.txt
+:000000 100644 0000000... a571ca9... A	GameBuild/GameBuild/obj/x86/Debug/Mob_Test.csproj.FileListAbsolute.txt
+:000000 100644 0000000... c4bbd91... A	GameBuild/GameBuild/obj/x86/Debug/Mob_Test.csprojResolveAssemblyReference.cache
+:000000 100644 0000000... 71d5434... A	GameBuild/GameBuild/obj/x86/Debug/Mob_Test.exe
+:000000 100644 0000000... c15a3a4... A	GameBuild/GameBuild/obj/x86/Debug/Mob_Test.pdb
+:000000 100644 0000000... 53e0eb4... A	GameBuild/GameBuild/obj/x86/Debug/ResolveAssemblyReference.cache
+:000000 100644 0000000... 97e3f96... A	GameBuild/GameBuild/obj/x86/Debug/cachefile-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}-targetpath.txt
+:000000 100644 0000000... 242762e... A	GameBuild/GameBuildContent/A.png
+:000000 100644 0000000... c988779... A	GameBuild/GameBuildContent/CharaWalkSheet.png
+:000000 100644 0000000... 7464378... A	GameBuild/GameBuildContent/CharacterIdleFront.png
+:000000 100644 0000000... 41cfb28... A	GameBuild/GameBuildContent/GameBuildContent.contentproj
+:000000 100644 0000000... 6c68f5d... A	GameBuild/GameBuildContent/SpriteFont1.spritefont
+:000000 100644 0000000... 1561809... A	GameBuild/GameBuildContent/blackness.png
+:000000 100644 0000000... d66d049... A	GameBuild/GameBuildContent/enemy/Down.png
+:000000 100644 0000000... 0c48471... A	GameBuild/GameBuildContent/enemy/Left.png
+:000000 100644 0000000... b7a8974... A	GameBuild/GameBuildContent/enemy/Right.png
+:000000 100644 0000000... f95bd74... A	GameBuild/GameBuildContent/enemy/Up.png
+:000000 100644 0000000... 065e4f9... A	GameBuild/GameBuildContent/lightTexture.png
+:000000 100644 0000000... 3beae2b... A	GameBuild/GameBuildContent/lighting.fx
+:000000 100644 0000000... 1e1a735... A	GameBuild/GameBuildContent/map test.tm
+:000000 100644 0000000... ee301a7... A	GameBuild/GameBuildContent/npc_test_portrait.png
+:000000 100644 0000000... d998d82... A	GameBuild/GameBuildContent/npc_test_portrait2.png
+:000000 100644 0000000... 4d7a30c... A	GameBuild/GameBuildContent/obj/x86/Debug/ContentPipeline.xml
+:000000 100644 0000000... ca799e3... A	GameBuild/GameBuildContent/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:000000 100644 0000000... ef7db0e... A	GameBuild/GameBuildContent/obj/x86/Debug/GameBuildContent.contentproj.FileListAbsolute.txt
+:000000 100644 0000000... 7593952... A	GameBuild/GameBuildContent/obj/x86/Debug/GameBuildContent.contentprojResolveAssemblyReference.cache
+:000000 100644 0000000... 8a1275b... A	GameBuild/GameBuildContent/obj/x86/Debug/Mob_TestContent.contentproj.FileListAbsolute.txt
+:000000 100644 0000000... 0f2739b... A	GameBuild/GameBuildContent/obj/x86/Debug/Mob_TestContent.contentprojResolveAssemblyReference.cache
+:000000 100644 0000000... 83e78bc... A	GameBuild/GameBuildContent/obj/x86/Debug/ResolveAssemblyReference.cache
+:000000 100644 0000000... ffda5e4... A	GameBuild/GameBuildContent/player/CharaAttackSheet V2.png
+:000000 100644 0000000... 0499339... A	GameBuild/GameBuildContent/player/CharaWalkSheet.png
+:000000 100644 0000000... 27959ef... A	GameBuild/GameBuildContent/player/CharaWalkSheetBKU.png
+:000000 100644 0000000... 7464378... A	GameBuild/GameBuildContent/player/CharacterIdleFront.png
+:000000 100644 0000000... b2a8953... A	GameBuild/GameBuildContent/player/shadowTex.png
+:000000 100644 0000000... d6945f7... A	GameBuild/GameBuildContent/point.png
+:000000 100644 0000000... 598317e... A	GameBuild/GameBuildContent/questReceive.png
+:000000 100644 0000000... 2fb23bd... A	GameBuild/GameBuildContent/shadowTex.png
+:000000 100644 0000000... fd378d9... A	GameBuild/GameBuildContent/tileset.png
+:000000 100644 0000000... 1334859... A	GameBuild/GameBuildContent/tilesets.png
+:000000 100644 0000000... 2e7886e... A	LevelContentExtension/LevelContentExtension.csproj
+:000000 100644 0000000... 03bbaca... A	LevelContentExtension/Properties/AssemblyInfo.cs
+:000000 100644 0000000... cbe2c78... A	LevelContentExtension/TileMapImporter.cs
+:000000 100644 0000000... ae8994e... A	LevelContentExtension/TileMapProcessor.cs
+:000000 100644 0000000... fe3be2b... A	LevelContentExtension/TileMapWriter.cs
+:000000 100644 0000000... d01f4e9... A	LevelContentExtension/bin/x86/Debug/H_Map.dll
+:000000 100644 0000000... 995d25a... A	LevelContentExtension/bin/x86/Debug/LevelContentExtension.dll
+:000000 100644 0000000... cb59df2... A	LevelContentExtension/bin/x86/Debug/LevelContentExtension.pdb
+:000000 100644 0000000... 0e96813... A	LevelContentExtension/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:000000 100644 0000000... 43ee1ee... A	LevelContentExtension/obj/x86/Debug/LevelContentExtension.csproj.FileListAbsolute.txt
+:000000 100644 0000000... 8e9ffe4... A	LevelContentExtension/obj/x86/Debug/LevelContentExtension.csprojResolveAssemblyReference.cache
+:000000 100644 0000000... 995d25a... A	LevelContentExtension/obj/x86/Debug/LevelContentExtension.dll
+:000000 100644 0000000... cb59df2... A	LevelContentExtension/obj/x86/Debug/LevelContentExtension.pdb
+:000000 100644 0000000... fc2fbaa... A	LevelContentExtension/obj/x86/Debug/ResolveAssemblyReference.cache
+:000000 100644 0000000... 7712686... A	Mob_Test.suo
+
+user:Mntndew
+1363846718
+:100644 100644 dce461e... 2af7949... M	DLLs/MntnNpc.dll
+
+user:Mntndew
+1363852105
+:100644 100644 0b24220... 66e714e... M	GameBuild.suo
+:100644 100644 c46ca57... 64f0211... M	GameBuild/GameBuild/Game1.cs
+:100644 100644 31d6855... 48d27f6... M	GameBuild/GameBuild/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 ca799e3... 6c17f00... M	GameBuild/GameBuildContent/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 0e96813... 09ba7bc... M	LevelContentExtension/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+
+user:Mntndew
+1363852258
+:100644 100644 66e714e... 094c217... M	GameBuild.suo
+:100644 100644 64f0211... c46ca57... M	GameBuild/GameBuild/Game1.cs
+
+user:Howser
+1363867655
+:100644 100644 c46ca57... 2b31922... M	GameBuild/GameBuild/Game1.cs
+:100644 100644 48d27f6... 37029d3... M	GameBuild/GameBuild/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 6c17f00... 8d9dfa4... M	GameBuild/GameBuildContent/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 09ba7bc... 1a69f5b... M	LevelContentExtension/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+
+user:Mntndew
+1363868332
+:100644 100644 094c217... a888d76... M	GameBuild.suo
+:100644 100644 2b31922... 06fbdd0... M	GameBuild/GameBuild/Game1.cs
+:100644 100644 97e3f96... 9cbd77a... M	GameBuild/GameBuild/GameBuild.csproj.Debug.cachefile
+:100644 100644 2d7b888... 642cd6e... M	GameBuild/GameBuild/bin/x86/Debug/Content/lighting.xnb
+:100644 100644 6a346a7... 107cc2b... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 4b0ea45... efe202d... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 dce461e... 2af7949... M	GameBuild/GameBuild/bin/x86/Debug/MntnNpc.dll
+:100644 100644 4023003... 98a166a... M	GameBuild/GameBuild/cNpc.cs
+:100644 100644 c2196a4... e33ac44... M	GameBuild/GameBuild/obj/x86/Debug/ContentPipeline-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}.xml
+:100644 100644 0dab82b... 3300c05... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csproj.FileListAbsolute.txt
+:100644 100644 2afd18f... 64caca3... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csprojResolveAssemblyReference.cache
+:100644 100644 6a346a7... 107cc2b... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 4b0ea45... efe202d... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 97e3f96... 9cbd77a... M	GameBuild/GameBuild/obj/x86/Debug/cachefile-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}-targetpath.txt
+:100644 100644 ef7db0e... 7e476ba... M	GameBuild/GameBuildContent/obj/x86/Debug/GameBuildContent.contentproj.FileListAbsolute.txt
+:100644 100644 7593952... b567f39... M	GameBuild/GameBuildContent/obj/x86/Debug/GameBuildContent.contentprojResolveAssemblyReference.cache
+:100644 100644 43ee1ee... 22d3bb7... M	LevelContentExtension/obj/x86/Debug/LevelContentExtension.csproj.FileListAbsolute.txt
+:100644 100644 8e9ffe4... 7bc6b13... M	LevelContentExtension/obj/x86/Debug/LevelContentExtension.csprojResolveAssemblyReference.cache
+
+user:Mntndew
+1363868515
+:100644 100644 a888d76... 5ee0716... M	GameBuild.suo
+:100644 100644 98a166a... bc26b43... M	GameBuild/GameBuild/cNpc.cs
+
+user:Howser
+1363869529
+:100644 100644 06fbdd0... 9d1c142... M	GameBuild/GameBuild/Game1.cs
+
+user:Mntndew
+1363870014
+:100644 100644 39cfc2c... ee39063... M	GameBuild.sln
+:100644 100644 5ee0716... d3d00b9... M	GameBuild.suo
+:100644 100644 107cc2b... fabeb1e... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 efe202d... 3a53eb8... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 bc26b43... 8102a33... M	GameBuild/GameBuild/cNpc.cs
+:100644 100644 37029d3... 48d27f6... M	GameBuild/GameBuild/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 107cc2b... fabeb1e... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 efe202d... 3a53eb8... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 1a69f5b... 09ba7bc... M	LevelContentExtension/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+
+user:Mntndew
+1363872392
+:100644 100644 ee39063... 39cfc2c... M	GameBuild.sln
+:100644 100644 d3d00b9... 2f4934c... M	GameBuild.suo
+:100644 100644 9d1c142... ecb9ef7... M	GameBuild/GameBuild/Game1.cs
+:100644 100644 9cbd77a... 6d86ea9... M	GameBuild/GameBuild/GameBuild.csproj.Debug.cachefile
+:100644 100644 4d5c206... 6dc69e5... M	GameBuild/GameBuild/bin/x86/Debug/Content/map test.xnb
+:000000 100644 0000000... 2477cc5... A	GameBuild/GameBuild/bin/x86/Debug/Content/npc/npc/Test.txt
+:000000 100644 0000000... 1dfd5b9... A	GameBuild/GameBuild/bin/x86/Debug/Content/npc/portrait/Test.xnb
+:100644 100644 fabeb1e... 728ca72... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 3a53eb8... d801ed5... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 8102a33... cd417a4... M	GameBuild/GameBuild/cNpc.cs
+:100644 100644 e33ac44... 48c4a7d... M	GameBuild/GameBuild/obj/x86/Debug/ContentPipeline-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}.xml
+:100644 100644 3300c05... 5087c2c... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csproj.FileListAbsolute.txt
+:100644 100644 fabeb1e... 728ca72... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 3a53eb8... d801ed5... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 9cbd77a... 6d86ea9... M	GameBuild/GameBuild/obj/x86/Debug/cachefile-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}-targetpath.txt
+:100644 100644 41cfb28... 6e6bb68... M	GameBuild/GameBuildContent/GameBuildContent.contentproj
+:100644 100644 1e1a735... 11212a8... M	GameBuild/GameBuildContent/map test.tm
+:000000 100644 0000000... 2477cc5... A	GameBuild/GameBuildContent/npc/npc/Test.txt
+:000000 100644 0000000... 0a60131... A	GameBuild/GameBuildContent/npc/portrait/Test.png
+:000000 100644 0000000... fd2296a... A	GameBuild/GameBuildContent/npc/sprite/Test.png
+:100644 100644 8d9dfa4... 0fa946e... M	GameBuild/GameBuildContent/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+
+user:Mntndew
+1363873467
+:100644 100644 2f4934c... 438fd31... M	GameBuild.suo
+:100644 100644 ecb9ef7... cd25114... M	GameBuild/GameBuild/Game1.cs
+:100644 100644 728ca72... cc4baf7... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 d801ed5... 4e6abe3... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 cd417a4... 0e65724... M	GameBuild/GameBuild/cNpc.cs
+:100644 100644 48c4a7d... e6d32cb... M	GameBuild/GameBuild/obj/x86/Debug/ContentPipeline-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}.xml
+:100644 100644 728ca72... cc4baf7... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 d801ed5... 4e6abe3... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+
+user:Howser
+1363873564
+:100644 100644 6d86ea9... 6262212... M	GameBuild/GameBuild/GameBuild.csproj.Debug.cachefile
+:100644 100644 642cd6e... 820eeb8... M	GameBuild/GameBuild/bin/x86/Debug/Content/lighting.xnb
+:100644 100644 728ca72... cbc4f1f... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 d801ed5... 45aabfb... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 96311e5... 090f652... M	GameBuild/GameBuild/cDialogue.cs
+:100644 100644 48c4a7d... e23b9bc... M	GameBuild/GameBuild/obj/x86/Debug/ContentPipeline-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}.xml
+:100644 100644 48d27f6... 37029d3... M	GameBuild/GameBuild/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 5087c2c... 21699c4... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csproj.FileListAbsolute.txt
+:100644 100644 64caca3... e64afff... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csprojResolveAssemblyReference.cache
+:100644 100644 728ca72... cbc4f1f... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 d801ed5... 45aabfb... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 6d86ea9... 6262212... M	GameBuild/GameBuild/obj/x86/Debug/cachefile-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}-targetpath.txt
+:100644 100644 0fa946e... 702e2d9... M	GameBuild/GameBuildContent/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 7e476ba... 43b0eb1... M	GameBuild/GameBuildContent/obj/x86/Debug/GameBuildContent.contentproj.FileListAbsolute.txt
+:100644 100644 b567f39... 3ae99da... M	GameBuild/GameBuildContent/obj/x86/Debug/GameBuildContent.contentprojResolveAssemblyReference.cache
+
+user:Howser
+1363873677
+:100644 100644 2f4934c... 98280e4... M	GameBuild.suo
+
+user:Howser
+1363873951
+user:Mntndew
+1363881555
+:100644 100644 438fd31... 427e008... M	GameBuild.suo
+:100644 100644 cc4baf7... 8f4a216... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 4e6abe3... 8c84b42... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 0a48b1f... dc3ca18... M	GameBuild/GameBuild/cCharacter.cs
+:100644 100644 cc4baf7... 8f4a216... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 4e6abe3... 8c84b42... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+
+user:Howser
+1363881849
+:100644 100644 98280e4... 22c635f... M	GameBuild.suo
+:100644 100644 2700ee2... 4044dd1... M	GameBuild/GameBuild/Dialogue/DialogueManager.cs
+:100644 100644 cd25114... d9390a8... M	GameBuild/GameBuild/Game1.cs
+:100644 100644 6262212... 3b97709... M	GameBuild/GameBuild/GameBuild.csproj.Debug.cachefile
+:100644 100644 820eeb8... 011012c... M	GameBuild/GameBuild/bin/x86/Debug/Content/lighting.xnb
+:000000 100644 0000000... c0c9a52... A	GameBuild/GameBuild/bin/x86/Debug/Content/npc/dialogue/dialogueTest.txt
+:100644 100644 2477cc5... d8e9423... M	GameBuild/GameBuild/bin/x86/Debug/Content/npc/npc/Test.txt
+:000000 100644 0000000... 56ae5bf... A	GameBuild/GameBuild/bin/x86/Debug/Content/tempTextBox.xnb
+:100644 100644 cbc4f1f... f620e0c... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 45aabfb... c6082d0... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 090f652... b87105e... M	GameBuild/GameBuild/cDialogue.cs
+:100644 100644 0e65724... ffacfe6... M	GameBuild/GameBuild/cNpc.cs
+:100644 100644 3f4eaa8... 3b43c46... M	GameBuild/GameBuild/obj/x86/Debug/ContentPipeline-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}.xml
+:100644 100644 37029d3... b3d9d5b... M	GameBuild/GameBuild/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 f14ee05... 169a5c4... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csproj.FileListAbsolute.txt
+:100644 100644 cbc4f1f... f620e0c... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 45aabfb... c6082d0... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 53e0eb4... 95dec55... M	GameBuild/GameBuild/obj/x86/Debug/ResolveAssemblyReference.cache
+:100644 100644 6262212... 3b97709... M	GameBuild/GameBuild/obj/x86/Debug/cachefile-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}-targetpath.txt
+:100644 100644 6e6bb68... 9e37887... M	GameBuild/GameBuildContent/GameBuildContent.contentproj
+:000000 100644 0000000... c0c9a52... A	GameBuild/GameBuildContent/npc/dialogue/dialogueTest.txt
+:100644 100644 2477cc5... d8e9423... M	GameBuild/GameBuildContent/npc/npc/Test.txt
+:100644 100644 4d7a30c... c2c4242... M	GameBuild/GameBuildContent/obj/x86/Debug/ContentPipeline.xml
+:100644 100644 702e2d9... d63ffca... M	GameBuild/GameBuildContent/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 43b0eb1... 25fa48c... M	GameBuild/GameBuildContent/obj/x86/Debug/GameBuildContent.contentproj.FileListAbsolute.txt
+:100644 100644 83e78bc... f78aec0... M	GameBuild/GameBuildContent/obj/x86/Debug/ResolveAssemblyReference.cache
+:000000 100644 0000000... e1eaa16... A	GameBuild/GameBuildContent/tempTextBox.png
+:100644 100644 1a69f5b... 780aa36... M	LevelContentExtension/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 f10d013... 138acac... M	LevelContentExtension/obj/x86/Debug/LevelContentExtension.csproj.FileListAbsolute.txt
+
+user:Mntndew
+1363890332
+:100644 100644 427e008... 38f2354... M	GameBuild.suo
+:100644 100644 cd25114... 794fceb... M	GameBuild/GameBuild/Game1.cs
+:100644 100644 001b1e8... 1691a87... M	GameBuild/GameBuild/GameBuild.csproj
+:100644 100644 8f4a216... d793a8d... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 8c84b42... abd543f... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 8f4a216... d793a8d... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 8c84b42... abd543f... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+
+user:Mntndew
+1363890537
+user:Mntndew
+1363899125
+:100644 100644 38f2354... 94cb476... M	GameBuild.suo
+:100644 100644 c0c9a52... 064e503... M	GameBuild/GameBuild/bin/x86/Debug/Content/npc/dialogue/dialogueTest.txt
+:100644 100644 0f85253... f724c3d... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 c2f1f87... 7534457... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 dc3ca18... c3f3ef9... M	GameBuild/GameBuild/cCharacter.cs
+:100644 100644 ffacfe6... 9551bb4... M	GameBuild/GameBuild/cNpc.cs
+:100644 100644 0f85253... f724c3d... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 c2f1f87... 7534457... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 c0c9a52... d551feb... M	GameBuild/GameBuildContent/npc/dialogue/dialogueTest.txt
+:100644 100644 780aa36... 09ba7bc... M	LevelContentExtension/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+
+user:Mntndew
+1363906891
+:100644 100644 064e503... d551feb... M	GameBuild/GameBuild/bin/x86/Debug/Content/npc/dialogue/dialogueTest.txt
+:100644 100644 f724c3d... 4b701ce... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 7534457... a2bf955... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 f724c3d... 4b701ce... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 7534457... a2bf955... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+
+user:Howser
+1363945415
+:100644 100644 1de4d59... 7ab8eb0... M	GameBuild/GameBuild/Dialogue/DialogueItem.cs
+:100644 100644 4044dd1... 44cad66... M	GameBuild/GameBuild/Dialogue/DialogueManager.cs
+:100644 100644 958af8f... 04fbc11... M	GameBuild/GameBuild/bin/x86/Debug/Content/lighting.xnb
+:100644 100644 d551feb... 7f9daf3... M	GameBuild/GameBuild/bin/x86/Debug/Content/npc/dialogue/dialogueTest.txt
+:100644 100644 4b701ce... dfca41c... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 a2bf955... af29287... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 b87105e... 7c59c06... M	GameBuild/GameBuild/cDialogue.cs
+:100644 100644 6c26bfd... 0e6e4da... M	GameBuild/GameBuild/obj/x86/Debug/ContentPipeline-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}.xml
+:100644 100644 48d27f6... 37029d3... M	GameBuild/GameBuild/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 4b701ce... dfca41c... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 a2bf955... af29287... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 d551feb... 7f9daf3... M	GameBuild/GameBuildContent/npc/dialogue/dialogueTest.txt
+:100644 100644 cf19f47... 0da2fe8... M	GameBuild/GameBuildContent/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 09ba7bc... 1a69f5b... M	LevelContentExtension/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+
+user:Mntndew
+1363945466
+:100644 100644 94cb476... fed5160... M	GameBuild.suo
+:100644 100644 2d8e246... b6c2cd5... M	GameBuild/GameBuild/Game1.cs
+:100644 100644 d8e9423... 2701090... M	GameBuild/GameBuild/bin/x86/Debug/Content/npc/npc/Test.txt
+:100644 100644 4b701ce... 802f3b2... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 a2bf955... d7a4602... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 9551bb4... 6892f93... M	GameBuild/GameBuild/cNpc.cs
+:100644 100644 4b701ce... 802f3b2... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 a2bf955... d7a4602... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 d8e9423... 2701090... M	GameBuild/GameBuildContent/npc/npc/Test.txt
+
+user:Mntndew
+1363956561
+:100644 100644 fed5160... 0056349... M	GameBuild.suo
+
+user:Mntndew
+1363956962
+user:Mntndew
+1363957005
+:100644 100644 0da2fe8... cf19f47... M	GameBuild/GameBuildContent/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+
+user:Mntndew
+1363981795
+:100644 100644 0056349... e204f9d... M	GameBuild.suo
+:100644 100644 b6c2cd5... 95fe81f... M	GameBuild/GameBuild/Game1.cs
+:100644 100644 04fbc11... ee83e40... M	GameBuild/GameBuild/bin/x86/Debug/Content/lighting.xnb
+:100644 100644 802f3b2... 48139cc... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 d7a4602... a7f001e... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 0e6e4da... 6c26bfd... M	GameBuild/GameBuild/obj/x86/Debug/ContentPipeline-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}.xml
+:100644 100644 37029d3... 48d27f6... M	GameBuild/GameBuild/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 802f3b2... 48139cc... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 d7a4602... a7f001e... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 1a69f5b... 09ba7bc... M	LevelContentExtension/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+
+user:Mntndew
+1363988719
+:100644 100644 e204f9d... b7f224b... M	GameBuild.suo
+:100644 100644 95fe81f... 7e5013d... M	GameBuild/GameBuild/Game1.cs
+:100644 100644 1691a87... bff34ca... M	GameBuild/GameBuild/GameBuild.csproj
+:100644 100644 3b97709... 2e3e3b8... M	GameBuild/GameBuild/GameBuild.csproj.Debug.cachefile
+:100644 100644 ee83e40... f0cc4a8... M	GameBuild/GameBuild/bin/x86/Debug/Content/lighting.xnb
+:000000 100644 0000000... 1862455... A	GameBuild/GameBuild/bin/x86/Debug/Content/test map.xnb
+:000000 100644 0000000... 88dded2... A	GameBuild/GameBuild/bin/x86/Debug/Content/warp/map test to test map.txt
+:100644 100644 48139cc... 0253f8a... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 a7f001e... daa2717... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:000000 100644 0000000... 6007878... A	GameBuild/GameBuild/bin/x86/Debug/Warp.dll
+:000000 100644 0000000... 1814d60... A	GameBuild/GameBuild/cWarp.cs
+:100644 100644 6c26bfd... 353eafb... M	GameBuild/GameBuild/obj/x86/Debug/ContentPipeline-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}.xml
+:100644 100644 48d27f6... cb5ab79... M	GameBuild/GameBuild/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 0ca0691... 826b742... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csproj.FileListAbsolute.txt
+:100644 100644 e64afff... 8087ae1... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csprojResolveAssemblyReference.cache
+:100644 100644 48139cc... 0253f8a... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 a7f001e... daa2717... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 3b97709... 2e3e3b8... M	GameBuild/GameBuild/obj/x86/Debug/cachefile-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}-targetpath.txt
+:100644 100644 9e37887... f8ef616... M	GameBuild/GameBuildContent/GameBuildContent.contentproj
+:100644 100644 cf19f47... f755ecb... M	GameBuild/GameBuildContent/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 3ae99da... b8d0650... M	GameBuild/GameBuildContent/obj/x86/Debug/GameBuildContent.contentprojResolveAssemblyReference.cache
+:000000 100644 0000000... 7b9ea1f... A	GameBuild/GameBuildContent/test map.tm
+:000000 100644 0000000... 88dded2... A	GameBuild/GameBuildContent/warp/map test to test map.txt
+:100644 100644 995d25a... bbb3192... M	LevelContentExtension/bin/x86/Debug/LevelContentExtension.dll
+:100644 100644 cb59df2... c8a96cb... M	LevelContentExtension/bin/x86/Debug/LevelContentExtension.pdb
+:100644 100644 995d25a... bbb3192... M	LevelContentExtension/obj/x86/Debug/LevelContentExtension.dll
+:100644 100644 cb59df2... c8a96cb... M	LevelContentExtension/obj/x86/Debug/LevelContentExtension.pdb
+
+user:Mntndew
+1364004558
+:100644 100644 b7f224b... da80db7... M	GameBuild.suo
+:100644 100644 7e5013d... 75ec59a... M	GameBuild/GameBuild/Game1.cs
+:100644 100644 2e3e3b8... 0cae950... M	GameBuild/GameBuild/GameBuild.csproj.Debug.cachefile
+:000000 100644 0000000... 8d11779... A	GameBuild/GameBuild/bin/x86/Debug/Content/source.xnb
+:000000 100644 0000000... c2b6174... A	GameBuild/GameBuild/bin/x86/Debug/Content/target.xnb
+:100644 100644 1862455... ea7458e... M	GameBuild/GameBuild/bin/x86/Debug/Content/test map.xnb
+:100644 100644 88dded2... bfc3f8d... M	GameBuild/GameBuild/bin/x86/Debug/Content/warp/map test to test map.txt
+:000000 100644 0000000... 8af04d9... A	GameBuild/GameBuild/bin/x86/Debug/Content/warp/source.txt
+:100644 100644 0253f8a... 95baf68... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 daa2717... 251836b... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 6892f93... 587d8b0... M	GameBuild/GameBuild/cNpc.cs
+:100644 100644 1814d60... 7e9f71f... M	GameBuild/GameBuild/cWarp.cs
+:100644 100644 353eafb... b8fc41e... M	GameBuild/GameBuild/obj/x86/Debug/ContentPipeline-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}.xml
+:100644 100644 826b742... 2ddec45... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csproj.FileListAbsolute.txt
+:100644 100644 0253f8a... 95baf68... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 daa2717... 251836b... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 2e3e3b8... 0cae950... M	GameBuild/GameBuild/obj/x86/Debug/cachefile-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}-targetpath.txt
+:100644 100644 f8ef616... 8d0b799... M	GameBuild/GameBuildContent/GameBuildContent.contentproj
+:100644 100644 f755ecb... 9078bb3... M	GameBuild/GameBuildContent/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:000000 100644 0000000... 28b230c... A	GameBuild/GameBuildContent/source.tm
+:000000 100644 0000000... 8527674... A	GameBuild/GameBuildContent/target.tm
+:100644 100644 7b9ea1f... 9ad0d8b... M	GameBuild/GameBuildContent/test map.tm
+:100644 100644 88dded2... bfc3f8d... M	GameBuild/GameBuildContent/warp/map test to test map.txt
+:000000 100644 0000000... 8af04d9... A	GameBuild/GameBuildContent/warp/source.txt
+
+user:Mntndew
+1364031565
+:100644 100644 da80db7... 80b40f3... M	GameBuild.suo
+:100644 100644 75ec59a... 93c3116... M	GameBuild/GameBuild/Game1.cs
+:100644 100644 0cae950... 629fd75... M	GameBuild/GameBuild/GameBuild.csproj.Debug.cachefile
+:000000 100644 0000000... 3c7ab2d... A	GameBuild/GameBuild/bin/x86/Debug/Content/npc/dialogue/dialogueTesting.txt
+:100644 100644 2701090... 68c5c97... M	GameBuild/GameBuild/bin/x86/Debug/Content/npc/npc/Test.txt
+:000000 100644 0000000... 71f932d... A	GameBuild/GameBuild/bin/x86/Debug/Content/npc/npc/Testing.txt
+:000000 100644 0000000... 1dfd5b9... A	GameBuild/GameBuild/bin/x86/Debug/Content/npc/portrait/Testing.xnb
+:000000 100644 0000000... ce94ee4... A	GameBuild/GameBuild/bin/x86/Debug/Content/npc/sprite/Testing.xnb
+:100644 100644 8af04d9... 5efcbcc... M	GameBuild/GameBuild/bin/x86/Debug/Content/warp/source.txt
+:000000 100644 0000000... 3ab7600... A	GameBuild/GameBuild/bin/x86/Debug/Content/warp/target.txt
+:100644 100644 95baf68... de30da7... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 251836b... 00b6432... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 587d8b0... e80977c... M	GameBuild/GameBuild/cNpc.cs
+:100644 100644 7e9f71f... fa88495... M	GameBuild/GameBuild/cWarp.cs
+:100644 100644 b8fc41e... 3de0a00... M	GameBuild/GameBuild/obj/x86/Debug/ContentPipeline-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}.xml
+:100644 100644 2ddec45... d88b340... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csproj.FileListAbsolute.txt
+:100644 100644 95baf68... de30da7... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 251836b... 00b6432... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 0cae950... 629fd75... M	GameBuild/GameBuild/obj/x86/Debug/cachefile-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}-targetpath.txt
+:100644 100644 8d0b799... 9020880... M	GameBuild/GameBuildContent/GameBuildContent.contentproj
+:000000 100644 0000000... 3c7ab2d... A	GameBuild/GameBuildContent/npc/dialogue/dialogueTesting.txt
+:100644 100644 2701090... 68c5c97... M	GameBuild/GameBuildContent/npc/npc/Test.txt
+:000000 100644 0000000... 71f932d... A	GameBuild/GameBuildContent/npc/npc/Testing.txt
+:000000 100644 0000000... 0a60131... A	GameBuild/GameBuildContent/npc/portrait/Testing.png
+:000000 100644 0000000... fd2296a... A	GameBuild/GameBuildContent/npc/sprite/Testing.png
+:100644 100644 9078bb3... 8c0cdc2... M	GameBuild/GameBuildContent/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 8af04d9... 5efcbcc... M	GameBuild/GameBuildContent/warp/source.txt
+:000000 100644 0000000... 3ab7600... A	GameBuild/GameBuildContent/warp/target.txt
+
+user:Mntndew
+1364034093
+:100644 100644 80b40f3... 6e091ff... M	GameBuild.suo
+:100644 100644 93c3116... 72a10fa... M	GameBuild/GameBuild/Game1.cs
+:100644 100644 629fd75... 9cd2798... M	GameBuild/GameBuild/GameBuild.csproj.Debug.cachefile
+:100644 100644 de30da7... 10f90b0... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 00b6432... 5d5947a... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 e80977c... 31ac91b... M	GameBuild/GameBuild/cNpc.cs
+:100644 100644 d88b340... e69b303... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csproj.FileListAbsolute.txt
+:100644 100644 de30da7... 10f90b0... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 00b6432... 5d5947a... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 629fd75... 33cb451... M	GameBuild/GameBuild/obj/x86/Debug/cachefile-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}-targetpath.txt
+:100644 100644 9020880... 83a187a... M	GameBuild/GameBuildContent/GameBuildContent.contentproj
+:100644 100644 8c0cdc2... 8c91f19... M	GameBuild/GameBuildContent/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+
+user:Mntndew
+1364034313
+:100644 000000 6dc69e5... 0000000... D	GameBuild/GameBuild/bin/x86/Debug/Content/map test.xnb
+:100644 000000 71f932d... 0000000... D	GameBuild/GameBuild/bin/x86/Debug/Content/npc/npc/Testing.txt
+:100644 000000 ea7458e... 0000000... D	GameBuild/GameBuild/bin/x86/Debug/Content/test map.xnb
+:100644 000000 bfc3f8d... 0000000... D	GameBuild/GameBuild/bin/x86/Debug/Content/warp/map test to test map.txt
+:100644 000000 5845add... 0000000... D	GameBuild/GameBuild/cCombat.cs
+:100644 000000 11212a8... 0000000... D	GameBuild/GameBuildContent/map test.tm
+:100644 000000 71f932d... 0000000... D	GameBuild/GameBuildContent/npc/npc/Testing.txt
+:100644 000000 9ad0d8b... 0000000... D	GameBuild/GameBuildContent/test map.tm
+:100644 000000 bfc3f8d... 0000000... D	GameBuild/GameBuildContent/warp/map test to test map.txt
+
+user:Mntndew
+1364039840
+:100644 100644 6e091ff... a18c75d... M	GameBuild.suo
+:100644 100644 9cd2798... dff8cbd... M	GameBuild/GameBuild/GameBuild.csproj.Debug.cachefile
+:100644 000000 56ae5bf... 0000000... D	GameBuild/GameBuild/bin/x86/Debug/Content/tempTextBox.xnb
+:100644 100644 10f90b0... 016c391... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 5d5947a... 9623902... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 7c59c06... c103031... M	GameBuild/GameBuild/cDialogue.cs
+:100644 100644 31ac91b... b6991ea... M	GameBuild/GameBuild/cNpc.cs
+:100644 100644 3de0a00... 4d2c514... M	GameBuild/GameBuild/obj/x86/Debug/ContentPipeline-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}.xml
+:100644 100644 e69b303... 76e08ee... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csproj.FileListAbsolute.txt
+:100644 100644 10f90b0... 016c391... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 5d5947a... 9623902... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 33cb451... dff8cbd... M	GameBuild/GameBuild/obj/x86/Debug/cachefile-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}-targetpath.txt
+:100644 100644 83a187a... 105f76f... M	GameBuild/GameBuildContent/GameBuildContent.contentproj
+:100644 000000 e1eaa16... 0000000... D	GameBuild/GameBuildContent/tempTextBox.png
+
+user:Howser
+1364140947
+:100644 100644 a18c75d... a84fa9a... M	GameBuild.suo
+:100644 100644 72a10fa... d89d825... M	GameBuild/GameBuild/Game1.cs
+:100644 100644 dff8cbd... 13be12d... M	GameBuild/GameBuild/GameBuild.csproj.Debug.cachefile
+:100644 100644 f0cc4a8... 3abdf12... M	GameBuild/GameBuild/bin/x86/Debug/Content/lighting.xnb
+:000000 100644 0000000... 564ab86... A	GameBuild/GameBuild/bin/x86/Debug/Content/npc/dialogue/dialogue2.txt
+:100644 100644 68c5c97... a8ee704... M	GameBuild/GameBuild/bin/x86/Debug/Content/npc/npc/Test.txt
+:000000 100644 0000000... 90c7e2f... A	GameBuild/GameBuild/bin/x86/Debug/Content/npc/npc/npc2.txt
+:000000 100644 0000000... aef02b8... A	GameBuild/GameBuild/bin/x86/Debug/Content/npc/portrait/npc2.xnb
+:000000 100644 0000000... ecdb2b5... A	GameBuild/GameBuild/bin/x86/Debug/Content/npc/sprite/npc2.xnb
+:000000 100644 0000000... 3090801... A	GameBuild/GameBuild/bin/x86/Debug/Content/textBox.xnb
+:100644 100644 016c391... c8271d8... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 9623902... 1358e31... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 c103031... f630a73... M	GameBuild/GameBuild/cDialogue.cs
+:100644 100644 b6991ea... 9f1df7d... M	GameBuild/GameBuild/cNpc.cs
+:100644 100644 fa88495... b6b15fa... M	GameBuild/GameBuild/cWarp.cs
+:100644 100644 4d2c514... 7edfcfb... M	GameBuild/GameBuild/obj/x86/Debug/ContentPipeline-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}.xml
+:100644 100644 cb5ab79... 4c9399f... M	GameBuild/GameBuild/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 76e08ee... d628072... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csproj.FileListAbsolute.txt
+:100644 100644 8087ae1... d4fc1ca... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csprojResolveAssemblyReference.cache
+:100644 100644 016c391... c8271d8... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 9623902... 1358e31... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 dff8cbd... 13be12d... M	GameBuild/GameBuild/obj/x86/Debug/cachefile-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}-targetpath.txt
+:100644 100644 105f76f... 0d3e11e... M	GameBuild/GameBuildContent/GameBuildContent.contentproj
+:000000 100644 0000000... 564ab86... A	GameBuild/GameBuildContent/npc/dialogue/dialogue2.txt
+:100644 100644 68c5c97... a8ee704... M	GameBuild/GameBuildContent/npc/npc/Test.txt
+:000000 100644 0000000... 90c7e2f... A	GameBuild/GameBuildContent/npc/npc/npc2.txt
+:000000 100644 0000000... 7d0bb48... A	GameBuild/GameBuildContent/npc/portrait/npc2.png
+:000000 100644 0000000... 131493f... A	GameBuild/GameBuildContent/npc/sprite/npc2.png
+:100644 100644 8c91f19... 56ae834... M	GameBuild/GameBuildContent/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 b8d0650... 5482e2c... M	GameBuild/GameBuildContent/obj/x86/Debug/GameBuildContent.contentprojResolveAssemblyReference.cache
+:000000 100644 0000000... 03968ff... A	GameBuild/GameBuildContent/textBox.png
+:100644 100644 09ba7bc... 1a69f5b... M	LevelContentExtension/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+
+user:Mntndew
+1364141523
+:100644 100644 a18c75d... 05b74f1... M	GameBuild.suo
+:100644 100644 dff8cbd... ce91d49... M	GameBuild/GameBuild/GameBuild.csproj.Debug.cachefile
+:100644 100644 f0cc4a8... 31011c1... M	GameBuild/GameBuild/bin/x86/Debug/Content/lighting.xnb
+:000000 100644 0000000... 3090801... A	GameBuild/GameBuild/bin/x86/Debug/Content/textBox.xnb
+:100644 100644 016c391... 3028c69... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 9623902... d77b3d7... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 cb5ab79... ad6df28... M	GameBuild/GameBuild/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 76e08ee... 8f3af61... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csproj.FileListAbsolute.txt
+:100644 100644 8087ae1... 0e31174... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csprojResolveAssemblyReference.cache
+:100644 100644 016c391... 3028c69... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 9623902... d77b3d7... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 dff8cbd... ce91d49... M	GameBuild/GameBuild/obj/x86/Debug/cachefile-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}-targetpath.txt
+:100644 100644 c2c4242... 68ad3a4... M	GameBuild/GameBuildContent/obj/x86/Debug/ContentPipeline.xml
+:100644 100644 8c91f19... 92f0fbc... M	GameBuild/GameBuildContent/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 25fa48c... d42e513... M	GameBuild/GameBuildContent/obj/x86/Debug/GameBuildContent.contentproj.FileListAbsolute.txt
+:100644 100644 b8d0650... ec28af0... M	GameBuild/GameBuildContent/obj/x86/Debug/GameBuildContent.contentprojResolveAssemblyReference.cache
+:000000 100644 0000000... 03968ff... A	GameBuild/GameBuildContent/textBox.png
+:100644 100644 09ba7bc... 6d66c04... M	LevelContentExtension/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+
+user:Mntndew
+1364141606
+user:Howser
+1364141959
+:100644 100644 c8271d8... bdf16c3... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 1358e31... 025af07... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 c8271d8... bdf16c3... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 1358e31... 025af07... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+
+user:Mntndew
+1364146177
+:100644 100644 05b74f1... d2bd143... M	GameBuild.suo
+:100644 100644 d89d825... 24fde3d... M	GameBuild/GameBuild/Game1.cs
+:100644 100644 7403b3d... c47fc09... M	GameBuild/GameBuild/GameBuild.csproj.Debug.cachefile
+:100644 100644 31011c1... 1f426d5... M	GameBuild/GameBuild/bin/x86/Debug/Content/lighting.xnb
+:100644 100644 3028c69... 04f9924... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 d77b3d7... 7ead168... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 9f1df7d... 89a65eb... M	GameBuild/GameBuild/cNpc.cs
+:100644 100644 d4cc087... c53f744... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csproj.FileListAbsolute.txt
+:100644 100644 3028c69... 04f9924... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 d77b3d7... 7ead168... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 7403b3d... c47fc09... M	GameBuild/GameBuild/obj/x86/Debug/cachefile-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}-targetpath.txt
+:100644 100644 68ad3a4... e998fdb... M	GameBuild/GameBuildContent/obj/x86/Debug/ContentPipeline.xml
+:100644 100644 92f0fbc... c7a132b... M	GameBuild/GameBuildContent/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 ec28af0... 7450c59... M	GameBuild/GameBuildContent/obj/x86/Debug/GameBuildContent.contentprojResolveAssemblyReference.cache
+:100644 100644 138acac... 02b5a56... M	LevelContentExtension/obj/x86/Debug/LevelContentExtension.csproj.FileListAbsolute.txt
+:100644 100644 2993a5b... 2fb3b89... M	LevelContentExtension/obj/x86/Debug/LevelContentExtension.csprojResolveAssemblyReference.cache
+
+user:Mntndew
+1364221847
+user:Mntndew
+1364221900
+:100644 100644 715f02b... ee83e40... M	GameBuild/GameBuild/bin/x86/Debug/Content/lighting.xnb
+:100644 000000 3c7ab2d... 0000000... D	GameBuild/GameBuild/bin/x86/Debug/Content/npc/dialogue/dialogueTesting.txt
+:100644 100644 bdf16c3... ddc1918... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 025af07... 93cc727... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 8746619... 3db58c8... M	GameBuild/GameBuild/obj/x86/Debug/ContentPipeline-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}.xml
+:100644 100644 e534d40... 413bc21... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csproj.FileListAbsolute.txt
+:100644 100644 0bc9114... c9358b0... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csprojResolveAssemblyReference.cache
+:100644 100644 bdf16c3... ddc1918... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 025af07... 93cc727... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 000000 3c7ab2d... 0000000... D	GameBuild/GameBuildContent/npc/dialogue/dialogueTesting.txt
+:100644 100644 09a3416... bcb7240... M	GameBuild/GameBuildContent/obj/x86/Debug/GameBuildContent.contentprojResolveAssemblyReference.cache
+:100644 100644 900c029... 49126e4... M	LevelContentExtension/obj/x86/Debug/LevelContentExtension.csprojResolveAssemblyReference.cache
+
+user:Mntndew
+1364222310
+user:Mntndew
+1364300994
+:100644 100644 7876fef... ee73c04... M	GameBuild.suo
+:100644 100644 24fde3d... 6229079... M	GameBuild/GameBuild/Game1.cs
+:100644 100644 a8ee704... eab3a66... M	GameBuild/GameBuild/bin/x86/Debug/Content/npc/npc/Test.txt
+:100644 100644 90c7e2f... c49d571... M	GameBuild/GameBuild/bin/x86/Debug/Content/npc/npc/npc2.txt
+:100644 100644 ddc1918... cabbaf7... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 93cc727... 2acd9f6... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 89a65eb... dcfd936... M	GameBuild/GameBuild/cNpc.cs
+:100644 100644 3db58c8... 946ae88... M	GameBuild/GameBuild/obj/x86/Debug/ContentPipeline-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}.xml
+:100644 100644 ddc1918... cabbaf7... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 93cc727... 2acd9f6... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 a8ee704... eab3a66... M	GameBuild/GameBuildContent/npc/npc/Test.txt
+:100644 100644 90c7e2f... c49d571... M	GameBuild/GameBuildContent/npc/npc/npc2.txt
+
+user:Mntndew
+1364312613
+:100644 100644 ee73c04... 76192d8... M	GameBuild.suo
+:100644 100644 6229079... 0c1bb7c... M	GameBuild/GameBuild/Game1.cs
+:100644 100644 ee83e40... 11456ce... M	GameBuild/GameBuild/bin/x86/Debug/Content/lighting.xnb
+:100644 100644 c49d571... 90c7e2f... M	GameBuild/GameBuild/bin/x86/Debug/Content/npc/npc/npc2.txt
+:100644 100644 cabbaf7... d30c2d9... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 2acd9f6... 344ddc8... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 dcfd936... 0e6c6ed... M	GameBuild/GameBuild/cNpc.cs
+:100644 100644 b6b15fa... 4978dd0... M	GameBuild/GameBuild/cWarp.cs
+:100644 100644 4f20ae8... c9605ab... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csproj.FileListAbsolute.txt
+:100644 100644 cabbaf7... d30c2d9... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 2acd9f6... 344ddc8... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 c49d571... 90c7e2f... M	GameBuild/GameBuildContent/npc/npc/npc2.txt
+
+user:Mntndew
+1364324803
+:100644 100644 0c1bb7c... 753b976... M	GameBuild/GameBuild/Game1.cs
+:100644 100644 d30c2d9... 26cedad... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 344ddc8... c53aec6... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 4978dd0... c4b6654... M	GameBuild/GameBuild/cWarp.cs
+:100644 100644 d30c2d9... 26cedad... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 344ddc8... c53aec6... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+
+user:Howser
+1364329521
+:100644 100644 11456ce... a2c5843... M	GameBuild/GameBuild/bin/x86/Debug/Content/lighting.xnb
+:100644 100644 26cedad... 373a2ae... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 c53aec6... 4b4e9ed... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 f630a73... be4988f... M	GameBuild/GameBuild/cDialogue.cs
+:100644 100644 cb5ab79... 5643c24... M	GameBuild/GameBuild/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 c9605ab... 19334d8... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csproj.FileListAbsolute.txt
+:100644 100644 26cedad... 373a2ae... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 c53aec6... 4b4e9ed... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 95dec55... 9eb9fa5... M	GameBuild/GameBuild/obj/x86/Debug/ResolveAssemblyReference.cache
+:100644 100644 e998fdb... 800c77f... M	GameBuild/GameBuildContent/obj/x86/Debug/ContentPipeline.xml
+:100644 100644 53fd32f... 13c4fb8... M	GameBuild/GameBuildContent/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 f78aec0... 98d25ea... M	GameBuild/GameBuildContent/obj/x86/Debug/ResolveAssemblyReference.cache
+:100644 100644 09ba7bc... 780aa36... M	LevelContentExtension/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+
+user:Mntndew
+1364644943
+:100644 100644 76192d8... edd719a... M	GameBuild.suo
+:100644 100644 7775501... 8110b22... M	GameBuild/GameBuild/Camera2d.cs
+:100644 100644 753b976... d8e3928... M	GameBuild/GameBuild/Game1.cs
+:100644 100644 c47fc09... b43dc74... M	GameBuild/GameBuild/GameBuild.csproj.Debug.cachefile
+:100644 000000 3ece029... 0000000... D	GameBuild/GameBuild/bin/x86/Debug/Content/enemy/Down.xnb
+:100644 000000 0036eb8... 0000000... D	GameBuild/GameBuild/bin/x86/Debug/Content/enemy/Left.xnb
+:100644 000000 fc41e8c... 0000000... D	GameBuild/GameBuild/bin/x86/Debug/Content/enemy/Right.xnb
+:100644 000000 ad0a25a... 0000000... D	GameBuild/GameBuild/bin/x86/Debug/Content/enemy/Up.xnb
+:100644 100644 7f9daf3... ddc3e2e... M	GameBuild/GameBuild/bin/x86/Debug/Content/npc/dialogue/dialogueTest.txt
+:100644 000000 ce94ee4... 0000000... D	GameBuild/GameBuild/bin/x86/Debug/Content/npc/sprite/Testing.xnb
+:100644 100644 ce94ee4... 8d8ce6d... M	GameBuild/GameBuild/bin/x86/Debug/Content/npc/sprite/test.xnb
+:100644 000000 672c434... 0000000... D	GameBuild/GameBuild/bin/x86/Debug/Content/npc_test_portrait.xnb
+:100644 000000 8cd1acf... 0000000... D	GameBuild/GameBuild/bin/x86/Debug/Content/npc_test_portrait2.xnb
+:100644 000000 4c8ccea... 0000000... D	GameBuild/GameBuild/bin/x86/Debug/Content/questReceive.xnb
+:100644 100644 373a2ae... 66b7ce0... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 4b4e9ed... ac9c7b9... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 c3f3ef9... fa03b24... M	GameBuild/GameBuild/cCharacter.cs
+:100644 100644 be4988f... ed8bf94... M	GameBuild/GameBuild/cDialogue.cs
+:100644 100644 0e6c6ed... d311b98... M	GameBuild/GameBuild/cNpc.cs
+:100644 100644 946ae88... af16566... M	GameBuild/GameBuild/obj/x86/Debug/ContentPipeline-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}.xml
+:100644 100644 5643c24... c993b20... M	GameBuild/GameBuild/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 19334d8... 928773f... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csproj.FileListAbsolute.txt
+:100644 100644 c9358b0... a817961... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csprojResolveAssemblyReference.cache
+:100644 100644 373a2ae... 66b7ce0... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 4b4e9ed... ac9c7b9... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 c47fc09... b43dc74... M	GameBuild/GameBuild/obj/x86/Debug/cachefile-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}-targetpath.txt
+:100644 100644 0d3e11e... e91ebdb... M	GameBuild/GameBuildContent/GameBuildContent.contentproj
+:100644 000000 d66d049... 0000000... D	GameBuild/GameBuildContent/enemy/Down.png
+:100644 000000 0c48471... 0000000... D	GameBuild/GameBuildContent/enemy/Left.png
+:100644 000000 b7a8974... 0000000... D	GameBuild/GameBuildContent/enemy/Right.png
+:100644 000000 f95bd74... 0000000... D	GameBuild/GameBuildContent/enemy/Up.png
+:100644 100644 7f9daf3... ddc3e2e... M	GameBuild/GameBuildContent/npc/dialogue/dialogueTest.txt
+:100644 100644 fd2296a... e011be2... M	GameBuild/GameBuildContent/npc/sprite/Test.png
+:100644 000000 fd2296a... 0000000... D	GameBuild/GameBuildContent/npc/sprite/Testing.png
+:100644 000000 ee301a7... 0000000... D	GameBuild/GameBuildContent/npc_test_portrait.png
+:100644 000000 d998d82... 0000000... D	GameBuild/GameBuildContent/npc_test_portrait2.png
+:100644 100644 13c4fb8... 53fd32f... M	GameBuild/GameBuildContent/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 000000 598317e... 0000000... D	GameBuild/GameBuildContent/questReceive.png
+:100644 100644 780aa36... 09ba7bc... M	LevelContentExtension/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+
+user:Mntndew
+1364678636
+:100644 100644 edd719a... f403f7f... M	GameBuild.suo
+:100644 100644 44cad66... edd8ca2... M	GameBuild/GameBuild/Dialogue/DialogueManager.cs
+:100644 100644 d8e3928... 96e20da... M	GameBuild/GameBuild/Game1.cs
+:100644 100644 bff34ca... 8dcd6a8... M	GameBuild/GameBuild/GameBuild.csproj
+:100644 100644 b43dc74... f7f9b59... M	GameBuild/GameBuild/GameBuild.csproj.Debug.cachefile
+:000000 100644 0000000... 8a20941... A	GameBuild/GameBuild/Inventory.cs
+:000000 100644 0000000... 4e0558f... A	GameBuild/GameBuild/InventorySlot.cs
+:000000 100644 0000000... 30a4634... A	GameBuild/GameBuild/bin/x86/Debug/Content/emptySlot.xnb
+:000000 100644 0000000... 29427f1... A	GameBuild/GameBuild/bin/x86/Debug/Content/health100.xnb
+:000000 100644 0000000... e5ae5f1... A	GameBuild/GameBuild/bin/x86/Debug/Content/health25.xnb
+:000000 100644 0000000... de842b8... A	GameBuild/GameBuild/bin/x86/Debug/Content/health50.xnb
+:000000 100644 0000000... e57e830... A	GameBuild/GameBuild/bin/x86/Debug/Content/health75.xnb
+:000000 100644 0000000... d30baf6... A	GameBuild/GameBuild/bin/x86/Debug/Content/healthEmpty.xnb
+:100644 100644 66b7ce0... 32030e1... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 ac9c7b9... 1ab8bfd... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 fa03b24... d849f6d... M	GameBuild/GameBuild/cCharacter.cs
+:100644 100644 ed8bf94... e05d939... M	GameBuild/GameBuild/cDialogue.cs
+:100644 100644 d311b98... 3ca2bf5... M	GameBuild/GameBuild/cNpc.cs
+:100644 100644 af16566... aa43ef6... M	GameBuild/GameBuild/obj/x86/Debug/ContentPipeline-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}.xml
+:100644 100644 928773f... 5ca7d00... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csproj.FileListAbsolute.txt
+:100644 100644 66b7ce0... 32030e1... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 ac9c7b9... 1ab8bfd... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 b43dc74... f7f9b59... M	GameBuild/GameBuild/obj/x86/Debug/cachefile-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}-targetpath.txt
+:100644 100644 e91ebdb... ac15c5d... M	GameBuild/GameBuildContent/GameBuildContent.contentproj
+:000000 100644 0000000... 86f638d... A	GameBuild/GameBuildContent/emptySlot.png
+:000000 100644 0000000... 3fc5c78... A	GameBuild/GameBuildContent/health100.png
+:000000 100644 0000000... 65d5c6d... A	GameBuild/GameBuildContent/health25.png
+:000000 100644 0000000... ed60873... A	GameBuild/GameBuildContent/health50.png
+:000000 100644 0000000... 335779a... A	GameBuild/GameBuildContent/health75.png
+:000000 100644 0000000... 44f2505... A	GameBuild/GameBuildContent/healthEmpty.png
+
+user:Mntndew
+1364776203
+:100644 100644 f403f7f... be3d53d... M	GameBuild.suo
+:100644 100644 8a20941... 0922194... M	GameBuild/GameBuild/Inventory.cs
+:100644 100644 4e0558f... 2a098b6... M	GameBuild/GameBuild/InventorySlot.cs
+:100644 100644 32030e1... d91ac20... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 1ab8bfd... dfd03b5... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 d849f6d... 9a1f7aa... M	GameBuild/GameBuild/cCharacter.cs
+:100644 100644 3ca2bf5... c49d529... M	GameBuild/GameBuild/cNpc.cs
+:100644 100644 32030e1... d91ac20... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 1ab8bfd... dfd03b5... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+
+user:Mntndew
+1364904594
+:100644 100644 be3d53d... 66b1918... M	GameBuild.suo
+:100644 100644 96e20da... 414a2fe... M	GameBuild/GameBuild/Game1.cs
+:100644 100644 8dcd6a8... 280c8a1... M	GameBuild/GameBuild/GameBuild.csproj
+:100644 100644 2a098b6... 4961cbe... M	GameBuild/GameBuild/InventorySlot.cs
+:000000 100644 0000000... 84f5c66... A	GameBuild/GameBuild/Npc.cs
+:100644 100644 90c7e2f... cc31aff... M	GameBuild/GameBuild/bin/x86/Debug/Content/npc/npc/npc2.txt
+:100644 100644 d91ac20... e819283... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 dfd03b5... 44480f3... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 9a1f7aa... f26ecd6... M	GameBuild/GameBuild/cCharacter.cs
+:100644 100644 c4b6654... 9ae7122... M	GameBuild/GameBuild/cWarp.cs
+:100644 100644 d91ac20... e819283... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 dfd03b5... 44480f3... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 90c7e2f... cc31aff... M	GameBuild/GameBuildContent/npc/npc/npc2.txt
+
+user:Mntndew
+1364908440
+:100644 100644 66b1918... ddfaf1e... M	GameBuild.suo
+:100644 100644 414a2fe... c84ff22... M	GameBuild/GameBuild/Game1.cs
+:100644 100644 280c8a1... 0bd6d16... M	GameBuild/GameBuild/GameBuild.csproj
+:100644 100644 84f5c66... bed988a... M	GameBuild/GameBuild/Npc.cs
+:100644 100644 cc31aff... ba881e2... M	GameBuild/GameBuild/bin/x86/Debug/Content/npc/npc/npc2.txt
+:100644 100644 c2b6174... 1575d42... M	GameBuild/GameBuild/bin/x86/Debug/Content/target.xnb
+:100644 100644 5efcbcc... 2b439df... M	GameBuild/GameBuild/bin/x86/Debug/Content/warp/source.txt
+:100644 100644 3ab7600... a5522ec... M	GameBuild/GameBuild/bin/x86/Debug/Content/warp/target.txt
+:100644 100644 e819283... 69d6156... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 44480f3... 53f3189... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 f26ecd6... 11fb531... M	GameBuild/GameBuild/cCharacter.cs
+:100644 100644 aa43ef6... 6706fd3... M	GameBuild/GameBuild/obj/x86/Debug/ContentPipeline-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}.xml
+:100644 100644 e819283... 69d6156... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 44480f3... 53f3189... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 cc31aff... ba881e2... M	GameBuild/GameBuildContent/npc/npc/npc2.txt
+:100644 100644 8527674... 55550f7... M	GameBuild/GameBuildContent/target.tm
+:100644 100644 5efcbcc... 2b439df... M	GameBuild/GameBuildContent/warp/source.txt
+:100644 100644 3ab7600... a5522ec... M	GameBuild/GameBuildContent/warp/target.txt
+
+user:Howser
+1364922782
+:100644 100644 ddfaf1e... 2dcb8f9... M	GameBuild.suo
+:000000 100644 0000000... 6b9d979... A	GameBuild/GameBuild/AnimationComponent.cs
+:100644 100644 0bd6d16... 7ffcabe... M	GameBuild/GameBuild/GameBuild.csproj
+:100644 100644 f7f9b59... f50bb68... M	GameBuild/GameBuild/GameBuild.csproj.Debug.cachefile
+:100644 100644 a2c5843... 4cc44b1... M	GameBuild/GameBuild/bin/x86/Debug/Content/lighting.xnb
+:100644 100644 69d6156... 5c34ef7... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 53f3189... c22f39b... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 100644 11fb531... c5c3775... M	GameBuild/GameBuild/cCharacter.cs
+:100644 100644 c993b20... 5643c24... M	GameBuild/GameBuild/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 5ca7d00... 5da3c27... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.csproj.FileListAbsolute.txt
+:100644 100644 69d6156... 5c34ef7... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 53f3189... c22f39b... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 f7f9b59... f50bb68... M	GameBuild/GameBuild/obj/x86/Debug/cachefile-{74807D20-FE81-4EF0-BFA6-9567FD0F53FB}-targetpath.txt
+:100644 100644 800c77f... 0bed482... M	GameBuild/GameBuildContent/obj/x86/Debug/ContentPipeline.xml
+:100644 100644 53fd32f... 13c4fb8... M	GameBuild/GameBuildContent/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+:100644 100644 98d25ea... 0c9b1a1... M	GameBuild/GameBuildContent/obj/x86/Debug/ResolveAssemblyReference.cache
+:100644 100644 09ba7bc... 780aa36... M	LevelContentExtension/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+
+user:Mntndew
+1364925532
+:100644 100644 ddfaf1e... 3119323... M	GameBuild.suo
+:100644 100644 bed988a... e3490a7... M	GameBuild/GameBuild/Npc.cs
+:100644 100644 ba881e2... 84ae3e7... M	GameBuild/GameBuild/bin/x86/Debug/Content/npc/npc/npc2.txt
+:100644 100644 69d6156... e3a5093... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.exe
+:100644 100644 53f3189... 049808d... M	GameBuild/GameBuild/bin/x86/Debug/GameBuild.pdb
+:100644 000000 c49d529... 0000000... D	GameBuild/GameBuild/cNpc.cs
+:100644 100644 69d6156... e3a5093... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.exe
+:100644 100644 53f3189... 049808d... M	GameBuild/GameBuild/obj/x86/Debug/GameBuild.pdb
+:100644 100644 ba881e2... 84ae3e7... M	GameBuild/GameBuildContent/npc/npc/npc2.txt
+
+user:Mntndew
+1364930472

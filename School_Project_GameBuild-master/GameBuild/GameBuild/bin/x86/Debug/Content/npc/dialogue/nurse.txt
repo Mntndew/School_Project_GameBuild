@@ -1,0 +1,45 @@
+﻿0:0: :0
+0:1:Hello, madam?:0
+0:2:Hey! You!:0
+0:3:You look like a normal person to me...:0
+1:0:Ah, Hello there. I felt the disturbance |as well. I'm the school nurse! |My name is Celine.:0
+1:4:Okay... I'm so confused... Could you |explain a few things to me?:0
+1:5:Do you know how I'll get out of here?:0
+2:0:Show some manners!:0
+2:6:I'm sorry... Do you think you could |help me?:0
+2:7:No! Why is this all happening to me!?:0
+3:0:Hello to you too. That's how it |should be. I'm the school nurse.:0
+3:8:You mean you're not a human?:0
+3:9:At least you're a friendly face, |Do you think you could help me?:0
+4:0:I understand, it's alright. I can |help you to the best of my abilities.:0
+4:10:Thank you...:0
+5:0:No... Sadly not, But I'd suggest |you find Ziva? She put you in this mess...:0
+5:16:I see. Any idea where I could |find her?:0
+6:0:It's okay. I understand you must |be scared... So what do you want me to help you with?:0
+6:10:Umm...:0
+7:0:How could I know? Now calm down or |I'll have to give you sedatives!:0
+7:10:Okay- Okay I'm sorry- I'm just so |confused...:0
+8:0:Not exactly. Almost though! I'm a |witch.:0
+8:1:Really? Cool...:0
+9:0:Haha, thank you. I can help you to |the best of my abilities.:0
+9:10:Thank you...:0
+10:0:What do you want to know?:0
+10:11:Who are the classmates?:0
+10:12:So what's up with the headmaster?:0
+10:13:Tell me about this world?:0
+10:14:What is this school?:0
+10:17:Good bye!:0
+11:0:There's Laune, Sylian and Melitta. |Laune's probably in one of the classrooms, |since it's a little late- Most doors are |locked, you'll have to talk to Laune and |then she might lend you her key. |Be nice or she might roughen you up.:0
+11:10:Ok:0
+12:0:He's... A little complicated. |Kermit doesn't mean anything bad. |Really, he's really sweet. We're newly |married, actually. Whoops... Maybe I |shouldn't have said his real name... |He get's so embarrassed about it. |Anyway- Show him great respect, he's really |powerful and has tended for this |school for hundreds of years.:0
+12:10:Ok:0
+13:0:This realm is a little like earth, |just with a small amount of humans |and a humongous amount of different |races. On earth, you'd call them |''mythological monsters''. But here... |Humans are the monsters. They are |really rare and generally dissliked by most.:0
+13:10:Ok:0
+14:0:This school has been here for |thousands of years, we teach the people |in our world everything they need to |know. It's just a normal school, |really. Just that the students never |look the same.:0
+14:10:Ok:0
+15:0:Good bye!:0
+16:0:Somewhere in the school, I suppose. |Ask her classmates. I think Laune |is in the area.:0
+16:17:Okay, I'll go talk to her then.:0
+17:0:Wait! Before you go... Let me give |you something... Our students are |mostly nice but plenty don't take |kindly to humans. It'd be good if you |could defend yourself.:0
+17:18:A sword? But I could kill someone |with that!:0
+18:0:Our students are durable, besides- |I'm here! No one dies on my watch.:6

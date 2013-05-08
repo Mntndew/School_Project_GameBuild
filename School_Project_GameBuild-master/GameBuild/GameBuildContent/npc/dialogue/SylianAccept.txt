@@ -1,0 +1,33 @@
+0:0: *sob* Ohh... Oh no... *sniff*:0
+0:1: Hey... What's wrong...? Are you |alright?:0
+0:2: Why does such a cute girl like you |cry like this?:0
+0:3: Hey, squidgirl! Stop that wailing, |what's wrong with you?:0
+1:0: *sniff* Oh... I... I'm alright. I |just... I lost my ribbon. *sob* It |was my favorite...:0
+2:0: Huh...? *sniff* Me...? *blush* I... |Lost my favorite ribbon.:0
+3:0: What? S..squidgirl? H..how mean...! |*sob* I'm sorry, but I'm really |sad... I didnt't mean any harm... |*sniff*:0
+1:4: I see... Maybe I could help you find| it? And then you could help me in return?:0
+1:5: Aha... Fear not! I'll find it and |bring it back to you!:0
+1:6: Lost your favorite ribbon? How |careless, you have yourself to blame.:0
+2:4: I see... Maybe I could help you find |it?:0
+2:5: Aha... Fear not! I'll find it and |bring it back to you!:0
+3:7: What a crybaby. That sobbing is so |annoying, cut it out or I'll give |you something to really cry about.:0
+3:8: Ugh, whatever. So what are you so |sad about?:0
+3:9: Well at least you're kind of cute, |if you need me I can help you.:0
+4:0: W..would you? That's so kind of |you... *sniff* Oh thank you. Yes.. |I'll Definitely help you in return!:7
+5:0: Really? *sniff* M..my savior!:7
+6:0: Oh... *sob* I... I had it right here| about an hour ago... But now it's| gone. Im sorry.:0
+6:10: Ugh, gee. You know what? I'll find |for you and maybe you'll shut up.:0
+7:0: W..what? No.. *sniff* Please don't |hurt me! I'm sorry! *sob*:0
+8:0: I lost my... *sob* Ribbon... And I |can't find it. *sniff*:0
+9:0: H..help you? I..I'm not sure what |with... *sniff*:0
+7:11: Pitiful, You deserve a good beating.:0
+7:12: You'll be fine, if you give me |your key.:0
+7:13: Aw... you look miserable. *sigh*| Just calm down, I won't hurt you. |I'm just in need of your key. If I |find your ribbon, will you give the |key to me?:0
+8:14: Uhu? I suppose I could go find it| for you. But I would have to borrow| your key afterwards.:0
+9:15: I'll find your ribbon, and as |payment you'll give me the key to the |next area. Take it or leave it.:0
+10:0: I'm sorry... *sniff* I'll let you |borrow my key if you find it!:7
+11:0: Nooooo!:1
+12:0: M..my key..? B..but... It's my |responsibility... *sniff* I.. I |suppose... If I get it back later...|*gives key*:2
+13:0: Ah.. Uh... *sob* O..okay... *sniff*| My key...? I.. I suppose... |Alright. T..thank you.:7
+14:0: My key?  Ah... *sniff* Okay. I'll |wait here then.:7
+15:0: Oh.. oh... I.. I don't know... Uh.. |Fine. *sniff* Deal.:7

@@ -1,0 +1,125 @@
+Content\Game\blackness.xnb
+Content\Game\lightTexture.xnb
+Content\Npc\A.xnb
+Content\Player\shadowTex.xnb
+Content\Game\health100.xnb
+Content\Player\emptySlot.xnb
+Content\Game\textBox.xnb
+Content\particle.xnb
+Content\Particle\particle.xnb
+Content\Player\Portrait\Male.xnb
+Content\Game\key.xnb
+Content\Game\tileset.xnb
+Content\Npc\portrait\Nurse.xnb
+Content\Npc\sprite\Headmaster.xnb
+Content\Game\Hp bar.xnb
+Content\Game\target.xnb
+Content\robot.xnb
+Content\Npc\bot.xnb
+Content\Player\Portrait\female.xnb
+Content\Npc\portrait\Cybot.xnb
+Content\Npc\sprite\Cybot.xnb
+Content\Npc\portrait\Headmaster.xnb
+Content\Npc\portrait\Lamia.xnb
+Content\Npc\portrait\Laune.xnb
+Content\Npc\portrait\Sylian.xnb
+Content\Npc\sprite\Sylian.xnb
+Content\Npc\sprite\Laune.xnb
+Content\Npc\sprite\Nurse.xnb
+Content\Npc\sprite\forestCybot.xnb
+Content\Player\Sprite\Female\forestFemale.xnb
+Content\Player\Sprite\Male\forestMale.xnb
+Content\Game\female.xnb
+Content\Game\femaleSelected.xnb
+Content\Game\male.xnb
+Content\Game\maleSelected.xnb
+Content\Game\Menu\exit.xnb
+Content\Game\Menu\exitSelected.xnb
+Content\Game\Menu\resume.xnb
+Content\Game\Menu\resumeSelected.xnb
+Content\Game\Startmenu\exitDeselect.xnb
+Content\Game\Startmenu\exitSelect.xnb
+Content\Game\Startmenu\playDeselect.xnb
+Content\Game\Startmenu\playSelect.xnb
+Content\Npc\deathSprite.xnb
+Content\Game\itemLabel.xnb
+Content\Game\labelSide.xnb
+Content\Game\labelSide2.xnb
+Content\Npc\sprite\Lamia.xnb
+Content\Game\forest.xnb
+Content\Game\ribbon.xnb
+Content\Npc\sprite\student\student1.xnb
+Content\Npc\sprite\student\student2.xnb
+Content\Npc\sprite\student\student3.xnb
+Content\Player\Sprite\Male\male.xnb
+Content\Player\Sprite\Female\female-cockiri.xnb
+Content\Player\Sprite\Female\female-dong.xnb
+Content\Player\Sprite\Female\female-thruster.xnb
+Content\Player\Sprite\Male\male-cockiri.xnb
+Content\Player\Sprite\Male\male-dong.xnb
+Content\Player\Sprite\Male\male-thruster.xnb
+Content\Player\Sprite\Female\female.xnb
+Content\Game\lighting.xnb
+Content\Game\SpriteFont1.xnb
+Content\Map\Map4_C.xnb
+Content\Map\Map4_B.xnb
+Content\Map\Map3_B.xnb
+Content\Map\Map3_A.xnb
+Content\Map\Map2_A.xnb
+Content\Map\Map1_A.xnb
+Content\Audio\Songs\Boss battle song 1.xnb
+Content\Audio\Songs\Boss battle song 2.xnb
+Content\Audio\Songs\School basic song 1.xnb
+Content\Audio\Songs\School basic song 10.xnb
+Content\Audio\Songs\School basic song 11.xnb
+Content\Audio\Songs\School basic song 2.xnb
+Content\Audio\Songs\School basic song 3.xnb
+Content\Audio\Songs\School basic song 4.xnb
+Content\Audio\Songs\School basic song 5.xnb
+Content\Audio\Songs\School basic song 6.xnb
+Content\Audio\Songs\School basic song 7.xnb
+Content\Audio\Songs\School basic song 8.xnb
+Content\Audio\Songs\School basic song 9.xnb
+Content\Audio\Songs\School battle song.xnb
+Content\Audio\Songs\Boss battle song 1.wma
+Content\Audio\Songs\Boss battle song 2.wma
+Content\Audio\Songs\School basic song 1.wma
+Content\Audio\Songs\School basic song 10.wma
+Content\Audio\Songs\School basic song 11.wma
+Content\Audio\Songs\School basic song 2.wma
+Content\Audio\Songs\School basic song 3.wma
+Content\Audio\Songs\School basic song 4.wma
+Content\Audio\Songs\School basic song 5.wma
+Content\Audio\Songs\School basic song 6.wma
+Content\Audio\Songs\School basic song 7.wma
+Content\Audio\Songs\School basic song 8.wma
+Content\Audio\Songs\School basic song 9.wma
+Content\Audio\Songs\School battle song.wma
+Content\Npc\dialogue\test.txt
+Content\Npc\dialogue\doorLocked.txt
+Content\Warp\Map1_A_0.txt
+Content\Warp\Map2_A_0.txt
+Content\Warp\Map2_A_1.txt
+Content\Warp\Map3_A_0.txt
+Content\Warp\Map3_A_1.txt
+Content\Warp\Map3_B_0.txt
+Content\Warp\Map4_B_0.txt
+Content\Npc\dialogue\dialogue2.txt
+Content\Warp\Map4_C_0.txt
+Content\Warp\Map4_B_1.txt
+Content\Npc\npc\Headmaster.txt
+Content\Npc\npc\Nurse.txt
+Content\Npc\npc\Cybot.txt
+Content\Npc\dialogue\Cybot dead.txt
+Content\Npc\npc\Sylian.txt
+Content\Npc\npc\Laune.txt
+Content\Npc\dialogue\nurse.txt
+Content\Npc\dialogue\headmaster.txt
+Content\Npc\dialogue\First cybot encounter.txt
+Content\Npc\dialogue\Nurse questions.txt
+Content\Npc\dialogue\Laune.txt
+Content\Npc\npc\Lamia.txt
+Content\Npc\dialogue\informer.txt
+Content\Npc\dialogue\SylianAccept.txt
+Content\Npc\dialogue\SylianComplete.txt
+Content\Npc\dialogue\SylianNoRibbon.txt

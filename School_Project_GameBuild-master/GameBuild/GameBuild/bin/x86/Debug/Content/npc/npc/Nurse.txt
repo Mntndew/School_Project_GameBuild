@@ -1,0 +1,25 @@
+Map1_A
+Celine
+1425
+576
+64
+64
+True
+False
+False
+False
+Nurse
+Nurse
+True
+False
+False
+False
+0
+0
+0
+0
+1
+nurse
+key
+Nurse questions
+null

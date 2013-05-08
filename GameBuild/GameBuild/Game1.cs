@@ -133,6 +133,7 @@ namespace GameBuild
             graphics.PreferredBackBufferWidth = 1280;
             currentGameState = GameState.STARTMENU;
             nextState = GameState.GENDER;
+            this.Window.Title = "School of souls or smthing";
         }
 
         /// <summary>
