@@ -165,7 +165,7 @@ namespace GameBuild
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             collisionTex = Content.Load<Texture2D>(@"Game\blackness");
-            map = Content.Load<H_Map.TileMap>(@"Map\Map3_B");
+            map = Content.Load<H_Map.TileMap>(@"Map\Map1_A");
             map.tileset = Content.Load<Texture2D>(@"Game\tileset");
             textBox = Content.Load<Texture2D>(@"Game\textBox");
             camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1.4f);
@@ -574,8 +574,8 @@ namespace GameBuild
             {
                 spriteBatch.Begin();
                 spriteBatch.Draw(forest, new Rectangle(0, 0, 1280, 720), Color.White);
-                spriteBatch.Draw(forestCharacter, new Rectangle(600, 300, 42, 69), Color.White);
-                spriteBatch.Draw(forestCybot, new Rectangle(700, 300, forestCybot.Width, forestCybot.Height), Color.White);
+                spriteBatch.Draw(forestCharacter, new Rectangle(300, 300, 42*2, 69*2), Color.White);
+                spriteBatch.Draw(forestCybot, new Rectangle(400, 300, forestCybot.Width*2, forestCybot.Height*2), Color.White);
                 forestDialogue.Draw(spriteBatch);
                 spriteBatch.End();
             }
