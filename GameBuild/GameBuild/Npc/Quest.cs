@@ -78,6 +78,7 @@ namespace GameBuild.Npc
                 {
                     game.activeNpcs[i].dialogue.dialogueManager = new DialogueManager(@"Content\npc\dialogue\" + game.activeNpcs[i].thirdDialogue + ".txt");
                     game.activeNpcs[i].dialogue.dialogueManager.ReachedExit += game.activeNpcs[i].ExitedDialogue;
+                    game.activeNpcs[i].dialogue.GetLines(0);
                     //rewardKey = new Key(Game1.character.positionRectangle, game.activeNpcs[i].key.key, game.activeNpcs[i].key.texture, game.activeNpcs[i].mapName, game);
                     //rewardKey.position.Width = 1;
                     //rewardKey.position.Height = 1;
