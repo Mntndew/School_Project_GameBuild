@@ -23,11 +23,10 @@
 7:14:You could try!:0
 8:0:Depends on what it is you need help with.:0
 8:9:I'm looking for a girl named Ziva, she's |somewhere in the school and I wonder if |I could borrow your key so I could go |into the next part of the school.:0
-8:9:Please, I need it to search for her, she |took me here so she probably knows how |to bring me back.:0
 9:0:Hmm... I understand. If you really need |it then I'd be mean to refuse. Here.:2
 10:0:You think you can scare me, human? You |looking for a fight?! :0
 10:8:I'm sorry, that was really mean. Would |you be up for helping me?:0
 11:0:Well... I suppose. But only because |you're so sweet.:2
-12:0:What!? You son of a- :2
-13:0:Watch me!:2
+12:0:What!? You son of a- :1
+13:0:Watch me!:1	
 14:0:Draw your sword, if you even have |one!:1
