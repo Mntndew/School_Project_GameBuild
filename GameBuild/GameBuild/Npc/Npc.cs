@@ -849,13 +849,13 @@ namespace GameBuild.Npc
                         direction.Normalize();
                         if (name != "")
                         {
-                            Game1.character.Push(direction, 3);
+                            //Game1.character.Push(direction, 1);
                         }
                         else
                         {
                             if (attackPlayer)
                             {
-                                Game1.character.Push(direction, 3);
+                                //Game1.character.Push(direction, 1);
                             }
                         }
                     }

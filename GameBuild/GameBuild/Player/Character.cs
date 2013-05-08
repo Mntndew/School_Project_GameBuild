@@ -344,22 +344,22 @@ namespace GameBuild
                 walking = false;
                 if (!disabled)
                 {
-                    if (game.keyState.IsKeyDown(Keys.Up))
+                    if (game.keyState.IsKeyDown(Keys.Up) && !CollidesWithNpc(game, upSide))
                     {
                         MoveUp(gameTime);
                     }
 
-                    else if (game.keyState.IsKeyDown(Keys.Down))
+                    else if (game.keyState.IsKeyDown(Keys.Down) && !CollidesWithNpc(game, downSide))
                     {
                         MoveDown(gameTime);
                     }
 
-                    if (game.keyState.IsKeyDown(Keys.Right))
+                    if (game.keyState.IsKeyDown(Keys.Right) && !CollidesWithNpc(game, rightSide))
                     {
                         MoveRight(gameTime);
                     }
 
-                    else if (game.keyState.IsKeyDown(Keys.Left))
+                    else if (game.keyState.IsKeyDown(Keys.Left) && !CollidesWithNpc(game, leftSide))
                     {
                         MoveLeft(gameTime);
                     }
@@ -386,7 +386,16 @@ namespace GameBuild
                     }
                     else
                     {
-                        //talk to the npc
+                        for (int i = 0; i < game.activeNpcs.Count; i++)
+                        {
+
+                            if (game.activeNpcs[i].name == "")
+                            {
+                                game.activeNpcs[i].isInteracting = true;
+                                game.activeNpcs[i].dialogue.isTalking = true;
+                                Game1.currentGameState = Game1.GameState.INTERACT;
+                            }
+                        }
                     }
                 }
                 
@@ -894,6 +903,25 @@ namespace GameBuild
         {
             disabled = true;
             disabledTimer = DISABLEDTIMER;
+        }
+
+        public bool CollidesWithNpc(Game1 game, Rectangle rectangle)
+        {
+            for (int i = 0; i < game.activeNpcs.Count; i++)
+            {
+                if (game.activeNpcs[i].position.Intersects(rectangle))
+                {
+                    return true;
+                }
+            }
+            for (int i = 0; i < game.Mobs.Count; i++)
+            {
+                if (game.Mobs[i].position.Intersects(rectangle))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
