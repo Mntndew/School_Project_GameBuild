@@ -20,7 +20,12 @@ False
 0
 1
 Laune
+<<<<<<< HEAD
 Key1
 Nurse questions
+=======
+key1
+null
+>>>>>>> 4f16747909fb02c4122613e38431dbcc1f84018e
 null
 null

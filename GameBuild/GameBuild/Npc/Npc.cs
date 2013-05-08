@@ -744,7 +744,7 @@ namespace GameBuild.Npc
 
                 if (!walking && health > 0)
                 {
-                    animation.MaxFrameCount = 0;
+                    animation.MaxFrameCount = 1;
                     if (up)
                     {
                         if (!animation.IsAnimationPlaying(IDLE_UP))
