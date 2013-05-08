@@ -20,6 +20,6 @@ False
 0
 1
 headmaster
-key1
+nokey
 null
 null

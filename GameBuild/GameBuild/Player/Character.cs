@@ -364,15 +364,20 @@ namespace GameBuild
                         MoveLeft(gameTime);
                     }
                 }
-
-                if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
-                            || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+                try
                 {
-                    CalculateFriction(0.7f);
+                    if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
+                                || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+                    {
+                        CalculateFriction(0.7f);
+                    }
+                    else
+                        CalculateFriction(0.2f);
                 }
-                else
-                    CalculateFriction(0.2f);
-
+                catch
+                {
+                    
+                }
                 if (waypointManager != null)
                 {
                     if (!waypointManager.done)
@@ -606,15 +611,21 @@ namespace GameBuild
 
         public void MoveUp(GameTime gameTime)
         {
-            //effects
-            if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
-                || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+            try
             {
-                Splash(gameTime);
+                //effects
+                if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
+                    || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+                {
+                    Splash(gameTime);
+                }
+                else
+                    Walk();
             }
-            else
-                Walk();
+            catch
+            {
 
+            }
             up = true;
             down = false;
             left = false;
@@ -632,15 +643,21 @@ namespace GameBuild
 
         public void MoveDown(GameTime gameTime)
         {
-            //effects
-            if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
-                || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+            try
             {
-                Splash(gameTime);
+                //effects
+                if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
+                    || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+                {
+                    Splash(gameTime);
+                }
+                else
+                    Walk();
             }
-            else
-                Walk();
+            catch
+            {
 
+            }
             down = true;
             up = false;
             right = false;
@@ -657,15 +674,21 @@ namespace GameBuild
 
         public void MoveRight(GameTime gameTime)
         {
-            //effects
-            if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
-                || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+            try
             {
-                Splash(gameTime);
+                //effects
+                if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
+                    || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+                {
+                    Splash(gameTime);
+                }
+                else
+                    Walk();
             }
-            else
-                Walk();
-
+            catch
+            { 
+            
+            }
             right = true;
             left = false;
             up = false;
@@ -682,14 +705,21 @@ namespace GameBuild
 
         public void MoveLeft(GameTime gameTime)
         {
-            //effects
-            if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
-                || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+            try
             {
-                Splash(gameTime);
+                //effects
+                if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
+                    || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+                {
+                    Splash(gameTime);
+                }
+                else
+                    Walk();
             }
-            else
-                Walk();
+            catch
+            {
+
+            }
 
             left = true;
             right = false;

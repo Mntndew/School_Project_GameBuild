@@ -109,19 +109,19 @@ namespace GameBuild.Npc
 
         Random rand = new Random();
 
-        const int WALK_UP = 0;
-        const int WALK_RIGHT = 1;
-        const int WALK_DOWN = 2;
-        const int WALK_LEFT = 3;
-        const int IDLE_UP = 4;
-        const int IDLE_RIGHT = 5;
-        const int IDLE_DOWN = 6;
-        const int IDLE_LEFT = 7;
+        int WALK_UP = 0;
+        int WALK_RIGHT = 1;
+        int WALK_DOWN = 2;
+        int WALK_LEFT = 3;
+        int IDLE_UP = 4;
+        int IDLE_RIGHT = 5;
+        int IDLE_DOWN = 6;
+        int IDLE_LEFT = 7;
         int DEATH;
-        const int ATTACK_UP = 10;
-        const int ATTACK_DOWN = 8;
-        const int ATTACK_LEFT = 11;
-        const int ATTACK_RIGHT = 9;
+        int ATTACK_UP = 10;
+        int ATTACK_DOWN = 8;
+        int ATTACK_LEFT = 11;
+        int ATTACK_RIGHT = 9;
 
         Color color = new Color(255, 255, 255, 255);
         Color aColor;
@@ -189,6 +189,19 @@ namespace GameBuild.Npc
                 position.Y -= 64;
                 position.Height = 64;
                 position.Width = 84;
+                WALK_UP = 0;
+                WALK_RIGHT = 1;
+                WALK_DOWN = 2;
+                WALK_LEFT = 3;
+                IDLE_UP = 0;
+                IDLE_RIGHT = 1;
+                IDLE_DOWN = 2;
+                IDLE_LEFT = 3;
+                ATTACK_RIGHT = 4;
+                ATTACK_DOWN = 5;
+                ATTACK_LEFT = 6;
+                ATTACK_UP = 7;
+                DEATH = 8;
             }
             else if (name == "Melitta")
             {
@@ -235,7 +248,7 @@ namespace GameBuild.Npc
 
         public Npc(int x, int y, int width, int height, Texture2D walkSprite, Game1 game, string mapName,
             float timerMod, bool attackPlayer, int health, int minDamage, int maxDamage, int hitChance, bool vulnerable)
-        {
+        {   
             this.mapName = mapName;
             position.X = x;
             position.Y = y - 128;
@@ -511,6 +524,7 @@ namespace GameBuild.Npc
                     Game1.character.Push(direction, 12);
                     attackTimer = ATTACKTIMER;
                     Game1.character.Disable();
+                    animation.MaxFrameCount = 0;
                     if (up)
                     {
                         animation.PlayAnimation(ATTACK_UP);
@@ -716,7 +730,7 @@ namespace GameBuild.Npc
             bumpRectangle = new Rectangle(position.X + position.Width / 2, position.Y + position.Height / 2, position.Width / 2, position.Height / 2);
             animation.UpdateAnimation(gameTime);
             #endregion
-
+            animation.MaxFrameCount = 1;
             if (health <= 0)
             {
                 Death(gameTime);
@@ -730,7 +744,7 @@ namespace GameBuild.Npc
 
                 if (!walking && health > 0)
                 {
-                    animation.MaxFrameCount = 1;
+                    animation.MaxFrameCount = 0;
                     if (up)
                     {
                         if (!animation.IsAnimationPlaying(IDLE_UP))
@@ -880,7 +894,7 @@ namespace GameBuild.Npc
         {
             if (IsOnMap())
             {
-                if (healthTexture != null && health > 0)
+                if (healthTexture != null && health > 0 && vulnerable)
                 {
                     spriteBatch.Draw(healthTexture, healthPos, Color.White);
                 }

@@ -70,8 +70,8 @@ namespace GameBuild
         //choose gender
         Rectangle malePos;
         Rectangle femalePos;
-        bool maleSelected;
-        bool femaleSelected;
+        bool maleSelected = false;
+        bool femaleSelected = true;
 
         public Texture2D keyTexture;
         public static Texture2D textBox;
@@ -108,7 +108,7 @@ namespace GameBuild
         bool increaseAlpha;
         GameState nextState;
 
-        Rectangle screenRectangle = new Rectangle(0, 0, 1280, 720);
+        Rectangle screenRectangle = new Rectangle(0, 0, 1080, 720);
 
         string[] names; // array of all npc names
         string gender = null;
@@ -130,7 +130,7 @@ namespace GameBuild
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferHeight = 720;
-            graphics.PreferredBackBufferWidth = 1280;
+            graphics.PreferredBackBufferWidth = 1080;
             currentGameState = GameState.STARTMENU;
             nextState = GameState.GENDER;
             this.Window.Title = "School of souls or smthing";
@@ -165,10 +165,10 @@ namespace GameBuild
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             collisionTex = Content.Load<Texture2D>(@"Game\blackness");
-            map = Content.Load<H_Map.TileMap>(@"Map\Map3_B");
+            map = Content.Load<H_Map.TileMap>(@"Map\Map1_A");
             map.tileset = Content.Load<Texture2D>(@"Game\tileset");
             textBox = Content.Load<Texture2D>(@"Game\textBox");
-            camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1f);
+            camera = new Camera2d(GraphicsDevice.Viewport, map.mapWidth * map.tileWidth, map.mapHeight * map.tileHeight, 1.4f);
             UpdateActiveNpcs();
             debugTile = Content.Load<Texture2D>(@"Player\emptySlot");
             screenTexture = Content.Load<Texture2D>(@"Game\blackness");
@@ -490,6 +490,7 @@ namespace GameBuild
         {
             if (!transition && currentGameState == GameState.GENDER)
             {
+
                 if (keyState.IsKeyDown(Keys.Right) && oldState.IsKeyUp(Keys.Right))
                 {
                     if (!maleSelected && !femaleSelected)
@@ -580,14 +581,14 @@ namespace GameBuild
             {
                 spriteBatch.Begin();
                 spriteBatch.Draw(forest, new Rectangle(0, 0, 1280, 720), Color.White);
-                spriteBatch.Draw(forestCharacter, new Rectangle(600, 400, 42, 69), Color.White);
-                spriteBatch.Draw(forestCybot, new Rectangle(700, 400, forestCybot.Width, forestCybot.Height), Color.White);
+                spriteBatch.Draw(forestCharacter, new Rectangle(600, 300, 42, 69), Color.White);
+                spriteBatch.Draw(forestCybot, new Rectangle(700, 300, forestCybot.Width, forestCybot.Height), Color.White);
                 forestDialogue.Draw(spriteBatch);
                 spriteBatch.End();
             }
             else
             {
-                spriteBatch.Begin(SpriteSortMode.Immediate, null, SamplerState.PointClamp, null, null, null, camera.GetTransformation());
+                spriteBatch.Begin(SpriteSortMode.Immediate, null, SamplerState.PointWrap, null, null, null, camera.GetTransformation());
                 map.DrawBackgroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
                 particleSystem.Draw(spriteBatch);
                 character.Draw(spriteBatch);
