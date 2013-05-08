@@ -381,7 +381,16 @@ namespace GameBuild
                     }
                     else
                     {
-                        //talk to the npc
+                        for (int i = 0; i < game.activeNpcs.Count; i++)
+                        {
+
+                            if (game.activeNpcs[i].name == "")
+                            {
+                                game.activeNpcs[i].isInteracting = true;
+                                game.activeNpcs[i].dialogue.isTalking = true;
+                                Game1.currentGameState = Game1.GameState.INTERACT;
+                            }
+                        }
                     }
                 }
                 

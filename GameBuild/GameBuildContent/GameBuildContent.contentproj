@@ -585,8 +585,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Npc\dialogue\Laune.txt">
-      <Name>Laune</Name>
+    <None Include="Npc\dialogue\Melitta.txt">
+      <Name>Melitta</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -738,6 +738,12 @@
       <Processor>TextureProcessor</Processor>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Npc\dialogue\Laune.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>Laune</Name>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
