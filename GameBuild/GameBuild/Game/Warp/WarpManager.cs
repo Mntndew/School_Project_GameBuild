@@ -234,12 +234,11 @@ namespace GameBuild.Game
 
         public void Draw(SpriteBatch spriteBatch, Game1 game)
         {
-            for (int i = 0; i < warps.Count; i++)
-            {
-                spriteBatch.Draw(game.screenTexture, warps[i].warpField, new Color(100, 100, 100, 100));
-                spriteBatch.DrawString(Game1.spriteFont, warps[i].targetMap, new Vector2(warps[i].warpField.X, warps[i].warpField.Y), Color.Red);
-            }
-
+            //for (int i = 0; i < warps.Count; i++)
+            //{
+            //    spriteBatch.Draw(game.screenTexture, warps[i].warpField, new Color(100, 100, 100, 100));
+            //    spriteBatch.DrawString(Game1.spriteFont, warps[i].targetMap, new Vector2(warps[i].warpField.X, warps[i].warpField.Y), Color.Red);
+            //}
             dialogue.Draw(spriteBatch);
         }
     }

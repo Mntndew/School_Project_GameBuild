@@ -301,13 +301,6 @@ namespace GameBuild
                     activeNpcs.Add(Npcs[i]);
                 }
             }
-            //for (int i = 0; i < activeNpcs.Count; i++)
-            //{
-            //    if (!activeNpcs[i].IsOnMap() || activeNpcs[i].health <= 0)
-            //    {
-            //        //activeNpcs.RemoveAt(i);
-            //    }
-            //}
         }
 
         /// <summary>
@@ -625,7 +618,6 @@ namespace GameBuild
                     }
                 }
                 map.DrawForegroundLayer(spriteBatch, new Rectangle(0, 0, 1280, 720));
-                warpManager.Draw(spriteBatch, this);
                 for (int i = 0; i < activeNpcs.Count; i++)
                 {
                     activeNpcs[i].DrawHealth(spriteBatch);
@@ -675,12 +667,12 @@ namespace GameBuild
                         }
                     }
                 }
+                warpManager.Draw(spriteBatch, this);
                 character.inventory.Draw(spriteBatch, this);
                 if (testBoss.IsOnMap())
                 {
                     testBoss.DrawHealth(spriteBatch);
                 }
-                
                 spriteBatch.End();
                 if (character.health <= 0)
                 {
