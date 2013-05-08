@@ -48,7 +48,7 @@ namespace GameBuild
         public bool dead;
         public bool cutscene;
         bool isHit = false;
-        bool disabled = false;
+        public bool disabled = false;
         const float DISABLEDTIMER = 600f;
         float disabledTimer = 600f;
 
@@ -106,6 +106,8 @@ namespace GameBuild
         public List<DamageEffect> damageEffectList = new List<DamageEffect>();
 
         public AnimationComponent animation;
+
+        public Player.CharacterWaypointManager waypointManager;
 
         ParticleSystemEmitter emitter;
 
@@ -177,6 +179,7 @@ namespace GameBuild
             emitter = new ParticleSystemEmitter(game);
             Game1.particleSystem.emitters.Add(emitter);
             bossTarget = new Vector2(-128, -128);
+            
         }
 
         public void Update(Game1 game, H_Map.TileMap tiles, GameTime gameTime, KeyboardState oldState, GraphicsDevice graphicsDevice)
@@ -326,7 +329,6 @@ namespace GameBuild
 
             animation.UpdateAnimation(gameTime);
             #endregion
-
             if (disabled)
             {
                 disabledTimer -= elapsed;
@@ -337,110 +339,29 @@ namespace GameBuild
                 }
             }
             #region walk
-            if (!attacking && !showInventory && !dead)// && cWarp.canWalk
+            if (!attacking && !showInventory && !dead)
             {
                 walking = false;
                 if (!disabled)
                 {
                     if (game.keyState.IsKeyDown(Keys.Up))
                     {
-                        //effects
-                        if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
-                            || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
-                        {
-                            Splash(gameTime);
-                        }
-                        else
-                            Walk();
-
-                        up = true;
-                        down = false;
-                        left = false;
-                        right = false;
-
-                        ApplyForce(new Vector2(0, -2));
-
-                        animation.MaxFrameCount = 3;
-                        if (!animation.IsAnimationPlaying(WALK_UP))
-                        {
-                            animation.LoopAnimation(WALK_UP);
-                        }
-                        walking = true;
+                        MoveUp(gameTime);
                     }
 
                     else if (game.keyState.IsKeyDown(Keys.Down))
                     {
-                        //effects
-                        if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
-                            || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
-                        {
-                            Splash(gameTime);
-                        }
-                        else
-                            Walk();
-
-                        down = true;
-                        up = false;
-                        right = false;
-                        left = false;
-
-                        ApplyForce(new Vector2(0, 2));
-                        animation.MaxFrameCount = 3;
-                        if (!animation.IsAnimationPlaying(WALK_DOWN))
-                        {
-                            animation.LoopAnimation(WALK_DOWN);
-                        }
-                        walking = true;
+                        MoveDown(gameTime);
                     }
 
                     if (game.keyState.IsKeyDown(Keys.Right))
                     {
-                        //effects
-                        if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
-                            || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
-                        {
-                            Splash(gameTime);
-                        }
-                        else
-                            Walk();
-
-                        right = true;
-                        left = false;
-                        up = false;
-                        down = false;
-
-                        ApplyForce(new Vector2(2, 0));
-                        animation.MaxFrameCount = 3;
-                        if (!animation.IsAnimationPlaying(WALK_RIGHT))
-                        {
-                            animation.LoopAnimation(WALK_RIGHT);
-                        }
-                        walking = true;
+                        MoveRight(gameTime);
                     }
 
                     else if (game.keyState.IsKeyDown(Keys.Left))
                     {
-                        //effects
-                        if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
-                            || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
-                        {
-                            Splash(gameTime);
-                        }
-                        else
-                            Walk();
-
-                        left = true;
-                        right = false;
-                        up = false;
-                        down = false;
-
-                        ApplyForce(new Vector2(-2, 0));
-                        animation.MaxFrameCount = 3;
-                        if (!animation.IsAnimationPlaying(WALK_LEFT))
-                        {
-                            animation.LoopAnimation(WALK_LEFT);
-                        }
-                        walking = true;
+                        MoveLeft(gameTime);
                     }
                 }
 
@@ -452,6 +373,17 @@ namespace GameBuild
                 else
                     CalculateFriction(0.2f);
 
+                if (waypointManager != null)
+                {
+                    if (!waypointManager.done)
+                    {
+                        waypointManager.Update(game, position, gameTime);
+                    }
+                    else
+                    {
+                        //talk to the npc
+                    }
+                }
                 SetPosition();
                 try
                 {
@@ -660,6 +592,107 @@ namespace GameBuild
                     animation.LoopAnimation(IDLE_RIGHT);
                 }
             }
+        }
+
+        public void MoveUp(GameTime gameTime)
+        {
+            //effects
+            if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
+                || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+            {
+                Splash(gameTime);
+            }
+            else
+                Walk();
+
+            up = true;
+            down = false;
+            left = false;
+            right = false;
+
+            ApplyForce(new Vector2(0, -2));
+
+            animation.MaxFrameCount = 3;
+            if (!animation.IsAnimationPlaying(WALK_UP))
+            {
+                animation.LoopAnimation(WALK_UP);
+            }
+            walking = true;
+        }
+
+        public void MoveDown(GameTime gameTime)
+        {
+            //effects
+            if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
+                || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+            {
+                Splash(gameTime);
+            }
+            else
+                Walk();
+
+            down = true;
+            up = false;
+            right = false;
+            left = false;
+
+            ApplyForce(new Vector2(0, 2));
+            animation.MaxFrameCount = 3;
+            if (!animation.IsAnimationPlaying(WALK_DOWN))
+            {
+                animation.LoopAnimation(WALK_DOWN);
+            }
+            walking = true;
+        }
+
+        public void MoveRight(GameTime gameTime)
+        {
+            //effects
+            if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
+                || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+            {
+                Splash(gameTime);
+            }
+            else
+                Walk();
+
+            right = true;
+            left = false;
+            up = false;
+            down = false;
+
+            ApplyForce(new Vector2(2, 0));
+            animation.MaxFrameCount = 3;
+            if (!animation.IsAnimationPlaying(WALK_RIGHT))
+            {
+                animation.LoopAnimation(WALK_RIGHT);
+            }
+            walking = true;
+        }
+
+        public void MoveLeft(GameTime gameTime)
+        {
+            //effects
+            if (Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 4
+                || Game1.map.backgroundLayer[positionRectangle.X / Game1.map.tileWidth, positionRectangle.Y / Game1.map.tileHeight].tileID == 8)
+            {
+                Splash(gameTime);
+            }
+            else
+                Walk();
+
+            left = true;
+            right = false;
+            up = false;
+            down = false;
+
+            ApplyForce(new Vector2(-2, 0));
+            animation.MaxFrameCount = 3;
+            if (!animation.IsAnimationPlaying(WALK_LEFT))
+            {
+                animation.LoopAnimation(WALK_LEFT);
+            }
+            walking = true;
         }
 
         public bool HasItem(string item)

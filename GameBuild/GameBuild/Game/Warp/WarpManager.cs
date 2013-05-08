@@ -129,6 +129,7 @@ namespace GameBuild.Game
                     }
                     else if (map == "Map4_B")
                     {
+                        Game1.character.waypointManager = new Player.CharacterWaypointManager(Game1.character.position, map, 3);
                         for (int i = 0; i < game.Npcs.Count; i++)
                         {
                             if (game.Npcs[i].name == "Celine")
@@ -191,7 +192,7 @@ namespace GameBuild.Game
                                 game.Npcs[i].MoveLeft(ref game.Npcs[i].position);
                                 game.Npcs[i].animation.LoopAnimation(7);
                             }
-                            
+                            game.Npcs[i].vulnerable = false;
                         }
                     }
                     #endregion

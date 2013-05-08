@@ -1,5 +1,4 @@
-﻿/*
-    ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+﻿/*  ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
    / /                                                                                                                                                                                                                                                                                                                                                                                                                                                  \
   / /        ooOOOOOOOOOOOOOOOOOOOO            ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS            ccCCCCCCCCCCCCCCCCCCCCCCCCCC    iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLL                            llLLLLLLLLLL                                      aaAAAAAAAAAAAAAAAA            ttTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT  iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII          ooOOOOOOOOOOOOOOOOOOOO          nnNNNNNNNNNN          nnNNNNNNNNNN  \
  / /     ooOOOOOOOOOOOOOOOOOOOOOOOOOOOO       ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS      ccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC   iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLL                            llLLLLLLLLLL                                      aaAAAAAAAAAAAAAAAA            ttTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT  iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII      ooOOOOOOOOOOOOOOOOOOOOOOOOOOOO      nnNNNNNNNNNNNN        nnNNNNNNNNNN   \ 
@@ -22,37 +21,35 @@
 | |  ooOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS  ccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC   iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL   aaAAAAAAAAAA            aaAAAAAAAAAA                ttTTTTTTTTTT               iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  ooOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  nnNNNNNNNNNN        nnNNNNNNNNNNNN    |
  \ \     ooOOOOOOOOOOOOOOOOOOOOOOOOOOOO      ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS      ccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC   iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL   aaAAAAAAAAAA            aaAAAAAAAAAA                ttTTTTTTTTTT               iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII      ooOOOOOOOOOOOOOOOOOOOOOOOOOOOO      nnNNNNNNNNNN        nnNNNNNNNNNNNN    /
   \ \       ooOOOOOOOOOOOOOOOOOOOO             ssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS            ccCCCCCCCCCCCCCCCCCCCCCCCCCC    iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL  llLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL  aaAAAAAAAAAA              aaAAAAAAAAAA               ttTTTTTTTTTT               iiIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII          ooOOOOOOOOOOOOOOOOOOOO          nnNNNNNNNNNN          nnNNNNNNNNNN   /
-   \_\___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________/
-*/
+   \_\___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________/*/
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 
-namespace GameBuild.Npc
+namespace GameBuild.Player
 {
-    class WaypointManager
+    public class CharacterWaypointManager
     {
         int amount;
         int index = 0;
-        string name;
         string map;
         public bool done;
         Vector2[] waypoints;
         Vector2 position;
         private bool up, down, left, right;//where the waypoint is relative to the npc
-
+        
         /// <summary>
         /// <param name="name">The name of the npc.</param>
         /// <param name="map">The map name where it triggers.</param>
         /// <param name="amount">The amount of points in the array.</param>
         /// </summary>
-        public WaypointManager(string name, string map, int amount)
+        public CharacterWaypointManager(Vector2 position, string map, int amount)
         {
+            this.position = position;
             this.amount = amount;
             waypoints = new Vector2[amount];
-            this.name = name;
             this.map = map;
             SetWaypoints();
             CheckDirection();
@@ -60,24 +57,22 @@ namespace GameBuild.Npc
 
         private void SetWaypoints()
         {
-            //just some hard fucking coding
-            if (name == "Headmaster" && map == "Map3_B")
-            {
-                waypoints[0] = new Vector2(468, 693);
-                waypoints[1] = new Vector2(393, 1022);
-                waypoints[2] = new Vector2(575, 1110);
-            }
-            else if (name == "Celine" && map == "Map3_B")
-            {
-                waypoints[0] = new Vector2(560, 1521);
-                waypoints[1] = new Vector2(560, 1234);
-            }
+            waypoints[0] = new Vector2(194, 244);
+            waypoints[1] = new Vector2(194, 867);
+            waypoints[2] = new Vector2(614, 867);
         }
 
-        public void Update(Game1 game, Vector2 position)
+        public void Update(Game1 game, Vector2 position, GameTime gameTime)
         {
             if (map == Game1.map.mapName.Remove(Game1.map.mapName.Length - 1))
             {
+                if (!done)
+                {
+                    Game1.character.disabled = true;
+                }
+                else
+                    Game1.character.disabled = false;
+
                 this.position = position;
                 if (Reached())
                 {
@@ -85,40 +80,34 @@ namespace GameBuild.Npc
                 }
                 else
                 {
-                    for (int i = 0; i < game.activeNpcs.Count; i++)
+                    CheckDirection();
+                    if (left)
                     {
-                        if (game.activeNpcs[i].name == name)
+                        if (!(waypoints[index].X - position.X <= 16 && waypoints[index].X - position.X >= -16) && !Reached())
                         {
-                            CheckDirection();
-                            if (left)
-                            {
-                                if (!(waypoints[index].X - position.X <= 16 && waypoints[index].X - position.X >= -16))
-                                {
-                                    game.activeNpcs[i].MoveLeft(ref game.activeNpcs[i].position);
-                                }
-                            }
-                            else if (right)
-                            {
-                                if (!(waypoints[index].X - position.X <= 16 && waypoints[index].X - position.X >= -16))
-                                {
-                                    game.activeNpcs[i].MoveRight(ref game.activeNpcs[i].position);
-                                }
-                            }
+                            Game1.character.MoveLeft(gameTime);
+                        }
+                    }
+                    if (right)
+                    {
+                        if (!(waypoints[index].X - position.X <= 16 && waypoints[index].X - position.X >= -16) && !Reached())
+                        {
+                            Game1.character.MoveRight(gameTime);
+                        }
+                    }
 
-                            if (up)
-                            {
-                                if (!(waypoints[index].Y - position.Y <= 16 && waypoints[index].Y - position.Y >= -16))
-                                {
-                                    game.activeNpcs[i].MoveUp(ref game.activeNpcs[i].position);
-                                }
-                            }
-                            else if (down)
-                            {
-                                if (!(waypoints[index].Y - position.Y <= 16 && waypoints[index].Y - position.Y >= -16))
-                                {
-                                    game.activeNpcs[i].MoveDown(ref game.activeNpcs[i].position);
-                                }
-                            }
+                    if (up)
+                    {
+                        if (!(waypoints[index].Y - position.Y <= 16 && waypoints[index].Y - position.Y >= -16) && !Reached())
+                        {
+                            Game1.character.MoveUp(gameTime);
+                        }
+                    }
+                    if (down)
+                    {
+                        if (!(waypoints[index].Y - position.Y <= 16 && waypoints[index].Y - position.Y >= -16) && !Reached())
+                        {
+                            Game1.character.MoveDown(gameTime);
                         }
                     }
                 }
@@ -130,7 +119,7 @@ namespace GameBuild.Npc
             if (waypoints[index].Y != position.Y)
             {
                 if ((waypoints[index].Y - position.Y >= 8
-                || waypoints[index].Y - position.Y <= -8)
+                || waypoints[index].Y - position.Y <= -8) 
                 && waypoints[index].Y < position.Y)
                 {
                     up = true;
@@ -138,7 +127,7 @@ namespace GameBuild.Npc
                 }
 
                 if ((waypoints[index].Y - position.Y >= 8
-                    || waypoints[index].Y - position.Y <= -8)
+                    || waypoints[index].Y - position.Y <= -8) 
                     && waypoints[index].Y > position.Y)
                 {
                     up = false;
@@ -148,7 +137,7 @@ namespace GameBuild.Npc
             if (waypoints[index].X != position.X)
             {
                 if ((waypoints[index].X - position.X >= 8
-                || waypoints[index].X - position.X <= -8)
+                || waypoints[index].X - position.X <= -8) 
                 && waypoints[index].X < position.X)
                 {
                     left = true;
@@ -156,7 +145,7 @@ namespace GameBuild.Npc
                 }
 
                 if ((waypoints[index].X - position.X >= 8
-                    || waypoints[index].X - position.X <= -8)
+                    || waypoints[index].X - position.X <= -8) 
                     && waypoints[index].X > position.X)
                 {
                     left = false;
@@ -188,20 +177,7 @@ namespace GameBuild.Npc
             if (!done)
             {
                 CheckDirection();
-            }
-            else
-            {
-                for (int i = 0; i < game.activeNpcs.Count; i++)
-                {
-                    if (game.activeNpcs[i].name == "Headmaster")
-                    {
-                        game.activeNpcs[i].animation.PlayAnimation(6);
-                    }
-                    if (game.activeNpcs[i].name == "Celine")
-                    {
-                        game.activeNpcs[i].animation.PlayAnimation(6);
-                    }
-                }
+                Game1.character.disabled = true;
             }
         }
     }
